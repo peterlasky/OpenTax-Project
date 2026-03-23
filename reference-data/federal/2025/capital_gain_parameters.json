@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "name": "Capital Gain and Dividend Tax Parameters",
+    "tax_year": 2025,
+    "status": "partially_imported",
+    "description": "Thresholds and constants used by capital-gain and dividend tax worksheets."
+  },
+  "source_documents": [
+    "forms-instructions-and-publications/instructions/i1040gi.pdf",
+    "forms-instructions-and-publications/instructions/i1040sd.pdf"
+  ],
+  "datasets": {
+    "schedule_d_tax_worksheet_thresholds": {
+      "status": "partially_imported",
+      "description": "Threshold lines used by the Schedule D Tax Worksheet.",
+      "by_filing_status": {
+        "single": {
+          "line_15_zero_percent_threshold": 48350,
+          "line_19_fifteen_percent_threshold": 197300,
+          "line_26_twenty_percent_threshold": 533400,
+          "capital_loss_limit": 3000
+        },
+        "married_filing_jointly": {
+          "line_15_zero_percent_threshold": 96700,
+          "line_19_fifteen_percent_threshold": 394600,
+          "line_26_twenty_percent_threshold": 600050,
+          "capital_loss_limit": 3000
+        },
+        "married_filing_separately": {
+          "line_15_zero_percent_threshold": 48350,
+          "line_19_fifteen_percent_threshold": 197300,
+          "line_26_twenty_percent_threshold": 300000,
+          "capital_loss_limit": 1500
+        },
+        "head_of_household": {
+          "line_15_zero_percent_threshold": 64750,
+          "line_19_fifteen_percent_threshold": 197300,
+          "line_26_twenty_percent_threshold": 566700,
+          "capital_loss_limit": 3000
+        },
+        "qualifying_surviving_spouse": {
+          "line_15_zero_percent_threshold": 96700,
+          "line_19_fifteen_percent_threshold": 394600,
+          "line_26_twenty_percent_threshold": 600050,
+          "capital_loss_limit": 3000
+        }
+      }
+    },
+    "qualified_dividends_and_capital_gain_tax_worksheet_thresholds": {
+      "status": "needs_import",
+      "description": "Thresholds needed by the Form 1040 Qualified Dividends and Capital Gain Tax Worksheet.",
+      "by_filing_status": {}
+    }
+  },
+  "used_by": [
+    "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax",
+    "f1040sd_Schedule_D_Tax",
+    "f1040sd.21"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "jurisdiction": "Federal",
+    "tax_year": 2025,
+    "purpose": "Inventory of lookup tables, rate schedules, and worksheet parameter tables used by the Federal 2025 model.",
+    "status": "inventory_defined"
+  },
+  "datasets": [
+    {
+      "id": "ordinary_income_tax",
+      "file": "ordinary_income_tax.json",
+      "kind": [
+        "lookup_table",
+        "rate_schedule"
+      ],
+      "priority": 1,
+      "status": "imported",
+      "used_by": [
+        "f1040_Tax_Computation.2",
+        "f1040.16",
+        "f1040sd_Schedule_D_Tax.44",
+        "f1040sd_Schedule_D_Tax.46"
+      ],
+      "source_documents": [
+        "forms-instructions-and-publications/instructions/i1040gi.pdf"
+      ],
+      "notes": "Needs the 2025 Form 1040 Tax Table and the ordinary-income tax computation data used when taxable income is above the table range."
+    },
+    {
+      "id": "earned_income_credit",
+      "file": "earned_income_credit.json",
+      "kind": [
+        "lookup_table"
+      ],
+      "priority": 2,
+      "status": "imported",
+      "used_by": [
+        "f1040_Line_27a_EIC_Worksheet_A.2",
+        "f1040_Line_27a_EIC_Worksheet_B.2",
+        "f1040.27a"
+      ],
+      "source_documents": [
+        "forms-instructions-and-publications/instructions/i1040gi.pdf",
+        "forms-instructions-and-publications/publications/p596.pdf"
+      ],
+      "notes": "Use the IRS EIC lookup table rather than trying to replace it with ad hoc formula logic."
+    },
+    {
+      "id": "simplified_method_tables",
+      "file": "simplified_method_tables.json",
+      "kind": [
+        "worksheet_parameter_table"
+      ],
+      "priority": 3,
+      "status": "imported",
+      "used_by": [
+        "f1040_Lines_5a_and_5b.3",
+        "f1040.5b"
+      ],
+      "source_documents": [
+        "forms-instructions-and-publications/instructions/i1040gi.pdf",
+        "forms-instructions-and-publications/publications/p575.pdf"
+      ],
+      "notes": "This holds Table 1 and Table 2 for the Simplified Method Worksheet."
+    },
+    {
+      "id": "capital_gain_parameters",
+      "file": "capital_gain_parameters.json",
+      "kind": [
+        "rate_schedule",
+        "parameter_table"
+      ],
+      "priority": 4,
+      "status": "partially_imported",
+      "used_by": [
+        "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax",
+        "f1040sd_Schedule_D_Tax",
+        "f1040sd.21"
+      ],
+      "source_documents": [
+        "forms-instructions-and-publications/instructions/i1040gi.pdf",
+        "forms-instructions-and-publications/instructions/i1040sd.pdf"
+      ],
+      "notes": "This dataset stores filing-status thresholds and constants that drive capital-gain and dividend tax worksheets. Some thresholds are already known from Schedule D instructions and can be captured now."
+    }
+  ]
+}

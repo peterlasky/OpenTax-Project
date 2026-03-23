@@ -1,0 +1,256 @@
+OpenTaxProject
+Problematic Forms And Lines Audit
+Generated: 2026-03-15
+
+Scope
+- This is a best-effort audit of the current federal 2025 model.
+- "Problematic" means one or more of the following:
+  1. Compatibility-only wiring because the internal line map still differs from the printed form.
+  2. Manual/scaffold logic instead of full line-by-line form logic.
+  3. Partial form logic that handles common cases but not all IRS branches.
+  4. Missing form dependencies that make downstream lines unreliable for a full return.
+
+Model-wide concerns
+- The project still uses some internal compatibility line mappings on Form 1040 and related schedules rather than a perfect printed-form line map.
+- Several newly added common forms exist only as output scaffolds. They can carry values, but they are not yet complete line-by-line reconstructions.
+- Some core calculations still depend on manual helper values rather than fully derived facts.
+
+Section A. Current forms with problematic lines
+
+f1040
+- line 13a: QBI deduction still falls back to compatibility helper `qbi_deduction_total` if `f8995`/`f8995a` is not fully built.
+- line 18: Child tax credit / other dependent credit still falls back to compatibility helpers if `f8812` is not fully sufficient.
+- line 19b: Reserved compatibility bucket; not a true printed-form source line.
+- line 23: Uses Schedule 3 line 15 through current master-model line numbering, not printed-form numbering.
+- helper `qbi_deduction_total`: Explicit temporary helper until QBI forms are fully modeled.
+- helper `eic_qualifying_children_count`: Explicit temporary helper until full EIC qualifying-child logic is modeled.
+
+f1040sd
+- line 4: Still missing at least Form 8824 and other later-wave sources.
+- line 11: Still missing at least Form 8824 and other later-wave sources.
+
+f1040sd_Unrecaptured_Section_1250_Gain
+- line 7: Manual until Form 4797 is modeled more fully.
+- line 16: Manual until Schedule K-1 / carryover detail is modeled.
+
+f1040sd_Schedule_D_Tax
+- line 3: Now wired to `f4952.4g`, but the underlying Form 4952 line 4g election is still manual in the current scaffold. This dependency is not obvious from Schedule D numbering alone and must be read from the Form 4952 instructions and Pub. 550.
+- line 4: Now wired to `f4952.4e`, but the underlying Form 4952 line 4e amount is still manual in the current scaffold. The investment-income / net-capital-gain interaction behind this line is publication-driven, not recoverable from Schedule D numbering alone.
+- line 44: Manual tax-computation branch; not yet generalized to the same lookup engine used elsewhere.
+- line 46: Manual tax-computation branch; not yet generalized to the same lookup engine used elsewhere.
+
+f1040sa
+- line 2: Uses current internal AGI compatibility cell rather than a clean printed-form dependency.
+- line 5a checkbox: Manual fact flag only.
+- line 5e: SALT cap modeled only at the general 2025 cap level; high-income phaseout refinement is not finished.
+- line 8d: Reserved/future-use placeholder.
+- line 9: Now wired to `f4952.8`, but the underlying Form 4952 scaffold still relies heavily on manual publication-driven inputs.
+- helper `itemized`: Compatibility alias rather than a printed-form line.
+
+f1040s1
+- line 22: Reserved/future-use placeholder.
+- line 26: Uses current master-model line mapping rather than printed-form numbering.
+
+f1040s1a
+- line 1: Uses current internal AGI compatibility location.
+
+f1040s2
+- line 10: Reserved/future-use placeholder.
+- line 17: Compatibility alias retained for old local wiring.
+- line 21: Uses current master-model wiring rather than printed-form numbering.
+
+f1040s3
+- line 6e: Reserved/future-use placeholder.
+- line 8: Uses current master-model line 19a mapping.
+- line 15: Uses current master-model line 23 mapping instead of printed-form flow.
+
+f1040sb
+- line 2: Manual adjustment bucket.
+- line 5: Manual adjustment bucket.
+
+f1040sei
+- helper `qualifying_children_count`: Compatibility helper; Schedule EIC child qualification is not fully derived from child facts yet.
+
+f1040sse
+- form-level issue: currently only a structured scaffold output, not a full Schedule SE build.
+- line 12: Only as reliable as the scaffold input.
+- line 13: Derived from scaffolded line 12, not a full Schedule SE computation.
+
+f8812
+- status note: `f8812` has been incorporated from the downloaded 2025 form and instructions; it is no longer just a bare output scaffold.
+- line 1: Uses current internal AGI compatibility location on Form 1040.
+- line 13: Credit Limit Worksheet A / B logic is now modeled through inline helper cells on `f8812`; Worksheet B line `3` now pulls from the dedicated earned-income worksheet form instead of a dead manual line `18a` placeholder.
+- line 18a: Earned income now routes through `f8812_Earned_Income_Worksheet`, using Form `1040` line `1z`, statutory-employee W-2 wages, current Schedule `1` business/farm paths, Schedule `1` line `8s`, Schedule `1` line `15`, and Form `1040` line `1i` combat pay. Remaining manual pieces are unsupported K-1 / dealer `1256` adjustments and the optional-farm-method amount from Schedule `SE` line `15`.
+- line 21: Now routes through a dedicated Additional Medicare Tax and RRTA Tax Worksheet, including Puerto Rico Form `499R-2/W-2PR`, RRTA `W-2 box 14`, `CT-2`, and Form `8959` inputs. The remaining manual piece is allocation of Form `8959` line `17` between worksheet line `10` and line `14`.
+- line 27: ACTC is now blocked when the current Form `2555` output path is present, and the bona fide Puerto Rico branch now uses the line 26 path. Remaining gaps are the residual manual earned-income adjustments above and other instruction-level edge cases.
+
+f8606
+- form-level issue: only a placeholder output exists; IRA basis, conversions, and taxable-distribution logic are not built.
+
+f4684
+- line 15: Intentionally manual because the printed form branches between Schedule D and Schedule A depending on facts.
+- line 17: Uses current internal AGI compatibility location.
+- helper `schedule_a_15`: Compatibility helper.
+- helper `schedule_a_16`: Compatibility helper.
+
+f4797
+- line 18a: Manual because the amount depends on how line 11 was assembled.
+- helper `schedule_d_11`: Compatibility helper.
+- helper `schedule1_4`: Compatibility helper.
+
+f4952
+- form-level issue: a first-pass scaffold now exists, but the hard classification, carryforward, sourcing, and election logic is still largely manual.
+- carryforward issue: the model now has a generic `carryforward_records` block and `f4952.2` now reads from it before falling back to the old compatibility fact field, but there is still no automatic prior-year import/export workflow.
+- filing-threshold issue: the model now has a `filing_exception_met` helper, but it is still only a partial implementation of the “you may not need to file Form 4952” exception because the underlying classification and carryforward logic are still incomplete.
+- line 1 / allocation issue: line 1 now pulls from an `investment_interest_expense` source block, but the block assumes the user has already done the required allocation of mixed-purpose debt between investment, personal, business, home-mortgage, and passive buckets.
+- line 1 / exclusions issue: the model does not yet exclude passive-activity interest, capitalized interest, tax-exempt-income interest, or other disallowed categories from investment interest expense.
+- line 2 / carryforward issue: line 2 now pulls from a prior-year carryforward fact on the Federal Information Worksheet, but there is still no true cross-year rollover path yet.
+- line 4a issue: line 4a now combines obvious 1099 interest / ordinary-dividend income with a manual adjustment bucket, but it is still not a complete synthesis of investment income. It can also include K-1 investment income, estate/trust investment income, some publicly traded partnership passive income, and certain recharacterized passive income.
+- line 4a / classification issue: the model does not yet have a robust way to decide whether an income-producing asset or disposition belongs in “property held for investment” rather than business, passive, or personal categories.
+- line 4d / 4e issue: lines 4d and 4e now pull from an `investment_property_dispositions` block plus helper adjustments, but the model still does not classify Schedule D activity into the Form 4952 investment-property subset on its own.
+- line 4g election issue: line 4g now has explicit election-detail fields for the portions attributed to line 4e and line 4b, but the filing-timing, revocation, and optimization rules are not modeled. This election changes Schedule D Tax Worksheet line 3 and can also change how tax is optimized when Form 1116 is involved.
+- line 4g attribution issue: the scaffold now captures separate elected amounts from line 4e and line 4b, but it still does not fully enforce the instruction-level attribution constraints and alternate-election nuances.
+- line 5 issue: line 5 now pulls from an `investment_expenses` source block, but the model still does not determine on its own which expenses are allowed here, and the exclusion of suspended miscellaneous itemized deductions remains a source-modeling concern.
+- line 7 / 8 issue: lines 7 and 8 are now computed, but they are only as reliable as the still-partial sourcing and classification on lines 1 through 6.
+- publication-dependency issue: Pub. 550 supplies essential definitions and edge cases for investment interest, investment income, child income reported on Form 8814, bond-premium interactions, and passive-activity exclusions. These rules are not fully recoverable from the printed Form 4952 layout by itself.
+
+f4952 build checklist
+1. Add `f4952` with full line structure (`1`, `2`, `3`, `4a`-`4h`, `5`, `6`, `7`, `8`) and wire line `8` to `f1040sa.9`.
+2. Add a prior-year carryforward storage path so Form `4952` line `7` can roll into next year's line `2`.
+3. Add source buckets for debt/interest facts, separating investment interest from personal, passive, home-mortgage, business, capitalized, and tax-exempt-income-related interest.
+4. Add source buckets or helper forms for non-interest investment expenses allowed on line `5`.
+5. Add investment-income classification helpers so interest, ordinary dividends, K-1 investment income, estate/trust investment income, Form `8814` carry-ins, and allowed passive recharacterizations can feed line `4a`.
+6. Add investment-property disposition helpers so only gains and losses from property held for investment feed lines `4d` and `4e`, including capital gain distributions and capital loss carryovers where the instructions require them.
+7. Add a user-controlled election field for line `4g`, plus the default attribution rule that treats the election as coming first from line `4e` and then from line `4b`.
+8. Add the alternate attribution election for line `4g` when the taxpayer wants less of line `4e` treated as elected and more of line `4b` treated as elected, as allowed by the instructions.
+9. Implement the “exception to use of Form 4952” gate so the form can stay inactive when the IRS filing exception is met.
+10. Rewire `f1040sd_Schedule_D_Tax` lines `3` and `4` to `f4952.4g` and `f4952.4e` logic instead of manual placeholders.
+11. Validate the final model against both `Form 4952` and `Pub. 550`, because the publication defines key concepts the line layout does not.
+
+f1116
+- form-level issue: a first-pass scaffold now exists and now feeds Schedule 3 line 1, and it now has structured foreign-tax source support, but the form is still only a broad approximation of the real foreign tax credit workflow.
+- source issue: the model now captures common foreign-tax inputs from `1099-INT box 6`, `1099-DIV box 7`, and a `foreign_tax_credit_items` overflow block, and line `1a` can now pull structured gross-income amounts from that block. It still does not automate the full country-by-country / column-by-column Form 1116 layout.
+- carryforward issue: Form 1116 line 10 now prefers `f1116sb.3xiv` and falls back to the generic `carryforward_records` block plus a manual carryback bucket. `Schedule B (Form 1116)` now exists as a structured attachment, but its year-by-year reconciliation rows are still largely user-entered.
+- no-Form-1116 election issue: the model now has a direct-election path and a partial eligibility helper, but it still does not enforce all the instruction-level eligibility rules or carryover consequences for choosing the election.
+- category issue: the current scaffold assumes one category selection at a time and does not manage multiple Forms 1116 or category-specific aggregation the way the real filing regime does.
+- line 4a / 4b issue: default path uses Schedule A home mortgage (line 8e) and investment interest (line 9) times Form 1116 line 3f; manual buckets cover non-itemizers, treaties, and other allocation rules.
+- line 18 / 20 issue: Form 1040 filers use `f1040.15` and `f1040.16 + f1040.17`; Form 1040-NR uses manual worksheet fields when flagged. Qualified dividend / capital gain limitation adjustments from the instructions may still require overrides.
+- line 12 / 13 / 16 / 22 / 34 issue: these still rely on manual inputs because foreign tax reductions, high-tax kickout, limitation adjustments, and boycott reductions are not yet automated.
+- line 18 / 20 issue: these use current master-model tax references, but the lower-rates and other special-case instructions are not fully modeled.
+- Schedule C issue: `f1116sc` now exists as a structured attachment for foreign tax redeterminations, but its detailed effects on current-year limitation and amended-return consequences are not yet propagated automatically.
+- publication issue: Form 1116 relies heavily on Pub. 514 and detailed instructions for creditable-tax rules, category rules, carryovers, and limitation adjustments.
+
+f2210
+- form-level issue: `f2210` computes Form 1040 line 38 through a 2025 penalty helper when safe harbor does not apply, Part II waiver boxes A/B are not checked, and `defer_automated_form_2210_line_19` is false; otherwise the helper returns zero for manual entry. Full instruction-level penalty workflow (including Form 1040-NR column layouts) is still partial.
+- line 2 issue: the model now aggregates the currently modeled Schedule 2 lines listed in the instructions, but special inclusions/exclusions and edge-case adjustments remain unmodeled.
+- safe-harbor issue: the model now has explicit prior-year Form 2210 fact fields and computes line 8 / the 100%-vs-110% rule, but it still does not cover every special taxpayer class or all instruction-level exceptions.
+- line 19 issue: the penalty is now computed from Part III underpayments, estimated-tax payments (including amounts dated on or before the first installment due date at period start), and withholding amounts from columns `11a`–`11d` applied on the corresponding due dates, using the current 2025 worksheet rate structure; it still does not model every special instruction case, amended-return nuance, payment ordering nuances vs line `1b`, or all withholding-date evidence patterns.
+- Part II issue: the waiver and filing-reason boxes are captured, but waiver computation and supporting logic are not modeled.
+- payment-timing issue: the model now has an `estimated_tax_payments_detail` source block plus computed Part III Section A installment columns `10a` through `18d`, but those columns still rely on manual `Schedule AI` entries and optional manual actual-withholding allocations when boxes C or D apply.
+- Schedule AI issue: `f2210_Schedule_AI` now exists and computes much of the worksheet structure, including annualization factors, tax/credit flow, self-employment-tax subpart, and line `27` outputs that feed `f2210`. It still relies on manual period-by-period income, deduction, wage, and credit inputs, and its line `14` tax computation is only a partial lookup-based implementation.
+- instructions issue: Form 2210 depends heavily on the instructions and Pub. 505 for exceptions, safe harbors, annualization rules, and waiver handling.
+
+f6781
+- helper `schedule_d_4`: Compatibility helper.
+- helper `schedule_d_11`: Compatibility helper.
+
+Section B. Forms present in the JSON but still only scaffolded or too thin for reliable end-to-end use
+
+These forms exist, but the current implementation is not yet a full reconstruction of the IRS form:
+
+- `f1040sse`
+- `f2441`
+- `f2555`
+- `f8606`
+- `f8863`
+- `f8889`
+- `f8959`
+- `f8962`
+- `f1116`
+- `f2210`
+- `f6251`
+- `f8812`
+- `f8995`
+- `f8995a`
+- `f4952`
+- `f6252`
+- `f4684`
+- `f4797`
+- `f6781`
+
+Notes on the scaffolded group
+- `f2441` currently has only the output line needed by Schedule 3.
+- `f2555` currently only exposes foreign earned income exclusion and housing deduction outputs.
+- `f8812` now has line structure from the 2025 form and instructions, but it still depends on manual worksheet inputs for some branches and is not yet a fully closed-form implementation.
+- `f8863` currently exposes only nonrefundable and refundable education-credit outputs.
+- `f8889` currently exposes only the lines needed by Schedule 1 and Schedule 2.
+- `f8959`, `f8962`, `f6251`, `f8995`, and `f8995a` are still incomplete; `f8959` now exposes the lines needed by Schedule 2 and the Schedule 8812 line 21 worksheet, but it is not yet modeled as a full form.
+- `f4952` now has a first-pass line scaffold, downstream wiring, source blocks for line 1 and line 5, a prior-year carryforward fact, and explicit line 4g election-detail fields. It still needs debt-allocation automation, true cross-year carryforward support, investment-property classification, and fuller publication-driven election logic from Pub. 550.
+- `f1116` now has a first-pass line scaffold and Schedule 3 wiring, but it still lacks Schedule B / Schedule C integration, foreign-tax-source blocks, category-by-category automation, and the deeper Pub. 514 / Form 1116 limitation rules.
+- `f2210` now has a first-pass line scaffold and Form 1040 penalty wiring, but the penalty computation worksheet, waiver logic, and Schedule AI annualized-income method are still largely manual.
+- `f8606` is especially incomplete because Form 1040 IRA-distribution normalization is not yet finished.
+
+Section C. Important forms still missing from the model
+
+Common follow-on forms still missing
+- `f1040sr` (Form 1040-SR)
+- `f1040sh` (Schedule H)
+- `f1040sj` (Schedule J)
+- `f1040sr_schedule_r` (Schedule R)
+- `f1040es` (Form 1040-ES)
+- `f1040v` (Form 1040-V)
+- `f1040x` (Form 1040-X)
+- `f1098e` (Form 1098-E)
+
+Business / investment / specialty forms still missing
+- `f1040sc` (Schedule C)
+- `f1040se` (Schedule E)
+- `f1040sf` (Schedule F)
+- `f4562`
+- `f6198`
+- `f7203`
+- `f8582`
+- `f8582cr`
+- `f2106`
+- `f3800`
+- `f4137`
+- `f4835`
+- `f5329`
+- `f5405`
+- `f5695`
+- `f8283`
+- `f8396`
+- `f8615`
+- `f8814`
+- `f8862`
+- `f8880`
+- `f8888`
+- `f8960`
+- `f9465`
+- `f8824`
+
+Why the missing forms matter
+- Missing `f1040sh` leaves household-employment tax reporting unresolved even though `f1040s2` already references Schedule H on line `9`.
+- Missing `f1040sr`, `f1040sj`, and `f1040sr_schedule_r` leaves senior, farm-income averaging, and elderly/disabled credit filing paths incomplete.
+- Missing `f1040es`, `f1040v`, and `f1040x` leaves payment-voucher, estimated-tax, and amended-return workflows outside the current model.
+- Incomplete `f1116` limits confidence in foreign tax credit handling.
+- Incomplete `f2210` limits underpayment penalty handling.
+- Incomplete `f4952` still limits confidence in Schedule A investment-interest deductions and the linked Schedule D Tax Worksheet lines, because the remaining logic extends beyond the form face into Pub. 550 election, classification, carryforward, and exclusion rules.
+- Incomplete `f1116` still limits confidence in foreign tax credit limitation, carryovers, and category-specific handling.
+- Incomplete `f2210` still limits confidence in estimated-tax-penalty computation, especially when waiver or annualized-income methods apply.
+- Missing `f8960` leaves net investment income tax unresolved.
+- Missing `f5329` leaves many retirement-account additional-tax branches unresolved.
+- Missing `f1040sc`, `f1040se`, and `f1040sf` block reliable business / rental / farm return support.
+- Missing `f8824` leaves known gaps in Schedule D line 4 and line 11 sourcing.
+
+Section D. Source-data and rule gaps that still affect downstream reliability
+
+- No `1095-A` source block is currently modeled, even though Form 8962 normally depends on it.
+- Schedule EIC child qualification is not yet fully derived from dependent facts.
+- Earned income synthesis for Schedule 8812 is not yet complete.
+- Some withholding sources are preserved but not fully routed in all edge cases.
+- Some worksheets still rely on current master-model compatibility numbering rather than clean printed-form line identities.
+
+Bottom line
+- The current app can support many partial calculations and data-entry flows.
+- It is not yet reliable for a full real-world return without manual review because of the line issues, scaffolded forms, and missing forms listed above.

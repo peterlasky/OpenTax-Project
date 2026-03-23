@@ -1,0 +1,409 @@
+{
+  "_meta": {
+    "description": "Maps IRS publications to associated forms and worksheets using the project's shorthand ID style.",
+    "sources": [
+      "publication-summaries/*.md",
+      "plan.md",
+      "federal_1040_2025.json"
+    ],
+    "naming_rule": "Use existing project IDs where they already exist. For publication-embedded worksheets that do not yet exist in the main JSON, use a consistent planned worksheet ID such as f523_Worksheet_1_Maximum_Exclusion.",
+    "scope_note": "Administrative documents and information-return statements such as W-4, W-10, SSA-1099, and 1095-A are generally not included here unless they correspond to a modeled form or worksheet in the tax package."
+  },
+  "publications": {
+    "p17": {
+      "publication_name": "Publication 17 - Your Federal Income Tax For Individuals",
+      "summary_file": "publication-summaries/p17.md",
+      "associated_forms": [
+        "f1040",
+        "f1040sr",
+        "f1040sa",
+        "f8812",
+        "f4547"
+      ],
+      "associated_worksheets": [
+        "f1040_Federal_Info_Worksheet",
+        "f1040_Line_12e_Standard_Deduction_Dependents",
+        "f1040_Lines_6a_and_6b",
+        "f1040_Tax_Computation",
+        "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax",
+        "f1040_Schedule_1_Line_20_IRA_Deduction",
+        "f1040_Line_27a_EIC_Worksheet_A",
+        "f1040_Line_27a_EIC_Worksheet_B",
+        "f1040_Line_27a_EIC_Worksheet_B_Continued"
+      ]
+    },
+    "p502": {
+      "publication_name": "Publication 502 - Medical and Dental Expenses",
+      "summary_file": "publication-summaries/p502.md",
+      "associated_forms": [
+        "f1040sa",
+        "f8962"
+      ],
+      "associated_worksheets": []
+    },
+    "p503": {
+      "publication_name": "Publication 503 - Child and Dependent Care Expenses",
+      "summary_file": "publication-summaries/p503.md",
+      "associated_forms": [
+        "f2441",
+        "f1040sh"
+      ],
+      "associated_worksheets": []
+    },
+    "p504": {
+      "publication_name": "Publication 504 - Divorced or Separated Individuals",
+      "summary_file": "publication-summaries/p504.md",
+      "associated_forms": [
+        "f8332",
+        "f8379",
+        "f8857"
+      ],
+      "associated_worksheets": []
+    },
+    "p505": {
+      "publication_name": "Publication 505 - Tax Withholding and Estimated Tax",
+      "summary_file": "publication-summaries/p505.md",
+      "associated_forms": [
+        "f1040es",
+        "f1040ss",
+        "f2210",
+        "f8962"
+      ],
+      "associated_worksheets": []
+    },
+    "p523": {
+      "publication_name": "Publication 523 - Selling Your Home",
+      "summary_file": "publication-summaries/p523.md",
+      "associated_forms": [
+        "f4797",
+        "f6252",
+        "f8949",
+        "f982",
+        "f1040sd"
+      ],
+      "associated_worksheets": [
+        "f523_Worksheet_1_Maximum_Exclusion",
+        "f523_Worksheet_2_Gain_Or_Loss",
+        "f523_Worksheet_3_Taxable_Gain_Reporting"
+      ]
+    },
+    "p525": {
+      "publication_name": "Publication 525 - Taxable and Nontaxable Income",
+      "summary_file": "publication-summaries/p525.md",
+      "associated_forms": [
+        "f1040",
+        "f1040s1",
+        "f1040s1a"
+      ],
+      "associated_worksheets": []
+    },
+    "p526": {
+      "publication_name": "Publication 526 - Charitable Contributions",
+      "summary_file": "publication-summaries/p526.md",
+      "associated_forms": [
+        "f1040sa",
+        "f8283"
+      ],
+      "associated_worksheets": []
+    },
+    "p527": {
+      "publication_name": "Publication 527 - Residential Rental Property (Including Rental of Vacation Homes)",
+      "summary_file": "publication-summaries/p527.md",
+      "associated_forms": [
+        "f4562",
+        "f461",
+        "f8582",
+        "f8960",
+        "f1040se"
+      ],
+      "associated_worksheets": []
+    },
+    "p530": {
+      "publication_name": "Publication 530 - Tax Information for Homeowners",
+      "summary_file": "publication-summaries/p530.md",
+      "associated_forms": [
+        "f5695",
+        "f982",
+        "f1040sa"
+      ],
+      "associated_worksheets": []
+    },
+    "p531": {
+      "publication_name": "Publication 531 - Reporting Tip Income",
+      "summary_file": "publication-summaries/p531.md",
+      "associated_forms": [
+        "f1040",
+        "f4137"
+      ],
+      "associated_worksheets": []
+    },
+    "p535": {
+      "publication_name": "Publication 535 - Business Expenses",
+      "summary_file": "publication-summaries/p535.md",
+      "notes": [
+        "The repo copy is not a real PDF and the substantive summary relies on the discontinued 2022 publication plus the IRS replacement-resource map."
+      ],
+      "associated_forms": [
+        "f4562",
+        "f4952",
+        "f6198",
+        "f7206",
+        "f8582",
+        "f8990",
+        "f8995",
+        "f8995a",
+        "f1040sc",
+        "f1040se",
+        "f1040sf"
+      ],
+      "associated_worksheets": []
+    },
+    "p541": {
+      "publication_name": "Publication 541 - Partnerships",
+      "summary_file": "publication-summaries/p541.md",
+      "associated_forms": [
+        "f1065",
+        "f1116",
+        "f6198",
+        "f7203",
+        "f8582"
+      ],
+      "associated_worksheets": []
+    },
+    "p544": {
+      "publication_name": "Publication 544 - Sales and Other Dispositions of Assets",
+      "summary_file": "publication-summaries/p544.md",
+      "associated_forms": [
+        "f4797",
+        "f8824",
+        "f8949",
+        "f1040sd"
+      ],
+      "associated_worksheets": []
+    },
+    "p547": {
+      "publication_name": "Publication 547 - Casualties, Disasters, and Thefts",
+      "summary_file": "publication-summaries/p547.md",
+      "associated_forms": [
+        "f4684",
+        "f4797",
+        "f1040sa",
+        "f1040sd"
+      ],
+      "associated_worksheets": []
+    },
+    "p550": {
+      "publication_name": "Publication 550 - Investment Income and Expenses (Including Capital Gains and Losses)",
+      "summary_file": "publication-summaries/p550.md",
+      "associated_forms": [
+        "f4952",
+        "f8949",
+        "f1040sb",
+        "f1040sd"
+      ],
+      "associated_worksheets": [
+        "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax"
+      ]
+    },
+    "p551": {
+      "publication_name": "Publication 551 - Basis of Assets",
+      "summary_file": "publication-summaries/p551.md",
+      "associated_forms": [
+        "f4562",
+        "f4684",
+        "f4797",
+        "f8949",
+        "f1040sd"
+      ],
+      "associated_worksheets": []
+    },
+    "p554": {
+      "publication_name": "Publication 554 - Tax Guide for Seniors",
+      "summary_file": "publication-summaries/p554.md",
+      "associated_forms": [
+        "f1040sr",
+        "f8915f"
+      ],
+      "associated_worksheets": []
+    },
+    "p555": {
+      "publication_name": "Publication 555 - Community Property",
+      "summary_file": "publication-summaries/p555.md",
+      "associated_forms": [
+        "f8958"
+      ],
+      "associated_worksheets": []
+    },
+    "p559": {
+      "publication_name": "Publication 559 - Survivors, Executors, and Administrators",
+      "summary_file": "publication-summaries/p559.md",
+      "associated_forms": [
+        "f56",
+        "f706",
+        "f709",
+        "f1040",
+        "f1040sr",
+        "f1041",
+        "f1310"
+      ],
+      "associated_worksheets": []
+    },
+    "p561": {
+      "publication_name": "Publication 561 - Determining the Value of Donated Property",
+      "summary_file": "publication-summaries/p561.md",
+      "associated_forms": [
+        "f8282",
+        "f8283"
+      ],
+      "associated_worksheets": []
+    },
+    "p570": {
+      "publication_name": "Publication 570 - Tax Guide for Individuals With Income From U.S. Territories",
+      "summary_file": "publication-summaries/p570.md",
+      "associated_forms": [
+        "f1040",
+        "f1040ss",
+        "f1116",
+        "f4563",
+        "f4868",
+        "f5074",
+        "f8898",
+        "f8938"
+      ],
+      "associated_worksheets": []
+    },
+    "p575": {
+      "publication_name": "Publication 575 - Pension and Annuity Income",
+      "summary_file": "publication-summaries/p575.md",
+      "associated_forms": [
+        "f1040"
+      ],
+      "associated_worksheets": [
+        "f1040_Lines_5a_and_5b"
+      ]
+    },
+    "p587": {
+      "publication_name": "Publication 587 - Business Use of Your Home (Including Use by Daycare Providers)",
+      "summary_file": "publication-summaries/p587.md",
+      "associated_forms": [
+        "f4562",
+        "f8829",
+        "f1040sc"
+      ],
+      "associated_worksheets": []
+    },
+    "p590a": {
+      "publication_name": "Publication 590-A - Contributions to Individual Retirement Arrangements (IRAs)",
+      "summary_file": "publication-summaries/p590a.md",
+      "associated_forms": [
+        "f1040",
+        "f4547"
+      ],
+      "associated_worksheets": [
+        "f1040_Schedule_1_Line_20_IRA_Deduction",
+        "f1040_Schedule_1_Line_20_IRA_Deduction_Continued"
+      ]
+    },
+    "p590b": {
+      "publication_name": "Publication 590-B - Distributions from Individual Retirement Arrangements (IRAs)",
+      "summary_file": "publication-summaries/p590b.md",
+      "associated_forms": [
+        "f1040",
+        "f5329"
+      ],
+      "associated_worksheets": []
+    },
+    "p596": {
+      "publication_name": "Publication 596 - Earned Income Credit (EIC)",
+      "summary_file": "publication-summaries/p596.md",
+      "associated_forms": [
+        "f1040",
+        "f2555"
+      ],
+      "associated_worksheets": [
+        "f1040_Line_27a_EIC_Worksheet_A",
+        "f1040_Line_27a_EIC_Worksheet_B",
+        "f1040_Line_27a_EIC_Worksheet_B_Continued"
+      ]
+    },
+    "p915": {
+      "publication_name": "Publication 915 - Social Security and Equivalent Railroad Retirement Benefits",
+      "summary_file": "publication-summaries/p915.md",
+      "associated_forms": [
+        "f1040"
+      ],
+      "associated_worksheets": [
+        "f1040_Lines_6a_and_6b"
+      ]
+    },
+    "p925": {
+      "publication_name": "Publication 925 - Passive Activity and At-Risk Rules",
+      "summary_file": "publication-summaries/p925.md",
+      "associated_forms": [
+        "f461",
+        "f6198",
+        "f8582",
+        "f8582cr",
+        "f8960"
+      ],
+      "associated_worksheets": []
+    },
+    "p926": {
+      "publication_name": "Publication 926 - Household Employer's Tax Guide",
+      "summary_file": "publication-summaries/p926.md",
+      "notes": [
+        "The repo copy is the 2026 edition."
+      ],
+      "associated_forms": [
+        "f1040sh"
+      ],
+      "associated_worksheets": []
+    },
+    "p936": {
+      "publication_name": "Publication 936 - Home Mortgage Interest Deduction",
+      "summary_file": "publication-summaries/p936.md",
+      "associated_forms": [
+        "f1040sa"
+      ],
+      "associated_worksheets": []
+    },
+    "p946": {
+      "publication_name": "Publication 946 - How To Depreciate Property",
+      "summary_file": "publication-summaries/p946.md",
+      "associated_forms": [
+        "f3115",
+        "f4562"
+      ],
+      "associated_worksheets": []
+    },
+    "p969": {
+      "publication_name": "Publication 969 - Health Savings Accounts and Other Tax-Favored Health Plans",
+      "summary_file": "publication-summaries/p969.md",
+      "associated_forms": [
+        "f8889"
+      ],
+      "associated_worksheets": []
+    },
+    "p970": {
+      "publication_name": "Publication 970 - Tax Benefits for Education",
+      "summary_file": "publication-summaries/p970.md",
+      "associated_forms": [
+        "f4547",
+        "f8862",
+        "f8863"
+      ],
+      "associated_worksheets": [
+        "f1040_Schedule_1_Line_21_Student_Loan_Interest"
+      ]
+    },
+    "p974": {
+      "publication_name": "Publication 974 - Premium Tax Credit (PTC)",
+      "summary_file": "publication-summaries/p974.md",
+      "associated_forms": [
+        "f7206",
+        "f8962"
+      ],
+      "associated_worksheets": []
+    }
+  }
+}

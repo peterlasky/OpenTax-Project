@@ -1,0 +1,4 @@
+PyYAML
+PySide6
+pypdf
+reportlab

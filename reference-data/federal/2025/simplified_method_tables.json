@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "name": "Simplified Method Tables",
+    "tax_year": 2025,
+    "status": "imported",
+    "description": "Simplified Method expected-payment tables from Publication 575."
+  },
+  "source_documents": [
+    "forms-instructions-and-publications/instructions/i1040gi.pdf",
+    "forms-instructions-and-publications/publications/p575.pdf",
+    "https://www.irs.gov/publications/p575/index.html"
+  ],
+  "datasets": {
+    "table_1": {
+      "status": "imported",
+      "description": "Single-life expected monthly payments by age band. Publication 575 uses different counts before and after November 18, 1996.",
+      "lookup_dimensions": [
+        "annuity_start_period",
+        "age_at_start_range"
+      ],
+      "rows": [
+        {
+          "age_min": null,
+          "age_max": 55,
+          "pre_1996_expected_payments": 300,
+          "post_1996_expected_payments": 360
+        },
+        {
+          "age_min": 56,
+          "age_max": 60,
+          "pre_1996_expected_payments": 260,
+          "post_1996_expected_payments": 310
+        },
+        {
+          "age_min": 61,
+          "age_max": 65,
+          "pre_1996_expected_payments": 240,
+          "post_1996_expected_payments": 260
+        },
+        {
+          "age_min": 66,
+          "age_max": 70,
+          "pre_1996_expected_payments": 170,
+          "post_1996_expected_payments": 210
+        },
+        {
+          "age_min": 71,
+          "age_max": null,
+          "pre_1996_expected_payments": 120,
+          "post_1996_expected_payments": 160
+        }
+      ]
+    },
+    "table_2": {
+      "status": "imported",
+      "description": "Joint-life expected monthly payments by combined ages at the annuity starting date for post-1996 starting dates.",
+      "lookup_dimensions": [
+        "combined_ages_range"
+      ],
+      "rows": [
+        {
+          "combined_age_min": null,
+          "combined_age_max": 110,
+          "expected_payments": 410
+        },
+        {
+          "combined_age_min": 111,
+          "combined_age_max": 120,
+          "expected_payments": 360
+        },
+        {
+          "combined_age_min": 121,
+          "combined_age_max": 130,
+          "expected_payments": 310
+        },
+        {
+          "combined_age_min": 131,
+          "combined_age_max": 140,
+          "expected_payments": 260
+        },
+        {
+          "combined_age_min": 141,
+          "combined_age_max": null,
+          "expected_payments": 210
+        }
+      ]
+    }
+  },
+  "used_by": [
+    "f1040_Lines_5a_and_5b.3",
+    "f1040.5b"
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "_schema": "Tax form structure: jurisdiction-year -> form -> cells (and optional blocks for zero-to-many sections).",
+  "_comments": [
+    "Cell keys can be line numbers (\"1\", \"2\") or names (\"3a\", \"standard_deduction\").",
+    "manual_entry: true = user fills; false = computed from equation. All amounts in USD.",
+    "required_rule: requiredness rule for the cell. Use \"always\", \"optional\", or a formula string evaluated like an equation to determine when the cell is required.",
+    "description: matches what is written on the form or worksheet. explanation: more detail when needed (can be same as description).",
+    "blocks: repeating sections (0 to many entries). Each block has item_cells (schema for one entry), entries (array of objects), and optional min_entries/max_entries.",
+    "Block cell naming: block_id.index.field_name -- e.g. w2.0.box_1, dependents.1.ssn. In equations: sum(w2.*.box_1) = sum over all W-2 entries. Line 1 flows from w2 block.",
+    "W-2: employer-furnished; sample form https://www.irs.gov/pub/irs-prior/fw2--2025.pdf",
+    "User-entered sources: Data from employer/payer-furnished forms (W-2, 1099s, 1098s) is entered by the user from the forms they received; we need these forms in the system and they have no in-app instructions.",
+    "Multi-entry cells: Some form boxes allow multiple entries (e.g. W-2 Box 12: code + amount per line). Use type \"repeating\" with item_cells and entries. Reference: block_id.index.field_name.sub_index.sub_field -- e.g. w2.0.box_12.0.code, w2.0.box_12.1.amount."
+  ],
+  "_user_entered_sources": [
+    "w2",
+    "1099_nec",
+    "1099_div",
+    "1099_int",
+    "1099_r",
+    "1098",
+    "1098_e",
+    "1098_t"
+  ],
+  "Federal 2025": {
+    "f1040": {
+      "_meta": {
+        "name": "Form 1040",
+        "active": true,
+        "rank": 2.0
+      },
+      "cells": {
+        "1": {
+          "order": 1,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "required_rule": "optional",
+          "equation": "sum(w2.*.box_1)",
+          "description": "Wages, salaries, tips, etc.",
+          "explanation": "Total from Form(s) W-2 box 1. Data flows from w2 block; one entry per W-2."
+        },
+        "2": {
+          "order": 2,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "equation": "f1040s1.2",
+          "description": "Tax-exempt interest",
+          "explanation": "Tax-exempt interest from Schedule 1 line 2."
+        },
+        "9": {
+          "order": 3,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "equation": "f1040s1.10",
+          "description": "Total income",
+          "explanation": "Total income from Schedule 1 line 10."
+        },
+        "standard_deduction": {
+          "order": 4,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "equation": "max(f1040sa.itemized, standard_deduction_table)",
+          "description": "Standard deduction",
+          "explanation": "Standard deduction amount or itemized deductions from Schedule A, whichever is greater."
+        },
+        "number_of_dependents": {
+          "order": 5,
+          "format": "0",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "required_rule": "always",
+          "description": "Number of dependents",
+          "explanation": "Number of dependents you are claiming on your return."
+        },
+        "filing_date": {
+          "order": 6,
+          "format": "date",
+          "default": null,
+          "value": null,
+          "manual_entry": true,
+          "override_possible": false,
+          "required_rule": "optional",
+          "description": "Date",
+          "explanation": "Date return is filed (YYYY-MM-DD)."
+        },
+        "spouse_itemizes": {
+          "order": 7,
+          "format": "boolean",
+          "default": false,
+          "value": false,
+          "manual_entry": true,
+          "override_possible": false,
+          "required_rule": "optional",
+          "description": "Spouse itemizes",
+          "explanation": "If married filing separately, check if your spouse itemizes on a separate return."
+        }
+      },
+      "blocks": {
+        "w2": {
+          "active": true,
+          "multiple_copies": true,
+          "description": "Form(s) W-2",
+          "explanation": "Wage and tax statement(s) from employer(s). User enters data from each W-2 received. Line 1 = sum of box_1. Zero to many.",
+          "user_entered": true,
+          "min_entries": 0,
+          "max_entries": null,
+          "item_cells": {
+            "recipient": {
+              "format": "text",
+              "default": "taxpayer",
+              "value": "taxpayer",
+              "required_rule": "always",
+              "description": "Recipient",
+              "explanation": "Whose W-2: 'taxpayer' or 'spouse' (for joint returns)."
+            },
+            "employer_name": {
+              "format": "text",
+              "default": "",
+              "value": "",
+              "required_rule": "always",
+              "description": "Employer name",
+              "explanation": "W-2 Box C."
+            },
+            "box_1": {
+              "format": "0.00",
+              "default": 0,
+              "value": 0,
+              "required_rule": "always",
+              "description": "Wages, tips, other compensation",
+              "explanation": "W-2 Box 1 -> 1040 line 1."
+            },
+            "box_2": {
+              "format": "0.00",
+              "default": 0,
+              "value": 0,
+              "required_rule": "optional",
+              "description": "Federal income tax withheld",
+              "explanation": "W-2 Box 2 -> 1040 line 25."
+            }
+          },
+          "entries": []
+        },
+        "dependents": {
+          "active": true,
+          "multiple_copies": true,
+          "description": "Dependents",
+          "explanation": "List each person you claim as a dependent (name, SSN, relationship). Zero to many.",
+          "min_entries": 0,
+          "max_entries": null,
+          "item_cells": {
+            "first_name": {
+              "format": "text",
+              "default": "",
+              "value": "",
+              "required_rule": "always",
+              "description": "First name",
+              "explanation": "Dependent's first name."
+            },
+            "last_name": {
+              "format": "text",
+              "default": "",
+              "value": "",
+              "required_rule": "always",
+              "description": "Last name",
+              "explanation": "Dependent's last name."
+            },
+            "ssn": {
+              "format": "text",
+              "default": "",
+              "value": "",
+              "required_rule": "always",
+              "description": "SSN",
+              "explanation": "Dependent's Social Security number."
+            },
+            "relationship": {
+              "format": "text",
+              "default": "",
+              "value": "",
+              "required_rule": "always",
+              "description": "Relationship",
+              "explanation": "Your relationship to the dependent (e.g., Son, Daughter)."
+            }
+          },
+          "entries": []
+        }
+      }
+    },
+    "f1040s1": {
+      "_meta": {
+        "name": "Schedule 1",
+        "active": true,
+        "rank": 3.0
+      },
+      "cells": {
+        "2": {
+          "order": 1,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": true,
+          "required_rule": "optional",
+          "description": "Tax-exempt interest",
+          "explanation": "Interest that is not taxable (e.g., from state/municipal bonds)."
+        },
+        "10": {
+          "order": 2,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "required_rule": "optional",
+          "equation": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9",
+          "description": "Total additional income",
+          "explanation": "Sum of Schedule 1 lines 1 through 9."
+        }
+      }
+    },
+    "f1040sa": {
+      "_meta": {
+        "name": "Schedule A",
+        "active": true,
+        "rank": 4.0
+      },
+      "cells": {
+        "itemized": {
+          "order": 1,
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "required_rule": "optional",
+          "equation": "sum(deductions)",
+          "description": "Total itemized deductions",
+          "explanation": "Sum of deductions from Schedule A (medical, taxes, interest, etc.)."
+        }
+      }
+    }
+  },
+  "New York": "To be completed later"
+}

@@ -1,0 +1,763 @@
+{
+  "source_pdf": "forms-instructions-and-publications/forms/f1040.pdf",
+  "field_mappings": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_01[0]",
+      "source": "other_tax_year_begin",
+      "format": "date_mmdd"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_02[0]",
+      "source": "other_tax_year_end",
+      "format": "date_mmdd"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_03[0]",
+      "source": "other_tax_year_end",
+      "format": "date_yy"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_05[0]",
+      "source": "taxpayer_date_of_death",
+      "format": "date_mm"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_06[0]",
+      "source": "taxpayer_date_of_death",
+      "format": "date_dd"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_07[0]",
+      "source": "taxpayer_date_of_death",
+      "format": "date_yyyy"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_08[0]",
+      "source": "spouse_date_of_death",
+      "format": "date_mm"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_09[0]",
+      "source": "spouse_date_of_death",
+      "format": "date_dd"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_10[0]",
+      "source": "spouse_date_of_death",
+      "format": "date_yyyy"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_11[0]",
+      "source": "other_special_condition",
+      "format": "text",
+      "slice_start": 0,
+      "slice_length": 28
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_12[0]",
+      "source": "other_special_condition",
+      "format": "text",
+      "slice_start": 28,
+      "slice_length": 28
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_13[0]",
+      "source": "other_special_condition",
+      "format": "text",
+      "slice_start": 56,
+      "slice_length": 28
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_14[0]",
+      "source": "first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_15[0]",
+      "source": "last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_16[0]",
+      "source": "ssn",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_17[0]",
+      "source": "spouse_first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_18[0]",
+      "source": "spouse_last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_19[0]",
+      "source": "spouse_ssn",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_20[0]",
+      "source": "home_address",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_21[0]",
+      "source": "apt_no",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_22[0]",
+      "source": "city",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_23[0]",
+      "source": "state",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_24[0]",
+      "source": "zip_code",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_25[0]",
+      "source": "foreign_country",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_26[0]",
+      "source": "foreign_province",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_27[0]",
+      "source": "foreign_postal_code",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Checkbox_ReadOrder[0].f1_28[0]",
+      "source": "mfs_spouse_full_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_29[0]",
+      "source": "hoh_qss_qualifying_child_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_30[0]",
+      "source": "nonresident_spouse_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_31[0]",
+      "source": "dependents.0.first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_32[0]",
+      "source": "dependents.1.first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_33[0]",
+      "source": "dependents.2.first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_34[0]",
+      "source": "dependents.3.first_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_35[0]",
+      "source": "dependents.0.last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_36[0]",
+      "source": "dependents.1.last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_37[0]",
+      "source": "dependents.2.last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_38[0]",
+      "source": "dependents.3.last_name",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row3[0].f1_39[0]",
+      "source": "dependents.0.ssn",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row3[0].f1_40[0]",
+      "source": "dependents.1.ssn",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row3[0].f1_41[0]",
+      "source": "dependents.2.ssn",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row3[0].f1_42[0]",
+      "source": "dependents.3.ssn",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_43[0]",
+      "source": "dependents.0.relationship",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_44[0]",
+      "source": "dependents.1.relationship",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_45[0]",
+      "source": "dependents.2.relationship",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_46[0]",
+      "source": "dependents.3.relationship",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_47[0]",
+      "source": "1a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_48[0]",
+      "source": "1b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_49[0]",
+      "source": "1c",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_50[0]",
+      "source": "1d",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_51[0]",
+      "source": "1e",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_52[0]",
+      "source": "1f",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_53[0]",
+      "source": "1g",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_55[0]",
+      "source": "1h",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_56[0]",
+      "source": "1i",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_57[0]",
+      "source": "1z",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_58[0]",
+      "source": "2a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_59[0]",
+      "source": "2b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_60[0]",
+      "source": "3a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_61[0]",
+      "source": "3b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_62[0]",
+      "source": "4a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_63[0]",
+      "source": "4b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_65[0]",
+      "source": "5a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_66[0]",
+      "source": "5b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_68[0]",
+      "source": "6a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_69[0]",
+      "source": "6b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_70[0]",
+      "source": "7a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_71[0]",
+      "source": "8",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_72[0]",
+      "source": "9",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_73[0]",
+      "source": "10",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_74[0]",
+      "source": "11a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_01[0]",
+      "source": "11b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_02[0]",
+      "source": "12e",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_03[0]",
+      "source": "13a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_04[0]",
+      "source": "13b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_05[0]",
+      "source": "14",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_06[0]",
+      "source": "15",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_08[0]",
+      "source": "16",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_09[0]",
+      "source": "17",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_10[0]",
+      "source": "18",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_11[0]",
+      "source": "19",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_12[0]",
+      "source": "20",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_13[0]",
+      "source": "21",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_14[0]",
+      "source": "22",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_15[0]",
+      "source": "23",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_16[0]",
+      "source": "24",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_17[0]",
+      "source": "25a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_18[0]",
+      "source": "25b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_19[0]",
+      "source": "25c",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_20[0]",
+      "source": "25d",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_21[0]",
+      "source": "26",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_23[0]",
+      "source": "27a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_24[0]",
+      "source": "28",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_25[0]",
+      "source": "29",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_26[0]",
+      "source": "30",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_27[0]",
+      "source": "31",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_28[0]",
+      "source": "32",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_29[0]",
+      "source": "33",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_30[0]",
+      "source": "34",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_31[0]",
+      "source": "35a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_34[0]",
+      "source": "36",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_35[0]",
+      "source": "37",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_36[0]",
+      "source": "38",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].SSN_ReadOrder[0].f2_22[0]",
+      "source": "f1040_Federal_Info_Worksheet.former_spouse_ssn_for_estimated_payments",
+      "format": "text"
+    }
+  ],
+  "overlay_mappings": [
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_1[0]",
+      "source": "filed_pursuant_91002"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_2[0]",
+      "source": "combat_zone"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_5[0]",
+      "source": "main_home_us"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_3[0]",
+      "source": "taxpayer_date_of_death"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_6[0]",
+      "source": "presidential_campaign_you"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_7[0]",
+      "source": "presidential_campaign_spouse"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Checkbox_ReadOrder[0].c1_8[0]",
+      "source": "filing_status_single"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Checkbox_ReadOrder[0].c1_8[1]",
+      "source": "filing_status_married_jointly"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Checkbox_ReadOrder[0].c1_8[2]",
+      "source": "filing_status_married_separately"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_8[0]",
+      "source": "filing_status_hoh"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_8[1]",
+      "source": "filing_status_qss"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_9[0]",
+      "source": "nonresident_spouse_treat_as_resident"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_10[0]",
+      "source": "digital_assets_yes"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_10[1]",
+      "source": "digital_assets_yes <= 0.0"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Dependents_ReadOrder[0].c1_11[0]",
+      "source": "dependents_more_than_four"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_41[0]",
+      "source": "6c"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_42[0]",
+      "source": "6d"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_43[0]",
+      "source": "7b"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_32[0]",
+      "source": "mfs_hoh_lived_apart"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].c1_4[0]",
+      "source": "other_special_condition"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page2[0].c2_1[0]",
+      "source": "12a"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page2[0].c2_3[0]",
+      "source": "12b"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page2[0].c2_4[0]",
+      "source": "12c"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent1[0].c1_12[0]",
+      "source": "dependents.0.lived_with_you"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent2[0].c1_14[0]",
+      "source": "dependents.1.lived_with_you"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent3[0].c1_16[0]",
+      "source": "dependents.2.lived_with_you"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent4[0].c1_18[0]",
+      "source": "dependents.3.lived_with_you"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent1[0].c1_13[0]",
+      "source": "dependents.0.lived_in_us"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent2[0].c1_15[0]",
+      "source": "dependents.1.lived_in_us"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent3[0].c1_17[0]",
+      "source": "dependents.2.lived_in_us"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row5[0].Dependent4[0].c1_19[0]",
+      "source": "dependents.3.lived_in_us"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent1[0].c1_20[0]",
+      "source": "dependents.0.full_time_student"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent1[0].c1_21[0]",
+      "source": "dependents.0.permanently_disabled"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent2[0].c1_22[0]",
+      "source": "dependents.1.full_time_student"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent2[0].c1_23[0]",
+      "source": "dependents.1.permanently_disabled"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent3[0].c1_24[0]",
+      "source": "dependents.2.full_time_student"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent3[0].c1_25[0]",
+      "source": "dependents.2.permanently_disabled"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent4[0].c1_26[0]",
+      "source": "dependents.3.full_time_student"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row6[0].Dependent4[0].c1_27[0]",
+      "source": "dependents.3.permanently_disabled"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent1[0].c1_28[0]",
+      "source": "dependents.0.child_tax_credit"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent1[0].c1_28[1]",
+      "source": "dependents.0.credit_other_dependents"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent2[0].c1_29[0]",
+      "source": "dependents.1.child_tax_credit"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent2[0].c1_29[1]",
+      "source": "dependents.1.credit_other_dependents"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent3[0].c1_30[0]",
+      "source": "dependents.2.child_tax_credit"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent3[0].c1_30[1]",
+      "source": "dependents.2.credit_other_dependents"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent4[0].c1_31[0]",
+      "source": "dependents.3.child_tax_credit"
+    },
+    {
+      "kind": "checkbox",
+      "field": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent4[0].c1_31[1]",
+      "source": "dependents.3.credit_other_dependents"
+    }
+  ]
+}

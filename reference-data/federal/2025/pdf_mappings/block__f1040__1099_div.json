@@ -1,0 +1,96 @@
+{
+  "source_pdf": "forms-instructions-and-publications/information-returns/f1099div.pdf",
+  "field_mappings": [
+    {
+      "page": 1,
+      "rect": [51, 712, 294, 756],
+      "source": "entry.payer_name",
+      "format": "text",
+      "font_size": 7
+    },
+    {
+      "page": 1,
+      "rect": [174, 628, 294, 651],
+      "source": "recipient_ssn",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [51, 580, 294, 603],
+      "source": "recipient_name",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [51, 532, 294, 555],
+      "source": "recipient_address_line",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [51, 484, 294, 507],
+      "source": "recipient_city_state_zip",
+      "format": "text",
+      "font_size": 7
+    },
+    {
+      "page": 1,
+      "rect": [304, 716, 394, 738],
+      "source": "entry.box_1a",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [304, 692, 394, 714],
+      "source": "entry.box_1b",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [304, 668, 394, 690],
+      "source": "entry.box_2a",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [397, 668, 493, 690],
+      "source": "entry.box_2b",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [304, 644, 394, 666],
+      "source": "entry.box_2c",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [397, 644, 493, 666],
+      "source": "entry.box_2d",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [397, 596, 493, 618],
+      "source": "entry.box_4",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [304, 548, 394, 570],
+      "source": "entry.box_7",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [397, 548, 493, 570],
+      "source": "entry.box_8",
+      "format": "text",
+      "font_size": 7
+    }
+  ],
+  "overlay_mappings": []
+}

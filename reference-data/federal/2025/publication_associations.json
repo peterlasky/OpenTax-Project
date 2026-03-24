@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Maps IRS publications to associated forms and worksheets using the project's shorthand ID style.",
     "sources": [
-      "publication-summaries/*.md",
+      "forms-instructions-and-publications/publication-summaries/*.md",
       "plan.md",
       "federal_1040_2025.json"
     ],
@@ -12,7 +12,7 @@
   "publications": {
     "p17": {
       "publication_name": "Publication 17 - Your Federal Income Tax For Individuals",
-      "summary_file": "publication-summaries/p17.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p17.md",
       "associated_forms": [
         "f1040",
         "f1040sr",
@@ -34,7 +34,7 @@
     },
     "p502": {
       "publication_name": "Publication 502 - Medical and Dental Expenses",
-      "summary_file": "publication-summaries/p502.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p502.md",
       "associated_forms": [
         "f1040sa",
         "f8962"
@@ -43,7 +43,7 @@
     },
     "p503": {
       "publication_name": "Publication 503 - Child and Dependent Care Expenses",
-      "summary_file": "publication-summaries/p503.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p503.md",
       "associated_forms": [
         "f2441",
         "f1040sh"
@@ -52,7 +52,7 @@
     },
     "p504": {
       "publication_name": "Publication 504 - Divorced or Separated Individuals",
-      "summary_file": "publication-summaries/p504.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p504.md",
       "associated_forms": [
         "f8332",
         "f8379",
@@ -62,7 +62,7 @@
     },
     "p505": {
       "publication_name": "Publication 505 - Tax Withholding and Estimated Tax",
-      "summary_file": "publication-summaries/p505.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p505.md",
       "associated_forms": [
         "f1040es",
         "f1040ss",
@@ -73,7 +73,7 @@
     },
     "p523": {
       "publication_name": "Publication 523 - Selling Your Home",
-      "summary_file": "publication-summaries/p523.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p523.md",
       "associated_forms": [
         "f4797",
         "f6252",
@@ -89,7 +89,7 @@
     },
     "p525": {
       "publication_name": "Publication 525 - Taxable and Nontaxable Income",
-      "summary_file": "publication-summaries/p525.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p525.md",
       "associated_forms": [
         "f1040",
         "f1040s1",
@@ -99,7 +99,7 @@
     },
     "p526": {
       "publication_name": "Publication 526 - Charitable Contributions",
-      "summary_file": "publication-summaries/p526.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p526.md",
       "associated_forms": [
         "f1040sa",
         "f8283"
@@ -108,7 +108,7 @@
     },
     "p527": {
       "publication_name": "Publication 527 - Residential Rental Property (Including Rental of Vacation Homes)",
-      "summary_file": "publication-summaries/p527.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p527.md",
       "associated_forms": [
         "f4562",
         "f461",
@@ -120,7 +120,7 @@
     },
     "p530": {
       "publication_name": "Publication 530 - Tax Information for Homeowners",
-      "summary_file": "publication-summaries/p530.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p530.md",
       "associated_forms": [
         "f5695",
         "f982",
@@ -130,7 +130,7 @@
     },
     "p531": {
       "publication_name": "Publication 531 - Reporting Tip Income",
-      "summary_file": "publication-summaries/p531.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p531.md",
       "associated_forms": [
         "f1040",
         "f4137"
@@ -139,7 +139,7 @@
     },
     "p535": {
       "publication_name": "Publication 535 - Business Expenses",
-      "summary_file": "publication-summaries/p535.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p535.md",
       "notes": [
         "The repo copy is not a real PDF and the substantive summary relies on the discontinued 2022 publication plus the IRS replacement-resource map."
       ],
@@ -160,7 +160,7 @@
     },
     "p541": {
       "publication_name": "Publication 541 - Partnerships",
-      "summary_file": "publication-summaries/p541.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p541.md",
       "associated_forms": [
         "f1065",
         "f1116",
@@ -172,7 +172,7 @@
     },
     "p544": {
       "publication_name": "Publication 544 - Sales and Other Dispositions of Assets",
-      "summary_file": "publication-summaries/p544.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p544.md",
       "associated_forms": [
         "f4797",
         "f8824",
@@ -183,7 +183,7 @@
     },
     "p547": {
       "publication_name": "Publication 547 - Casualties, Disasters, and Thefts",
-      "summary_file": "publication-summaries/p547.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p547.md",
       "associated_forms": [
         "f4684",
         "f4797",
@@ -194,7 +194,7 @@
     },
     "p550": {
       "publication_name": "Publication 550 - Investment Income and Expenses (Including Capital Gains and Losses)",
-      "summary_file": "publication-summaries/p550.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p550.md",
       "associated_forms": [
         "f4952",
         "f8949",
@@ -207,7 +207,7 @@
     },
     "p551": {
       "publication_name": "Publication 551 - Basis of Assets",
-      "summary_file": "publication-summaries/p551.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p551.md",
       "associated_forms": [
         "f4562",
         "f4684",
@@ -219,7 +219,7 @@
     },
     "p554": {
       "publication_name": "Publication 554 - Tax Guide for Seniors",
-      "summary_file": "publication-summaries/p554.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p554.md",
       "associated_forms": [
         "f1040sr",
         "f8915f"
@@ -228,7 +228,7 @@
     },
     "p555": {
       "publication_name": "Publication 555 - Community Property",
-      "summary_file": "publication-summaries/p555.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p555.md",
       "associated_forms": [
         "f8958"
       ],
@@ -236,7 +236,7 @@
     },
     "p559": {
       "publication_name": "Publication 559 - Survivors, Executors, and Administrators",
-      "summary_file": "publication-summaries/p559.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p559.md",
       "associated_forms": [
         "f56",
         "f706",
@@ -250,7 +250,7 @@
     },
     "p561": {
       "publication_name": "Publication 561 - Determining the Value of Donated Property",
-      "summary_file": "publication-summaries/p561.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p561.md",
       "associated_forms": [
         "f8282",
         "f8283"
@@ -259,7 +259,7 @@
     },
     "p570": {
       "publication_name": "Publication 570 - Tax Guide for Individuals With Income From U.S. Territories",
-      "summary_file": "publication-summaries/p570.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p570.md",
       "associated_forms": [
         "f1040",
         "f1040ss",
@@ -274,7 +274,7 @@
     },
     "p575": {
       "publication_name": "Publication 575 - Pension and Annuity Income",
-      "summary_file": "publication-summaries/p575.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p575.md",
       "associated_forms": [
         "f1040"
       ],
@@ -284,7 +284,7 @@
     },
     "p587": {
       "publication_name": "Publication 587 - Business Use of Your Home (Including Use by Daycare Providers)",
-      "summary_file": "publication-summaries/p587.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p587.md",
       "associated_forms": [
         "f4562",
         "f8829",
@@ -294,7 +294,7 @@
     },
     "p590a": {
       "publication_name": "Publication 590-A - Contributions to Individual Retirement Arrangements (IRAs)",
-      "summary_file": "publication-summaries/p590a.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p590a.md",
       "associated_forms": [
         "f1040",
         "f4547"
@@ -306,7 +306,7 @@
     },
     "p590b": {
       "publication_name": "Publication 590-B - Distributions from Individual Retirement Arrangements (IRAs)",
-      "summary_file": "publication-summaries/p590b.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p590b.md",
       "associated_forms": [
         "f1040",
         "f5329"
@@ -315,7 +315,7 @@
     },
     "p596": {
       "publication_name": "Publication 596 - Earned Income Credit (EIC)",
-      "summary_file": "publication-summaries/p596.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p596.md",
       "associated_forms": [
         "f1040",
         "f2555"
@@ -328,7 +328,7 @@
     },
     "p915": {
       "publication_name": "Publication 915 - Social Security and Equivalent Railroad Retirement Benefits",
-      "summary_file": "publication-summaries/p915.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p915.md",
       "associated_forms": [
         "f1040"
       ],
@@ -338,7 +338,7 @@
     },
     "p925": {
       "publication_name": "Publication 925 - Passive Activity and At-Risk Rules",
-      "summary_file": "publication-summaries/p925.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p925.md",
       "associated_forms": [
         "f461",
         "f6198",
@@ -350,7 +350,7 @@
     },
     "p926": {
       "publication_name": "Publication 926 - Household Employer's Tax Guide",
-      "summary_file": "publication-summaries/p926.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p926.md",
       "notes": [
         "The repo copy is the 2026 edition."
       ],
@@ -361,7 +361,7 @@
     },
     "p936": {
       "publication_name": "Publication 936 - Home Mortgage Interest Deduction",
-      "summary_file": "publication-summaries/p936.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p936.md",
       "associated_forms": [
         "f1040sa"
       ],
@@ -369,7 +369,7 @@
     },
     "p946": {
       "publication_name": "Publication 946 - How To Depreciate Property",
-      "summary_file": "publication-summaries/p946.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p946.md",
       "associated_forms": [
         "f3115",
         "f4562"
@@ -378,7 +378,7 @@
     },
     "p969": {
       "publication_name": "Publication 969 - Health Savings Accounts and Other Tax-Favored Health Plans",
-      "summary_file": "publication-summaries/p969.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p969.md",
       "associated_forms": [
         "f8889"
       ],
@@ -386,7 +386,7 @@
     },
     "p970": {
       "publication_name": "Publication 970 - Tax Benefits for Education",
-      "summary_file": "publication-summaries/p970.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p970.md",
       "associated_forms": [
         "f4547",
         "f8862",
@@ -398,7 +398,7 @@
     },
     "p974": {
       "publication_name": "Publication 974 - Premium Tax Credit (PTC)",
-      "summary_file": "publication-summaries/p974.md",
+      "summary_file": "forms-instructions-and-publications/publication-summaries/p974.md",
       "associated_forms": [
         "f7206",
         "f8962"

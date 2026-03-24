@@ -1,0 +1,152 @@
+{
+  "source_pdf": "forms-instructions-and-publications/forms/f1040sa.pdf",
+  "field_mappings": [
+    {
+      "field": "form1[0].Page1[0].f1_1[0]",
+      "source": "f1040.first_name + \" \" + f1040.last_name + ((f1040.filing_status_married_jointly > 0.0) * (\" & \" + f1040.spouse_first_name + \" \" + f1040.spouse_last_name))",
+      "format": "text"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_2[0]",
+      "source": "f1040.ssn",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_3[0]",
+      "source": "1",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].Line2_ReadOrder[0].f1_4[0]",
+      "source": "2",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_5[0]",
+      "source": "3",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_6[0]",
+      "source": "4",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_7[0]",
+      "source": "5a",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_8[0]",
+      "source": "5b",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_9[0]",
+      "source": "5c",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_10[0]",
+      "source": "5d",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_11[0]",
+      "source": "5e",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_13[0]",
+      "source": "6",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_14[0]",
+      "source": "7",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_15[0]",
+      "source": "8a",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_17[0]",
+      "source": "8b",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_18[0]",
+      "source": "8c",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_19[0]",
+      "source": "8d",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_20[0]",
+      "source": "8e",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_21[0]",
+      "source": "9",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_22[0]",
+      "source": "10",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_23[0]",
+      "source": "11",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_24[0]",
+      "source": "12",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_25[0]",
+      "source": "13",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_26[0]",
+      "source": "14",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_27[0]",
+      "source": "15",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_29[0]",
+      "source": "16",
+      "format": "amount"
+    },
+    {
+      "field": "form1[0].Page1[0].f1_30[0]",
+      "source": "17",
+      "format": "amount"
+    }
+  ],
+  "overlay_mappings": [
+    {
+      "field": "form1[0].Page1[0].c1_1[0]",
+      "source": "5a_sales_tax_election",
+      "kind": "checkbox"
+    },
+    {
+      "field": "form1[0].Page1[0].Line18_ReadOrder[0].c1_3[0]",
+      "source": "18",
+      "kind": "checkbox"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "source_pdf": "forms-instructions-and-publications/information-returns/fw2.pdf",
+  "field_mappings": [
+    {
+      "page": 1,
+      "rect": [36, 744, 150, 767],
+      "source": "recipient_ssn",
+      "format": "text",
+      "font_size": 9
+    },
+    {
+      "page": 1,
+      "rect": [154, 720, 335, 743],
+      "source": "entry.employer_ein",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [42, 676, 334, 699],
+      "source": "entry.employer_name",
+      "format": "text",
+      "font_size": 7
+    },
+    {
+      "page": 1,
+      "rect": [42, 626, 184, 648],
+      "source": "recipient_first_name",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [184, 626, 335, 648],
+      "source": "recipient_last_name",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [42, 532, 279, 554],
+      "source": "recipient_address_line",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [42, 484, 279, 506],
+      "source": "recipient_city_state_zip",
+      "format": "text",
+      "font_size": 8
+    },
+    {
+      "page": 1,
+      "rect": [339, 720, 460, 743],
+      "source": "entry.box_1",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [462, 720, 606, 743],
+      "source": "entry.box_2",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [339, 696, 460, 719],
+      "source": "entry.box_3",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [462, 696, 606, 719],
+      "source": "entry.box_4",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [339, 672, 460, 695],
+      "source": "entry.box_5",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [462, 672, 606, 695],
+      "source": "entry.box_6",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [339, 648, 460, 671],
+      "source": "entry.box_7",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [462, 648, 606, 671],
+      "source": "entry.box_8",
+      "format": "amount"
+    },
+    {
+      "page": 1,
+      "rect": [462, 600, 606, 623],
+      "source": "entry.box_10",
+      "format": "amount"
+    }
+  ],
+  "overlay_mappings": [
+    {
+      "page": 1,
+      "rect": [384, 558, 396, 570],
+      "source": "entry.box_13_statutory_employee",
+      "kind": "checkbox"
+    },
+    {
+      "page": 1,
+      "rect": [384, 570, 396, 582],
+      "source": "entry.box_13_retirement_plan",
+      "kind": "checkbox"
+    }
+  ]
+}

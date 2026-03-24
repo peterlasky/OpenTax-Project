@@ -1,0 +1,212 @@
+{
+  "source_pdf": "forms-instructions-and-publications/forms/f1040s8.pdf",
+  "field_mappings": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_1[0]",
+      "source": "f1040.first_name + \" \" + f1040.last_name + ((f1040.filing_status_married_jointly > 0.0) * (\" & \" + f1040.spouse_first_name + \" \" + f1040.spouse_last_name))",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_2[0]",
+      "source": "f1040.ssn",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_3[0]",
+      "source": "1",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_4[0]",
+      "source": "2a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_5[0]",
+      "source": "2b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_6[0]",
+      "source": "2c",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_7[0]",
+      "source": "2d",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_8[0]",
+      "source": "3",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_9[0]",
+      "source": "4",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_10[0]",
+      "source": "5",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line6ReadOrder[0].f1_11[0]",
+      "source": "6",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_12[0]",
+      "source": "7",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_13[0]",
+      "source": "8",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_14[0]",
+      "source": "9",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_15[0]",
+      "source": "10",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_16[0]",
+      "source": "11",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_17[0]",
+      "source": "12",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_18[0]",
+      "source": "13",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_19[0]",
+      "source": "14",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_1[0]",
+      "source": "15",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_2[0]",
+      "source": "16a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_3[0]",
+      "source": "4",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_4[0]",
+      "source": "16b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_5[0]",
+      "source": "17",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_6[0]",
+      "source": "18a",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_7[0]",
+      "source": "18b",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_8[0]",
+      "source": "19",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_9[0]",
+      "source": "20",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_10[0]",
+      "source": "21",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_11[0]",
+      "source": "22",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_12[0]",
+      "source": "23",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_13[0]",
+      "source": "24",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_14[0]",
+      "source": "25",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_15[0]",
+      "source": "26",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_16[0]",
+      "source": "27",
+      "format": "amount"
+    }
+  ],
+  "overlay_mappings": [
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[0]",
+      "source": "12 <= 0.0",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[1]",
+      "source": "12 > 0.0",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].c2_1[0]",
+      "source": "18a <= 2500",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].c2_1[1]",
+      "source": "18a > 2500",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].c2_2[0]",
+      "source": "16b < 5100",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].c2_2[1]",
+      "source": "16b >= 5100",
+      "kind": "checkbox"
+    }
+  ]
+}

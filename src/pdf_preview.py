@@ -25,16 +25,14 @@ except Exception:  # pragma: no cover - dependency availability differs by runti
 PAGE_PATTERN = re.compile(r"\.Page(\d+)\[")
 
 
-class F1040PdfPreviewEngine:
+class FormPdfPreviewEngine:
     def __init__(self, project_root: Path) -> None:
         self.project_root = project_root
-        self.mapping_path = (
-            self.project_root / "reference-data" / "federal" / "2025" / "pdf_mappings" / "f1040.json"
-        )
+        self.mapping_dir = self.project_root / "reference-data" / "federal" / "2025" / "pdf_mappings"
         self.preview_dir = Path(tempfile.gettempdir()) / "opentax-pdf-preview"
         self.preview_dir.mkdir(parents=True, exist_ok=True)
-        self._mapping_cache: dict[str, Any] | None = None
-        self._mapping_mtime_ns: int | None = None
+        self._mapping_cache: dict[str, dict[str, Any]] = {}
+        self._mapping_mtime_ns: dict[str, int] = {}
         self._render_serial = 0
 
     def available(self) -> bool:
@@ -43,12 +41,13 @@ class F1040PdfPreviewEngine:
     def render_preview(
         self,
         *,
+        form_id: str,
         resolve_source: Callable[[str], Any],
     ) -> Path:
         if not self.available():
             raise RuntimeError("PDF preview dependencies are not available.")
 
-        mapping = self._load_mapping()
+        mapping = self._load_mapping(form_id)
         source_pdf = self.project_root / mapping["source_pdf"]
         if not source_pdf.is_file():
             raise FileNotFoundError(f"Source PDF not found: {source_pdf}")
@@ -88,17 +87,35 @@ class F1040PdfPreviewEngine:
             pass
 
         self._render_serial += 1
-        output_path = self.preview_dir / f"f1040_preview_{self._render_serial}.pdf"
+        output_path = self.preview_dir / f"{form_id}_preview_{self._render_serial}.pdf"
         with output_path.open("wb") as handle:
             writer.write(handle)
         return output_path
 
-    def _load_mapping(self) -> dict[str, Any]:
-        current_mtime_ns = self.mapping_path.stat().st_mtime_ns
-        if self._mapping_cache is None or self._mapping_mtime_ns != current_mtime_ns:
-            self._mapping_cache = json.loads(self.mapping_path.read_text(encoding="utf-8"))
-            self._mapping_mtime_ns = current_mtime_ns
-        return self._mapping_cache
+    def mapping_path_for_form(self, form_id: str) -> Path:
+        return self.mapping_dir / f"{form_id}.json"
+
+    def has_mapping_for_form(self, form_id: str) -> bool:
+        return self.mapping_path_for_form(form_id).is_file()
+
+    def source_pdf_for_form(self, form_id: str) -> Path | None:
+        if not self.has_mapping_for_form(form_id):
+            return None
+        try:
+            mapping = self._load_mapping(form_id)
+        except Exception:
+            return None
+        return self.project_root / str(mapping.get("source_pdf", ""))
+
+    def _load_mapping(self, form_id: str) -> dict[str, Any]:
+        mapping_path = self.mapping_path_for_form(form_id)
+        current_mtime_ns = mapping_path.stat().st_mtime_ns
+        cached = self._mapping_cache.get(form_id)
+        if cached is None or self._mapping_mtime_ns.get(form_id) != current_mtime_ns:
+            cached = json.loads(mapping_path.read_text(encoding="utf-8"))
+            self._mapping_cache[form_id] = cached
+            self._mapping_mtime_ns[form_id] = current_mtime_ns
+        return cached
 
     def _collect_field_updates(
         self,
@@ -165,6 +182,7 @@ class F1040PdfPreviewEngine:
                     "rect": rect,
                     "text": formatted,
                     "align": "right" if item.get("format") == "amount" else "left",
+                    "font_size": item.get("font_size"),
                 }
             )
         return overlays_by_page
@@ -241,6 +259,7 @@ class F1040PdfPreviewEngine:
                     rect,
                     str(item.get("text", "")),
                     align=str(item.get("align", "left")),
+                    font_size=item.get("font_size"),
                 )
         pdf_canvas.save()
         buffer.seek(0)
@@ -260,12 +279,14 @@ class F1040PdfPreviewEngine:
         text: str,
         *,
         align: str = "left",
+        font_size: Any = None,
     ) -> None:
         if not text:
             return
         x0, y0, x1, y1 = rect
-        pdf_canvas.setFont("Helvetica", 9)
-        baseline = y0 + ((y1 - y0) / 2.0) - 3.0
+        size = float(font_size) if isinstance(font_size, (int, float)) else 9.0
+        pdf_canvas.setFont("Helvetica", size)
+        baseline = y0 + ((y1 - y0) / 2.0) - (size * 0.33)
         if align == "right":
             pdf_canvas.drawRightString(x1 - 1.5, baseline, text)
             return
@@ -303,11 +324,7 @@ class F1040PdfPreviewEngine:
             return str(value)
         if not math.isfinite(number):
             return ""
-        rounded = round(number)
-        if abs(number - rounded) < 1e-9:
-            return str(int(rounded))
-        text = f"{number:.2f}"
-        return text.rstrip("0").rstrip(".")
+        return f"{round(number):,}"
 
     def _format_date_part(self, value: Any, format_code: str) -> str:
         parsed = self._parse_date(value)
@@ -362,3 +379,7 @@ class F1040PdfPreviewEngine:
         if isinstance(value, (int, float)):
             return value != 0
         return bool(value)
+
+
+# Backward-compatible alias while the rest of the app migrates.
+F1040PdfPreviewEngine = FormPdfPreviewEngine

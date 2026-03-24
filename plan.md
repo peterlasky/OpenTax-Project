@@ -26,13 +26,13 @@ That means:
 
 - `federal_1040_2025.json`
   The **master logic/model file** for the Federal 2025 individual package.
-- `source-code/tax_qt_app.py`
+- `source-code/main.py`
   The Qt editor for taxpayer returns built from the model.
 - `reference-data/federal/2025/`
   Machine-readable tax tables, thresholds, and parameters that should not be hardcoded into equations.
 - `reference-data/federal/2025/pdf_mappings/`
   PDF field/overlay mappings used by the preview system.
-- `publication-summaries/`
+- `forms-instructions-and-publications/publication-summaries/`
   Concise publication and instruction summaries used as an early searchable rule/index layer.  
 - `build_manifest.json`
   Machine-readable snapshot of current modeled state, wiring, conventions, and gaps.
@@ -52,7 +52,7 @@ The source tree is the authority base for the rebuild.
   Blank W-2, 1099, 1098, and related forms used for source-block modeling.
 - `forms-instructions-and-publications/worksheets/`
   Standalone worksheet PDFs.
-- `publication-summaries/` and `instruction-summaries/`
+- `forms-instructions-and-publications/publication-summaries/` and `forms-instructions-and-publications/instruction-summaries/`
   Important step to avoid forcing the model to read and reread each .pdf multiple times.  Creation of complete yet semantically concise `.md` files for each.  Least verbosity.  Prioritize model's understanding at subsequent passes over human readability.  
 
 Important note:
@@ -77,7 +77,7 @@ The first part of a rebuild should happen in this order.
 1. Read `README.md`, this `plan.md`, `build_manifest.json`, and `docs/COVERAGE_STATEMENT.md`.
 2. Inventory the IRS materials from the YAML manifest.
 3. Create or refresh `docs/FORM_MODEL_STATUS.md` so every YAML-listed form or schedule is marked as `modeled`, `scaffolded`, `missing`, or `out_of_scope`.
-4. Create or refresh `publication-summaries/` and `instruction-summaries/` early, before deep form wiring.
+4. Create or refresh `forms-instructions-and-publications/publication-summaries/` and `forms-instructions-and-publications/instruction-summaries/` early, before deep form wiring.
 5. Create or refresh publication-to-form/worksheet associations in `reference-data/federal/2025/publication_associations.json`.
 6. Indentify all worksheets and their heirarchies.  Such as Form XXXX.Line @$#@$ worksheet, etc.  or worksheets that should be standalone
 7. Build or validate the intake layer first.
@@ -526,7 +526,7 @@ If an LLM starts from this repo and follows this plan, it should be able to rebu
 | `forms-instructions-and-publications/forms/` | Form PDFs (e.g. f1040.pdf, f1040s1.pdf) |
 | `forms-instructions-and-publications/instructions/` | Instruction PDFs (e.g. i1040gi.pdf) |
 | `forms-instructions-and-publications/publications/` | Publication PDFs (e.g. p17.pdf) |
-| `publication-summaries/` | Concise working summaries of publications, used as a fast rule/index layer before deeper publication rereads |
+| `forms-instructions-and-publications/publication-summaries/` | Concise working summaries of publications, used as a fast rule/index layer before deeper publication rereads |
 | `forms-instructions-and-publications/information-returns/` | W-2, 1099-INT, 1099-DIV, 1098, etc. (blank forms for reference) |
 | `forms-instructions-and-publications/worksheets/` | **Standalone worksheet PDFs** (e.g. Federal Info Worksheet.pdf) when a worksheet is distributed as its own PDF rather than only inside instructions or publications |
 | `reference-data/federal/2025/` | Versioned lookup tables, rate schedules, and worksheet parameter tables that should not be hardcoded into form equations |
@@ -538,7 +538,7 @@ If an LLM starts from this repo and follows this plan, it should be able to rebu
 
 **Important source-rule reminder:** Publications are not just commentary. They often contain elections, definitions, attribution rules, exceptions, and computational guidance that are not obvious from a form's printed line numbering. Example: `Form 4952` depends materially on `Pub. 550` for investment-interest definitions and the line `4g` election mechanics, and Schedule `8812` line `21` depends on RRTA / `CT-2` source detail that is not visible from the line numbering alone.
 
-**Early-publication-summary rule:** Fairly early in a rebuild, create or refresh concise markdown summaries in `publication-summaries/` for the publication set in scope. These summaries are not a substitute for the PDFs, but they are an important intermediate artifact: they make publication rules searchable, expose cross-form dependencies sooner, and reduce the chance that publication-driven worksheets, elections, and exceptions are forgotten until late in the process.
+**Early-publication-summary rule:** Fairly early in a rebuild, create or refresh concise markdown summaries in `forms-instructions-and-publications/publication-summaries/` for the publication set in scope. These summaries are not a substitute for the PDFs, but they are an important intermediate artifact: they make publication rules searchable, expose cross-form dependencies sooner, and reduce the chance that publication-driven worksheets, elections, and exceptions are forgotten until late in the process.
 
 **Primary instruction set for 1040:** `instructions/i1040gi.pdf` (General Instructions for Form 1040). It covers the main 1040 and Schedules 1, 1-A, 2, 3 and lists all worksheets.
 
@@ -895,7 +895,7 @@ The roadmap is intentionally not too detailed. The point is to preserve prioriti
 ### Phase A: Build the manifest and build order
 
 1. Start with `IRS_Federal_Individual_2025.yaml` as the canonical superset of forms, instructions, publications, worksheets, and information returns.
-2. Create or refresh concise markdown summaries in `publication-summaries/` for the publication files that are in scope so their worksheets, elections, thresholds, and form cross-references are searchable before deeper form wiring begins.
+2. Create or refresh concise markdown summaries in `forms-instructions-and-publications/publication-summaries/` for the publication files that are in scope so their worksheets, elections, thresholds, and form cross-references are searchable before deeper form wiring begins.
 3. Assign each item to a build group from Section 1.1: intake, blocks, main return, core schedules, core worksheets, common follow-on forms, business/investment forms, or specialty forms.
 4. Assign provisional `_meta.rank` values so each form or worksheet is evaluated only after all of its dependencies are available.
 5. Mark each item as one of:

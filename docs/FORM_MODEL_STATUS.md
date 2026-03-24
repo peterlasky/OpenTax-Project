@@ -12,8 +12,8 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 ## Current counts
 
 - `modeled`: `13`
-- `scaffolded`: `82`
-- `missing`: `17`
+- `scaffolded`: `86`
+- `missing`: `13`
 - `out_of_scope`: `0`
 
 ## Master inventory
@@ -32,15 +32,15 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | `1040 Schedule D` | `f1040sd` | `modeled` | `Schedule D (Form 1040) - Capital Gains and Losses` |
 | `1040 Schedule E` | `f1040se` | `scaffolded` | `Schedule E (Form 1040) - Supplemental Income and Loss` |
 | `1040 Schedule EIC` | `f1040sei` | `modeled` | `Schedule EIC (Form 1040) - Earned Income Credit` |
-| `1040 Schedule F` | `f1040sf` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1040 Schedule F` | `f1040sf` | `scaffolded` | `Schedule F (Form 1040) - Profit or Loss From Farming` |
 | `1040 Schedule H` | `f1040sh` | `scaffolded` | `Schedule H (Form 1040) - Household Employment Taxes` |
 | `1040 Schedule J` | `f1040sj` | `missing` | Manifest-listed, but no top-level modeled form yet |
-| `1040 Schedule R` | `f1040sr_schedule_r` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1040 Schedule R` | `f1040sr_schedule_r` | `scaffolded` | `Schedule R (Form 1040) - Credit for the Elderly or the Disabled` |
 | `1040 Schedule SE` | `f1040sse` | `scaffolded` | `Schedule SE (Form 1040) - Self-Employment Tax` |
 | `1040-ES` | `f1040es` | `missing` | Manifest-listed, but no top-level modeled form yet |
 | `1040-V` | `f1040v` | `missing` | Manifest-listed, but no top-level modeled form yet |
 | `1040-X` | `f1040x` | `missing` | Manifest-listed, but no top-level modeled form yet |
-| `1098-E` | `f1098e` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1098-E` | `f1098e` | `scaffolded` | `Form 1098-E - Student Loan Interest Statement` |
 | `1116` | `f1116` | `scaffolded` | `Form 1116 - Foreign Tax Credit` |
 | `1116 Schedule B` | `f1116sb` | `modeled` | `Schedule B (Form 1116) - Foreign Tax Carryover Reconciliation` |
 | `1116 Schedule C` | `f1116sc` | `modeled` | `Schedule C (Form 1116) - Foreign Tax Redeterminations` |
@@ -72,7 +72,7 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | `8615` | `f8615` | `missing` | Manifest-listed, but no top-level modeled form yet |
 | `8812` | `f8812` | `scaffolded` | `Schedule 8812 (Form 1040) - Credits for Qualifying Children and Other Dependents` |
 | `2025 Schedule 8812 (Form 1040)` | `f8812` | `scaffolded` | `Schedule 8812 (Form 1040) - Credits for Qualifying Children and Other Dependents` |
-| `8814` | `f8814` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `8814` | `f8814` | `scaffolded` | `Form 8814 - Parents' Election To Report Child's Interest and Dividends` |
 | `8862` | `f8862` | `missing` | Manifest-listed, but no top-level modeled form yet |
 | `8863` | `f8863` | `scaffolded` | `Form 8863 - Education Credits` |
 | `8880` | `f8880` | `scaffolded` | `Form 8880 - Credit for Qualified Retirement Savings Contributions` |

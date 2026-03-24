@@ -479,6 +479,68 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f1040s1", "17")["value"], 650.0)
         self.assertIn("f7206", set(editor._filed_form_ids()))
 
+    def test_form_1098e_feeds_student_loan_interest_worksheet(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1098_e",
+            {"recipient": "taxpayer", "lender_name": "Loan Servicer", "box_1": 1800.0},
+        )
+        editor._commit_cell_value("f1098e", "phaseout_reduction", 300.0)
+
+        self.assertEqual(editor._get_form_cell("f1098e", "reported_interest_total")["value"], 1800.0)
+        self.assertEqual(editor._get_form_cell("f1098e", "1")["value"], 1800.0)
+        self.assertEqual(editor._get_form_cell("f1098e", "2")["value"], 1500.0)
+        self.assertEqual(editor._get_form_cell("f1040_Schedule_1_Line_21_Student_Loan_Interest", "1")["value"], 1800.0)
+        self.assertEqual(editor._get_form_cell("f1040_Schedule_1_Line_21_Student_Loan_Interest", "2")["value"], 1500.0)
+        self.assertEqual(editor._get_form_cell("f1040s1", "21")["value"], 1500.0)
+        self.assertNotIn("f1098e", set(editor._filed_form_ids()))
+
+    def test_schedule_r_feeds_schedule_3_and_credit_limit_chain(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Federal_Info_Worksheet", "taxpayer_retired_disability", True)
+        editor._commit_cell_value("f1040sr_schedule_r", "credit_before_limits", 600.0)
+
+        self.assertTrue(editor._get_form_cell("f1040sr_schedule_r", "taxpayer_qualifying")["value"])
+        self.assertEqual(editor._get_form_cell("f1040sr_schedule_r", "eligible_person_count")["value"], 1)
+        self.assertEqual(editor._get_form_cell("f1040sr_schedule_r", "schedule3_6d")["value"], 600.0)
+        self.assertEqual(editor._get_form_cell("f1040s3", "6d")["value"], 600.0)
+        self.assertEqual(editor._get_form_cell("f8812", "credit_limit_worksheet_a_2")["value"], 600.0)
+        self.assertIn("f1040sr_schedule_r", set(editor._filed_form_ids()))
+
+    def test_schedule_f_and_form_8814_feed_schedule_1_and_f4952(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1099_misc",
+            {"recipient": "taxpayer", "payer_name": "Crop Insurer", "box_9": 100.0},
+        )
+        self.add_block_entry(
+            editor,
+            "1099_g",
+            {"recipient": "taxpayer", "payer_name": "USDA", "box_7": 50.0},
+        )
+        editor._commit_cell_value("f1040sf", "other_farm_income_adjustments", 20.0)
+        editor._commit_cell_value("f1040sf", "expenses_total", 30.0)
+        editor._commit_cell_value("f1040s1", "8g_manual_component", 5.0)
+        editor._commit_cell_value("f1040s1", "8z_manual_component", 10.0)
+        editor._commit_cell_value("f8814", "schedule1_8g_alaska_dividends", 70.0)
+        editor._commit_cell_value("f8814", "schedule1_8z_other_income", 200.0)
+        editor._commit_cell_value("f8814", "investment_income_carryin", 50.0)
+
+        self.assertEqual(editor._get_form_cell("f1040sf", "gross_farm_income_total")["value"], 170.0)
+        self.assertEqual(editor._get_form_cell("f1040sf", "34")["value"], 140.0)
+        self.assertEqual(editor._get_form_cell("f1040s1", "6")["value"], 140.0)
+        self.assertEqual(editor._get_form_cell("f8812_Earned_Income_Worksheet", "2c_schedule_f_component")["value"], 140.0)
+        self.assertEqual(editor._get_form_cell("f1040s1", "8g")["value"], 75.0)
+        self.assertEqual(editor._get_form_cell("f1040s1", "8z")["value"], 210.0)
+        self.assertEqual(editor._get_form_cell("f1040s1", "9")["value"], 285.0)
+        self.assertEqual(editor._get_form_cell("f4952", "4a")["value"], 50.0)
+
+        filed = set(editor._filed_form_ids())
+        self.assertIn("f1040sf", filed)
+        self.assertIn("f8814", filed)
+
     def test_flat_return_roundtrip_preserves_block_entries(self) -> None:
         editor = TaxSheetEditor()
         editor.load_json(Path("returns/john_jane_doe_sample.json"))

@@ -905,6 +905,8 @@ class TaxSheetEditor(QMainWindow):
                 or bool(self._cell_value("f1040sb", "7a"))
                 or bool(self._cell_value("f1040sb", "8"))
             )
+        if form_id == "f1040sf":
+            return abs(self._cell_amount("f1040sf", "34")) > 0.009 or self._form_has_user_activity(form_id, form_data)
         if form_id == "f1040sc":
             return (
                 abs(self._cell_amount("f1040sc", "31")) > 0.009
@@ -932,6 +934,8 @@ class TaxSheetEditor(QMainWindow):
             return self._cell_amount("f4952", "8") > 0.0 and not bool(self._cell_value("f4952", "filing_exception_met"))
         if form_id == "f1040sh":
             return bool(self._cell_value("f1040sh", "required_to_file_schedule_h")) or self._cell_amount("f1040sh", "schedule2_line9_output") > 0.0
+        if form_id == "f1040sr_schedule_r":
+            return abs(self._cell_amount("f1040sr_schedule_r", "schedule3_6d")) > 0.009 or self._form_has_user_activity(form_id, form_data)
         if form_id == "f1040s1":
             return abs(self._cell_amount("f1040", "8")) > 0.009 or abs(self._cell_amount("f1040", "10")) > 0.009
         if form_id == "f1040s2":
@@ -1009,6 +1013,13 @@ class TaxSheetEditor(QMainWindow):
             return abs(self._cell_amount("f8829", "deduction_to_schedule_c")) > 0.009 or self._form_has_user_activity(form_id, form_data)
         if form_id == "f7206":
             return abs(self._cell_amount("f7206", "schedule1_17_deduction")) > 0.009 or self._form_has_user_activity(form_id, form_data)
+        if form_id == "f8814":
+            return (
+                abs(self._cell_amount("f8814", "schedule1_8g_alaska_dividends")) > 0.009
+                or abs(self._cell_amount("f8814", "schedule1_8z_other_income")) > 0.009
+                or abs(self._cell_amount("f8814", "investment_income_carryin")) > 0.009
+                or self._form_has_user_activity(form_id, form_data)
+            )
         return self._form_has_user_activity(form_id, form_data) or bool(self._used_block_ids(form_data))
 
     def _filed_form_ids(self) -> list[str]:
@@ -1028,6 +1039,8 @@ class TaxSheetEditor(QMainWindow):
         active_form_ids: set[str] = set()
         for form_id, form_data in self._available_forms():
             if self._form_has_user_activity(form_id, form_data):
+                active_form_ids.add(form_id)
+            if self._form_has_meaningful_values(form_data):
                 active_form_ids.add(form_id)
             if self._used_block_ids(form_data):
                 active_form_ids.add(form_id)

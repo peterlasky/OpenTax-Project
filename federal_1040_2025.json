@@ -147,7 +147,10 @@
         "f4562",
         "f6198",
         "f8582",
-        "f8582cr"
+        "f8582cr",
+        "f1040sr_schedule_r",
+        "f1040sf",
+        "f8814"
       ],
       "keep_for_records": [
         "f1040_Lines_5a_and_5b",
@@ -183,7 +186,8 @@
         "f8857",
         "f9000",
         "fss4",
-        "fw4"
+        "fw4",
+        "f1098e"
       ]
     },
     "f1040": {
@@ -6129,23 +6133,25 @@
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
-          "explanation": "Student loan interest paid",
+          "manual_entry": false,
+          "override_possible": true,
+          "explanation": "Student loan interest paid from Form 1098-E in the current scaffold.",
           "description": "Student loan interest paid",
           "order": 1,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1098e.1"
         },
         "2": {
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
-          "explanation": "Deduction \u2192 Schedule 1 line 21",
+          "manual_entry": false,
+          "override_possible": true,
+          "explanation": "Deduction to Schedule 1 line 21 from Form 1098-E in the current scaffold.",
           "description": "Deduction \u2192 Schedule 1 line 21",
           "order": 2,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1098e.2"
         }
       }
     },
@@ -10928,9 +10934,9 @@
           "manual_entry": false,
           "override_possible": true,
           "description": "Gross income from property held for investment",
-          "explanation": "Form 4952 line 4a: 1099-INT box 1 and 1099-DIV box 1a, optional 1099-MISC box 2 royalties when the Federal Information Worksheet flag is on (passive investment royalties only per Pub. 550), plus manual adjustments.",
+          "explanation": "Form 4952 line 4a: 1099-INT box 1 and 1099-DIV box 1a, optional 1099-MISC box 2 royalties when the Federal Information Worksheet flag is on (passive investment royalties only per Pub. 550), Form 8814 carryin amounts, plus manual adjustments.",
           "order": 4,
-          "equation": "obvious_1099_investment_income + (f1040_Federal_Info_Worksheet.include_passive_1099_misc_box_2_in_f4952_line_4a * sum(f1040.1099_misc.*.box_2)) + other_investment_income_adjustments",
+          "equation": "obvious_1099_investment_income + (f1040_Federal_Info_Worksheet.include_passive_1099_misc_box_2_in_f4952_line_4a * sum(f1040.1099_misc.*.box_2)) + other_investment_income_adjustments + f8814.investment_income_carryin",
           "required_rule": "optional"
         },
         "4b": {
@@ -11713,12 +11719,13 @@
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
+          "manual_entry": false,
+          "override_possible": true,
           "description": "Farm income or loss",
-          "explanation": "Schedule 1 line 6. Attach Schedule F when applicable.",
+          "explanation": "Schedule 1 line 6 from Schedule F line 34 in the current scaffold.",
           "order": 7,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1040sf.34"
         },
         "7": {
           "format": "0.00",
@@ -11806,12 +11813,13 @@
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
+          "manual_entry": false,
+          "override_possible": true,
           "description": "Alaska Permanent Fund dividends",
-          "explanation": "Schedule 1 line 8g.",
+          "explanation": "Schedule 1 line 8g using the manual Alaska-dividend helper plus any Form 8814 Alaska Permanent Fund dividend carryout.",
           "order": 15,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1040s1.8g_manual_component + f8814.schedule1_8g_alaska_dividends"
         },
         "8h": {
           "format": "0.00",
@@ -11982,12 +11990,13 @@
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
+          "manual_entry": false,
+          "override_possible": true,
           "description": "Other income",
-          "explanation": "Schedule 1 line 8z.",
+          "explanation": "Schedule 1 line 8z using the manual other-income helper plus any Form 8814 carryout.",
           "order": 31,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1040s1.8z_manual_component + f8814.schedule1_8z_other_income"
         },
         "9": {
           "format": "0.00",
@@ -12341,6 +12350,28 @@
           "description": "Adjustments to income",
           "explanation": "Schedule 1 line 26. Enter on Form 1040 line 10.",
           "order": 62,
+          "required_rule": "optional"
+        },
+        "8g_manual_component": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Manual Alaska Permanent Fund dividend component",
+          "explanation": "Manual portion of Schedule 1 line 8g not coming from Form 8814.",
+          "order": 90,
+          "required_rule": "optional"
+        },
+        "8z_manual_component": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Manual other-income component",
+          "explanation": "Manual portion of Schedule 1 line 8z not coming from Form 8814.",
+          "order": 91,
           "required_rule": "optional"
         }
       }
@@ -13981,12 +14012,13 @@
           "format": "0.00",
           "default": 0,
           "value": 0,
-          "manual_entry": true,
-          "override_possible": false,
+          "manual_entry": false,
+          "override_possible": true,
           "description": "Credit for the elderly or disabled",
-          "explanation": "Schedule 3 line 6d. Attach Schedule R when required.",
+          "explanation": "Schedule 3 line 6d from Schedule R in the current scaffold.",
           "order": 10,
-          "required_rule": "optional"
+          "required_rule": "optional",
+          "equation": "f1040sr_schedule_r.schedule3_6d"
         },
         "6e": {
           "format": "0.00",
@@ -23420,6 +23452,310 @@
           "description": "Notes",
           "explanation": "Attach passive-credit limitation details and source-credit reconciliation.",
           "order": 2,
+          "required_rule": "optional"
+        }
+      }
+    },
+    "f1098e": {
+      "_meta": {
+        "name": "Form 1098-E - Student Loan Interest Statement",
+        "active": true,
+        "rank": 2.55,
+        "filing_requirement": "keep_for_records"
+      },
+      "cells": {
+        "reported_interest_total": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Reported student loan interest total",
+          "explanation": "Helper total from Form 1098-E box 1 amounts entered in the source block.",
+          "order": 1,
+          "required_rule": "optional",
+          "equation": "sum(f1040.1098_e.*.box_1)"
+        },
+        "interest_adjustments": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Student loan interest adjustments",
+          "explanation": "Manual adjustments for student loan interest not already captured by the current source block or limited by special facts.",
+          "order": 2,
+          "required_rule": "optional"
+        },
+        "1": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Student loan interest paid",
+          "explanation": "Student loan interest worksheet line 1 in the current scaffold.",
+          "order": 3,
+          "required_rule": "optional",
+          "equation": "max(0, f1098e.reported_interest_total + f1098e.interest_adjustments)"
+        },
+        "phaseout_reduction": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Phaseout and disallowance reduction",
+          "explanation": "Manual reduction for MAGI phaseout or other student-loan-interest disallowance rules not yet fully modeled.",
+          "order": 4,
+          "required_rule": "optional"
+        },
+        "2": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Deduction to Schedule 1 line 21",
+          "explanation": "Current student loan interest deduction capped at $2,500 before manual phaseout reduction.",
+          "order": 5,
+          "required_rule": "optional",
+          "equation": "max(0, min(2500, f1098e.1) - f1098e.phaseout_reduction)"
+        },
+        "notes": {
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Notes",
+          "explanation": "Attach lender, refinancing, and phaseout assumptions for Form 1098-E support.",
+          "order": 6,
+          "required_rule": "optional"
+        }
+      }
+    },
+    "f1040sr_schedule_r": {
+      "_meta": {
+        "name": "Schedule R (Form 1040) - Credit for the Elderly or the Disabled",
+        "active": true,
+        "rank": 18.395,
+        "filing_requirement": "file_with_return"
+      },
+      "cells": {
+        "taxpayer_qualifying": {
+          "format": "boolean",
+          "default": false,
+          "value": false,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Taxpayer qualifies for Schedule R",
+          "explanation": "True when the taxpayer is age 65 or older on 1/1/2026 or marked as retired on total and permanent disability.",
+          "order": 1,
+          "required_rule": "optional",
+          "equation": "(((f1040_Federal_Info_Worksheet.taxpayer_age_1_1_2026 >= 65) + f1040_Federal_Info_Worksheet.taxpayer_retired_disability) > 0.0)"
+        },
+        "spouse_qualifying": {
+          "format": "boolean",
+          "default": false,
+          "value": false,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Spouse qualifies for Schedule R",
+          "explanation": "True when filing jointly and the spouse is age 65 or older on 1/1/2026 or marked as retired on total and permanent disability.",
+          "order": 2,
+          "required_rule": "optional",
+          "equation": "(f1040.filing_status_married_jointly * (((f1040_Federal_Info_Worksheet.spouse_age_1_1_2026 >= 65) + f1040_Federal_Info_Worksheet.spouse_retired_disability) > 0.0))"
+        },
+        "eligible_person_count": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Eligible person count",
+          "explanation": "Count of taxpayer/spouse Schedule R eligibility in the current scaffold.",
+          "order": 3,
+          "required_rule": "optional",
+          "equation": "f1040sr_schedule_r.taxpayer_qualifying + f1040sr_schedule_r.spouse_qualifying"
+        },
+        "credit_before_limits": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Credit before limits",
+          "explanation": "Manual Schedule R credit amount before final carryout in this first-pass scaffold.",
+          "order": 4,
+          "required_rule": "optional"
+        },
+        "schedule3_6d": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Schedule 3 line 6d carryout",
+          "explanation": "Current carryout from Schedule R to Schedule 3 line 6d. Zero unless at least one qualifying person exists.",
+          "order": 5,
+          "required_rule": "optional",
+          "equation": "f1040sr_schedule_r.credit_before_limits * (f1040sr_schedule_r.eligible_person_count > 0.0)"
+        },
+        "notes": {
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Notes",
+          "explanation": "Attach disability, pension, and nontaxable-benefit assumptions for Schedule R support.",
+          "order": 6,
+          "required_rule": "optional"
+        }
+      }
+    },
+    "f1040sf": {
+      "_meta": {
+        "name": "Schedule F (Form 1040) - Profit or Loss From Farming",
+        "active": true,
+        "rank": 2.85,
+        "filing_requirement": "file_with_return"
+      },
+      "cells": {
+        "crop_insurance_proceeds": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Crop insurance proceeds",
+          "explanation": "Helper total from Form 1099-MISC box 9 amounts that commonly support Schedule F income.",
+          "order": 1,
+          "required_rule": "optional",
+          "equation": "sum(f1040.1099_misc.*.box_9)"
+        },
+        "agricultural_program_payments": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Agricultural program payments",
+          "explanation": "Helper total from Form 1099-G box 7 amounts that commonly support Schedule F income.",
+          "order": 2,
+          "required_rule": "optional",
+          "equation": "sum(f1040.1099_g.*.box_7)"
+        },
+        "other_farm_income_adjustments": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Other farm income adjustments",
+          "explanation": "Manual farm-income amounts not already captured by the current information-return sources.",
+          "order": 3,
+          "required_rule": "optional"
+        },
+        "gross_farm_income_total": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Gross farm income total",
+          "explanation": "Current Schedule F gross-income helper total.",
+          "order": 4,
+          "required_rule": "optional",
+          "equation": "f1040sf.crop_insurance_proceeds + f1040sf.agricultural_program_payments + f1040sf.other_farm_income_adjustments"
+        },
+        "expenses_total": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Farm expenses total",
+          "explanation": "Manual total of deductible farm expenses in the current Schedule F scaffold.",
+          "order": 5,
+          "required_rule": "optional"
+        },
+        "34": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "Net farm profit or loss",
+          "explanation": "Current Schedule F net farm profit or loss carried to Schedule 1 line 6.",
+          "order": 6,
+          "required_rule": "optional",
+          "equation": "f1040sf.gross_farm_income_total - f1040sf.expenses_total"
+        },
+        "notes": {
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Notes",
+          "explanation": "Attach crop, livestock, partnership, and optional-farm-method assumptions for Schedule F support.",
+          "order": 7,
+          "required_rule": "optional"
+        }
+      }
+    },
+    "f8814": {
+      "_meta": {
+        "name": "Form 8814 - Parents' Election To Report Child's Interest and Dividends",
+        "active": true,
+        "rank": 18.43,
+        "filing_requirement": "file_with_return"
+      },
+      "cells": {
+        "schedule1_8g_alaska_dividends": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Alaska Permanent Fund dividends carried to Schedule 1 line 8g",
+          "explanation": "Current Alaska Permanent Fund dividend amount from Form 8814.",
+          "order": 1,
+          "required_rule": "optional"
+        },
+        "schedule1_8z_other_income": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Other income carried to Schedule 1 line 8z",
+          "explanation": "Current other-income carryout from Form 8814 to Schedule 1 line 8z.",
+          "order": 2,
+          "required_rule": "optional"
+        },
+        "investment_income_carryin": {
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Investment income carryin for Form 4952",
+          "explanation": "Manual Form 8814 investment-income amount that belongs in Form 4952 line 4a.",
+          "order": 3,
+          "required_rule": "optional"
+        },
+        "notes": {
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "Notes",
+          "explanation": "Attach child-income, Alaska dividend, and election assumptions for Form 8814 support.",
+          "order": 4,
           "required_rule": "optional"
         }
       }

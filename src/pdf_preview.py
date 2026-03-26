@@ -28,11 +28,13 @@ PAGE_PATTERN = re.compile(r"\.Page(\d+)\[")
 class FormPdfPreviewEngine:
     def __init__(self, project_root: Path) -> None:
         self.project_root = project_root
+        self.field_map_dir = self.project_root / "reference-data" / "federal" / "2025" / "pdf_field_maps"
         self.mapping_dir = self.project_root / "reference-data" / "federal" / "2025" / "pdf_mappings"
         self.preview_dir = Path(tempfile.gettempdir()) / "opentax-pdf-preview"
         self.preview_dir.mkdir(parents=True, exist_ok=True)
         self._mapping_cache: dict[str, dict[str, Any]] = {}
         self._mapping_mtime_ns: dict[str, int] = {}
+        self._mapping_path_text: dict[str, str] = {}
         self._render_serial = 0
 
     def available(self) -> bool:
@@ -58,13 +60,15 @@ class FormPdfPreviewEngine:
 
         widget_lookup = self._build_widget_lookup(reader)
 
+        field_mappings, overlay_mappings = self._render_mappings_from_mapping(mapping)
+
         overlay_items_by_page = self._collect_field_text_overlays(
-            mapping.get("field_mappings", []),
+            field_mappings,
             widget_lookup,
             resolve_source,
         )
         extra_overlay_items_by_page = self._collect_overlay_items(
-            mapping.get("overlay_mappings", []),
+            overlay_mappings,
             widget_lookup,
             resolve_source,
         )
@@ -92,11 +96,27 @@ class FormPdfPreviewEngine:
             writer.write(handle)
         return output_path
 
+    def field_map_path_for_form(self, form_id: str) -> Path:
+        return self.field_map_dir / f"{form_id}.json"
+
     def mapping_path_for_form(self, form_id: str) -> Path:
+        field_map_path = self.field_map_path_for_form(form_id)
+        if field_map_path.is_file():
+            return field_map_path
         return self.mapping_dir / f"{form_id}.json"
 
     def has_mapping_for_form(self, form_id: str) -> bool:
-        return self.mapping_path_for_form(form_id).is_file()
+        return self.field_map_path_for_form(form_id).is_file() or self.mapping_path_for_form(form_id).is_file()
+
+    def has_render_mappings_for_form(self, form_id: str) -> bool:
+        if not self.has_mapping_for_form(form_id):
+            return False
+        try:
+            mapping = self._load_mapping(form_id)
+        except Exception:
+            return False
+        field_mappings, overlay_mappings = self._render_mappings_from_mapping(mapping)
+        return bool(field_mappings or overlay_mappings)
 
     def source_pdf_for_form(self, form_id: str) -> Path | None:
         if not self.has_mapping_for_form(form_id):
@@ -109,13 +129,43 @@ class FormPdfPreviewEngine:
 
     def _load_mapping(self, form_id: str) -> dict[str, Any]:
         mapping_path = self.mapping_path_for_form(form_id)
+        mapping_path_text = str(mapping_path)
         current_mtime_ns = mapping_path.stat().st_mtime_ns
         cached = self._mapping_cache.get(form_id)
-        if cached is None or self._mapping_mtime_ns.get(form_id) != current_mtime_ns:
+        if (
+            cached is None
+            or self._mapping_mtime_ns.get(form_id) != current_mtime_ns
+            or self._mapping_path_text.get(form_id) != mapping_path_text
+        ):
             cached = json.loads(mapping_path.read_text(encoding="utf-8"))
             self._mapping_cache[form_id] = cached
             self._mapping_mtime_ns[form_id] = current_mtime_ns
+            self._mapping_path_text[form_id] = mapping_path_text
         return cached
+
+    def _render_mappings_from_mapping(
+        self,
+        mapping: dict[str, Any],
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        widgets = mapping.get("widgets")
+        if isinstance(widgets, list):
+            field_mappings: list[dict[str, Any]] = []
+            overlay_mappings: list[dict[str, Any]] = []
+            for raw_item in widgets:
+                if not isinstance(raw_item, dict):
+                    continue
+                source = raw_item.get("source")
+                render_mode = raw_item.get("render_mode")
+                if not isinstance(source, str) or not source.strip() or not isinstance(render_mode, str):
+                    continue
+                item = dict(raw_item)
+                if render_mode in {"field_text", "text"}:
+                    field_mappings.append(item)
+                elif render_mode == "checkbox":
+                    item.setdefault("kind", "checkbox")
+                    overlay_mappings.append(item)
+            return field_mappings, overlay_mappings
+        return list(mapping.get("field_mappings", [])), list(mapping.get("overlay_mappings", []))
 
     def _collect_field_updates(
         self,

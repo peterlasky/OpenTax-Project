@@ -1,0 +1,389 @@
+{
+  "form_id": "f1040sr",
+  "source_pdf": "forms-instructions-and-publications/forms/f1040sr.pdf",
+  "pdf_field_count": 27,
+  "fillable_form": true,
+  "widget_count": 27,
+  "mapped_widget_count": 0,
+  "renderable_widget_count": 0,
+  "widgets": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_1[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        671.966,
+        460.05,
+        685.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_2[0]",
+      "page": 1,
+      "rect": [
+        460.8,
+        671.966,
+        576.0,
+        685.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        550.4,
+        553.97,
+        558.4,
+        561.97
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[1]",
+      "page": 1,
+      "rect": [
+        550.4,
+        529.969,
+        558.4,
+        537.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Married[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        550.4,
+        493.969,
+        558.4,
+        501.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Married[0].c1_1[1]",
+      "page": 1,
+      "rect": [
+        550.4,
+        457.969,
+        558.4,
+        465.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Married[0].c1_1[2]",
+      "page": 1,
+      "rect": [
+        550.4,
+        421.969,
+        558.4,
+        429.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Married[0].c1_1[3]",
+      "page": 1,
+      "rect": [
+        550.4,
+        385.969,
+        558.4,
+        393.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Married[0].c1_1[4]",
+      "page": 1,
+      "rect": [
+        550.4,
+        349.969,
+        558.4,
+        357.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].MarriedSeparate[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        550.4,
+        313.969,
+        558.4,
+        321.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].MarriedSeparate[0].c1_1[1]",
+      "page": 1,
+      "rect": [
+        550.4,
+        277.969,
+        558.4,
+        285.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_2[0]",
+      "page": 1,
+      "rect": [
+        550.4,
+        133.969,
+        558.4,
+        141.969
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_1[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        695.97,
+        576.0,
+        707.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_2[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        575.968,
+        576.0,
+        587.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_3[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        491.969,
+        576.0,
+        503.968
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_4[0]",
+      "page": 2,
+      "rect": [
+        410.4,
+        443.97,
+        481.65,
+        455.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_5[0]",
+      "page": 2,
+      "rect": [
+        410.4,
+        407.97,
+        481.65,
+        419.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_6[0]",
+      "page": 2,
+      "rect": [
+        410.4,
+        359.968,
+        481.65,
+        371.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_7[0]",
+      "page": 2,
+      "rect": [
+        316.8,
+        335.97,
+        388.05,
+        347.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_8[0]",
+      "page": 2,
+      "rect": [
+        316.8,
+        299.97,
+        388.05,
+        311.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_9[0]",
+      "page": 2,
+      "rect": [
+        316.8,
+        263.97,
+        388.05,
+        275.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_10[0]",
+      "page": 2,
+      "rect": [
+        410.4,
+        251.968,
+        481.65,
+        263.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_11[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        239.969,
+        576.0,
+        251.968
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_12[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        215.968,
+        576.0,
+        227.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_13[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        203.969,
+        576.0,
+        215.968
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_14[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        191.97,
+        576.0,
+        203.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page2[0].f2_15[0]",
+      "page": 2,
+      "rect": [
+        504.0,
+        167.969,
+        576.0,
+        179.968
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    }
+  ]
+}

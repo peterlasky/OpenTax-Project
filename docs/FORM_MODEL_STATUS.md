@@ -12,8 +12,8 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 ## Current counts
 
 - `modeled`: `13`
-- `scaffolded`: `86`
-- `missing`: `13`
+- `scaffolded`: `99`
+- `missing`: `0`
 - `out_of_scope`: `0`
 
 ## Master inventory
@@ -21,7 +21,7 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | Manifest form or schedule | Expected form ID | Status | Current modeled name / note |
 | --- | --- | --- | --- |
 | `1040` | `f1040` | `modeled` | `Form 1040` |
-| `1040-SR` | `f1040sr` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1040-SR` | `f1040sr` | `scaffolded` | `Form 1040-SR - U.S. Tax Return for Seniors` |
 | `1040 Schedule 1` | `f1040s1` | `modeled` | `Schedule 1 (Form 1040) - Additional Income and Adjustments to Income` |
 | `1040 Schedule 1-A` | `f1040s1a` | `modeled` | `Schedule 1-A (Form 1040) - Additional Deductions` |
 | `1040 Schedule 2` | `f1040s2` | `modeled` | `Schedule 2 (Form 1040) - Additional Taxes` |
@@ -34,12 +34,12 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | `1040 Schedule EIC` | `f1040sei` | `modeled` | `Schedule EIC (Form 1040) - Earned Income Credit` |
 | `1040 Schedule F` | `f1040sf` | `scaffolded` | `Schedule F (Form 1040) - Profit or Loss From Farming` |
 | `1040 Schedule H` | `f1040sh` | `scaffolded` | `Schedule H (Form 1040) - Household Employment Taxes` |
-| `1040 Schedule J` | `f1040sj` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1040 Schedule J` | `f1040sj` | `scaffolded` | `Schedule J (Form 1040) - Income Averaging for Farmers and Fishermen` |
 | `1040 Schedule R` | `f1040sr_schedule_r` | `scaffolded` | `Schedule R (Form 1040) - Credit for the Elderly or the Disabled` |
 | `1040 Schedule SE` | `f1040sse` | `scaffolded` | `Schedule SE (Form 1040) - Self-Employment Tax` |
-| `1040-ES` | `f1040es` | `missing` | Manifest-listed, but no top-level modeled form yet |
-| `1040-V` | `f1040v` | `missing` | Manifest-listed, but no top-level modeled form yet |
-| `1040-X` | `f1040x` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `1040-ES` | `f1040es` | `scaffolded` | `Form 1040-ES - Estimated Tax for Individuals` |
+| `1040-V` | `f1040v` | `scaffolded` | `Form 1040-V - Payment Voucher` |
+| `1040-X` | `f1040x` | `scaffolded` | `Form 1040-X - Amended U.S. Individual Income Tax Return` |
 | `1098-E` | `f1098e` | `scaffolded` | `Form 1098-E - Student Loan Interest Statement` |
 | `1116` | `f1116` | `scaffolded` | `Form 1116 - Foreign Tax Credit` |
 | `1116 Schedule B` | `f1116sb` | `modeled` | `Schedule B (Form 1116) - Foreign Tax Carryover Reconciliation` |
@@ -54,29 +54,29 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | `4562` | `f4562` | `scaffolded` | `Form 4562 - Depreciation and Amortization` |
 | `4684` | `f4684` | `scaffolded` | `Form 4684 - Casualties and Thefts` |
 | `4797` | `f4797` | `scaffolded` | `Form 4797 - Sales of Business Property` |
-| `4835` | `f4835` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `4835` | `f4835` | `scaffolded` | `Form 4835 - Farm Rental Income and Expenses` |
 | `4952` | `f4952` | `scaffolded` | `Form 4952 - Investment Interest Expense Deduction` |
 | `5329` | `f5329` | `scaffolded` | `Form 5329 - Additional Taxes on Qualified Plans and Other Tax-Favored Accounts` |
-| `5405` | `f5405` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `5405` | `f5405` | `scaffolded` | `Form 5405 - Repayment of the First-Time Homebuyer Credit` |
 | `5695` | `f5695` | `scaffolded` | `Form 5695 - Residential Energy Credits` |
 | `6198` | `f6198` | `scaffolded` | `Form 6198 - At-Risk Limitations` |
 | `6251` | `f6251` | `scaffolded` | `Form 6251 - Alternative Minimum Tax for Individuals` |
 | `6252` | `f6252` | `scaffolded` | `Form 6252 - Installment Sale Income` |
 | `6781` | `f6781` | `scaffolded` | `Form 6781 - Gains and Losses From Section 1256 Contracts and Straddles` |
-| `7203` | `f7203` | `missing` | Manifest-listed, but no top-level modeled form yet |
-| `8283` | `f8283` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `7203` | `f7203` | `scaffolded` | `Form 7203 - S Corporation Shareholder Stock and Debt Basis Limitations` |
+| `8283` | `f8283` | `scaffolded` | `Form 8283 - Noncash Charitable Contributions` |
 | `8396` | `f8396` | `scaffolded` | `Form 8396 - Mortgage Interest Credit` |
 | `8582` | `f8582` | `scaffolded` | `Form 8582 - Passive Activity Loss Limitations` |
 | `8582-CR` | `f8582cr` | `scaffolded` | `Form 8582-CR - Passive Activity Credit Limitations` |
 | `8606` | `f8606` | `scaffolded` | `Form 8606 - Nondeductible IRAs` |
-| `8615` | `f8615` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `8615` | `f8615` | `scaffolded` | `Form 8615 - Tax for Certain Children Who Have Unearned Income` |
 | `8812` | `f8812` | `scaffolded` | `Schedule 8812 (Form 1040) - Credits for Qualifying Children and Other Dependents` |
 | `2025 Schedule 8812 (Form 1040)` | `f8812` | `scaffolded` | `Schedule 8812 (Form 1040) - Credits for Qualifying Children and Other Dependents` |
 | `8814` | `f8814` | `scaffolded` | `Form 8814 - Parents' Election To Report Child's Interest and Dividends` |
-| `8862` | `f8862` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `8862` | `f8862` | `scaffolded` | `Form 8862 - Information To Claim Certain Credits After Disallowance` |
 | `8863` | `f8863` | `scaffolded` | `Form 8863 - Education Credits` |
 | `8880` | `f8880` | `scaffolded` | `Form 8880 - Credit for Qualified Retirement Savings Contributions` |
-| `8888` | `f8888` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `8888` | `f8888` | `scaffolded` | `Form 8888 - Allocation of Refund` |
 | `8889` | `f8889` | `scaffolded` | `Form 8889 - Health Savings Accounts` |
 | `8949` | `f8949` | `modeled` | `Form 8949 - Sales and Other Dispositions of Capital Assets` |
 | `8959` | `f8959` | `scaffolded` | `Form 8959 - Additional Medicare Tax` |
@@ -84,7 +84,7 @@ This file is the permanent manifest-to-model checklist for every YAML-listed for
 | `8962` | `f8962` | `scaffolded` | `Form 8962 - Premium Tax Credit` |
 | `8995` | `f8995` | `scaffolded` | `Form 8995 - Qualified Business Income Deduction Simplified Computation` |
 | `8995-A` | `f8995a` | `scaffolded` | `Form 8995-A - Qualified Business Income Deduction` |
-| `9465` | `f9465` | `missing` | Manifest-listed, but no top-level modeled form yet |
+| `9465` | `f9465` | `scaffolded` | `Form 9465 - Installment Agreement Request` |
 | `1310` | `f1310` | `scaffolded` | `Form 1310 - Statement of Person Claiming Refund Due a Deceased Taxpayer` |
 | `14039` | `f14039` | `scaffolded` | `Form 14039 - Identity Theft Affidavit` |
 | `14039-B` | `f14039b` | `scaffolded` | `Form 14039-B - Business Identity Theft Affidavit` |

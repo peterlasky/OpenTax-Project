@@ -1,0 +1,186 @@
+{
+  "generated_templates": [
+    {
+      "form_id": "f1040",
+      "block_id": "w2",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__w2_template.pdf",
+      "pdf_field_count": 26,
+      "mapping_id": "block__f1040__w2"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "w2pr_499r2",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__w2pr_499r2_template.pdf",
+      "pdf_field_count": 8,
+      "mapping_id": "block__f1040__w2pr_499r2"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "rrta_w2",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__rrta_w2_template.pdf",
+      "pdf_field_count": 10,
+      "mapping_id": "block__f1040__rrta_w2"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_int",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_int_template.pdf",
+      "pdf_field_count": 13,
+      "mapping_id": "block__f1040__1099_int"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_div",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_div_template.pdf",
+      "pdf_field_count": 15,
+      "mapping_id": "block__f1040__1099_div"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "2439",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__2439_template.pdf",
+      "pdf_field_count": 11,
+      "mapping_id": "block__f1040__2439"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_b",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_b_template.pdf",
+      "pdf_field_count": 16,
+      "mapping_id": "block__f1040__1099_b"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_s",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_s_template.pdf",
+      "pdf_field_count": 9,
+      "mapping_id": "block__f1040__1099_s"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_r",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_r_template.pdf",
+      "pdf_field_count": 19,
+      "mapping_id": "block__f1040__1099_r"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_g",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_g_template.pdf",
+      "pdf_field_count": 13,
+      "mapping_id": "block__f1040__1099_g"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_nec",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_nec_template.pdf",
+      "pdf_field_count": 10,
+      "mapping_id": "block__f1040__1099_nec"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_misc",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_misc_template.pdf",
+      "pdf_field_count": 12,
+      "mapping_id": "block__f1040__1099_misc"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_k",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_k_template.pdf",
+      "pdf_field_count": 11,
+      "mapping_id": "block__f1040__1099_k"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1098",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1098_template.pdf",
+      "pdf_field_count": 11,
+      "mapping_id": "block__f1040__1098"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1098_e",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1098_e_template.pdf",
+      "pdf_field_count": 8,
+      "mapping_id": "block__f1040__1098_e"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1098_t",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1098_t_template.pdf",
+      "pdf_field_count": 18,
+      "mapping_id": "block__f1040__1098_t"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1095_a",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1095_a_template.pdf",
+      "pdf_field_count": 16,
+      "mapping_id": "block__f1040__1095_a"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "w2g",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__w2g_template.pdf",
+      "pdf_field_count": 10,
+      "mapping_id": "block__f1040__w2g"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1098_c",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1098_c_template.pdf",
+      "pdf_field_count": 12,
+      "mapping_id": "block__f1040__1098_c"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_a",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_a_template.pdf",
+      "pdf_field_count": 11,
+      "mapping_id": "block__f1040__1099_a"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "1099_oid",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__1099_oid_template.pdf",
+      "pdf_field_count": 11,
+      "mapping_id": "block__f1040__1099_oid"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "k1_1041",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__k1_1041_template.pdf",
+      "pdf_field_count": 25,
+      "mapping_id": "block__f1040__k1_1041"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "k1_1065",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__k1_1065_template.pdf",
+      "pdf_field_count": 25,
+      "mapping_id": "block__f1040__k1_1065"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "k1_1120s",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__k1_1120s_template.pdf",
+      "pdf_field_count": 25,
+      "mapping_id": "block__f1040__k1_1120s"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "k3_1065",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__k3_1065_template.pdf",
+      "pdf_field_count": 25,
+      "mapping_id": "block__f1040__k3_1065"
+    },
+    {
+      "form_id": "f1040",
+      "block_id": "k3_1120s",
+      "pdf_source_path": "forms-instructions-and-publications/generated-information-returns/f1040__k3_1120s_template.pdf",
+      "pdf_field_count": 25,
+      "mapping_id": "block__f1040__k3_1120s"
+    }
+  ]
+}

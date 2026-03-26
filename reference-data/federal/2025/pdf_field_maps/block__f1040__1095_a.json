@@ -1,0 +1,289 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-information-returns/f1040__1095_a_template.pdf",
+  "widgets": [
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_name",
+      "source": "recipient_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        666.0,
+        562.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_ssn",
+      "source": "recipient_ssn",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        198.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_address_line",
+      "source": "recipient_address_line",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        632.0,
+        562.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_city_state_zip",
+      "source": "recipient_city_state_zip",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        198.0,
+        616.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        508.0,
+        198.0,
+        526.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.marketplace_name",
+      "source": "entry.marketplace_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        472.0,
+        570.0,
+        490.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.policy_number",
+      "source": "entry.policy_number",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        436.0,
+        570.0,
+        454.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.covered_person_count",
+      "source": "entry.covered_person_count",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        400.0,
+        138.0,
+        418.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.annual_enrollment_premiums",
+      "source": "entry.annual_enrollment_premiums",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        364.0,
+        138.0,
+        382.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.annual_slcsp",
+      "source": "entry.annual_slcsp",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        328.0,
+        138.0,
+        346.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.annual_advance_ptc",
+      "source": "entry.annual_advance_ptc",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        292.0,
+        138.0,
+        310.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.covers_non_tax_family_member",
+      "source": "entry.covers_non_tax_family_member",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        256.0,
+        53.0,
+        267.0
+      ]
+    },
+    {
+      "field": "entry.multiple_tax_family_allocation",
+      "source": "entry.multiple_tax_family_allocation",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        222.0,
+        53.0,
+        233.0
+      ]
+    },
+    {
+      "field": "entry.married_during_year_alternative_calculation",
+      "source": "entry.married_during_year_alternative_calculation",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        188.0,
+        53.0,
+        199.0
+      ]
+    },
+    {
+      "field": "entry.employer_coverage_affordable",
+      "source": "entry.employer_coverage_affordable",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        154.0,
+        53.0,
+        165.0
+      ]
+    },
+    {
+      "field": "entry.qsehra_affordable",
+      "source": "entry.qsehra_affordable",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        120.0,
+        53.0,
+        131.0
+      ]
+    }
+  ]
+}

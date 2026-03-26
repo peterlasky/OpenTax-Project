@@ -1,0 +1,462 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-information-returns/f1040__w2_template.pdf",
+  "widgets": [
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_name",
+      "source": "recipient_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        666.0,
+        562.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_ssn",
+      "source": "recipient_ssn",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        198.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_address_line",
+      "source": "recipient_address_line",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        632.0,
+        562.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_city_state_zip",
+      "source": "recipient_city_state_zip",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        198.0,
+        616.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        508.0,
+        198.0,
+        526.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.employer_name",
+      "source": "entry.employer_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        472.0,
+        570.0,
+        490.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.employer_ein",
+      "source": "entry.employer_ein",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        436.0,
+        198.0,
+        454.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.box_1",
+      "source": "entry.box_1",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        400.0,
+        138.0,
+        418.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_2",
+      "source": "entry.box_2",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        364.0,
+        138.0,
+        382.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_3",
+      "source": "entry.box_3",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        328.0,
+        138.0,
+        346.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_4",
+      "source": "entry.box_4",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        292.0,
+        138.0,
+        310.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_5",
+      "source": "entry.box_5",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        256.0,
+        138.0,
+        274.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_6",
+      "source": "entry.box_6",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        220.0,
+        138.0,
+        238.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_7",
+      "source": "entry.box_7",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        184.0,
+        138.0,
+        202.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_8",
+      "source": "entry.box_8",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        148.0,
+        138.0,
+        166.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_10",
+      "source": "entry.box_10",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        112.0,
+        138.0,
+        130.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_12.0.code",
+      "source": "entry.box_12.0.code",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.box_12.0.amount",
+      "source": "entry.box_12.0.amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        138.0,
+        648.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_12.1.code",
+      "source": "entry.box_12.1.code",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        594.0,
+        198.0,
+        612.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.box_12.1.amount",
+      "source": "entry.box_12.1.amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        558.0,
+        138.0,
+        576.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_12.2.code",
+      "source": "entry.box_12.2.code",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        522.0,
+        198.0,
+        540.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.box_12.2.amount",
+      "source": "entry.box_12.2.amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        486.0,
+        138.0,
+        504.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_12.3.code",
+      "source": "entry.box_12.3.code",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        450.0,
+        198.0,
+        468.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.box_12.3.amount",
+      "source": "entry.box_12.3.amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        414.0,
+        138.0,
+        432.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.box_13_retirement_plan",
+      "source": "entry.box_13_retirement_plan",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        378.0,
+        53.0,
+        389.0
+      ]
+    },
+    {
+      "field": "entry.box_13_statutory_employee",
+      "source": "entry.box_13_statutory_employee",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        344.0,
+        53.0,
+        355.0
+      ]
+    }
+  ]
+}

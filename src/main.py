@@ -401,6 +401,9 @@ class TaxSheetEditor(QMainWindow):
     def _info_return_pdf_dir(self) -> Path:
         return self._project_root() / "forms-instructions-and-publications" / "information-returns"
 
+    def _generated_info_return_pdf_dir(self) -> Path:
+        return self._project_root() / "forms-instructions-and-publications" / "generated-information-returns"
+
     def _current_preview_sheet(self) -> tuple[str, str, str | None] | None:
         sheet_id = self._current_visible_sheet_id()
         if not sheet_id:
@@ -433,8 +436,44 @@ class TaxSheetEditor(QMainWindow):
             return None
         return self.pdf_preview_engine.source_pdf_for_form(form_id)
 
+    def _form_pdf_source_path_from_meta(self, form_id: str) -> Path | None:
+        form_data = self._current_jurisdiction().get(form_id) or {}
+        meta = form_data.get("_meta") or {}
+        source_path = meta.get("pdf_source_path")
+        if not isinstance(source_path, str):
+            return None
+        normalized = source_path.strip()
+        if not normalized:
+            return None
+        candidate = self._project_root() / normalized
+        return candidate if candidate.is_file() else None
+
+    def _form_is_fillable_form(self, form_id: str) -> bool:
+        form_data = self._current_jurisdiction().get(form_id) or {}
+        meta = form_data.get("_meta") or {}
+        return bool(meta.get("fillable_form"))
+
     def _local_form_pdf_path(self, form_id: str) -> Path | None:
         candidate = self._forms_pdf_dir() / f"{form_id}.pdf"
+        return candidate if candidate.is_file() else None
+
+    def _form_preview_source_path(self, form_id: str) -> Path | None:
+        metadata_source = self._form_pdf_source_path_from_meta(form_id)
+        if metadata_source is not None:
+            return metadata_source
+        mapped_source = self._mapped_preview_source_path(form_id)
+        if mapped_source and mapped_source.is_file():
+            return mapped_source
+        return self._local_form_pdf_path(form_id)
+
+    def _block_pdf_source_path_from_meta(self, block: dict[str, Any]) -> Path | None:
+        source_path = block.get("pdf_source_path")
+        if not isinstance(source_path, str):
+            return None
+        normalized = source_path.strip()
+        if not normalized:
+            return None
+        candidate = self._project_root() / normalized
         return candidate if candidate.is_file() else None
 
     def _block_pdf_name_candidates(self, block_id: str, block: dict[str, Any]) -> list[str]:
@@ -478,7 +517,10 @@ class TaxSheetEditor(QMainWindow):
         return candidates
 
     def _block_preview_source_path_for_block(self, block_id: str, block: dict[str, Any]) -> Path | None:
-        search_dirs = (self._info_return_pdf_dir(), self._forms_pdf_dir())
+        metadata_source = self._block_pdf_source_path_from_meta(block)
+        if metadata_source is not None:
+            return metadata_source
+        search_dirs = (self._generated_info_return_pdf_dir(), self._forms_pdf_dir())
         for filename in self._block_pdf_name_candidates(block_id, block):
             for directory in search_dirs:
                 candidate = directory / filename
@@ -587,10 +629,7 @@ class TaxSheetEditor(QMainWindow):
 
     def _raw_preview_source_path(self, sheet_type: str, primary_id: str, secondary_id: str | None) -> Path | None:
         if sheet_type == "form":
-            mapped_source = self._mapped_preview_source_path(primary_id)
-            if mapped_source and mapped_source.is_file():
-                return mapped_source
-            return self._local_form_pdf_path(primary_id)
+            return self._form_preview_source_path(primary_id)
         if sheet_type == "block" and secondary_id:
             return self._block_preview_source_path(primary_id, secondary_id)
         return None
@@ -634,7 +673,7 @@ class TaxSheetEditor(QMainWindow):
                 self._show_pdf_placeholder(f"No local PDF is available yet for {sheet_label}.")
             return
 
-        if not self.pdf_preview_engine.has_mapping_for_form(preview_form_id):
+        if not self.pdf_preview_engine.has_render_mappings_for_form(preview_form_id):
             if raw_pdf and raw_pdf.is_file():
                 self._load_pdf_into_view(raw_pdf, f"Raw {sheet_label} preview")
             else:
@@ -840,9 +879,92 @@ class TaxSheetEditor(QMainWindow):
                 used_block_ids.append(block_id)
         return used_block_ids
 
-    def _form_filing_requirement(self, form_data: dict[str, Any]) -> str:
+    def _form_filing_sequence(self, form_data: dict[str, Any]) -> str | None:
         meta = form_data.get("_meta") or {}
-        return str(meta.get("filing_requirement", "")).strip()
+        sequence = meta.get("filing_sequence")
+        if sequence is None:
+            legacy_requirement = str(meta.get("filing_requirement", "")).strip()
+            return "__legacy_filed__" if legacy_requirement == "file_with_return" else None
+        text = str(sequence).strip()
+        if not text or text.lower() in {"none", "null"}:
+            return None
+        return text
+
+    def _coerce_rule_result_to_bool(self, value: Any) -> bool:
+        if value is None:
+            return False
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, (int, float)):
+            if not math.isfinite(float(value)):
+                return False
+            return float(value) != 0.0
+        if isinstance(value, str):
+            normalized = value.strip().lower()
+            return normalized not in {"", "0", "false", "none", "null"}
+        return bool(value)
+
+    def _evaluate_activation_rule(self, form_id: str, rule: Any) -> bool | None:
+        if not isinstance(rule, str):
+            return None
+        expr = rule.strip()
+        if not expr:
+            return None
+        result = self._evaluate_equation(form_id, expr, set())
+        if result is None:
+            return None
+        return self._coerce_rule_result_to_bool(result)
+
+    def _form_activation_rule_result(self, form_id: str, form_data: dict[str, Any]) -> bool | None:
+        meta = form_data.get("_meta") or {}
+        return self._evaluate_activation_rule(form_id, meta.get("activation_rule"))
+
+    def _form_is_activated_now(self, form_id: str, form_data: dict[str, Any]) -> bool:
+        result = self._form_activation_rule_result(form_id, form_data)
+        if result is not None:
+            return result
+        return False
+
+    def _block_activation_rule_result(self, parent_form_id: str, block: dict[str, Any]) -> bool | None:
+        return self._evaluate_activation_rule(parent_form_id, block.get("activation_rule"))
+
+    def _block_is_activated_now(self, parent_form_id: str, block: dict[str, Any]) -> bool:
+        result = self._block_activation_rule_result(parent_form_id, block)
+        if result is not None:
+            return result
+        return False
+
+    def _visible_block_ids(self, parent_form_id: str, form_data: dict[str, Any]) -> list[str]:
+        visible_block_ids = list(self._used_block_ids(form_data))
+        blocks = form_data.get("blocks") or {}
+        for block_id, block in blocks.items():
+            if not isinstance(block, dict):
+                continue
+            if block_id in visible_block_ids:
+                continue
+            if self._block_is_activated_now(parent_form_id, block):
+                visible_block_ids.append(block_id)
+        return visible_block_ids
+
+    def _ensure_activated_block_entries(self) -> None:
+        for form_id, form_data in self._available_forms():
+            blocks = form_data.get("blocks") or {}
+            for block_id, block in blocks.items():
+                if not isinstance(block, dict):
+                    continue
+                if not self._block_is_activated_now(form_id, block):
+                    continue
+                try:
+                    minimum_entries = int(block.get("activated_min_entries", 0) or 0)
+                except (TypeError, ValueError):
+                    minimum_entries = 0
+                if minimum_entries <= 0:
+                    continue
+                entries = block.setdefault("entries", [])
+                if not isinstance(entries, list):
+                    continue
+                while len([entry for entry in entries if isinstance(entry, dict)]) < minimum_entries:
+                    entries.append(self._new_block_entry(block))
 
     def _cell_has_meaningful_value(self, cell: dict[str, Any]) -> bool:
         value = cell.get("value")
@@ -883,6 +1005,27 @@ class TaxSheetEditor(QMainWindow):
             return 0.0
         return number
 
+    def _f8615_age_support_test_met(self) -> bool:
+        age = self._cell_amount("f8615", "taxpayer_age_end_of_2025")
+        earned_income_more_than_half_support = bool(self._cell_value("f8615", "earned_income_more_than_half_support"))
+        full_time_student = bool(self._cell_value("f8615", "taxpayer_full_time_student"))
+        if age < 18:
+            return True
+        if age == 18:
+            return not earned_income_more_than_half_support
+        if 18 < age < 24:
+            return full_time_student and not earned_income_more_than_half_support
+        return False
+
+    def _f8615_required_to_file(self) -> bool:
+        return (
+            bool(self._cell_value("f8615", "child_required_to_file_return"))
+            and self._cell_amount("f8615", "1") > 2700.0
+            and bool(self._cell_value("f8615", "parent_alive_at_year_end"))
+            and not bool(self._cell_value("f8615", "child_files_joint_return"))
+            and self._f8615_age_support_test_met()
+        )
+
     def _block_has_entries(self, parent_form_id: str, block_id: str) -> bool:
         form_data = self._current_jurisdiction().get(parent_form_id) or {}
         block = (form_data.get("blocks") or {}).get(block_id) or {}
@@ -890,65 +1033,13 @@ class TaxSheetEditor(QMainWindow):
         return any(isinstance(entry, dict) for entry in entries)
 
     def _should_file_form_now(self, form_id: str, form_data: dict[str, Any]) -> bool:
-        if self._form_filing_requirement(form_data) != "file_with_return":
-            return False
         if form_id == "f1040":
             return True
-        if form_id == "f1040sa":
-            itemized = self._cell_amount("f1040sa", "itemized")
-            line_12e = self._cell_amount("f1040", "12e")
-            return itemized > 0.0 and abs(itemized - line_12e) < 0.01
-        if form_id == "f1040sb":
-            return (
-                self._cell_amount("f1040sb", "3") > 1500.0
-                or self._cell_amount("f1040sb", "6") > 1500.0
-                or bool(self._cell_value("f1040sb", "7a"))
-                or bool(self._cell_value("f1040sb", "8"))
-            )
-        if form_id == "f1040sf":
-            return abs(self._cell_amount("f1040sf", "34")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f1040sc":
-            return (
-                abs(self._cell_amount("f1040sc", "31")) > 0.009
-                or abs(self._cell_amount("f1040sc", "1")) > 0.009
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f1040sd":
-            return (
-                self._block_has_entries("f1040", "1099_b")
-                or self._block_has_entries("f1040", "1099_da")
-                or self._block_has_entries("f1040", "1099_s")
-                or (abs(self._cell_amount("f1040", "7a")) > 0.009 and not bool(self._cell_value("f1040", "7b")))
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f1040se":
-            return abs(self._cell_amount("f1040se", "41")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f8949":
-            return (
-                self._block_has_entries("f1040", "1099_b")
-                or self._block_has_entries("f1040", "1099_da")
-                or self._block_has_entries("f1040", "1099_s")
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f4952":
-            return self._cell_amount("f4952", "8") > 0.0 and not bool(self._cell_value("f4952", "filing_exception_met"))
-        if form_id == "f1040sh":
-            return bool(self._cell_value("f1040sh", "required_to_file_schedule_h")) or self._cell_amount("f1040sh", "schedule2_line9_output") > 0.0
-        if form_id == "f1040sr_schedule_r":
-            return abs(self._cell_amount("f1040sr_schedule_r", "schedule3_6d")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f1040s1":
-            return abs(self._cell_amount("f1040", "8")) > 0.009 or abs(self._cell_amount("f1040", "10")) > 0.009
-        if form_id == "f1040s2":
-            return abs(self._cell_amount("f1040", "17")) > 0.009 or abs(self._cell_amount("f1040", "23")) > 0.009
-        if form_id == "f1040s3":
-            return abs(self._cell_amount("f1040", "20")) > 0.009 or abs(self._cell_amount("f1040", "31")) > 0.009
-        if form_id == "f8812":
-            return (
-                self._cell_amount("f8812", "14") > 0.0
-                or self._cell_amount("f8812", "27") > 0.0
-                or self._cell_amount("f8812", "4") > 0.0
-                or self._cell_amount("f8812", "6") > 0.0
-            )
+        if self._form_filing_sequence(form_data) is None:
+            return False
+        activation_rule_result = self._form_activation_rule_result(form_id, form_data)
+        if activation_rule_result is not None:
+            return activation_rule_result
         if form_id == "f1116":
             direct_election_total = self._cell_amount("f1116", "direct_election_total_foreign_tax")
             direct_election_threshold = self._cell_amount("f1116", "direct_election_threshold")
@@ -978,48 +1069,6 @@ class TaxSheetEditor(QMainWindow):
                 self._form_has_user_activity(form_id, form_data)
                 or self._form_has_meaningful_values(form_data)
             )
-        if form_id == "f2210":
-            return (
-                self._cell_amount("f2210", "19") > 0.0
-                or bool(self._cell_value("f2210", "A"))
-                or bool(self._cell_value("f2210", "B"))
-                or bool(self._cell_value("f2210", "C"))
-                or bool(self._cell_value("f2210", "D"))
-            )
-        if form_id == "f2210_Schedule_AI":
-            return bool(self._cell_value("f2210", "C"))
-        if form_id == "f4562":
-            return (
-                abs(self._cell_amount("f4562", "schedule_c_depreciation")) > 0.009
-                or abs(self._cell_amount("f4562", "schedule_e_depreciation")) > 0.009
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f6198":
-            return (
-                abs(self._cell_amount("f6198", "schedule_c_adjustment")) > 0.009
-                or abs(self._cell_amount("f6198", "schedule_e_adjustment")) > 0.009
-                or abs(self._cell_amount("f6198", "disallowed_loss_carryforward")) > 0.009
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f8582":
-            return (
-                abs(self._cell_amount("f8582", "schedule_e_adjustment")) > 0.009
-                or abs(self._cell_amount("f8582", "disallowed_passive_loss_carryforward")) > 0.009
-                or self._form_has_user_activity(form_id, form_data)
-            )
-        if form_id == "f8582cr":
-            return abs(self._cell_amount("f8582cr", "passive_credit_carryforward")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f8829":
-            return abs(self._cell_amount("f8829", "deduction_to_schedule_c")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f7206":
-            return abs(self._cell_amount("f7206", "schedule1_17_deduction")) > 0.009 or self._form_has_user_activity(form_id, form_data)
-        if form_id == "f8814":
-            return (
-                abs(self._cell_amount("f8814", "schedule1_8g_alaska_dividends")) > 0.009
-                or abs(self._cell_amount("f8814", "schedule1_8z_other_income")) > 0.009
-                or abs(self._cell_amount("f8814", "investment_income_carryin")) > 0.009
-                or self._form_has_user_activity(form_id, form_data)
-            )
         return self._form_has_user_activity(form_id, form_data) or bool(self._used_block_ids(form_data))
 
     def _filed_form_ids(self) -> list[str]:
@@ -1038,6 +1087,8 @@ class TaxSheetEditor(QMainWindow):
         filed_form_ids = set(self._filed_form_ids())
         active_form_ids: set[str] = set()
         for form_id, form_data in self._available_forms():
+            if self._form_is_activated_now(form_id, form_data):
+                active_form_ids.add(form_id)
             if self._form_has_user_activity(form_id, form_data):
                 active_form_ids.add(form_id)
             if self._form_has_meaningful_values(form_data):
@@ -1061,13 +1112,13 @@ class TaxSheetEditor(QMainWindow):
             if form_id not in ordered_filed_form_ids:
                 continue
             sheet_ids.append(self._form_sheet_id(form_id))
-            for block_id in self._used_block_ids(form_data):
+            for block_id in self._visible_block_ids(form_id, form_data):
                 sheet_ids.append(self._block_sheet_id(form_id, block_id))
         for form_id, form_data in self._available_forms():
             if form_id in ordered_filed_form_ids or form_id not in expanded_form_ids:
                 continue
             sheet_ids.append(self._form_sheet_id(form_id))
-            for block_id in self._used_block_ids(form_data):
+            for block_id in self._visible_block_ids(form_id, form_data):
                 sheet_ids.append(self._block_sheet_id(form_id, block_id))
         return sheet_ids
 
@@ -1926,6 +1977,11 @@ class TaxSheetEditor(QMainWindow):
             expr,
         )
         expr = re.sub(
+            r"\b(\w+)\.(\w+)\.(\d+)\.(\w+)\b",
+            lambda m: f'__crossblockitem__("{m.group(1)}","{m.group(2)}",{m.group(3)},"{m.group(4)}")',
+            expr,
+        )
+        expr = re.sub(
             r"\b(\w+)\.(\d+)\.(\w+)\b",
             lambda m: f'__blockitem__("{m.group(1)}",{m.group(2)},"{m.group(3)}")',
             expr,
@@ -1959,11 +2015,14 @@ class TaxSheetEditor(QMainWindow):
 
         identifier_names = set(re.findall(r"\b[A-Za-z_][A-Za-z0-9_]*\b", expr))
         reserved = {
+            "abs",
             "age_on_date",
+            "block_has_entries",
             "capital_gain_threshold",
             "capital_loss_limit",
             "__blocksum__",
             "__crossblocksum__",
+            "__crossblockitem__",
             "__blockitem__",
             "__ref__",
             "__self__",
@@ -1975,6 +2034,8 @@ class TaxSheetEditor(QMainWindow):
             "eic_lookup",
             "f2210_penalty",
             "floor",
+            "form_has_meaningful_values",
+            "form_has_user_activity",
             "max",
             "min",
             "max_zero",
@@ -2024,6 +2085,30 @@ class TaxSheetEditor(QMainWindow):
                     if isinstance(value, (int, float)):
                         total += value
             return total
+
+        def crossblockitem(target_form_id: str, block_id: str, index: int, field_name: str) -> Any:
+            form_data = self._current_jurisdiction().get(target_form_id) or {}
+            block = (form_data.get("blocks") or {}).get(block_id)
+            if not isinstance(block, dict):
+                return None
+            entries = block.get("entries") or []
+            if not isinstance(index, int) or index < 0 or index >= len(entries):
+                return None
+            entry = entries[index]
+            if not isinstance(entry, dict):
+                return None
+            return entry.get(field_name)
+
+        def block_has_entries(target_form_id: str, block_id: str) -> bool:
+            return self._block_has_entries(target_form_id, block_id)
+
+        def form_has_user_activity(target_form_id: str) -> bool:
+            target_form = self._current_jurisdiction().get(target_form_id) or {}
+            return self._form_has_user_activity(target_form_id, target_form)
+
+        def form_has_meaningful_values(target_form_id: str) -> bool:
+            target_form = self._current_jurisdiction().get(target_form_id) or {}
+            return self._form_has_meaningful_values(target_form)
 
         def crossblocksum_match(
             target_form_id: str,
@@ -2380,10 +2465,13 @@ class TaxSheetEditor(QMainWindow):
             "__builtins__": {},
             "__blocksum__": blocksum,
             "__crossblocksum__": crossblocksum,
+                "__crossblockitem__": crossblockitem,
             "__blockitem__": blockitem,
             "__ref__": ref,
             "__self__": self_ref,
+            "abs": abs,
             "age_on_date": age_on_date,
+            "block_has_entries": block_has_entries,
             "capital_gain_threshold": capital_gain_threshold,
             "capital_loss_limit": capital_loss_limit,
             "ceil": math.ceil,
@@ -2394,6 +2482,8 @@ class TaxSheetEditor(QMainWindow):
             "eic_lookup": eic_lookup,
             "f2210_penalty": f2210_penalty,
             "floor": math.floor,
+            "form_has_meaningful_values": form_has_meaningful_values,
+            "form_has_user_activity": form_has_user_activity,
             "max_zero": max_zero,
             "min": min,
             "max": max,
@@ -2434,6 +2524,14 @@ class TaxSheetEditor(QMainWindow):
             return None
         if respect_overrides and cell.get("override_possible", False) and key in self.overridden_cells:
             result = cell.get("value", cell.get("default"))
+            self._evaluation_cache[cache_key] = result
+            return result
+        if form_id == "f8615" and cell_id == "age_support_test_met":
+            result = self._f8615_age_support_test_met()
+            self._evaluation_cache[cache_key] = result
+            return result
+        if form_id == "f8615" and cell_id == "required_to_file":
+            result = self._f8615_required_to_file()
             self._evaluation_cache[cache_key] = result
             return result
         if cell.get("manual_entry", False) and not cell.get("equation"):
@@ -2486,6 +2584,8 @@ class TaxSheetEditor(QMainWindow):
                 if cell.get("override_possible", False) and (form_id, cell_id) in self.overridden_cells:
                     continue
                 cell["value"] = computed
+        self._ensure_activated_block_entries()
+        self._evaluation_cache.clear()
         self._sync_visible_sheets_from_usage()
         self._refresh_current_sheet()
 

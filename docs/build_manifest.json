@@ -1,0 +1,367 @@
+{
+  "_meta": {
+    "name": "Open Tax Project Build Manifest",
+    "jurisdiction": "Federal 2025",
+    "purpose": "Machine-readable snapshot of current model coverage, reconstruction-critical conventions, and known gaps.",
+    "status": "active_working_state"
+  },
+  "critical_files": {
+    "design": [
+      "plan.md",
+      "plans/README.md",
+      "plans/01-irs-materials-and-summaries.md",
+      "plans/01a-irs-materials-spec.md",
+      "plans/02-master-json-model.md",
+      "plans/03-gui-and-pdf-workflow.md",
+      "README.md",
+      "sample.json",
+      "docs/FORM_MODEL_STATUS.md"
+    ],
+    "source_materials": [
+      "forms-instructions-and-publications/IRS_Federal_Individual_2025.yaml",
+      "forms-instructions-and-publications/forms/",
+      "forms-instructions-and-publications/instructions/",
+      "forms-instructions-and-publications/publications/",
+      "forms-instructions-and-publications/information-returns/",
+      "forms-instructions-and-publications/worksheets/"
+    ],
+    "reference_data": [
+      "reference-data/federal/2025/manifest.json",
+      "reference-data/federal/2025/ordinary_income_tax.json",
+      "reference-data/federal/2025/earned_income_credit.json",
+      "reference-data/federal/2025/simplified_method_tables.json",
+      "reference-data/federal/2025/capital_gain_parameters.json"
+    ],
+    "current_runtime_artifacts": [
+      "federal_1040_2025.json",
+      "src/main.py"
+    ]
+  },
+  "conventions": {
+    "form_id_pattern": "Top-level forms and worksheets use stable IDs such as f1040, f1040sd, f8949, or f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax.",
+    "block_location_rule": "Repeating user-entered sources live under blocks on the owning form, not as top-level forms.",
+    "order_rule": "Every cell has an integer order used as the primary in-form sort key.",
+    "rank_rule": "Every form or worksheet has a float _meta.rank used for display order and evaluation order.",
+    "form_status_inventory_rule": "Every YAML-listed form or schedule must also appear in docs/FORM_MODEL_STATUS.md with one of four statuses: modeled, scaffolded, missing, or out_of_scope."
+  },
+  "modeled_forms": [
+    {
+      "id": "f1040_Federal_Info_Worksheet",
+      "rank": 1.0,
+      "active": true,
+      "cell_count": 86,
+      "block_count": 0
+    },
+    {
+      "id": "f1040",
+      "rank": 2.0,
+      "active": true,
+      "cell_count": 109,
+      "block_count": 11
+    },
+    {
+      "id": "f1040_Lines_5a_and_5b",
+      "rank": 3.0,
+      "active": true,
+      "cell_count": 10,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Lines_6a_and_6b",
+      "rank": 4.0,
+      "active": true,
+      "cell_count": 18,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_12e_Standard_Deduction_Dependents",
+      "rank": 5.0,
+      "active": true,
+      "cell_count": 6,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Tax_Computation",
+      "rank": 6.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_16_Foreign_Earned_Income_Tax",
+      "rank": 7.0,
+      "active": true,
+      "cell_count": 8,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax",
+      "rank": 8.0,
+      "active": true,
+      "cell_count": 6,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_1_Line_1_State_Local_Tax_Refund",
+      "rank": 9.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_1_Line_17_Self_Employed_Health_Insurance",
+      "rank": 10.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_1_Line_20_IRA_Deduction",
+      "rank": 11.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_1_Line_20_IRA_Deduction_Continued",
+      "rank": 12.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_1_Line_21_Student_Loan_Interest",
+      "rank": 13.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Qualified_Tips_More_Than_One_Employer",
+      "rank": 14.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Multiple_Trades_Or_Businesses",
+      "rank": 15.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Qualified_Overtime_More_Than_One_Employer",
+      "rank": 16.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Qualified_Overtime_More_Than_One_Payor",
+      "rank": 17.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Schedule_3_Line_6l_Negative_Form_8978",
+      "rank": 18.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_27a_EIC_Worksheet_A",
+      "rank": 19.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_27a_EIC_Worksheet_B",
+      "rank": 20.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f1040_Line_27a_EIC_Worksheet_B_Continued",
+      "rank": 21.0,
+      "active": true,
+      "cell_count": 2,
+      "block_count": 0
+    },
+    {
+      "id": "f8949",
+      "rank": 21.0,
+      "active": true,
+      "cell_count": 57,
+      "block_count": 12
+    },
+    {
+      "id": "f1040sd",
+      "rank": 22.0,
+      "active": true,
+      "cell_count": 25,
+      "block_count": 0
+    },
+    {
+      "id": "f1040sd_Capital_Loss_Carryover",
+      "rank": 23.0,
+      "active": true,
+      "cell_count": 13,
+      "block_count": 0
+    },
+    {
+      "id": "f1040sd_28_Rate_Gain",
+      "rank": 24.0,
+      "active": true,
+      "cell_count": 7,
+      "block_count": 0
+    },
+    {
+      "id": "f1040sd_Unrecaptured_Section_1250_Gain",
+      "rank": 25.0,
+      "active": true,
+      "cell_count": 18,
+      "block_count": 0
+    },
+    {
+      "id": "f1040sd_Schedule_D_Tax",
+      "rank": 26.0,
+      "active": true,
+      "cell_count": 47,
+      "block_count": 0
+    }
+  ],
+  "modeled_source_blocks": [
+    {
+      "parent_form": "f1040",
+      "id": "w2",
+      "multiple_copies": true,
+      "item_cell_count": 15
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_int",
+      "multiple_copies": true,
+      "item_cell_count": 7
+    },
+    {
+      "parent_form": "f1040",
+      "id": "dependents",
+      "multiple_copies": true,
+      "item_cell_count": 10
+    },
+    {
+      "parent_form": "f1040",
+      "id": "ssa_1099",
+      "multiple_copies": true,
+      "item_cell_count": 4
+    },
+    {
+      "parent_form": "f1040",
+      "id": "rrb_1099",
+      "multiple_copies": true,
+      "item_cell_count": 3
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_div",
+      "multiple_copies": true,
+      "item_cell_count": 9
+    },
+    {
+      "parent_form": "f1040",
+      "id": "2439",
+      "multiple_copies": true,
+      "item_cell_count": 7
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_b",
+      "multiple_copies": true,
+      "item_cell_count": 12
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_da",
+      "multiple_copies": true,
+      "item_cell_count": 11
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_s",
+      "multiple_copies": true,
+      "item_cell_count": 5
+    },
+    {
+      "parent_form": "f1040",
+      "id": "1099_r",
+      "multiple_copies": true,
+      "item_cell_count": 8
+    }
+  ],
+  "key_wiring": {
+    "f1040_identity": [
+      "f1040.first_name <- f1040_Federal_Info_Worksheet.taxpayer_first_name",
+      "f1040.last_name <- f1040_Federal_Info_Worksheet.taxpayer_last_name",
+      "f1040.ssn <- f1040_Federal_Info_Worksheet.taxpayer_ssn"
+    ],
+    "income_flows": [
+      "f1040.1a <- sum(w2.*.box_1)",
+      "f1040.2a <- sum(1099_int.*.box_8)",
+      "f1040.2b <- sum(1099_int.*.box_1)",
+      "f1040.3a <- sum(1099_div.*.box_1b)",
+      "f1040.3b <- sum(1099_div.*.box_1a)",
+      "f1040.6a <- f1040.social_security_benefits_total"
+    ],
+    "payment_flows": [
+      "f1040.25 <- sum(w2.*.box_2) + federal_withholding_from_information_returns_total"
+    ],
+    "capital_gain_flows": [
+      "f1040sd.1b <- f8949.1b",
+      "f1040sd.2 <- f8949.2",
+      "f1040sd.3 <- f8949.3",
+      "f1040sd.8b <- f8949.8b",
+      "f1040sd.9 <- f8949.9",
+      "f1040sd.10 <- f8949.10",
+      "f1040sd.13 <- f1040.capital_gain_distributions_total",
+      "f1040sd.11 <- f1040.undistributed_long_term_capital_gains_total"
+    ],
+    "tax_resolution": [
+      "f1040.16 <- f1040sd_Schedule_D_Tax.47 or f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax.25 or f1040_Tax_Computation or f1040_Line_16_Foreign_Earned_Income_Tax.6"
+    ]
+  },
+  "qt_app_contract": {
+    "startup_visible_sheets": [
+      "f1040_Federal_Info_Worksheet",
+      "f1040"
+    ],
+    "sheet_sort_key": "rank",
+    "row_sort_key": "order",
+    "override_visual_rule": "If a user overrides a computed value, show the override using a distinct text color.",
+    "round_trip_rule": "Load and Save As must preserve JSON structure cleanly."
+  },
+  "reference_data_status": {
+    "manifest": "reference-data/federal/2025/manifest.json",
+    "ordinary_income_tax": "needs_import",
+    "earned_income_credit": "needs_import",
+    "simplified_method_tables": "needs_import",
+    "capital_gain_parameters": "partially_imported"
+  },
+  "known_gaps": [
+    "The current known-gap list must distinguish between forms already modeled, forms present only as scaffolds, and forms still entirely missing. Earlier wording that listed Schedule 1, Schedule 1-A, Schedule 2, Schedule 3, and Schedule A as not yet built is stale.",
+    "f8949 source-return blocks exist, but there is not yet an automatic transformation from 1099_b, 1099_da, or 1099_s entries into Form 8949 rows.",
+    "Some Schedule D lines remain partially manual because upstream forms such as 4797, 6252, 4684, and 6781 are only partially modeled, while other upstream forms such as 8824 and K-1-driven forms are still missing.",
+    "Manifest-listed forms still entirely missing from the JSON include Form 1040-SR, Schedule J, Schedule R, Form 1040-ES, Form 1040-V, Form 1040-X, Form 1098-E, Schedule C, Schedule E, Schedule F, and various specialty forms listed in problematic_forms_and_lines.txt.",
+    "The full 2025 Tax Table, EIC table, and Simplified Method tables still need to be imported into reference-data."
+  ],
+  "rebuild_priority": [
+    "Preserve form IDs, block IDs, rank values, and cell order values.",
+    "Preserve block-based intake of user-furnished source documents.",
+    "Preserve the distinction between formula-driven logic and table-driven reference data.",
+    "Preserve the Qt app contract for startup sheets, rank ordering, order ordering, override coloring, and clean JSON round-tripping."
+  ]
+}

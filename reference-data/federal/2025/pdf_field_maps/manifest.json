@@ -1,0 +1,871 @@
+{
+  "jurisdiction": "Federal 2025",
+  "generated_form_count": 108,
+  "forms": [
+    {
+      "form_id": "f1040",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040.pdf",
+      "pdf_field_count": 199,
+      "widget_count": 199,
+      "mapped_widget_count": 150,
+      "renderable_widget_count": 150
+    },
+    {
+      "form_id": "f1040es",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040es.pdf",
+      "pdf_field_count": 118,
+      "widget_count": 118,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040lep",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040lep.pdf",
+      "pdf_field_count": 23,
+      "widget_count": 23,
+      "mapped_widget_count": 2,
+      "renderable_widget_count": 2
+    },
+    {
+      "form_id": "f1040s1",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040s1.pdf",
+      "pdf_field_count": 73,
+      "widget_count": 73,
+      "mapped_widget_count": 66,
+      "renderable_widget_count": 66
+    },
+    {
+      "form_id": "f1040s1a",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040s1a.pdf",
+      "pdf_field_count": 54,
+      "widget_count": 54,
+      "mapped_widget_count": 48,
+      "renderable_widget_count": 48
+    },
+    {
+      "form_id": "f1040s2",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040s2.pdf",
+      "pdf_field_count": 63,
+      "widget_count": 63,
+      "mapped_widget_count": 48,
+      "renderable_widget_count": 48
+    },
+    {
+      "form_id": "f1040s3",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040s3.pdf",
+      "pdf_field_count": 37,
+      "widget_count": 37,
+      "mapped_widget_count": 35,
+      "renderable_widget_count": 35
+    },
+    {
+      "form_id": "f1040sa",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sa.pdf",
+      "pdf_field_count": 33,
+      "widget_count": 33,
+      "mapped_widget_count": 29,
+      "renderable_widget_count": 29
+    },
+    {
+      "form_id": "f1040sb",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sb.pdf",
+      "pdf_field_count": 72,
+      "widget_count": 72,
+      "mapped_widget_count": 4,
+      "renderable_widget_count": 4
+    },
+    {
+      "form_id": "f1040sc",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sc.pdf",
+      "pdf_field_count": 105,
+      "widget_count": 105,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sd",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sd.pdf",
+      "pdf_field_count": 55,
+      "widget_count": 55,
+      "mapped_widget_count": 8,
+      "renderable_widget_count": 8
+    },
+    {
+      "form_id": "f1040se",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040se.pdf",
+      "pdf_field_count": 185,
+      "widget_count": 185,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sei",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sei.pdf",
+      "pdf_field_count": 38,
+      "widget_count": 38,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sf",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sf.pdf",
+      "pdf_field_count": 89,
+      "widget_count": 89,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sh",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sh.pdf",
+      "pdf_field_count": 72,
+      "widget_count": 72,
+      "mapped_widget_count": 18,
+      "renderable_widget_count": 18
+    },
+    {
+      "form_id": "f1040sj",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sj.pdf",
+      "pdf_field_count": 27,
+      "widget_count": 27,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sr",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sr.pdf",
+      "pdf_field_count": 27,
+      "widget_count": 27,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040sse",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040sse.pdf",
+      "pdf_field_count": 27,
+      "widget_count": 27,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040v",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040v.pdf",
+      "pdf_field_count": 15,
+      "widget_count": 15,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1040x",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040x.pdf",
+      "pdf_field_count": 166,
+      "widget_count": 166,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1098e",
+      "source_pdf": "forms-instructions-and-publications/forms/f1098e.pdf",
+      "pdf_field_count": 21,
+      "widget_count": 21,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1116",
+      "source_pdf": "forms-instructions-and-publications/forms/f1116.pdf",
+      "pdf_field_count": 118,
+      "widget_count": 118,
+      "mapped_widget_count": 11,
+      "renderable_widget_count": 11
+    },
+    {
+      "form_id": "f1116sb",
+      "source_pdf": "forms-instructions-and-publications/forms/f1116sb.pdf",
+      "pdf_field_count": 222,
+      "widget_count": 222,
+      "mapped_widget_count": 7,
+      "renderable_widget_count": 7
+    },
+    {
+      "form_id": "f1116sc",
+      "source_pdf": "forms-instructions-and-publications/forms/f1116sc.pdf",
+      "pdf_field_count": 256,
+      "widget_count": 256,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f1310",
+      "source_pdf": "forms-instructions-and-publications/forms/f1310.pdf",
+      "pdf_field_count": 25,
+      "widget_count": 25,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f14039",
+      "source_pdf": "forms-instructions-and-publications/forms/f14039.pdf",
+      "pdf_field_count": 72,
+      "widget_count": 72,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f14039b",
+      "source_pdf": "forms-instructions-and-publications/forms/f14039b.pdf",
+      "pdf_field_count": 48,
+      "widget_count": 48,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f2106",
+      "source_pdf": "forms-instructions-and-publications/forms/f2106.pdf",
+      "pdf_field_count": 87,
+      "widget_count": 87,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f2120",
+      "source_pdf": "forms-instructions-and-publications/forms/f2120.pdf",
+      "pdf_field_count": 16,
+      "widget_count": 16,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f2210",
+      "source_pdf": "forms-instructions-and-publications/forms/f2210.pdf",
+      "pdf_field_count": 199,
+      "widget_count": 199,
+      "mapped_widget_count": 7,
+      "renderable_widget_count": 7
+    },
+    {
+      "form_id": "f2210_Schedule_AI",
+      "source_pdf": "forms-instructions-and-publications/forms/f2210.pdf",
+      "pdf_field_count": 199,
+      "widget_count": 199,
+      "mapped_widget_count": 2,
+      "renderable_widget_count": 2
+    },
+    {
+      "form_id": "f2210f",
+      "source_pdf": "forms-instructions-and-publications/forms/f2210f.pdf",
+      "pdf_field_count": 21,
+      "widget_count": 21,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f2441",
+      "source_pdf": "forms-instructions-and-publications/forms/f2441.pdf",
+      "pdf_field_count": 72,
+      "widget_count": 72,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f2555",
+      "source_pdf": "forms-instructions-and-publications/forms/f2555.pdf",
+      "pdf_field_count": 160,
+      "widget_count": 160,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f3115",
+      "source_pdf": "forms-instructions-and-publications/forms/f3115.pdf",
+      "pdf_field_count": 294,
+      "widget_count": 294,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f3468",
+      "source_pdf": "forms-instructions-and-publications/forms/f3468.pdf",
+      "pdf_field_count": 321,
+      "widget_count": 321,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f3800",
+      "source_pdf": "forms-instructions-and-publications/forms/f3800.pdf",
+      "pdf_field_count": 1921,
+      "widget_count": 1921,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f3903",
+      "source_pdf": "forms-instructions-and-publications/forms/f3903.pdf",
+      "pdf_field_count": 10,
+      "widget_count": 10,
+      "mapped_widget_count": 4,
+      "renderable_widget_count": 4
+    },
+    {
+      "form_id": "f4136",
+      "source_pdf": "forms-instructions-and-publications/forms/f4136.pdf",
+      "pdf_field_count": 485,
+      "widget_count": 485,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4137",
+      "source_pdf": "forms-instructions-and-publications/forms/f4137.pdf",
+      "pdf_field_count": 34,
+      "widget_count": 34,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4255",
+      "source_pdf": "forms-instructions-and-publications/forms/f4255.pdf",
+      "pdf_field_count": 646,
+      "widget_count": 646,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4506",
+      "source_pdf": "forms-instructions-and-publications/forms/f4506.pdf",
+      "pdf_field_count": 43,
+      "widget_count": 43,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4562",
+      "source_pdf": "forms-instructions-and-publications/forms/f4562.pdf",
+      "pdf_field_count": 277,
+      "widget_count": 277,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4684",
+      "source_pdf": "forms-instructions-and-publications/forms/f4684.pdf",
+      "pdf_field_count": 162,
+      "widget_count": 162,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4797",
+      "source_pdf": "forms-instructions-and-publications/forms/f4797.pdf",
+      "pdf_field_count": 182,
+      "widget_count": 182,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4835",
+      "source_pdf": "forms-instructions-and-publications/forms/f4835.pdf",
+      "pdf_field_count": 63,
+      "widget_count": 63,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4852",
+      "source_pdf": "forms-instructions-and-publications/forms/f4852.pdf",
+      "pdf_field_count": 34,
+      "widget_count": 34,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4868",
+      "source_pdf": "forms-instructions-and-publications/forms/f4868.pdf",
+      "pdf_field_count": 17,
+      "widget_count": 17,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f4952",
+      "source_pdf": "forms-instructions-and-publications/forms/f4952.pdf",
+      "pdf_field_count": 17,
+      "widget_count": 17,
+      "mapped_widget_count": 17,
+      "renderable_widget_count": 17
+    },
+    {
+      "form_id": "f4972",
+      "source_pdf": "forms-instructions-and-publications/forms/f4972.pdf",
+      "pdf_field_count": 58,
+      "widget_count": 58,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f5329",
+      "source_pdf": "forms-instructions-and-publications/forms/f5329.pdf",
+      "pdf_field_count": 75,
+      "widget_count": 75,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f5405",
+      "source_pdf": "forms-instructions-and-publications/forms/f5405.pdf",
+      "pdf_field_count": 25,
+      "widget_count": 25,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f5695",
+      "source_pdf": "forms-instructions-and-publications/forms/f5695.pdf",
+      "pdf_field_count": 167,
+      "widget_count": 167,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f6198",
+      "source_pdf": "forms-instructions-and-publications/forms/f6198.pdf",
+      "pdf_field_count": 34,
+      "widget_count": 34,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f6251",
+      "source_pdf": "forms-instructions-and-publications/forms/f6251.pdf",
+      "pdf_field_count": 62,
+      "widget_count": 62,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f6252",
+      "source_pdf": "forms-instructions-and-publications/forms/f6252.pdf",
+      "pdf_field_count": 49,
+      "widget_count": 49,
+      "mapped_widget_count": 38,
+      "renderable_widget_count": 38
+    },
+    {
+      "form_id": "f6781",
+      "source_pdf": "forms-instructions-and-publications/forms/f6781.pdf",
+      "pdf_field_count": 71,
+      "widget_count": 71,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f7203",
+      "source_pdf": "forms-instructions-and-publications/forms/f7203.pdf",
+      "pdf_field_count": 188,
+      "widget_count": 188,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f7206",
+      "source_pdf": "forms-instructions-and-publications/forms/f7206.pdf",
+      "pdf_field_count": 16,
+      "widget_count": 16,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8283",
+      "source_pdf": "forms-instructions-and-publications/forms/f8283.pdf",
+      "pdf_field_count": 117,
+      "widget_count": 117,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8332",
+      "source_pdf": "forms-instructions-and-publications/forms/f8332.pdf",
+      "pdf_field_count": 11,
+      "widget_count": 11,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8379",
+      "source_pdf": "forms-instructions-and-publications/forms/f8379.pdf",
+      "pdf_field_count": 63,
+      "widget_count": 63,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8396",
+      "source_pdf": "forms-instructions-and-publications/forms/f8396.pdf",
+      "pdf_field_count": 26,
+      "widget_count": 26,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8453",
+      "source_pdf": "forms-instructions-and-publications/forms/f8453.pdf",
+      "pdf_field_count": 23,
+      "widget_count": 23,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8582",
+      "source_pdf": "forms-instructions-and-publications/forms/f8582.pdf",
+      "pdf_field_count": 205,
+      "widget_count": 205,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8582cr",
+      "source_pdf": "forms-instructions-and-publications/forms/f8582cr.pdf",
+      "pdf_field_count": 52,
+      "widget_count": 52,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8586",
+      "source_pdf": "forms-instructions-and-publications/forms/f8586.pdf",
+      "pdf_field_count": 14,
+      "widget_count": 14,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8606",
+      "source_pdf": "forms-instructions-and-publications/forms/f8606.pdf",
+      "pdf_field_count": 45,
+      "widget_count": 45,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8615",
+      "source_pdf": "forms-instructions-and-publications/forms/f8615.pdf",
+      "pdf_field_count": 32,
+      "widget_count": 32,
+      "mapped_widget_count": 29,
+      "renderable_widget_count": 29
+    },
+    {
+      "form_id": "f8801",
+      "source_pdf": "forms-instructions-and-publications/forms/f8801.pdf",
+      "pdf_field_count": 57,
+      "widget_count": 57,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8812",
+      "source_pdf": "forms-instructions-and-publications/forms/f1040s8.pdf",
+      "pdf_field_count": 41,
+      "widget_count": 41,
+      "mapped_widget_count": 41,
+      "renderable_widget_count": 41
+    },
+    {
+      "form_id": "f8814",
+      "source_pdf": "forms-instructions-and-publications/forms/f8814.pdf",
+      "pdf_field_count": 26,
+      "widget_count": 26,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8815",
+      "source_pdf": "forms-instructions-and-publications/forms/f8815.pdf",
+      "pdf_field_count": 39,
+      "widget_count": 39,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8822",
+      "source_pdf": "forms-instructions-and-publications/forms/f8822.pdf",
+      "pdf_field_count": 25,
+      "widget_count": 25,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8824",
+      "source_pdf": "forms-instructions-and-publications/forms/f8824.pdf",
+      "pdf_field_count": 63,
+      "widget_count": 63,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8829",
+      "source_pdf": "forms-instructions-and-publications/forms/f8829.pdf",
+      "pdf_field_count": 58,
+      "widget_count": 58,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8834",
+      "source_pdf": "forms-instructions-and-publications/forms/f8834.pdf",
+      "pdf_field_count": 11,
+      "widget_count": 11,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8839",
+      "source_pdf": "forms-instructions-and-publications/forms/f8839.pdf",
+      "pdf_field_count": 100,
+      "widget_count": 100,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8853",
+      "source_pdf": "forms-instructions-and-publications/forms/f8853.pdf",
+      "pdf_field_count": 38,
+      "widget_count": 38,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8857",
+      "source_pdf": "forms-instructions-and-publications/forms/f8857.pdf",
+      "pdf_field_count": 208,
+      "widget_count": 208,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8859",
+      "source_pdf": "forms-instructions-and-publications/forms/f8859.pdf",
+      "pdf_field_count": 9,
+      "widget_count": 9,
+      "mapped_widget_count": 4,
+      "renderable_widget_count": 4
+    },
+    {
+      "form_id": "f8862",
+      "source_pdf": "forms-instructions-and-publications/forms/f8862.pdf",
+      "pdf_field_count": 109,
+      "widget_count": 109,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8863",
+      "source_pdf": "forms-instructions-and-publications/forms/f8863.pdf",
+      "pdf_field_count": 77,
+      "widget_count": 77,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8880",
+      "source_pdf": "forms-instructions-and-publications/forms/f8880.pdf",
+      "pdf_field_count": 23,
+      "widget_count": 23,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8881",
+      "source_pdf": "forms-instructions-and-publications/forms/f8881.pdf",
+      "pdf_field_count": 29,
+      "widget_count": 29,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8888",
+      "source_pdf": "forms-instructions-and-publications/forms/f8888.pdf",
+      "pdf_field_count": 20,
+      "widget_count": 20,
+      "mapped_widget_count": 9,
+      "renderable_widget_count": 9
+    },
+    {
+      "form_id": "f8889",
+      "source_pdf": "forms-instructions-and-publications/forms/f8889.pdf",
+      "pdf_field_count": 27,
+      "widget_count": 27,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8903",
+      "source_pdf": "forms-instructions-and-publications/forms/f8903.pdf",
+      "pdf_field_count": 78,
+      "widget_count": 78,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8911",
+      "source_pdf": "forms-instructions-and-publications/forms/f8911.pdf",
+      "pdf_field_count": 15,
+      "widget_count": 15,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8915d",
+      "source_pdf": "forms-instructions-and-publications/forms/f8915d.pdf",
+      "pdf_field_count": 30,
+      "widget_count": 30,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8915f",
+      "source_pdf": "forms-instructions-and-publications/forms/f8915f.pdf",
+      "pdf_field_count": 101,
+      "widget_count": 101,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8919",
+      "source_pdf": "forms-instructions-and-publications/forms/f8919.pdf",
+      "pdf_field_count": 40,
+      "widget_count": 40,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8936",
+      "source_pdf": "forms-instructions-and-publications/forms/f8936.pdf",
+      "pdf_field_count": 31,
+      "widget_count": 31,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8938",
+      "source_pdf": "forms-instructions-and-publications/forms/f8938.pdf",
+      "pdf_field_count": 131,
+      "widget_count": 131,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8941",
+      "source_pdf": "forms-instructions-and-publications/forms/f8941.pdf",
+      "pdf_field_count": 28,
+      "widget_count": 28,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8949",
+      "source_pdf": "forms-instructions-and-publications/forms/f8949.pdf",
+      "pdf_field_count": 202,
+      "widget_count": 202,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8958",
+      "source_pdf": "forms-instructions-and-publications/forms/f8958.pdf",
+      "pdf_field_count": 202,
+      "widget_count": 202,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8959",
+      "source_pdf": "forms-instructions-and-publications/forms/f8959.pdf",
+      "pdf_field_count": 26,
+      "widget_count": 26,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8960",
+      "source_pdf": "forms-instructions-and-publications/forms/f8960.pdf",
+      "pdf_field_count": 38,
+      "widget_count": 38,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8962",
+      "source_pdf": "forms-instructions-and-publications/forms/f8962.pdf",
+      "pdf_field_count": 141,
+      "widget_count": 141,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8994",
+      "source_pdf": "forms-instructions-and-publications/forms/f8994.pdf",
+      "pdf_field_count": 13,
+      "widget_count": 13,
+      "mapped_widget_count": 4,
+      "renderable_widget_count": 4
+    },
+    {
+      "form_id": "f8995",
+      "source_pdf": "forms-instructions-and-publications/forms/f8995.pdf",
+      "pdf_field_count": 33,
+      "widget_count": 33,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f8995a",
+      "source_pdf": "forms-instructions-and-publications/forms/f8995a.pdf",
+      "pdf_field_count": 111,
+      "widget_count": 111,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f9000",
+      "source_pdf": "forms-instructions-and-publications/forms/f9000.pdf",
+      "pdf_field_count": 14,
+      "widget_count": 14,
+      "mapped_widget_count": 4,
+      "renderable_widget_count": 4
+    },
+    {
+      "form_id": "f9465",
+      "source_pdf": "forms-instructions-and-publications/forms/f9465.pdf",
+      "pdf_field_count": 66,
+      "widget_count": 66,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "f982",
+      "source_pdf": "forms-instructions-and-publications/forms/f982.pdf",
+      "pdf_field_count": 27,
+      "widget_count": 27,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "fss4",
+      "source_pdf": "forms-instructions-and-publications/forms/fss4.pdf",
+      "pdf_field_count": 89,
+      "widget_count": 89,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    },
+    {
+      "form_id": "fw4",
+      "source_pdf": "forms-instructions-and-publications/forms/fw4.pdf",
+      "pdf_field_count": 48,
+      "widget_count": 48,
+      "mapped_widget_count": 0,
+      "renderable_widget_count": 0
+    }
+  ],
+  "unresolved_legacy_fields": {}
+}

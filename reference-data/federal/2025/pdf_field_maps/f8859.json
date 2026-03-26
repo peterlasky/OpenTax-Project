@@ -1,0 +1,145 @@
+{
+  "form_id": "f8859",
+  "source_pdf": "forms-instructions-and-publications/forms/f8859.pdf",
+  "pdf_field_count": 9,
+  "fillable_form": true,
+  "widget_count": 9,
+  "mapped_widget_count": 4,
+  "renderable_widget_count": 4,
+  "widgets": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_1[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        683.968,
+        460.05,
+        697.969
+      ],
+      "widget_type": "text",
+      "source": "f1040.first_name + \" \" + f1040.last_name + ((f1040.filing_status_married_jointly > 0.0) * (\" & \" + f1040.spouse_first_name + \" \" + f1040.spouse_last_name))",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_2[0]",
+      "page": 1,
+      "rect": [
+        460.8,
+        683.968,
+        576.0,
+        697.969
+      ],
+      "widget_type": "text",
+      "source": "f1040.ssn",
+      "cell_ref": "f1040.ssn",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_3[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        665.968,
+        576.0,
+        677.967
+      ],
+      "widget_type": "text",
+      "source": "schedule3_6h",
+      "cell_ref": "schedule3_6h",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_4[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        641.97,
+        576.0,
+        653.969
+      ],
+      "widget_type": "text",
+      "source": "notes",
+      "cell_ref": "notes",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_5[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        617.969,
+        576.0,
+        629.968
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_6[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        605.97,
+        576.0,
+        617.969
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Col1[0].Line1[0].f1_7[0]",
+      "page": 1,
+      "rect": [
+        223.2,
+        284.968,
+        295.2,
+        296.469
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Col2[0].Line2[0].f1_8[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        198.967,
+        576.0,
+        211.468
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Col2[0].Line3[0].f1_9[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        152.968,
+        576.0,
+        164.967
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    }
+  ]
+}

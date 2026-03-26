@@ -3,7 +3,8 @@
     "description": "Maps IRS publications to associated forms and worksheets using the project's shorthand ID style.",
     "sources": [
       "forms-instructions-and-publications/publication-summaries/*.md",
-      "plan.md",
+      "plans/README.md",
+      "plans/02-master-json-model.md",
       "federal_1040_2025.json"
     ],
     "naming_rule": "Use existing project IDs where they already exist. For publication-embedded worksheets that do not yet exist in the main JSON, use a consistent planned worksheet ID such as f523_Worksheet_1_Maximum_Exclusion.",

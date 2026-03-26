@@ -1,0 +1,517 @@
+{
+  "form_id": "f8615",
+  "source_pdf": "forms-instructions-and-publications/forms/f8615.pdf",
+  "pdf_field_count": 32,
+  "fillable_form": true,
+  "widget_count": 32,
+  "mapped_widget_count": 29,
+  "renderable_widget_count": 29,
+  "widgets": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_1[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        683.968,
+        438.45,
+        697.969
+      ],
+      "widget_type": "text",
+      "source": "f1040.first_name + \" \" + f1040.last_name + ((f1040.filing_status_married_jointly > 0.0) * (\" & \" + f1040.spouse_first_name + \" \" + f1040.spouse_last_name))",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_2[0]",
+      "page": 1,
+      "rect": [
+        439.2,
+        683.968,
+        576.0,
+        697.969
+      ],
+      "widget_type": "text",
+      "source": "f1040.ssn",
+      "cell_ref": "f1040.ssn",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_3[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        659.967,
+        438.45,
+        671.969
+      ],
+      "widget_type": "text",
+      "source": "taxpayer_age_end_of_2025",
+      "cell_ref": "taxpayer_age_end_of_2025",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_4[0]",
+      "page": 1,
+      "rect": [
+        439.2,
+        659.967,
+        576.0,
+        671.969
+      ],
+      "widget_type": "text",
+      "source": "child_earned_income_for_line_1",
+      "cell_ref": "child_earned_income_for_line_1",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        50.4,
+        638.469,
+        58.4,
+        646.469
+      ],
+      "widget_type": "button",
+      "source": "taxpayer_full_time_student",
+      "cell_ref": "taxpayer_full_time_student",
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[1]",
+      "page": 1,
+      "rect": [
+        108.0,
+        638.469,
+        116.0,
+        646.469
+      ],
+      "widget_type": "button",
+      "source": "not taxpayer_full_time_student",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[2]",
+      "page": 1,
+      "rect": [
+        216.0,
+        638.469,
+        224.0,
+        646.469
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[3]",
+      "page": 1,
+      "rect": [
+        345.6,
+        638.469,
+        353.6,
+        646.469
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].c1_1[4]",
+      "page": 1,
+      "rect": [
+        453.6,
+        638.469,
+        461.6,
+        646.469
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_5[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        599.969,
+        576.0,
+        611.968
+      ],
+      "widget_type": "text",
+      "source": "1",
+      "cell_ref": "1",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_6[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        575.968,
+        576.0,
+        587.967
+      ],
+      "widget_type": "text",
+      "source": "directly_connected_itemized_deductions",
+      "cell_ref": "directly_connected_itemized_deductions",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_7[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        551.97,
+        576.0,
+        563.969
+      ],
+      "widget_type": "text",
+      "source": "2",
+      "cell_ref": "2",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_8[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        527.969,
+        576.0,
+        539.968
+      ],
+      "widget_type": "text",
+      "source": "3",
+      "cell_ref": "3",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_9[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        503.968,
+        576.0,
+        515.967
+      ],
+      "widget_type": "text",
+      "source": "4",
+      "cell_ref": "4",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_10[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        467.968,
+        576.0,
+        479.967
+      ],
+      "widget_type": "text",
+      "source": "5",
+      "cell_ref": "5",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_11[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        443.97,
+        576.0,
+        455.969
+      ],
+      "widget_type": "text",
+      "source": "parent_taxable_income_input",
+      "cell_ref": "parent_taxable_income_input",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_12[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        431.968,
+        576.0,
+        443.967
+      ],
+      "widget_type": "text",
+      "source": "6",
+      "cell_ref": "6",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line9_ReadOrder[0].c1_2[0]",
+      "page": 1,
+      "rect": [
+        467.2,
+        399.468,
+        475.2,
+        407.468
+      ],
+      "widget_type": "button",
+      "source": "earned_income_more_than_half_support",
+      "cell_ref": "earned_income_more_than_half_support",
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_13[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        395.968,
+        576.0,
+        407.967
+      ],
+      "widget_type": "text",
+      "source": "other_children_net_unearned_income_input",
+      "cell_ref": "other_children_net_unearned_income_input",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line10_ReadOrder[0].c1_3[0]",
+      "page": 1,
+      "rect": [
+        467.2,
+        343.968,
+        475.2,
+        351.968
+      ],
+      "widget_type": "button",
+      "source": "parent_alive_at_year_end",
+      "cell_ref": "parent_alive_at_year_end",
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_14[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        341.968,
+        576.0,
+        353.967
+      ],
+      "widget_type": "text",
+      "source": "7",
+      "cell_ref": "7",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_15[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        317.97,
+        576.0,
+        329.969
+      ],
+      "widget_type": "text",
+      "source": "8",
+      "cell_ref": "8",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_16[0]",
+      "page": 1,
+      "rect": [
+        410.4,
+        305.968,
+        481.65,
+        317.967
+      ],
+      "widget_type": "text",
+      "source": "line9_base_tax",
+      "cell_ref": "line9_base_tax",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_17[0]",
+      "page": 1,
+      "rect": [
+        556.498,
+        293.969,
+        576.0,
+        305.968
+      ],
+      "widget_type": "text",
+      "source": "line9_tax_adjustment",
+      "cell_ref": "line9_tax_adjustment",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_18[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        281.97,
+        576.0,
+        293.969
+      ],
+      "widget_type": "text",
+      "source": "9",
+      "cell_ref": "9",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_19[0]",
+      "page": 1,
+      "rect": [
+        410.4,
+        245.97,
+        481.65,
+        257.969
+      ],
+      "widget_type": "text",
+      "source": "line10_base_tax",
+      "cell_ref": "line10_base_tax",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line15_ReadOrder[0].c1_4[0]",
+      "page": 1,
+      "rect": [
+        467.2,
+        212.47,
+        475.2,
+        220.47
+      ],
+      "widget_type": "button",
+      "source": "child_files_joint_return",
+      "cell_ref": "child_files_joint_return",
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_20[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        209.97,
+        576.0,
+        221.969
+      ],
+      "widget_type": "text",
+      "source": "line10_tax_adjustment",
+      "cell_ref": "line10_tax_adjustment",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_21[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        197.968,
+        576.0,
+        209.967
+      ],
+      "widget_type": "text",
+      "source": "10",
+      "cell_ref": "10",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line17_ReadOrder[0].c1_5[0]",
+      "page": 1,
+      "rect": [
+        467.2,
+        164.468,
+        475.2,
+        172.468
+      ],
+      "widget_type": "button",
+      "source": "child_required_to_file_return",
+      "cell_ref": "child_required_to_file_return",
+      "render_mode": "checkbox",
+      "mapping_method": "heuristic_boolean_order",
+      "kind": "checkbox"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_22[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        161.968,
+        576.0,
+        173.967
+      ],
+      "widget_type": "text",
+      "source": "11",
+      "cell_ref": "11",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_23[0]",
+      "page": 1,
+      "rect": [
+        504.0,
+        137.97,
+        576.0,
+        149.969
+      ],
+      "widget_type": "text",
+      "source": "12a",
+      "cell_ref": "12a",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_cell_order",
+      "format": "amount"
+    }
+  ]
+}

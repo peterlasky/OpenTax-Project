@@ -1,0 +1,445 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-information-returns/f1040__k1_1065_template.pdf",
+  "widgets": [
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_name",
+      "source": "recipient_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        666.0,
+        562.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_ssn",
+      "source": "recipient_ssn",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        198.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_address_line",
+      "source": "recipient_address_line",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        632.0,
+        562.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_city_state_zip",
+      "source": "recipient_city_state_zip",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        198.0,
+        616.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        508.0,
+        198.0,
+        526.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.payer_name",
+      "source": "entry.payer_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        472.0,
+        570.0,
+        490.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.category",
+      "source": "entry.category",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        436.0,
+        198.0,
+        454.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.interest_income",
+      "source": "entry.interest_income",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        400.0,
+        138.0,
+        418.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.ordinary_dividends",
+      "source": "entry.ordinary_dividends",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        364.0,
+        138.0,
+        382.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.qualified_dividends",
+      "source": "entry.qualified_dividends",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        328.0,
+        138.0,
+        346.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.short_term_capital_gain",
+      "source": "entry.short_term_capital_gain",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        292.0,
+        138.0,
+        310.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.long_term_capital_gain",
+      "source": "entry.long_term_capital_gain",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        256.0,
+        138.0,
+        274.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.collectibles_gain",
+      "source": "entry.collectibles_gain",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        220.0,
+        138.0,
+        238.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.unrecaptured_section_1250_gain",
+      "source": "entry.unrecaptured_section_1250_gain",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        184.0,
+        138.0,
+        202.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.foreign_source_income",
+      "source": "entry.foreign_source_income",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        148.0,
+        138.0,
+        166.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.foreign_tax_paid",
+      "source": "entry.foreign_tax_paid",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        112.0,
+        138.0,
+        130.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.qualified_payee_statement",
+      "source": "entry.qualified_payee_statement",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        76.0,
+        53.0,
+        87.0
+      ]
+    },
+    {
+      "field": "entry.passive_income_for_election",
+      "source": "entry.passive_income_for_election",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        53.0,
+        677.0
+      ]
+    },
+    {
+      "field": "entry.investment_income_adjustment",
+      "source": "entry.investment_income_adjustment",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        138.0,
+        650.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.investment_expense",
+      "source": "entry.investment_expense",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        596.0,
+        138.0,
+        614.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.notes",
+      "source": "entry.notes",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        560.0,
+        198.0,
+        578.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.schedule_e_income_or_loss",
+      "source": "entry.schedule_e_income_or_loss",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        524.0,
+        138.0,
+        542.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.qbi_income_or_loss",
+      "source": "entry.qbi_income_or_loss",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        488.0,
+        138.0,
+        506.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.self_employment_earnings",
+      "source": "entry.self_employment_earnings",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        452.0,
+        138.0,
+        470.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.passive_credit_amount",
+      "source": "entry.passive_credit_amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        416.0,
+        138.0,
+        434.0
+      ],
+      "font_size": 10.0
+    }
+  ]
+}

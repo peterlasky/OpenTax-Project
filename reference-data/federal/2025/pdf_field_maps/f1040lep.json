@@ -1,0 +1,337 @@
+{
+  "form_id": "f1040lep",
+  "source_pdf": "forms-instructions-and-publications/forms/f1040lep.pdf",
+  "pdf_field_count": 23,
+  "fillable_form": true,
+  "widget_count": 23,
+  "mapped_widget_count": 2,
+  "renderable_widget_count": 2,
+  "widgets": [
+    {
+      "field": "topmostSubform[0].Page1[0].f1_1[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        671.998,
+        395.25,
+        685.999
+      ],
+      "widget_type": "text",
+      "source": "f1040.first_name + \" \" + f1040.last_name + ((f1040.filing_status_married_jointly > 0.0) * (\" & \" + f1040.spouse_first_name + \" \" + f1040.spouse_last_name))",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "text"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].f1_2[0]",
+      "page": 1,
+      "rect": [
+        396.0,
+        671.998,
+        576.0,
+        685.999
+      ],
+      "widget_type": "text",
+      "source": "f1040.ssn",
+      "cell_ref": "f1040.ssn",
+      "render_mode": "field_text",
+      "mapping_method": "heuristic_standard_header",
+      "format": "ssn_digits"
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        614.0,
+        72.8,
+        622.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Spanish[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        601.998,
+        72.8,
+        609.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Korean[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        589.999,
+        72.8,
+        597.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Vietnamese[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        578.0,
+        72.8,
+        586.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Russian[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        565.998,
+        72.8,
+        573.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Arabic[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        553.999,
+        72.8,
+        561.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].HaitianCreole[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        542.0,
+        72.8,
+        550.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Tagalog[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        529.998,
+        72.8,
+        537.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Portuguese[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        517.999,
+        72.8,
+        525.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Polish[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        506.0,
+        72.8,
+        514.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Line1_ReadOrder[0].Farsi[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        64.8,
+        493.998,
+        72.8,
+        501.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].French[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        614.0,
+        281.6,
+        622.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Japanese[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        601.998,
+        281.6,
+        609.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Gujarati[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        589.999,
+        281.6,
+        597.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Punjabi[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        578.0,
+        281.6,
+        586.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Khmer[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        565.998,
+        281.6,
+        573.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Urdu[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        553.999,
+        281.6,
+        561.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Bengali[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        542.0,
+        281.6,
+        550.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].Italian[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        529.998,
+        281.6,
+        537.998
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].ChineseTraditional[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        517.999,
+        281.6,
+        525.999
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "topmostSubform[0].Page1[0].ChineseSimplified[0].c1_1[0]",
+      "page": 1,
+      "rect": [
+        273.6,
+        506.0,
+        281.6,
+        514.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    }
+  ]
+}

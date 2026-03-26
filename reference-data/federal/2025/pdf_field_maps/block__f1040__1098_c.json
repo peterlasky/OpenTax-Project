@@ -1,0 +1,224 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-information-returns/f1040__1098_c_template.pdf",
+  "widgets": [
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_name",
+      "source": "recipient_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        666.0,
+        562.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_ssn",
+      "source": "recipient_ssn",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        198.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_address_line",
+      "source": "recipient_address_line",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        632.0,
+        562.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_city_state_zip",
+      "source": "recipient_city_state_zip",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        198.0,
+        616.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        508.0,
+        198.0,
+        526.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.donee_name",
+      "source": "entry.donee_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        472.0,
+        570.0,
+        490.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.vehicle_description",
+      "source": "entry.vehicle_description",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        436.0,
+        198.0,
+        454.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.contribution_date",
+      "source": "entry.contribution_date",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        400.0,
+        198.0,
+        418.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.gross_proceeds",
+      "source": "entry.gross_proceeds",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        364.0,
+        138.0,
+        382.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.claimed_deduction_amount",
+      "source": "entry.claimed_deduction_amount",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        328.0,
+        138.0,
+        346.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.certified_use_or_improvement",
+      "source": "entry.certified_use_or_improvement",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        292.0,
+        53.0,
+        303.0
+      ]
+    },
+    {
+      "field": "entry.arm_length_sale_to_needy_individual",
+      "source": "entry.arm_length_sale_to_needy_individual",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        258.0,
+        53.0,
+        269.0
+      ]
+    }
+  ]
+}

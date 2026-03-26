@@ -1,0 +1,208 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-information-returns/f1040__1099_a_template.pdf",
+  "widgets": [
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        198.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_name",
+      "source": "recipient_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        666.0,
+        562.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_ssn",
+      "source": "recipient_ssn",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        198.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_address_line",
+      "source": "recipient_address_line",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        318.0,
+        632.0,
+        562.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "recipient_city_state_zip",
+      "source": "recipient_city_state_zip",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        198.0,
+        616.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.recipient",
+      "source": "entry.recipient",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        508.0,
+        198.0,
+        526.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.lender_name",
+      "source": "entry.lender_name",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        472.0,
+        570.0,
+        490.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.date_acquired_or_abandoned",
+      "source": "entry.date_acquired_or_abandoned",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        436.0,
+        198.0,
+        454.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "entry.balance_of_principal_outstanding",
+      "source": "entry.balance_of_principal_outstanding",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        400.0,
+        138.0,
+        418.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.fair_market_value",
+      "source": "entry.fair_market_value",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        364.0,
+        138.0,
+        382.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "entry.personally_liable_for_repayment",
+      "source": "entry.personally_liable_for_repayment",
+      "cell_ref": null,
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        328.0,
+        53.0,
+        339.0
+      ]
+    },
+    {
+      "field": "entry.property_description",
+      "source": "entry.property_description",
+      "cell_ref": null,
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_info_return_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        294.0,
+        198.0,
+        312.0
+      ],
+      "font_size": 9.0
+    }
+  ]
+}

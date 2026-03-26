@@ -260,6 +260,67 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f1116", "category_carryforward_records_total")["value"], 60.0)
         self.assertEqual(editor._get_form_cell("f1116", "10")["value"], 60.0)
 
+    def test_f1116_requires_exactly_one_category_for_category_math(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "k1_1041",
+            {
+                "recipient": "taxpayer",
+                "payer_name": "Family Trust",
+                "category": "passive",
+                "foreign_source_income": 100.0,
+                "foreign_tax_paid": 8.0,
+            },
+        )
+        self.add_block_entry(
+            editor,
+            "k3_1065",
+            {
+                "recipient": "taxpayer",
+                "payer_name": "Global Partnership",
+                "category": "general",
+                "foreign_source_income": 200.0,
+                "foreign_tax_paid": 14.0,
+            },
+        )
+
+        editor._commit_cell_value("f1116", "category_general", True)
+        editor._commit_cell_value("f1116", "24", 50.0)
+
+        self.assertEqual(editor._get_form_cell("f1116", "category_selection_count")["value"], 2)
+        self.assertFalse(editor._get_form_cell("f1116", "category_selection_valid")["value"])
+        self.assertEqual(editor._get_form_cell("f1116", "category_gross_income_from_source_block")["value"], 0.0)
+        self.assertEqual(editor._get_form_cell("f1116", "category_foreign_tax_from_source_block")["value"], 0.0)
+        self.assertEqual(editor._get_form_cell("f1116", "27")["value"], 0.0)
+        self.assertEqual(editor._get_form_cell("f1116", "28")["value"], 0.0)
+
+        editor._commit_cell_value("f1116", "category_passive", False)
+
+        self.assertEqual(editor._get_form_cell("f1116", "category_selection_count")["value"], 1)
+        self.assertTrue(editor._get_form_cell("f1116", "category_selection_valid")["value"])
+        self.assertEqual(editor._get_form_cell("f1116", "category_gross_income_from_source_block")["value"], 200.0)
+        self.assertEqual(editor._get_form_cell("f1116", "category_foreign_tax_from_source_block")["value"], 14.0)
+        self.assertEqual(editor._get_form_cell("f1116", "28")["value"], 50.0)
+
+    def test_f1116_line_18_and_20_adjustment_buckets_flow_into_limitation(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040", "15", 10000.0)
+        editor._commit_cell_value("f1040", "16", 1500.0)
+        editor._commit_cell_value("f1040", "17", 200.0)
+        editor._commit_cell_value("f1116", "15", 3000.0)
+        editor._commit_cell_value("f2555", "foreign_earned_income_exclusion", 1000.0)
+        editor._commit_cell_value("f1116", "line_18_limitation_adjustments", -500.0)
+        editor._commit_cell_value("f1116", "line_20_limitation_adjustments", 25.0)
+
+        self.assertTrue(editor._get_form_cell("f1116", "special_limitation_adjustments_likely")["value"])
+        self.assertEqual(editor._get_form_cell("f1116", "line_18_base_form_1040")["value"], 10000.0)
+        self.assertEqual(editor._get_form_cell("f1116", "18")["value"], 9500.0)
+        self.assertEqual(editor._get_form_cell("f1116", "line_20_base_form_1040")["value"], 1700.0)
+        self.assertEqual(editor._get_form_cell("f1116", "20")["value"], 1725.0)
+        self.assertAlmostEqual(editor._get_form_cell("f1116", "19")["value"], 3000.0 / 9500.0, places=6)
+        self.assertAlmostEqual(editor._get_form_cell("f1116", "21")["value"], 1725.0 * (3000.0 / 9500.0), places=6)
+
     def test_sample_return_regression(self) -> None:
         editor = TaxSheetEditor()
         editor.load_json(Path("returns/john_jane_doe_sample.json"))
@@ -276,6 +337,36 @@ class TaxLogicTests(unittest.TestCase):
         editor.load_json(Path("returns/john_jane_doe_sample.json"))
 
         self.assertEqual(editor._filed_form_ids(), ["f1040", "f1040sa", "f8812"])
+
+    def test_filing_sequence_metadata_distinguishes_attachments_from_helpers(self) -> None:
+        editor = self.make_editor()
+
+        self.assertEqual(editor._current_jurisdiction()["f1040sa"]["_meta"]["filing_sequence"], "07")
+        self.assertIsNone(editor._current_jurisdiction()["f7206"]["_meta"]["filing_sequence"])
+
+    def test_activation_rule_surfaces_1040sr_when_print_variant_is_requested(self) -> None:
+        editor = self.make_editor()
+
+        self.assertNotIn("form:f1040sr", editor.visible_sheet_ids)
+
+        editor._commit_cell_value("f1040_Federal_Info_Worksheet", "print_1040_sr", True)
+
+        self.assertIn("form:f1040sr", editor.visible_sheet_ids)
+
+    def test_block_activation_rule_can_seed_required_blank_entry(self) -> None:
+        editor = self.make_editor()
+        w2_block = editor._current_jurisdiction()["f1040"]["blocks"]["w2"]
+        w2_block["activation_rule"] = "f1040sj.elect_to_use_schedule_j"
+        w2_block["activated_min_entries"] = 1
+        editor.recalculate_all()
+
+        self.assertFalse(editor._block_has_entries("f1040", "w2"))
+        self.assertNotIn("block:f1040:w2", editor.visible_sheet_ids)
+
+        editor._commit_cell_value("f1040sj", "elect_to_use_schedule_j", True)
+
+        self.assertTrue(editor._block_has_entries("f1040", "w2"))
+        self.assertIn("block:f1040:w2", editor.visible_sheet_ids)
 
     def test_info_return_candidates_only_include_local_previewable_blocks(self) -> None:
         editor = self.make_editor()
@@ -371,8 +462,12 @@ class TaxLogicTests(unittest.TestCase):
         editor._commit_cell_value("f2106", "employee_business_expense_deduction", 12.0)
         editor._commit_cell_value("f8824", "schedule_d_4", 9.0)
         editor._commit_cell_value("f8824", "schedule_d_11", 13.0)
+        editor._commit_cell_value("f1040sa", "12_manual_component", 1.0)
         editor._commit_cell_value("f8936", "schedule2_1b", 1.0)
         editor._commit_cell_value("f8936", "schedule2_1c", 2.0)
+        editor._commit_cell_value("f5405", "annual_installment_repayment", 3.0)
+        editor._commit_cell_value("f5405", "accelerated_repayment_amount", 4.0)
+        editor._commit_cell_value("f8283", "other_noncash_contributions", 8.0)
         editor._commit_cell_value("f8936", "schedule3_6f", 3.0)
         editor._commit_cell_value("f8936", "schedule3_6m", 4.0)
         editor._commit_cell_value("f4255", "schedule2_1d", 5.0)
@@ -400,6 +495,8 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f1040s2", "1d")["value"], 5.0)
         self.assertEqual(editor._get_form_cell("f1040s2", "1e")["value"], 6.0)
         self.assertEqual(editor._get_form_cell("f1040s2", "1f")["value"], 7.0)
+        self.assertEqual(editor._get_form_cell("f1040s2", "10")["value"], 7.0)
+        self.assertEqual(editor._get_form_cell("f1040sa", "12")["value"], 9.0)
         self.assertEqual(editor._get_form_cell("f1040s2", "17e")["value"], 11.0)
         self.assertEqual(editor._get_form_cell("f1040s2", "17f")["value"], 12.0)
         self.assertEqual(editor._get_form_cell("f3800", "component_credit_total")["value"], 27.0)
@@ -409,6 +506,106 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f1040s3", "6f")["value"], 3.0)
         self.assertEqual(editor._get_form_cell("f1040s3", "6m")["value"], 4.0)
         self.assertEqual(editor._get_form_cell("f1040s3", "12")["value"], 8.0)
+
+    def test_form_5405_flows_through_schedule_2_total_tax(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f5405", "annual_installment_repayment", 10.0)
+        editor._commit_cell_value("f5405", "accelerated_repayment_amount", 15.0)
+
+        self.assertEqual(editor._get_form_cell("f5405", "schedule2_10")["value"], 25.0)
+        self.assertEqual(editor._get_form_cell("f1040s2", "10")["value"], 25.0)
+        self.assertEqual(editor._get_form_cell("f1040s2", "21")["value"], 25.0)
+        self.assertEqual(editor._get_form_cell("f1040", "23")["value"], 25.0)
+        self.assertEqual(editor._get_form_cell("f1040", "24")["value"], 25.0)
+        self.assertIn("f5405", set(editor._filed_form_ids()))
+
+    def test_form_8283_flows_to_schedule_a_and_files_over_threshold(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040sa", "12_manual_component", 200.0)
+        self.add_block_entry(
+            editor,
+            "1098_c",
+            {
+                "recipient": "taxpayer",
+                "donee_name": "Helping Hands",
+                "claimed_deduction_amount": 450.0,
+            },
+        )
+        editor._commit_cell_value("f8283", "other_noncash_contributions", 100.0)
+
+        self.assertEqual(editor._get_form_cell("f8283", "noncash_contributions_from_1098c")["value"], 450.0)
+        self.assertEqual(editor._get_form_cell("f8283", "schedule_a_12")["value"], 550.0)
+        self.assertTrue(editor._get_form_cell("f8283", "required_to_file_likely")["value"])
+        self.assertFalse(editor._get_form_cell("f8283", "section_b_required_likely")["value"])
+        self.assertEqual(editor._get_form_cell("f1040sa", "12")["value"], 750.0)
+        self.assertEqual(editor._get_form_cell("f1040sa", "14")["value"], 750.0)
+        self.assertIn("f8283", set(editor._filed_form_ids()))
+
+    def test_form_8283_section_b_flag_trips_over_5000(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f8283", "other_noncash_contributions", 6001.0)
+
+        self.assertTrue(editor._get_form_cell("f8283", "required_to_file_likely")["value"])
+        self.assertTrue(editor._get_form_cell("f8283", "section_b_required_likely")["value"])
+
+    def test_remaining_missing_forms_now_exist_and_key_hooks_work(self) -> None:
+        editor = self.make_editor()
+        for form_id in [
+            "f1040sr",
+            "f1040sj",
+            "f1040es",
+            "f1040v",
+            "f1040x",
+            "f4835",
+            "f7203",
+            "f8862",
+            "f8888",
+            "f9465",
+        ]:
+            self.assertIn(form_id, editor._current_jurisdiction())
+
+        editor._commit_cell_value("f1040_Federal_Info_Worksheet", "print_1040_sr", True)
+        editor._commit_cell_value("f1040", "36", 100.0)
+        editor._commit_cell_value("f1040", "37", 250.0)
+        editor._commit_cell_value("f1040", "38", 10.0)
+        editor._commit_cell_value("f1040sj", "elect_to_use_schedule_j", True)
+        editor._commit_cell_value("f1040sj", "line23_tax", 123.0)
+        editor._commit_cell_value("f4835", "gross_farm_rental_income", 1000.0)
+        editor._commit_cell_value("f4835", "expenses_total", 400.0)
+        editor._commit_cell_value("f7203", "schedule_e_basis_adjustment", 250.0)
+        editor._commit_cell_value("f8862", "eic_recertification", True)
+        editor._commit_cell_value("f1040", "35a", 500.0)
+        editor._commit_cell_value("f8888", "allocation_account_1", 200.0)
+        editor._commit_cell_value("f8888", "allocation_account_2", 300.0)
+        editor._commit_cell_value("f9465", "requested_monthly_payment", 50.0)
+        editor._commit_cell_value("f1040x", "amended_return_needed", True)
+
+        self.assertTrue(editor._get_form_cell("f1040sr", "selected_for_print")["value"])
+        self.assertEqual(editor._get_form_cell("f1040es", "carryforward_credit_from_current_return")["value"], 100.0)
+        self.assertEqual(editor._get_form_cell("f1040v", "voucher_amount_due")["value"], 260.0)
+        self.assertEqual(editor._get_form_cell("f1040sj", "line23_tax")["value"], 123.0)
+        self.assertEqual(editor._get_form_cell("f1040", "tax_before_form_8615")["value"], 123.0)
+        self.assertEqual(editor._get_form_cell("f1040", "16")["value"], 123.0)
+        self.assertEqual(editor._get_form_cell("f4835", "schedule_e_40")["value"], 600.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "21")["value"], 600.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "28")["value"], 250.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "41")["value"], 850.0)
+        self.assertTrue(editor._get_form_cell("f8862", "required_to_file_likely")["value"])
+        self.assertEqual(editor._get_form_cell("f8888", "available_refund")["value"], 500.0)
+        self.assertEqual(editor._get_form_cell("f8888", "allocation_total")["value"], 500.0)
+        self.assertEqual(editor._get_form_cell("f8888", "allocation_difference")["value"], 0.0)
+        self.assertEqual(editor._get_form_cell("f9465", "amount_owed_reference")["value"], 260.0)
+
+        filed = set(editor._filed_form_ids())
+        self.assertIn("f1040sj", filed)
+        self.assertIn("f4835", filed)
+        self.assertNotIn("f7203", filed)
+        self.assertNotIn("f8862", filed)
+        self.assertIn("f8888", filed)
+        self.assertNotIn("f9465", filed)
+        self.assertIn("form:f8862", editor.visible_sheet_ids)
+        self.assertIn("form:f7203", editor.visible_sheet_ids)
+        self.assertIn("form:f9465", editor.visible_sheet_ids)
 
     def test_schedule_c_stack_flows_to_schedule_1_and_files_forms(self) -> None:
         editor = self.make_editor()
@@ -434,8 +631,9 @@ class TaxLogicTests(unittest.TestCase):
         filed = set(editor._filed_form_ids())
         self.assertIn("f1040sc", filed)
         self.assertIn("f4562", filed)
-        self.assertIn("f8829", filed)
+        self.assertNotIn("f8829", filed)
         self.assertIn("f6198", filed)
+        self.assertIn("form:f8829", editor.visible_sheet_ids)
 
     def test_schedule_e_stack_flows_to_schedule_1_and_files_forms(self) -> None:
         editor = self.make_editor()
@@ -468,7 +666,8 @@ class TaxLogicTests(unittest.TestCase):
         self.assertIn("f1040se", filed)
         self.assertIn("f6198", filed)
         self.assertIn("f8582", filed)
-        self.assertIn("f8582cr", filed)
+        self.assertNotIn("f8582cr", filed)
+        self.assertIn("form:f8582cr", editor.visible_sheet_ids)
 
     def test_form_7206_can_drive_schedule_1_line_17(self) -> None:
         editor = self.make_editor()
@@ -477,7 +676,8 @@ class TaxLogicTests(unittest.TestCase):
 
         self.assertEqual(editor._get_form_cell("f7206", "schedule1_17_deduction")["value"], 650.0)
         self.assertEqual(editor._get_form_cell("f1040s1", "17")["value"], 650.0)
-        self.assertIn("f7206", set(editor._filed_form_ids()))
+        self.assertNotIn("f7206", set(editor._filed_form_ids()))
+        self.assertIn("form:f7206", editor.visible_sheet_ids)
 
     def test_form_1098e_feeds_student_loan_interest_worksheet(self) -> None:
         editor = self.make_editor()
@@ -507,6 +707,42 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f1040s3", "6d")["value"], 600.0)
         self.assertEqual(editor._get_form_cell("f8812", "credit_limit_worksheet_a_2")["value"], 600.0)
         self.assertIn("f1040sr_schedule_r", set(editor._filed_form_ids()))
+
+    def test_form_8615_overrides_form_1040_line_16_when_required(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Federal_Info_Worksheet", "taxpayer_dob", "2010-06-15")
+        editor._commit_cell_value("f1040", "12a", True)
+        self.add_block_entry(
+            editor,
+            "1099_int",
+            {"recipient": "taxpayer", "payer_name": "Custodial Bank", "box_1": 20000.0},
+        )
+        editor._commit_cell_value("f8615", "child_required_to_file_return", True)
+        editor._commit_cell_value("f8615", "parent_taxable_income_input", 100000.0)
+
+        self.assertTrue(editor._get_form_cell("f8615", "required_to_file")["value"])
+        self.assertEqual(editor._get_form_cell("f8615", "1")["value"], 20000.0)
+        self.assertEqual(editor._get_form_cell("f8615", "5")["value"], 4250.0)
+        self.assertEqual(editor._get_form_cell("f8615", "17")["value"], editor._get_form_cell("f1040", "tax_before_form_8615")["value"])
+        self.assertEqual(editor._get_form_cell("f1040", "16")["value"], editor._get_form_cell("f8615", "18")["value"])
+        self.assertGreater(editor._get_form_cell("f8615", "18")["value"], editor._get_form_cell("f8615", "17")["value"])
+        self.assertIn("f8615", set(editor._filed_form_ids()))
+
+    def test_form_8615_does_not_apply_after_age_limit(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Federal_Info_Worksheet", "taxpayer_dob", "2000-06-15")
+        editor._commit_cell_value("f1040", "12a", True)
+        self.add_block_entry(
+            editor,
+            "1099_int",
+            {"recipient": "taxpayer", "payer_name": "Custodial Bank", "box_1": 20000.0},
+        )
+        editor._commit_cell_value("f8615", "child_required_to_file_return", True)
+        editor._commit_cell_value("f8615", "parent_taxable_income_input", 100000.0)
+
+        self.assertFalse(editor._get_form_cell("f8615", "required_to_file")["value"])
+        self.assertEqual(editor._get_form_cell("f1040", "16")["value"], editor._get_form_cell("f1040", "tax_before_form_8615")["value"])
+        self.assertNotIn("f8615", set(editor._filed_form_ids()))
 
     def test_schedule_f_and_form_8814_feed_schedule_1_and_f4952(self) -> None:
         editor = self.make_editor()
@@ -585,6 +821,123 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._resolve_block_preview_source("f1040", "1099_int", "entry.payer_name"), "Midwest Credit Union")
         self.assertEqual(editor._resolve_block_preview_source("f1040", "1099_int", "recipient_name"), "Jane Doe")
 
+    def test_form_fillable_metadata_and_pdf_source_path_drive_preview_resolution(self) -> None:
+        editor = self.make_editor()
+
+        schedule_ai_meta = editor._current_jurisdiction()["f2210_Schedule_AI"]["_meta"]
+        self.assertTrue(schedule_ai_meta["fillable_form"])
+        self.assertEqual(
+            schedule_ai_meta["pdf_source_path"],
+            "forms-instructions-and-publications/forms/f2210.pdf",
+        )
+        preview_path = editor._raw_preview_source_path("form", "f2210_Schedule_AI", None)
+        self.assertIsNotNone(preview_path)
+        self.assertEqual(preview_path.name, "f2210.pdf")
+
+        schedule_8812_meta = editor._current_jurisdiction()["f8812"]["_meta"]
+        self.assertTrue(schedule_8812_meta["fillable_form"])
+        self.assertEqual(
+            schedule_8812_meta["pdf_source_path"],
+            "forms-instructions-and-publications/forms/f1040s8.pdf",
+        )
+
+    def test_generated_pdf_field_map_exists_for_fillable_form_without_render_mappings(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+
+        self.assertTrue(editor.pdf_preview_engine.has_mapping_for_form("f1040s1"))
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040s1"))
+
+        mapping = editor.pdf_preview_engine._load_mapping("f1040s1")
+        self.assertEqual(
+            mapping["source_pdf"],
+            "forms-instructions-and-publications/forms/f1040s1.pdf",
+        )
+        self.assertGreater(len(mapping.get("widgets", [])), 1)
+        renderable_widgets = [
+            item
+            for item in mapping.get("widgets", [])
+            if isinstance(item, dict) and item.get("render_mode") == "field_text"
+        ]
+        self.assertGreater(len(renderable_widgets), 10)
+
+    def test_cross_form_block_item_expression_resolves_for_preview_mappings(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        value = editor._resolve_pdf_mapping_source("f1040sb", "f1040.1099_int.0.payer_name")
+        self.assertEqual(value, "First National Bank")
+
+    def test_generated_pdf_field_map_preserves_render_mappings_for_existing_preview_form(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+
+        self.assertTrue(editor.pdf_preview_engine.has_mapping_for_form("f1040"))
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040"))
+
+        mapping = editor.pdf_preview_engine._load_mapping("f1040")
+        mapped_widgets = [
+            item
+            for item in mapping.get("widgets", [])
+            if isinstance(item, dict) and isinstance(item.get("source"), str) and item.get("source").strip()
+        ]
+        self.assertGreater(len(mapped_widgets), 10)
+
+    def test_block_fillable_metadata_and_pdf_source_path_drive_preview_resolution(self) -> None:
+        editor = self.make_editor()
+
+        w2_block = editor._current_jurisdiction()["f1040"]["blocks"]["w2"]
+        self.assertTrue(w2_block["fillable_form"])
+        self.assertEqual(
+            w2_block["pdf_source_path"],
+            "forms-instructions-and-publications/generated-information-returns/f1040__w2_template.pdf",
+        )
+        w2_preview_path = editor._block_preview_source_path("f1040", "w2")
+        self.assertIsNotNone(w2_preview_path)
+        self.assertEqual(w2_preview_path.name, "f1040__w2_template.pdf")
+
+        interest_block = editor._current_jurisdiction()["f1040"]["blocks"]["1099_int"]
+        self.assertTrue(interest_block["fillable_form"])
+        self.assertEqual(
+            interest_block["pdf_source_path"],
+            "forms-instructions-and-publications/generated-information-returns/f1040__1099_int_template.pdf",
+        )
+        interest_preview_path = editor._block_preview_source_path("f1040", "1099_int")
+        self.assertIsNotNone(interest_preview_path)
+        self.assertEqual(interest_preview_path.name, "f1040__1099_int_template.pdf")
+
+    def test_generated_info_return_block_mapping_uses_generated_template(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+
+        preview_id = editor._block_preview_mapping_id("f1040", "w2")
+        self.assertTrue(editor.pdf_preview_engine.has_mapping_for_form(preview_id))
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form(preview_id))
+        self.assertEqual(editor.pdf_preview_engine.mapping_path_for_form(preview_id).parent.name, "pdf_field_maps")
+
+        mapping = editor.pdf_preview_engine._load_mapping(preview_id)
+        self.assertEqual(
+            mapping["source_pdf"],
+            "forms-instructions-and-publications/generated-information-returns/f1040__w2_template.pdf",
+        )
+        self.assertGreater(len(mapping.get("widgets", [])), 10)
+
+    def test_helper_worksheet_is_not_marked_as_fillable_form(self) -> None:
+        editor = self.make_editor()
+
+        worksheet_meta = editor._current_jurisdiction()["f1040_Tax_Computation"]["_meta"]
+        self.assertFalse(worksheet_meta["fillable_form"])
+        self.assertIsNone(worksheet_meta["pdf_source_path"])
+        self.assertIsNone(editor._raw_preview_source_path("form", "f1040_Tax_Computation", None))
+
+    def test_non_document_block_is_not_marked_as_fillable_form(self) -> None:
+        editor = self.make_editor()
+
+        helper_block = editor._current_jurisdiction()["f1040"]["blocks"]["foreign_tax_credit_items"]
+        self.assertFalse(helper_block["fillable_form"])
+        self.assertIsNone(helper_block["pdf_source_path"])
+        self.assertIsNone(editor._block_preview_source_path("f1040", "foreign_tax_credit_items"))
+
     @unittest.skipUnless(PdfReader is not None, "pypdf is required for preview-render tests")
     def test_info_return_preview_mapping_renders_pdf(self) -> None:
         editor = TaxSheetEditor()
@@ -602,7 +955,23 @@ class TaxLogicTests(unittest.TestCase):
         )
 
         self.assertTrue(output_path.is_file())
-        self.assertEqual(len(PdfReader(str(output_path)).pages), 1)
+        self.assertEqual(len(PdfReader(str(output_path)).pages), 2)
+
+    @unittest.skipUnless(PdfReader is not None, "pypdf is required for preview-render tests")
+    def test_heuristic_schedule_1_preview_mapping_renders_pdf(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+        self.assertIsNotNone(editor.pdf_preview_engine)
+        self.assertTrue(editor.pdf_preview_engine.available())
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040s1"))
+
+        output_path = editor.pdf_preview_engine.render_preview(
+            form_id="f1040s1",
+            resolve_source=lambda source: editor._resolve_pdf_mapping_source("f1040s1", source),
+        )
+
+        self.assertTrue(output_path.is_file())
+        self.assertEqual(len(PdfReader(str(output_path)).pages), 2)
 
 
 if __name__ == "__main__":

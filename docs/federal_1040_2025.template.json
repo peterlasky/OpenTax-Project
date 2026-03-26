@@ -1,0 +1,245 @@
+{
+  "_comment_file_purpose": "Generic commented template for the structure used by federal_1040_2025.json. This file is documentation-by-example and is not meant to replace the live model.",
+  "_comment_how_to_use": [
+    "Replace placeholder keys like <jurisdiction-year>, <form_id>, <cell_id>, and <block_id> with real ids.",
+    "Keep this file valid JSON by using _comment-style properties instead of true // comments.",
+    "The live file currently uses one top-level jurisdiction object named Federal 2025, but the schema allows any jurisdiction-year label as the key.",
+    "Cell ids can be semantic names like taxpayer_first_name, numeric strings like 1, or printed-line ids like 1a, 3xiv, and 8z."
+  ],
+  "READ_ME": [
+    "Describe what this tax-model file contains.",
+    "Example: The structure of a 1040 and all its dependencies is stored in this JSON."
+  ],
+  "_schema": "Tax form structure: jurisdiction-year -> form -> cells (and optional blocks for zero-to-many sections).",
+  "_format_codes": {
+    "_comment": "Authoritative format-code dictionary used throughout the file.",
+    "0.00": "Number with 2 decimal places, usually a dollar amount.",
+    "0": "Integer with no decimals.",
+    "0.00%": "Percentage stored as a decimal fraction, for example 0.225 for 22.50%.",
+    "date": "Date string in ISO 8601 format, YYYY-MM-DD.",
+    "text": "Free-form string.",
+    "boolean": "True or false."
+  },
+  "_comments": [
+    "Describe naming rules, equation conventions, block addressing, and any modeling assumptions.",
+    "Explain that blocks represent repeating sections and that entries are addressed with block_id.index.field_name.",
+    "Explain wildcard aggregation examples such as sum(w2.*.box_1).",
+    "Explain nested repeating item scenarios such as w2.0.box_12.0.code."
+  ],
+  "_user_entered_sources": [
+    "_comment: List block ids or source ids that come from payer-furnished forms such as W-2, 1099s, 1098s, K-1s, or manual source-detail blocks."
+  ],
+  "<jurisdiction-year>": {
+    "_comment_jurisdiction": "One jurisdiction-year wrapper contains an optional filing-sequence index plus every modeled form, worksheet, schedule, attachment, and helper form for that jurisdiction.",
+    "_filing_sequence_index": {
+      "_comment": "Convenience mirror of filing sequence assignments. `filing_sequence.json` is the authoritative project-level catalog. Keys are IRS attachment-sequence strings; `none` groups forms whose _meta.filing_sequence is null.",
+      "07": [
+        "<attachment_form_id>"
+      ],
+      "none": [
+        "<main_return_or_worksheet_form_id>"
+      ]
+    },
+    "<form_id>": {
+      "_comment_form_overview": "Every form object has _meta and cells. Some forms also have blocks. A form can be a printed IRS form, schedule, worksheet, helper worksheet, voucher, or compatibility carrier.",
+      "_meta": {
+        "_comment": "Form-level metadata used for display, ordering, and filing logic.",
+        "name": "<Display name shown to the user>",
+        "active": true,
+        "activation_rule": "<optional boolean expression controlling when this form becomes active/filed/visible>",
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/forms/f1040sa.pdf",
+        "pdf_field_count": 150,
+        "rank": 1.0,
+        "filing_sequence": "07"
+      },
+      "_comment_meta_scenarios": [
+        "name is a human-readable label such as Form 1040, Schedule D, or a worksheet title.",
+        "active is a static availability flag. It answers whether this form exists in the model at all.",
+        "activation_rule is the dynamic trigger. It should be used when runtime filing or visibility depends on facts elsewhere in the return.",
+        "activation_rule should use the same expression language as equations and may call helpers such as abs(...), block_has_entries(\"f1040\", \"w2\"), form_has_user_activity(\"f1040sc\"), or fully qualified references like f2210.C.",
+        "fillable_form indicates whether this modeled sheet corresponds to a PDF artifact with fillable boxes that the app should treat as a real form/schedule preview target.",
+        "pdf_source_path is an optional repo-relative path to the local PDF preview source for this sheet. Use it when the PDF filename does not match the model id or when multiple modeled sheets share one PDF.",
+        "pdf_field_count stores the detected number of fillable boxes when known, typically sourced from `forms-instructions-and-publications/pdf_form_scan.json`.",
+        "rank is numeric and may be fractional. Fractional values are used to place a form between other forms without renumbering everything.",
+        "filing_sequence is either an IRS attachment sequence string such as 07, 19, or 19C, or null when the form is not filed as a sequenced attachment.",
+        "The main Form 1040 can still use null because it is the return itself rather than an attachment."
+      ],
+      "cells": {
+        "_comment_cells_overview": "A form's cells object maps each cell id to its schema and current value.",
+        "<manual_input_cell_id>": {
+          "_comment": "Manual input cell scenario: user types the value, so there is no equation.",
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "<Printed label or field name>",
+          "explanation": "<Extra guidance for the user, optional but strongly encouraged when the printed label is ambiguous>",
+          "order": 1,
+          "required_rule": "optional"
+        },
+        "<computed_locked_cell_id>": {
+          "_comment": "Computed locked cell scenario: value is derived entirely from an equation and is not intended to be overridden manually.",
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": false,
+          "description": "<Computed line description>",
+          "explanation": "<Explain the dependency chain or the IRS meaning of this line>",
+          "order": 2,
+          "equation": "<expression that references same-form cells, other forms, block sums, helper functions, or boolean arithmetic>",
+          "required_rule": "optional"
+        },
+        "<computed_overrideable_cell_id>": {
+          "_comment": "Computed overrideable cell scenario: the model can calculate it, but the user may need to override it for edge cases or instruction-only branches.",
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": false,
+          "override_possible": true,
+          "description": "<Computed line that may need override>",
+          "explanation": "<State what is auto-computed and what still may require user judgment or worksheet support>",
+          "order": 3,
+          "equation": "<expression>",
+          "required_rule": "optional"
+        },
+        "<mirrored_reference_cell_id>": {
+          "_comment": "Mirrored reference cell scenario: the value is pulled from another form or worksheet and should not be directly edited here.",
+          "format": "text",
+          "default": "",
+          "value": "",
+          "manual_entry": false,
+          "override_possible": false,
+          "description": "<Mirror of another field>",
+          "explanation": "<Describe the upstream source>",
+          "order": 4,
+          "equation": "<other_form_id.other_cell_id>",
+          "required_rule": "always"
+        },
+        "<line_number_style_cell_id>": {
+          "_comment": "Printed-line id scenario: many real cells are named with literal line references such as 1, 1a, 8z, 3xiv, or 28_rate_gain.",
+          "format": "0.00",
+          "default": 0,
+          "value": 0,
+          "manual_entry": true,
+          "override_possible": false,
+          "description": "<Printed form line label>",
+          "explanation": "<What the printed line means>",
+          "order": 5,
+          "required_rule": "optional"
+        }
+      },
+      "_comment_cell_field_rules": [
+        "format controls both storage shape and UI rendering.",
+        "default and value should match the declared format: numbers for numeric formats, booleans for boolean, empty strings for text or date.",
+        "manual_entry true usually means there is no equation.",
+        "override_possible true usually appears on computed cells where the model wants a default computation but still permits a manual override path.",
+        "description should match the printed form as closely as practical.",
+        "explanation should document tax meaning, source assumptions, edge cases, or reasons a field is manual.",
+        "order is a display-order hint used throughout the file.",
+        "required_rule is usually optional, but it can also be always or an expression such as filing_status_married_jointly or use_foreign_address > 0.0.",
+        "required_rule expressions may reference sibling cells directly or use fully qualified references like f1040_Federal_Info_Worksheet.use_foreign_address <= 0.0.",
+        "equation is optional and may reference same-form cells, cross-form cells, blocks, helper functions, comparisons, conditionals, boolean arithmetic, min/max, and aggregation helpers."
+      ],
+      "_comment_equation_patterns": {
+        "_comment": "Representative equation patterns used in the live model.",
+        "same_form_reference": "3a + 3b",
+        "cross_form_reference": "f1040_Federal_Info_Worksheet.taxpayer_first_name",
+        "conditional_boolean_math": "((line_18 > 0.0) * min(1.0, line_17 / line_18)) + ((line_18 <= 0.0) * 0.0)",
+        "wildcard_sum": "sum(w2.*.box_1)",
+        "crossblock_filtered_sum": "crossblocksum_match(\"f1040\", \"foreign_tax_credit_items\", \"gross_income\", \"category\", \"passive\")",
+        "count_match": "crossblockcount_match(\"f1040\", \"foreign_tax_credit_items\", \"qualified_payee_statement\", false)",
+        "function_examples": "min(a, b), max(a, b), tax_lookup(amount)"
+      },
+      "blocks": {
+        "_comment_blocks_overview": "Blocks are optional. Use them when a form has zero-to-many rows, payer statements, transactions, dependents, carryovers, or other repeating sections.",
+        "<block_id>": {
+          "_comment": "Standard repeating block scenario.",
+          "active": true,
+          "activation_rule": "<optional boolean expression in the parent-form context that says when this block should appear even before data exists>",
+          "activated_min_entries": 0,
+          "multiple_copies": true,
+          "description": "<Repeating section label>",
+          "explanation": "<Explain when to add one entry and how each row is used>",
+          "min_entries": 0,
+          "max_entries": null,
+          "_comment_entry_limits": "Use null for no upper limit. Use a number such as 3 when the printed form or worksheet imposes a hard cap.",
+          "item_cells": {
+            "<item_field_id>": {
+              "_comment": "Leaf field inside one block entry.",
+              "format": "text",
+              "default": "",
+              "value": "",
+              "description": "<Field label within one entry>",
+              "explanation": "<Meaning of this field in one repeating row>",
+              "required_rule": "optional"
+            },
+            "<numeric_item_field_id>": {
+              "format": "0.00",
+              "default": 0,
+              "value": 0,
+              "description": "<Numeric field label>",
+              "explanation": "<Numeric field meaning>",
+              "required_rule": "optional"
+            },
+            "<nested_repeating_item_id>": {
+              "_comment": "Nested repeating scenario used for multi-line boxes inside a single block entry, such as W-2 box 12 code/amount rows.",
+              "type": "repeating",
+              "description": "<Nested repeating subtable label>",
+              "explanation": "<When each sub-entry is used>",
+              "min_entries": 0,
+              "max_entries": null,
+              "item_cells": {
+                "<sub_field_id>": {
+                  "format": "text",
+                  "default": "",
+                  "value": "",
+                  "description": "<Sub-entry field label>",
+                  "explanation": "<Sub-entry field meaning>",
+                  "required_rule": "optional"
+                },
+                "<sub_amount_field_id>": {
+                  "format": "0.00",
+                  "default": 0,
+                  "value": 0,
+                  "description": "<Sub-entry numeric label>",
+                  "explanation": "<Sub-entry numeric meaning>",
+                  "required_rule": "optional"
+                }
+              },
+              "entries": [],
+              "required_rule": "optional"
+            }
+          },
+          "entries": [],
+          "_comment_entries": "Each entry in entries should be an object matching item_cells. Address examples: block_id.0.field_name and block_id.0.nested_repeating_item_id.1.sub_field_id.",
+          "user_entered": true,
+          "fillable_form": true,
+          "pdf_source_path": "forms-instructions-and-publications/information-returns/fw2.pdf",
+          "pdf_field_count": 59,
+          "_comment_optional_block_fields": [
+            "user_entered may be present when the block comes directly from payer-furnished documents or manual source-detail entry.",
+            "activation_rule is useful for questionnaire-driven blocks, for example when a yes/no answer means at least one W-2 or other source row must exist.",
+            "activated_min_entries can auto-seed blank rows when activation_rule becomes true; use 1 for cases where one entry must exist after activation.",
+            "fillable_form indicates whether the source document PDF has fillable boxes and should be treated as a real preview target.",
+            "pdf_source_path is the repo-relative local PDF path for the source document when known. Prefer this over filename heuristics.",
+            "pdf_field_count records the detected fillable-box count when known, usually sourced from `forms-instructions-and-publications/pdf_form_scan.json`.",
+            "_form_ref and _instructions_ref may be present to link the originating IRS form or instructions PDF.",
+            "Not every block includes every optional metadata field."
+          ],
+          "_form_ref": "https://example.invalid/form.pdf",
+          "_instructions_ref": "https://example.invalid/instructions.pdf"
+        }
+      },
+      "_comment_form_variants": [
+        "Some forms omit blocks entirely and contain only cells.",
+        "Some forms are true printed forms with line-by-line cells.",
+        "Some forms are helper worksheets that exist only to compute one or more downstream lines.",
+        "Some forms are scaffolds that expose a handful of key carryouts while full line logic is still pending.",
+        "Some forms have null filing_sequence because they are vouchers, planning sheets, worksheets, or other non-sequenced helpers rather than filed attachments."
+      ]
+    }
+  }
+}

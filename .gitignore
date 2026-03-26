@@ -15,6 +15,7 @@ venv/
 returns/*.json
 tmp/
 artifacts/
+trash/
 
 # OS
 .DS_Store

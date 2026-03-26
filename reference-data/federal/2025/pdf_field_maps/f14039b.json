@@ -1,0 +1,683 @@
+{
+  "form_id": "f14039b",
+  "source_pdf": "forms-instructions-and-publications/forms/f14039b.pdf",
+  "pdf_field_count": 48,
+  "fillable_form": true,
+  "widget_count": 48,
+  "mapped_widget_count": 0,
+  "renderable_widget_count": 0,
+  "widgets": [
+    {
+      "field": "form1[0].Page1[0].SectionA[0].NotABusinessOwner[0]",
+      "page": 1,
+      "rect": [
+        36.08,
+        691.6,
+        46.08,
+        701.6
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionA[0].hyperlink[0]",
+      "page": 1,
+      "rect": [
+        396.0,
+        680.4,
+        486.0,
+        691.2
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionA[0].EIN[0]",
+      "page": 1,
+      "rect": [
+        208.8,
+        658.8,
+        388.8,
+        676.8
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionA[0].SuspectBusinessEntity[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        630.4,
+        46.0,
+        640.4
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].Entity_Name[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        550.8,
+        324.0,
+        566.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].EntityEstablish[0]",
+      "page": 1,
+      "rect": [
+        331.2,
+        550.8,
+        468.0,
+        566.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].SPONSOR_EIN[0]",
+      "page": 1,
+      "rect": [
+        475.2,
+        550.8,
+        576.0,
+        566.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].Taxpayer_MAILING_STREET_ADDRESS[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        522.0,
+        576.0,
+        537.84
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].Taxpayer_MAILING_CITY_NAME[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        493.2,
+        360.0,
+        509.04
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].Taxpayer_MAILING_STATE_CODE[0]",
+      "page": 1,
+      "rect": [
+        367.206,
+        493.2,
+        468.006,
+        509.04
+      ],
+      "widget_type": "choice",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].Taxpayer_MAILING_ZIP_CODE[0]",
+      "page": 1,
+      "rect": [
+        475.2,
+        493.2,
+        576.0,
+        508.63
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].TaxFormsAffect[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        464.4,
+        302.4,
+        480.24
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].TaxYears[0]",
+      "page": 1,
+      "rect": [
+        309.6,
+        464.4,
+        576.0,
+        480.24
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].PreEntity_Name[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        435.6,
+        576.0,
+        451.44
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].ThreeCheckboxLikeRadio[0].ein_active[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        410.0,
+        44.0,
+        418.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].ThreeCheckboxLikeRadio[0].ein_not_active[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        395.6,
+        44.0,
+        403.6
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].ThreeCheckboxLikeRadio[0].if_operation_ceased[0]",
+      "page": 1,
+      "rect": [
+        446.4,
+        394.56,
+        576.0,
+        406.8
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionB[0].if_you_were[0]",
+      "page": 1,
+      "rect": [
+        558.0,
+        378.4,
+        568.0,
+        388.4
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].NotApplicable[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        320.0,
+        44.0,
+        328.0
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].SoleProprietor[0]",
+      "page": 1,
+      "rect": [
+        356.4,
+        319.87,
+        364.4,
+        327.87
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].OfficerDirector[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        305.6,
+        44.0,
+        313.6
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].Partner[0]",
+      "page": 1,
+      "rect": [
+        356.4,
+        305.47,
+        364.4,
+        313.47
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].ManagingMember[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        291.07,
+        44.0,
+        299.07
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].SoleMember[0]",
+      "page": 1,
+      "rect": [
+        356.4,
+        291.2,
+        364.4,
+        299.2
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].ExecutorAdministrator[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        276.67,
+        44.0,
+        284.67
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].Other[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        262.27,
+        44.0,
+        270.27
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].BQ2[0].OtherDescribe[0]",
+      "page": 1,
+      "rect": [
+        133.2,
+        261.23,
+        576.0,
+        273.47
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].Entity_Name[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        226.8,
+        302.4,
+        242.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].ssnOnly[0]",
+      "page": 1,
+      "rect": [
+        309.6,
+        226.8,
+        576.0,
+        242.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].CQ4[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        190.8,
+        576.0,
+        213.84
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].SectionCTele[0].TELE[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        158.4,
+        360.0,
+        176.4
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].SectionCTele[0].CheckBox1[0]",
+      "page": 1,
+      "rect": [
+        226.035,
+        179.24,
+        234.035,
+        187.24
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].SectionCTele[0].CheckBox2[0]",
+      "page": 1,
+      "rect": [
+        276.435,
+        179.24,
+        284.435,
+        187.24
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].SectionCTele[0].CheckBox3[0]",
+      "page": 1,
+      "rect": [
+        326.835,
+        179.24,
+        334.835,
+        187.24
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionC[0].SectionCTele[0].BestTimeToCall[0]",
+      "page": 1,
+      "rect": [
+        367.2,
+        158.491,
+        576.0,
+        176.4
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page1[0].SectionD[0].BQ1r[0]",
+      "page": 1,
+      "rect": [
+        36.0,
+        36.0,
+        576.0,
+        127.44
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D3[0]",
+      "page": 2,
+      "rect": [
+        36.0,
+        698.4,
+        576.0,
+        722.333
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox1[0].passport[0]",
+      "page": 2,
+      "rect": [
+        36.0,
+        615.2,
+        44.0,
+        623.2
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox1[0].copy_utility[0]",
+      "page": 2,
+      "rect": [
+        36.0,
+        600.8,
+        44.0,
+        608.8
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox2[0].articles_incorporation[0]",
+      "page": 2,
+      "rect": [
+        36.0,
+        546.8,
+        44.0,
+        554.8
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox2[0].articles_organization[0]",
+      "page": 2,
+      "rect": [
+        216.0,
+        546.8,
+        224.0,
+        554.8
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox2[0].trust_estate_document[0]",
+      "page": 2,
+      "rect": [
+        396.0,
+        546.8,
+        404.0,
+        554.8
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionD[0].D4checkbox2[0].written_statement[0]",
+      "page": 2,
+      "rect": [
+        36.28,
+        532.4,
+        44.28,
+        540.4
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionE[0].signature[0]",
+      "page": 2,
+      "rect": [
+        36.0,
+        442.8,
+        464.4,
+        458.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].SectionE[0].date[0]",
+      "page": 2,
+      "rect": [
+        471.6,
+        442.8,
+        576.0,
+        458.64
+      ],
+      "widget_type": "text",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].AddRes[0].hyperlink[0]",
+      "page": 2,
+      "rect": [
+        230.4,
+        237.6,
+        316.8,
+        248.4
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].AddRes[0].hyperlink[1]",
+      "page": 2,
+      "rect": [
+        122.4,
+        226.8,
+        216.0,
+        237.6
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    },
+    {
+      "field": "form1[0].Page2[0].AddRes[0].hyperlink[2]",
+      "page": 2,
+      "rect": [
+        439.2,
+        201.6,
+        529.2,
+        212.4
+      ],
+      "widget_type": "button",
+      "source": null,
+      "cell_ref": null,
+      "render_mode": null
+    }
+  ]
+}

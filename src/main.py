@@ -21,12 +21,14 @@ import datetime as dt
 import json
 import math
 import re
+import tempfile
 from pathlib import Path
 from typing import Any
 
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor
+from PySide6.QtCore import Qt, QUrl
+from PySide6.QtGui import QColor, QDesktopServices
 from PySide6.QtWidgets import (
+    QAbstractItemView,
     QApplication,
     QCheckBox,
     QDialog,
@@ -49,6 +51,12 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
+
+try:
+    from pypdf import PdfReader, PdfWriter
+except Exception:  # pragma: no cover - runtime dependency availability varies
+    PdfReader = None
+    PdfWriter = None
 
 try:
     from PySide6.QtPdf import QPdfDocument
@@ -273,6 +281,9 @@ class TaxSheetEditor(QMainWindow):
         save_as_button = QPushButton("Save Return As")
         save_as_button.clicked.connect(self.save_as_dialog)
 
+        print_button = QPushButton("Print / Export PDF")
+        print_button.clicked.connect(self.print_export_dialog)
+
         add_form_button = QPushButton("Add Form")
         add_form_button.clicked.connect(self.add_form)
 
@@ -296,6 +307,7 @@ class TaxSheetEditor(QMainWindow):
         button_row.addWidget(new_return_button)
         button_row.addWidget(load_button)
         button_row.addWidget(save_as_button)
+        button_row.addWidget(print_button)
         button_row.addStretch(1)
         right_layout.addLayout(button_row)
         right_layout.addWidget(self.table, stretch=1)
@@ -1599,6 +1611,210 @@ class TaxSheetEditor(QMainWindow):
         self.suggested_return_filename = out_path.name
         self.path_label.setText(f"Working return: {out_path}")
         self.statusBar().showMessage(f"Saved {out_path.name}", 4000)
+
+    def _export_pdf_dir(self) -> Path:
+        export_dir = Path(tempfile.gettempdir()) / "opentax-exported-pdfs"
+        export_dir.mkdir(parents=True, exist_ok=True)
+        return export_dir
+
+    def _deduplicate_sheet_ids(self, sheet_ids: list[str]) -> list[str]:
+        ordered: list[str] = []
+        seen: set[str] = set()
+        for sheet_id in sheet_ids:
+            if sheet_id in seen:
+                continue
+            seen.add(sheet_id)
+            ordered.append(sheet_id)
+        return ordered
+
+    def _filing_export_sheet_ids(self) -> list[str]:
+        return [
+            self._form_sheet_id(form_id)
+            for form_id in self._filed_form_ids()
+            if self._sheet_exists(self._form_sheet_id(form_id))
+        ]
+
+    def _all_export_sheet_ids(self) -> list[str]:
+        return [sheet_id for sheet_id in self.visible_sheet_ids if self._sheet_exists(sheet_id)]
+
+    def _sheet_pdf_path_for_export(self, sheet_id: str) -> Path | None:
+        sheet_type, primary_id, secondary_id = self._parse_sheet_id(sheet_id)
+        preview_form_id = self._mapped_preview_id(sheet_type, primary_id, secondary_id)
+        raw_pdf = self._raw_preview_source_path(sheet_type, primary_id, secondary_id)
+
+        if (
+            preview_form_id is not None
+            and self.pdf_preview_engine is not None
+            and self.pdf_preview_engine.available()
+            and self.pdf_preview_engine.has_render_mappings_for_form(preview_form_id)
+        ):
+            try:
+                return self.pdf_preview_engine.render_preview(
+                    form_id=preview_form_id,
+                    resolve_source=lambda source: self._resolve_pdf_mapping_source(preview_form_id, source),
+                )
+            except Exception:
+                pass
+
+        if raw_pdf and raw_pdf.is_file():
+            return raw_pdf
+        return None
+
+    def _build_pdf_package(self, sheet_ids: list[str], output_path: Path) -> tuple[list[str], list[str]]:
+        if PdfReader is None or PdfWriter is None:
+            raise RuntimeError("PDF export dependencies are not available.")
+
+        writer = PdfWriter()
+        included_labels: list[str] = []
+        missing_labels: list[str] = []
+
+        for sheet_id in self._deduplicate_sheet_ids(sheet_ids):
+            pdf_path = self._sheet_pdf_path_for_export(sheet_id)
+            if pdf_path is None or not pdf_path.is_file():
+                missing_labels.append(self._sheet_label(sheet_id))
+                continue
+            writer.append(PdfReader(str(pdf_path)))
+            included_labels.append(self._sheet_label(sheet_id))
+
+        if not included_labels:
+            return [], missing_labels
+
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with output_path.open("wb") as handle:
+            writer.write(handle)
+        return included_labels, missing_labels
+
+    def _open_pdf_with_default_viewer(self, pdf_path: Path) -> bool:
+        return QDesktopServices.openUrl(QUrl.fromLocalFile(str(pdf_path.resolve())))
+
+    def print_export_dialog(self) -> None:
+        if not self.data or not self.jurisdiction_key:
+            QMessageBox.information(
+                self,
+                "Nothing to Print",
+                "Start a new return or import an existing return first.",
+            )
+            return
+        if PdfReader is None or PdfWriter is None:
+            QMessageBox.warning(
+                self,
+                "PDF Export Unavailable",
+                "Install the PDF dependencies from requirements.txt to assemble printable PDF packages.",
+            )
+            return
+
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Print / Export PDF")
+        dialog.resize(760, 520)
+
+        layout = QVBoxLayout(dialog)
+        instructions = QLabel(
+            "Choose which documents to assemble into one PDF. "
+            "The app will open the merged PDF in your default system PDF viewer."
+        )
+        instructions.setWordWrap(True)
+        layout.addWidget(instructions)
+
+        filing_radio = QRadioButton("1040 for filing")
+        filing_radio.setChecked(True)
+        all_radio = QRadioButton("All documents")
+        custom_radio = QRadioButton("Select forms...")
+        layout.addWidget(filing_radio)
+        layout.addWidget(all_radio)
+        layout.addWidget(custom_radio)
+
+        list_label = QLabel("Select one or more documents:")
+        layout.addWidget(list_label)
+
+        list_widget = QListWidget()
+        list_widget.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        custom_sheet_ids = self._all_export_sheet_ids()
+        for sheet_id in custom_sheet_ids:
+            item = QListWidgetItem(self._sheet_label(sheet_id))
+            item.setData(Qt.UserRole, sheet_id)
+            list_widget.addItem(item)
+        list_widget.setEnabled(False)
+        list_label.setEnabled(False)
+        layout.addWidget(list_widget, stretch=1)
+
+        def sync_custom_state() -> None:
+            enabled = custom_radio.isChecked()
+            list_widget.setEnabled(enabled)
+            list_label.setEnabled(enabled)
+
+        filing_radio.toggled.connect(sync_custom_state)
+        all_radio.toggled.connect(sync_custom_state)
+        custom_radio.toggled.connect(sync_custom_state)
+
+        button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, parent=dialog)
+        button_box.accepted.connect(dialog.accept)
+        button_box.rejected.connect(dialog.reject)
+        layout.addWidget(button_box)
+
+        if dialog.exec() != QDialog.DialogCode.Accepted:
+            return
+
+        package_kind = "filing"
+        if all_radio.isChecked():
+            sheet_ids = self._all_export_sheet_ids()
+            package_kind = "all_documents"
+        elif custom_radio.isChecked():
+            sheet_ids = [item.data(Qt.UserRole) for item in list_widget.selectedItems() if item.data(Qt.UserRole)]
+            package_kind = "custom_selection"
+            if not sheet_ids:
+                QMessageBox.information(self, "No Documents Selected", "Select one or more forms or documents to export.")
+                return
+        else:
+            sheet_ids = self._filing_export_sheet_ids()
+
+        if not sheet_ids:
+            QMessageBox.information(self, "No Documents Available", "There are no documents available for that print option yet.")
+            return
+
+        base_name = self.current_path.stem if self.current_path is not None else "opentax_return"
+        timestamp = dt.datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_path = self._export_pdf_dir() / f"{base_name}_{package_kind}_{timestamp}.pdf"
+
+        try:
+            included_labels, missing_labels = self._build_pdf_package(sheet_ids, output_path)
+        except Exception as exc:
+            QMessageBox.critical(self, "PDF Export Failed", f"Could not assemble the PDF package:\n{exc}")
+            return
+
+        if not included_labels:
+            QMessageBox.information(
+                self,
+                "No PDFs Available",
+                "None of the selected documents currently have a printable PDF source.",
+            )
+            return
+
+        opened = self._open_pdf_with_default_viewer(output_path)
+        if opened:
+            self.statusBar().showMessage(f"Opened {output_path.name} in the default PDF viewer.", 5000)
+        else:
+            self.statusBar().showMessage(f"Saved PDF package to {output_path}", 5000)
+
+        if missing_labels:
+            missing_preview = "\n".join(f"- {label}" for label in missing_labels[:12])
+            more_note = ""
+            if len(missing_labels) > 12:
+                more_note = f"\n...and {len(missing_labels) - 12} more."
+            QMessageBox.information(
+                self,
+                "PDF Package Created With Omissions",
+                f"The merged PDF was created at:\n{output_path}\n\n"
+                f"Some selected documents were skipped because no printable PDF source is available:\n{missing_preview}{more_note}",
+            )
+            return
+
+        if not opened:
+            QMessageBox.information(
+                self,
+                "PDF Package Created",
+                f"The merged PDF was created at:\n{output_path}\n\n"
+                "The default PDF viewer could not be opened automatically.",
+            )
 
     def add_form(self) -> None:
         available = self._available_forms()

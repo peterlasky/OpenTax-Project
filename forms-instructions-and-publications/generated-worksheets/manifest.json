@@ -1,0 +1,134 @@
+{
+  "generated_worksheets": [
+    {
+      "form_id": "f1040_Lines_5a_and_5b",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Lines_5a_and_5b_worksheet.pdf",
+      "pdf_field_count": 10
+    },
+    {
+      "form_id": "f1040_Lines_6a_and_6b",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Lines_6a_and_6b_worksheet.pdf",
+      "pdf_field_count": 18
+    },
+    {
+      "form_id": "f1040_Line_12e_Standard_Deduction_Dependents",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_12e_Standard_Deduction_Dependents_worksheet.pdf",
+      "pdf_field_count": 6
+    },
+    {
+      "form_id": "f1040_Tax_Computation",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Tax_Computation_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Line_16_Foreign_Earned_Income_Tax",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_16_Foreign_Earned_Income_Tax_worksheet.pdf",
+      "pdf_field_count": 8
+    },
+    {
+      "form_id": "f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax_worksheet.pdf",
+      "pdf_field_count": 6
+    },
+    {
+      "form_id": "f1040_Schedule_1_Line_1_State_Local_Tax_Refund",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_1_State_Local_Tax_Refund_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Schedule_1_Line_17_Self_Employed_Health_Insurance",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_17_Self_Employed_Health_Insurance_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Schedule_1_Line_20_IRA_Deduction",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_20_IRA_Deduction_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Schedule_1_Line_20_IRA_Deduction_Continued",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_20_IRA_Deduction_Continued_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Schedule_1_Line_21_Student_Loan_Interest",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_21_Student_Loan_Interest_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Qualified_Tips_More_Than_One_Employer",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Tips_More_Than_One_Employer_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Multiple_Trades_Or_Businesses",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Multiple_Trades_Or_Businesses_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Qualified_Overtime_More_Than_One_Employer",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Overtime_More_Than_One_Employer_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Qualified_Overtime_More_Than_One_Payor",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Overtime_More_Than_One_Payor_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Schedule_3_Line_6l_Negative_Form_8978",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_3_Line_6l_Negative_Form_8978_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Line_27a_EIC_Worksheet_A",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_A_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Line_27a_EIC_Worksheet_B",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_B_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Line_27a_EIC_Worksheet_B_Continued",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_B_Continued_worksheet.pdf",
+      "pdf_field_count": 2
+    },
+    {
+      "form_id": "f1040_Federal_Info_Worksheet",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Federal_Info_Worksheet_worksheet.pdf",
+      "pdf_field_count": 93
+    },
+    {
+      "form_id": "f1040sd_Capital_Loss_Carryover",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Capital_Loss_Carryover_worksheet.pdf",
+      "pdf_field_count": 13
+    },
+    {
+      "form_id": "f1040sd_28_Rate_Gain",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_28_Rate_Gain_worksheet.pdf",
+      "pdf_field_count": 7
+    },
+    {
+      "form_id": "f1040sd_Unrecaptured_Section_1250_Gain",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Unrecaptured_Section_1250_Gain_worksheet.pdf",
+      "pdf_field_count": 18
+    },
+    {
+      "form_id": "f1040sd_Schedule_D_Tax",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Schedule_D_Tax_worksheet.pdf",
+      "pdf_field_count": 47
+    },
+    {
+      "form_id": "f8812_Earned_Income_Worksheet",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Earned_Income_Worksheet_worksheet.pdf",
+      "pdf_field_count": 16
+    },
+    {
+      "form_id": "f8812_Additional_Medicare_Tax_and_RRTA_Tax_Worksheet",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Additional_Medicare_Tax_and_RRTA_Tax_Worksheet_worksheet.pdf",
+      "pdf_field_count": 16
+    }
+  ]
+}

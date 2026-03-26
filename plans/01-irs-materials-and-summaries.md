@@ -18,6 +18,7 @@ It also governs the derived PDF inventory artifacts that later workstreams depen
 - `forms-instructions-and-publications/pdf_form_scan.json` as the fillability and field-count audit
 - `reference-data/federal/2025/pdf_field_maps/` as the separate per-form widget catalog and mapping layer derived from local PDFs
 - `forms-instructions-and-publications/generated-information-returns/` as the repo-owned replacement preview templates for source-document blocks that should not use the original non-fillable IRS information-return PDFs directly
+- `forms-instructions-and-publications/generated-worksheets/` as the repo-owned fillable worksheet templates for modeled worksheets that do not have a suitable IRS fillable PDF artifact
 
 These derived artifacts come from the local IRS PDFs. They are not embedded directly into the master JSON.
 
@@ -29,11 +30,13 @@ These derived artifacts come from the local IRS PDFs. They are not embedded dire
 - `forms-instructions-and-publications/publications/`
 - `forms-instructions-and-publications/worksheets/`
 - `forms-instructions-and-publications/information-returns/`
+- `forms-instructions-and-publications/generated-worksheets/`
 - `forms-instructions-and-publications/generated-information-returns/`
 - `forms-instructions-and-publications/instruction-summaries/`
 - `forms-instructions-and-publications/publication-summaries/`
 - `forms-instructions-and-publications/pdf_form_scan.json`
 - `forms-instructions-and-publications/forms/build_pdf_field_maps.py`
+- `forms-instructions-and-publications/forms/build_generated_worksheet_templates.py`
 - `forms-instructions-and-publications/forms/build_generated_info_return_templates.py`
 - `reference-data/federal/2025/publication_associations.json`
 - `reference-data/federal/2025/pdf_field_maps/`
@@ -81,6 +84,7 @@ The materials tree should contain, at minimum:
 - `forms-instructions-and-publications/publications/`
 - `forms-instructions-and-publications/worksheets/`
 - `forms-instructions-and-publications/information-returns/`
+- `forms-instructions-and-publications/generated-worksheets/`
 - `forms-instructions-and-publications/generated-information-returns/`
 - `forms-instructions-and-publications/instruction-summaries/`
 - `forms-instructions-and-publications/publication-summaries/`
@@ -179,6 +183,7 @@ After the local PDFs are in place, refresh the machine-readable artifacts that d
 
 - update `forms-instructions-and-publications/pdf_form_scan.json` so the repo has current `acroform` and `field_count` data
 - regenerate `reference-data/federal/2025/pdf_field_maps/` using `forms-instructions-and-publications/forms/build_pdf_field_maps.py`
+- regenerate `forms-instructions-and-publications/generated-worksheets/` using `forms-instructions-and-publications/forms/build_generated_worksheet_templates.py` when modeled worksheet schemas or worksheet PDF expectations change
 - regenerate `forms-instructions-and-publications/generated-information-returns/` using `forms-instructions-and-publications/forms/build_generated_info_return_templates.py` when source-document block templates or block schemas change
 - treat `pdf_field_maps/` as a separate intermediate layer between raw IRS PDFs and the app's fill-preview logic
 - preserve any hand-authored mappings when regenerating; the generator should merge them into the field maps rather than discard them
@@ -222,6 +227,7 @@ Before considering the materials layer complete, confirm that:
 - required PDFs exist locally in the correct folders
 - `pdf_form_scan.json` reflects the current local fillable PDFs
 - `pdf_field_maps/` can be regenerated from the local PDFs plus any retained hand-authored mappings
+- generated worksheet templates can be regenerated for modeled worksheets that the app should preview or export as fillable PDFs
 - generated information-return templates can be regenerated for the source-document block types the app previews instead of the original IRS PDFs
 - instructions and publications have the expected summaries
 - downloader behavior is sufficient to rebuild the local materials layer from the manifest

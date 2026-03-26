@@ -5614,9 +5614,9 @@
         "active": true,
         "rank": 3.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Lines_5a_and_5b_worksheet.pdf",
+        "pdf_field_count": 10
       },
       "cells": {
         "1": {
@@ -5741,9 +5741,9 @@
         "active": true,
         "rank": 4.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Lines_6a_and_6b_worksheet.pdf",
+        "pdf_field_count": 18
       },
       "cells": {
         "1": {
@@ -5970,9 +5970,9 @@
         "active": true,
         "rank": 5.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_12e_Standard_Deduction_Dependents_worksheet.pdf",
+        "pdf_field_count": 6
       },
       "cells": {
         "1": {
@@ -6055,9 +6055,9 @@
         "active": true,
         "rank": 6.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Tax_Computation_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6092,9 +6092,9 @@
         "active": true,
         "rank": 7.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_16_Foreign_Earned_Income_Tax_worksheet.pdf",
+        "pdf_field_count": 8
       },
       "cells": {
         "1": {
@@ -6199,9 +6199,9 @@
         "active": true,
         "rank": 8.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_16_Qualified_Dividends_Capital_Gain_Tax_worksheet.pdf",
+        "pdf_field_count": 6
       },
       "cells": {
         "1": {
@@ -6284,9 +6284,9 @@
         "active": true,
         "rank": 9.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_1_State_Local_Tax_Refund_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6319,9 +6319,9 @@
         "active": true,
         "rank": 10.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_17_Self_Employed_Health_Insurance_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6354,9 +6354,9 @@
         "active": true,
         "rank": 11.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_20_IRA_Deduction_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6389,9 +6389,9 @@
         "active": true,
         "rank": 12.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_20_IRA_Deduction_Continued_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6425,9 +6425,9 @@
         "active": true,
         "rank": 13.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_1_Line_21_Student_Loan_Interest_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6462,9 +6462,9 @@
         "active": true,
         "rank": 14.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Tips_More_Than_One_Employer_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6497,9 +6497,9 @@
         "active": true,
         "rank": 15.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Multiple_Trades_Or_Businesses_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6532,9 +6532,9 @@
         "active": true,
         "rank": 16.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Overtime_More_Than_One_Employer_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6567,9 +6567,9 @@
         "active": true,
         "rank": 17.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Overtime_More_Than_One_Payor_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6602,9 +6602,9 @@
         "active": true,
         "rank": 18.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Schedule_3_Line_6l_Negative_Form_8978_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6637,9 +6637,9 @@
         "active": true,
         "rank": 19.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_A_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6673,9 +6673,9 @@
         "active": true,
         "rank": 20.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_B_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6709,9 +6709,9 @@
         "active": true,
         "rank": 21.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Line_27a_EIC_Worksheet_B_Continued_worksheet.pdf",
+        "pdf_field_count": 2
       },
       "cells": {
         "1": {
@@ -6746,9 +6746,9 @@
         "active": true,
         "rank": 1.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Federal_Info_Worksheet_worksheet.pdf",
+        "pdf_field_count": 93
       },
       "cells": {
         "taxpayer_first_name": {
@@ -8097,9 +8097,9 @@
         "active": true,
         "rank": 23.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Capital_Loss_Carryover_worksheet.pdf",
+        "pdf_field_count": 13
       },
       "cells": {
         "1": {
@@ -8260,9 +8260,9 @@
         "active": true,
         "rank": 24.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_28_Rate_Gain_worksheet.pdf",
+        "pdf_field_count": 7
       },
       "cells": {
         "1": {
@@ -8354,9 +8354,9 @@
         "active": true,
         "rank": 25.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Unrecaptured_Section_1250_Gain_worksheet.pdf",
+        "pdf_field_count": 18
       },
       "cells": {
         "1": {
@@ -8574,9 +8574,9 @@
         "active": true,
         "rank": 26.0,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Schedule_D_Tax_worksheet.pdf",
+        "pdf_field_count": 47
       },
       "cells": {
         "1": {
@@ -15028,9 +15028,9 @@
         "active": true,
         "rank": 18.118,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Earned_Income_Worksheet_worksheet.pdf",
+        "pdf_field_count": 16
       },
       "cells": {
         "1a": {
@@ -15866,9 +15866,9 @@
         "active": true,
         "rank": 18.119,
         "filing_sequence": null,
-        "fillable_form": false,
-        "pdf_source_path": null,
-        "pdf_field_count": 0
+        "fillable_form": true,
+        "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Additional_Medicare_Tax_and_RRTA_Tax_Worksheet_worksheet.pdf",
+        "pdf_field_count": 16
       },
       "cells": {
         "1": {

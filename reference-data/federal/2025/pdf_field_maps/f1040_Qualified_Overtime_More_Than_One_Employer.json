@@ -1,0 +1,39 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1040_Qualified_Overtime_More_Than_One_Employer_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "1",
+      "source": "1",
+      "cell_ref": "1",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        162.0,
+        684.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2",
+      "source": "2",
+      "cell_ref": "2",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        162.0,
+        648.0
+      ],
+      "font_size": 10.0
+    }
+  ]
+}

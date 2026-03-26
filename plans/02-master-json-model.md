@@ -15,6 +15,7 @@ The objective is not just to add forms. The objective is to make taxpayer facts 
 - `problematic_forms_and_lines.txt`
 - `tests/test_tax_logic.py`
 - `forms-instructions-and-publications/pdf_form_scan.json`
+- `forms-instructions-and-publications/generated-worksheets/`
 - `reference-data/federal/2025/pdf_field_maps/`
 - `forms-instructions-and-publications/instruction-summaries/`
 - `forms-instructions-and-publications/publication-summaries/`
@@ -75,6 +76,7 @@ If the template does not exist yet, use this rudimentary format until it is crea
 - every top-level form or worksheet must have stable `_meta.name`, `_meta.active`, `_meta.rank`, and `_meta.filing_sequence`
 - when a modeled sheet corresponds to a real PDF artifact, `_meta` should also carry explicit PDF metadata such as `fillable_form`, `pdf_source_path`, and `pdf_field_count`
 - keep only high-level PDF metadata in the master JSON; widget-to-cell mapping belongs in the separate `reference-data/federal/2025/pdf_field_maps/` layer
+- modeled worksheets should now follow the same rule: if the app expects them to preview/export as PDFs, point them at generated worksheet templates rather than leaving them as PDF-less helpers
 - keep rank ordering coherent because it drives both evaluation and display order
 - use `filing_sequence.json` as the authoritative catalog for IRS attachment sequence numbers
 - store `filing_sequence` as either an IRS sequence string such as `07` or `19C`, or `null` when the form is not a sequenced attachment
@@ -102,6 +104,7 @@ If the template does not exist yet, use this rudimentary format until it is crea
 
 - `pdf_form_scan.json` is the audit layer that tells the project which local PDFs are fillable and how many fields they expose
 - `pdf_field_maps/` is the intermediate PDF widget layer; it may contain raw widget catalogs, hand-authored mappings, and safe heuristically generated mappings
+- `forms-instructions-and-publications/generated-worksheets/` is the template layer for modeled worksheets that need fillable preview/export PDFs
 - preview mappings should be expressed as separate `source` expressions in the field-map files, not as ad hoc PDF widget ids embedded in `federal_1040_2025.json`
 - if a form is only partially modeled, keep the tax logic correct first and let the PDF layer remain partially mapped rather than inventing fake cells just to satisfy a PDF
 - when adding or renaming cells that drive a mapped PDF, verify whether any `pdf_field_maps/` entries need corresponding updates

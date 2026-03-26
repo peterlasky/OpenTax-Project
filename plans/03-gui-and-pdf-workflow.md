@@ -15,6 +15,7 @@ The aim is a usable Qt-based tax editor where the JSON model drives the interfac
 - `tests/test_tax_logic.py`
 - `forms-instructions-and-publications/pdf_form_scan.json`
 - PDF files under `forms-instructions-and-publications/`
+- `forms-instructions-and-publications/generated-worksheets/`
 - `forms-instructions-and-publications/generated-information-returns/`
 - any reference-data or PDF mapping files used by preview/fill logic
 - `reference-data/federal/2025/pdf_field_maps/`
@@ -57,6 +58,7 @@ The aim is a usable Qt-based tax editor where the JSON model drives the interfac
 - prefer explicit PDF metadata from the master JSON over filename guessing when choosing a preview source
 - use filled preview when a separate field-map file provides renderable mappings
 - fall back to raw PDF preview when no mapping exists but a local PDF does
+- keep worksheet previews useful by generating fillable worksheet templates when no suitable IRS worksheet PDF exists
 - keep information-return previews useful by using repo-generated fillable templates rather than trying to print the original non-fillable IRS source PDFs directly
 - give source-document blocks explicit PDF metadata when the local file and fillable status are known
 
@@ -68,6 +70,7 @@ The aim is a usable Qt-based tax editor where the JSON model drives the interfac
 - allow generator-assisted heuristic mappings only where the PDF widget layout is close enough to the modeled cell layout to be trustworthy
 - prefer leaving a form on raw preview over filling it with low-confidence guessed mappings
 - for non-filed source documents such as information returns, prefer generated OpenTax templates over the original IRS non-fillable layouts when the goal is a fillable preview/print artifact
+- for modeled worksheets that need preview/export coverage, prefer generated OpenTax worksheet templates when there is no suitable IRS fillable worksheet artifact
 
 ## PDF-specific rules
 
@@ -82,6 +85,7 @@ The aim is a usable Qt-based tax editor where the JSON model drives the interfac
 - prefer mapping improvements for high-value forms first
 - when a form uses repeating blocks or cross-form source documents, prefer explicit block-aware expressions over hardcoded one-off GUI logic
 - when a source-document block is backed by a generated template, the app should not fall back to the original `information-returns/` PDF just because it exists locally
+- when a worksheet is backed by a generated template, keep the master JSON metadata and field maps aligned with that generated artifact on rebuild
 
 ## Task checklist
 

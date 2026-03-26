@@ -922,13 +922,22 @@ class TaxLogicTests(unittest.TestCase):
         )
         self.assertGreater(len(mapping.get("widgets", [])), 10)
 
-    def test_helper_worksheet_is_not_marked_as_fillable_form(self) -> None:
+    def test_generated_worksheet_metadata_and_preview_resolution(self) -> None:
         editor = self.make_editor()
 
         worksheet_meta = editor._current_jurisdiction()["f1040_Tax_Computation"]["_meta"]
-        self.assertFalse(worksheet_meta["fillable_form"])
-        self.assertIsNone(worksheet_meta["pdf_source_path"])
-        self.assertIsNone(editor._raw_preview_source_path("form", "f1040_Tax_Computation", None))
+        self.assertTrue(worksheet_meta["fillable_form"])
+        self.assertEqual(
+            worksheet_meta["pdf_source_path"],
+            "forms-instructions-and-publications/generated-worksheets/f1040_Tax_Computation_worksheet.pdf",
+        )
+        worksheet_preview_path = editor._raw_preview_source_path("form", "f1040_Tax_Computation", None)
+        self.assertIsNotNone(worksheet_preview_path)
+        self.assertEqual(worksheet_preview_path.name, "f1040_Tax_Computation_worksheet.pdf")
+
+        self.assertIsNotNone(editor.pdf_preview_engine)
+        self.assertTrue(editor.pdf_preview_engine.has_mapping_for_form("f1040_Tax_Computation"))
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040_Tax_Computation"))
 
     def test_non_document_block_is_not_marked_as_fillable_form(self) -> None:
         editor = self.make_editor()
@@ -972,6 +981,49 @@ class TaxLogicTests(unittest.TestCase):
 
         self.assertTrue(output_path.is_file())
         self.assertEqual(len(PdfReader(str(output_path)).pages), 2)
+
+    @unittest.skipUnless(PdfReader is not None, "pypdf is required for preview-render tests")
+    def test_generated_worksheet_preview_mapping_renders_pdf(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+        self.assertTrue(editor.pdf_preview_engine.available())
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040_Tax_Computation"))
+
+        output_path = editor.pdf_preview_engine.render_preview(
+            form_id="f1040_Tax_Computation",
+            resolve_source=lambda source: editor._resolve_pdf_mapping_source("f1040_Tax_Computation", source),
+        )
+
+        self.assertTrue(output_path.is_file())
+        self.assertEqual(len(PdfReader(str(output_path)).pages), 1)
+
+    def test_filing_export_sheet_ids_include_filed_forms_only(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        filing_sheet_ids = editor._filing_export_sheet_ids()
+
+        self.assertIn("form:f1040", filing_sheet_ids)
+        self.assertIn("form:f1040sa", filing_sheet_ids)
+        self.assertNotIn("block:f1040:w2", filing_sheet_ids)
+        self.assertTrue(all(sheet_id.startswith("form:") for sheet_id in filing_sheet_ids))
+
+    @unittest.skipUnless(PdfReader is not None, "pypdf is required for export-package tests")
+    def test_build_pdf_package_merges_selected_sheets(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        with TemporaryDirectory() as tmpdir:
+            output_path = Path(tmpdir) / "filing_package.pdf"
+            included_labels, missing_labels = editor._build_pdf_package(
+                ["form:f1040", "form:f1040s1", "block:f1040:w2"],
+                output_path,
+            )
+
+            self.assertTrue(output_path.is_file())
+            self.assertEqual(missing_labels, [])
+            self.assertEqual(len(included_labels), 3)
+            self.assertGreaterEqual(len(PdfReader(str(output_path)).pages), 4)
 
 
 if __name__ == "__main__":

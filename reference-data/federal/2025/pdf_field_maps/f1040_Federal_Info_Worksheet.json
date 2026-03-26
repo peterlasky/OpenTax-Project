@@ -1,0 +1,1546 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1040_Federal_Info_Worksheet_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "taxpayer_first_name",
+      "source": "taxpayer_first_name",
+      "cell_ref": "taxpayer_first_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        570.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_middle_initial",
+      "source": "taxpayer_middle_initial",
+      "cell_ref": "taxpayer_middle_initial",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        282.0,
+        648.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_suffix",
+      "source": "taxpayer_suffix",
+      "cell_ref": "taxpayer_suffix",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        594.0,
+        282.0,
+        612.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_last_name",
+      "source": "taxpayer_last_name",
+      "cell_ref": "taxpayer_last_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        558.0,
+        570.0,
+        576.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_ssn",
+      "source": "taxpayer_ssn",
+      "cell_ref": "taxpayer_ssn",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        522.0,
+        282.0,
+        540.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_ssn_not_valid_employment",
+      "source": "taxpayer_ssn_not_valid_employment",
+      "cell_ref": "taxpayer_ssn_not_valid_employment",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        486.0,
+        53.0,
+        497.0
+      ]
+    },
+    {
+      "field": "spouse_first_name",
+      "source": "spouse_first_name",
+      "cell_ref": "spouse_first_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        452.0,
+        570.0,
+        470.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_middle_initial",
+      "source": "spouse_middle_initial",
+      "cell_ref": "spouse_middle_initial",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        416.0,
+        282.0,
+        434.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_suffix",
+      "source": "spouse_suffix",
+      "cell_ref": "spouse_suffix",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        380.0,
+        282.0,
+        398.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_last_name",
+      "source": "spouse_last_name",
+      "cell_ref": "spouse_last_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        344.0,
+        570.0,
+        362.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_ssn",
+      "source": "spouse_ssn",
+      "cell_ref": "spouse_ssn",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        308.0,
+        282.0,
+        326.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_ssn_not_valid_employment",
+      "source": "spouse_ssn_not_valid_employment",
+      "cell_ref": "spouse_ssn_not_valid_employment",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        272.0,
+        53.0,
+        283.0
+      ]
+    },
+    {
+      "field": "taxpayer_occupation",
+      "source": "taxpayer_occupation",
+      "cell_ref": "taxpayer_occupation",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        238.0,
+        282.0,
+        256.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_occupation",
+      "source": "spouse_occupation",
+      "cell_ref": "spouse_occupation",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        202.0,
+        282.0,
+        220.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_dob",
+      "source": "taxpayer_dob",
+      "cell_ref": "taxpayer_dob",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        166.0,
+        282.0,
+        184.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_dob",
+      "source": "spouse_dob",
+      "cell_ref": "spouse_dob",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        130.0,
+        282.0,
+        148.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_age_1_1_2026",
+      "source": "taxpayer_age_1_1_2026",
+      "cell_ref": "taxpayer_age_1_1_2026",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        94.0,
+        162.0,
+        112.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "spouse_age_1_1_2026",
+      "source": "spouse_age_1_1_2026",
+      "cell_ref": "spouse_age_1_1_2026",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        162.0,
+        684.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "daytime_phone",
+      "source": "daytime_phone",
+      "cell_ref": "daytime_phone",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        282.0,
+        648.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "daytime_phone_ext",
+      "source": "daytime_phone_ext",
+      "cell_ref": "daytime_phone_ext",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        594.0,
+        282.0,
+        612.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_daytime_phone",
+      "source": "spouse_daytime_phone",
+      "cell_ref": "spouse_daytime_phone",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        558.0,
+        282.0,
+        576.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_daytime_phone_ext",
+      "source": "spouse_daytime_phone_ext",
+      "cell_ref": "spouse_daytime_phone_ext",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        522.0,
+        282.0,
+        540.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_legally_blind",
+      "source": "taxpayer_legally_blind",
+      "cell_ref": "taxpayer_legally_blind",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        486.0,
+        53.0,
+        497.0
+      ]
+    },
+    {
+      "field": "spouse_legally_blind",
+      "source": "spouse_legally_blind",
+      "cell_ref": "spouse_legally_blind",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        452.0,
+        53.0,
+        463.0
+      ]
+    },
+    {
+      "field": "taxpayer_date_of_death",
+      "source": "taxpayer_date_of_death",
+      "cell_ref": "taxpayer_date_of_death",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        418.0,
+        282.0,
+        436.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "spouse_date_of_death",
+      "source": "spouse_date_of_death",
+      "cell_ref": "spouse_date_of_death",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        382.0,
+        282.0,
+        400.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "taxpayer_dependent_of_another",
+      "source": "taxpayer_dependent_of_another",
+      "cell_ref": "taxpayer_dependent_of_another",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        346.0,
+        53.0,
+        357.0
+      ]
+    },
+    {
+      "field": "taxpayer_claimed_on_other_return",
+      "source": "taxpayer_claimed_on_other_return",
+      "cell_ref": "taxpayer_claimed_on_other_return",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        312.0,
+        53.0,
+        323.0
+      ]
+    },
+    {
+      "field": "spouse_dependent_of_another",
+      "source": "spouse_dependent_of_another",
+      "cell_ref": "spouse_dependent_of_another",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        278.0,
+        53.0,
+        289.0
+      ]
+    },
+    {
+      "field": "spouse_claimed_on_other_return",
+      "source": "spouse_claimed_on_other_return",
+      "cell_ref": "spouse_claimed_on_other_return",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        244.0,
+        53.0,
+        255.0
+      ]
+    },
+    {
+      "field": "taxpayer_retired_disability",
+      "source": "taxpayer_retired_disability",
+      "cell_ref": "taxpayer_retired_disability",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        210.0,
+        53.0,
+        221.0
+      ]
+    },
+    {
+      "field": "spouse_retired_disability",
+      "source": "spouse_retired_disability",
+      "cell_ref": "spouse_retired_disability",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        176.0,
+        53.0,
+        187.0
+      ]
+    },
+    {
+      "field": "taxpayer_presidential_fund",
+      "source": "taxpayer_presidential_fund",
+      "cell_ref": "taxpayer_presidential_fund",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        142.0,
+        53.0,
+        153.0
+      ]
+    },
+    {
+      "field": "spouse_presidential_fund",
+      "source": "spouse_presidential_fund",
+      "cell_ref": "spouse_presidential_fund",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        108.0,
+        53.0,
+        119.0
+      ]
+    },
+    {
+      "field": "address",
+      "source": "address",
+      "cell_ref": "address",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        570.0,
+        684.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "apt_no",
+      "source": "apt_no",
+      "cell_ref": "apt_no",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        282.0,
+        648.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "city",
+      "source": "city",
+      "cell_ref": "city",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        594.0,
+        570.0,
+        612.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "state",
+      "source": "state",
+      "cell_ref": "state",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        558.0,
+        282.0,
+        576.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "zip_code",
+      "source": "zip_code",
+      "cell_ref": "zip_code",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        522.0,
+        282.0,
+        540.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "county",
+      "source": "county",
+      "cell_ref": "county",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        486.0,
+        282.0,
+        504.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "use_foreign_address",
+      "source": "use_foreign_address",
+      "cell_ref": "use_foreign_address",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        450.0,
+        53.0,
+        461.0
+      ]
+    },
+    {
+      "field": "foreign_address",
+      "source": "foreign_address",
+      "cell_ref": "foreign_address",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        416.0,
+        570.0,
+        434.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_apt_no",
+      "source": "foreign_apt_no",
+      "cell_ref": "foreign_apt_no",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        380.0,
+        282.0,
+        398.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_city",
+      "source": "foreign_city",
+      "cell_ref": "foreign_city",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        344.0,
+        570.0,
+        362.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_code",
+      "source": "foreign_code",
+      "cell_ref": "foreign_code",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        308.0,
+        282.0,
+        326.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_country",
+      "source": "foreign_country",
+      "cell_ref": "foreign_country",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        272.0,
+        570.0,
+        290.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_province_county",
+      "source": "foreign_province_county",
+      "cell_ref": "foreign_province_county",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        236.0,
+        282.0,
+        254.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "foreign_postal_code",
+      "source": "foreign_postal_code",
+      "cell_ref": "foreign_postal_code",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        200.0,
+        282.0,
+        218.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "apo_fpo_dpo",
+      "source": "apo_fpo_dpo",
+      "cell_ref": "apo_fpo_dpo",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        164.0,
+        53.0,
+        175.0
+      ]
+    },
+    {
+      "field": "apo_check",
+      "source": "apo_check",
+      "cell_ref": "apo_check",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        130.0,
+        53.0,
+        141.0
+      ]
+    },
+    {
+      "field": "fpo_check",
+      "source": "fpo_check",
+      "cell_ref": "fpo_check",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        96.0,
+        53.0,
+        107.0
+      ]
+    },
+    {
+      "field": "dpo_check",
+      "source": "dpo_check",
+      "cell_ref": "dpo_check",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        53.0,
+        677.0
+      ]
+    },
+    {
+      "field": "home_phone",
+      "source": "home_phone",
+      "cell_ref": "home_phone",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        282.0,
+        650.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "print_phone_home",
+      "source": "print_phone_home",
+      "cell_ref": "print_phone_home",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        596.0,
+        53.0,
+        607.0
+      ]
+    },
+    {
+      "field": "print_phone_taxpayer_daytime",
+      "source": "print_phone_taxpayer_daytime",
+      "cell_ref": "print_phone_taxpayer_daytime",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        562.0,
+        53.0,
+        573.0
+      ]
+    },
+    {
+      "field": "print_phone_spouse_daytime",
+      "source": "print_phone_spouse_daytime",
+      "cell_ref": "print_phone_spouse_daytime",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        528.0,
+        53.0,
+        539.0
+      ]
+    },
+    {
+      "field": "print_1040_sr",
+      "source": "print_1040_sr",
+      "cell_ref": "print_1040_sr",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        494.0,
+        53.0,
+        505.0
+      ]
+    },
+    {
+      "field": "filing_status_single",
+      "source": "filing_status_single",
+      "cell_ref": "filing_status_single",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        460.0,
+        53.0,
+        471.0
+      ]
+    },
+    {
+      "field": "filing_status_married_jointly",
+      "source": "filing_status_married_jointly",
+      "cell_ref": "filing_status_married_jointly",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        426.0,
+        53.0,
+        437.0
+      ]
+    },
+    {
+      "field": "filing_status_married_separately",
+      "source": "filing_status_married_separately",
+      "cell_ref": "filing_status_married_separately",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        392.0,
+        53.0,
+        403.0
+      ]
+    },
+    {
+      "field": "mfs_did_not_live_with_spouse",
+      "source": "mfs_did_not_live_with_spouse",
+      "cell_ref": "mfs_did_not_live_with_spouse",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        358.0,
+        53.0,
+        369.0
+      ]
+    },
+    {
+      "field": "mfs_claim_spouse_exemption",
+      "source": "mfs_claim_spouse_exemption",
+      "cell_ref": "mfs_claim_spouse_exemption",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        324.0,
+        53.0,
+        335.0
+      ]
+    },
+    {
+      "field": "filing_status_hoh",
+      "source": "filing_status_hoh",
+      "cell_ref": "filing_status_hoh",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        290.0,
+        53.0,
+        301.0
+      ]
+    },
+    {
+      "field": "hoh_child_first_name",
+      "source": "hoh_child_first_name",
+      "cell_ref": "hoh_child_first_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        256.0,
+        570.0,
+        274.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "hoh_child_mi",
+      "source": "hoh_child_mi",
+      "cell_ref": "hoh_child_mi",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        220.0,
+        282.0,
+        238.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "hoh_child_last_name",
+      "source": "hoh_child_last_name",
+      "cell_ref": "hoh_child_last_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        184.0,
+        570.0,
+        202.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "hoh_child_suffix",
+      "source": "hoh_child_suffix",
+      "cell_ref": "hoh_child_suffix",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        148.0,
+        282.0,
+        166.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "hoh_child_ssn",
+      "source": "hoh_child_ssn",
+      "cell_ref": "hoh_child_ssn",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        112.0,
+        282.0,
+        130.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "filing_status_qss",
+      "source": "filing_status_qss",
+      "cell_ref": "filing_status_qss",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        76.0,
+        53.0,
+        87.0
+      ]
+    },
+    {
+      "field": "qss_spouse_died_2023",
+      "source": "qss_spouse_died_2023",
+      "cell_ref": "qss_spouse_died_2023",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        53.0,
+        677.0
+      ]
+    },
+    {
+      "field": "qss_spouse_died_2024",
+      "source": "qss_spouse_died_2024",
+      "cell_ref": "qss_spouse_died_2024",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        53.0,
+        643.0
+      ]
+    },
+    {
+      "field": "dependent_with_qualifying_child",
+      "source": "dependent_with_qualifying_child",
+      "cell_ref": "dependent_with_qualifying_child",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        53.0,
+        609.0
+      ]
+    },
+    {
+      "field": "qss_qualifying_person_name",
+      "source": "qss_qualifying_person_name",
+      "cell_ref": "qss_qualifying_person_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        564.0,
+        570.0,
+        582.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "qss_child_first_name",
+      "source": "qss_child_first_name",
+      "cell_ref": "qss_child_first_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        528.0,
+        570.0,
+        546.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "qss_child_mi",
+      "source": "qss_child_mi",
+      "cell_ref": "qss_child_mi",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        492.0,
+        282.0,
+        510.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "qss_child_last_name",
+      "source": "qss_child_last_name",
+      "cell_ref": "qss_child_last_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        456.0,
+        570.0,
+        474.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "qss_child_suffix",
+      "source": "qss_child_suffix",
+      "cell_ref": "qss_child_suffix",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        420.0,
+        282.0,
+        438.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "qss_child_ssn",
+      "source": "qss_child_ssn",
+      "cell_ref": "qss_child_ssn",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        384.0,
+        282.0,
+        402.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "nonresident_spouse_treat_as_resident",
+      "source": "nonresident_spouse_treat_as_resident",
+      "cell_ref": "nonresident_spouse_treat_as_resident",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        348.0,
+        53.0,
+        359.0
+      ]
+    },
+    {
+      "field": "nonresident_spouse_name",
+      "source": "nonresident_spouse_name",
+      "cell_ref": "nonresident_spouse_name",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        314.0,
+        570.0,
+        332.0
+      ],
+      "font_size": 9.0
+    },
+    {
+      "field": "nonresident_spouse_first_year",
+      "source": "nonresident_spouse_first_year",
+      "cell_ref": "nonresident_spouse_first_year",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        278.0,
+        53.0,
+        289.0
+      ]
+    },
+    {
+      "field": "bona_fide_resident_puerto_rico",
+      "source": "bona_fide_resident_puerto_rico",
+      "cell_ref": "bona_fide_resident_puerto_rico",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        244.0,
+        53.0,
+        255.0
+      ]
+    },
+    {
+      "field": "prior_year_f4952_line_7_carryforward",
+      "source": "prior_year_f4952_line_7_carryforward",
+      "cell_ref": "prior_year_f4952_line_7_carryforward",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        210.0,
+        162.0,
+        228.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "prior_year_full_year_return_for_2210",
+      "source": "prior_year_full_year_return_for_2210",
+      "cell_ref": "prior_year_full_year_return_for_2210",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        174.0,
+        53.0,
+        185.0
+      ]
+    },
+    {
+      "field": "prior_year_tax_liability_for_2210",
+      "source": "prior_year_tax_liability_for_2210",
+      "cell_ref": "prior_year_tax_liability_for_2210",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        140.0,
+        162.0,
+        158.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "prior_year_agi_for_2210",
+      "source": "prior_year_agi_for_2210",
+      "cell_ref": "prior_year_agi_for_2210",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        104.0,
+        162.0,
+        122.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "prior_year_no_tax_liability_for_2210",
+      "source": "prior_year_no_tax_liability_for_2210",
+      "cell_ref": "prior_year_no_tax_liability_for_2210",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        53.0,
+        677.0
+      ]
+    },
+    {
+      "field": "farmer_or_fisher_for_2210",
+      "source": "farmer_or_fisher_for_2210",
+      "cell_ref": "farmer_or_fisher_for_2210",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        632.0,
+        53.0,
+        643.0
+      ]
+    },
+    {
+      "field": "nonresident_alien_form_1040_nr",
+      "source": "nonresident_alien_form_1040_nr",
+      "cell_ref": "nonresident_alien_form_1040_nr",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        598.0,
+        53.0,
+        609.0
+      ]
+    },
+    {
+      "field": "form_1040_nr_line_15_taxable_income",
+      "source": "form_1040_nr_line_15_taxable_income",
+      "cell_ref": "form_1040_nr_line_15_taxable_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        564.0,
+        162.0,
+        582.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "form_1040_nr_ftc_regular_tax_for_line_20",
+      "source": "form_1040_nr_ftc_regular_tax_for_line_20",
+      "cell_ref": "form_1040_nr_ftc_regular_tax_for_line_20",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        528.0,
+        162.0,
+        546.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "defer_automated_form_2210_line_19",
+      "source": "defer_automated_form_2210_line_19",
+      "cell_ref": "defer_automated_form_2210_line_19",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        492.0,
+        53.0,
+        503.0
+      ]
+    },
+    {
+      "field": "include_passive_1099_misc_box_2_in_f4952_line_4a",
+      "source": "include_passive_1099_misc_box_2_in_f4952_line_4a",
+      "cell_ref": "include_passive_1099_misc_box_2_in_f4952_line_4a",
+      "render_mode": "checkbox",
+      "widget_type": "button",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        458.0,
+        53.0,
+        469.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f8812_Earned_Income_Worksheet_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "1a",
+      "source": "1a",
+      "cell_ref": "1a",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        666.0,
+        162.0,
+        684.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "1b",
+      "source": "1b",
+      "cell_ref": "1b",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        630.0,
+        162.0,
+        648.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2a",
+      "source": "2a",
+      "cell_ref": "2a",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        594.0,
+        162.0,
+        612.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2b_schedule_c_component",
+      "source": "2b_schedule_c_component",
+      "cell_ref": "2b_schedule_c_component",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        558.0,
+        162.0,
+        576.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2b_k1_nonfarm_and_1256_adjustments",
+      "source": "2b_k1_nonfarm_and_1256_adjustments",
+      "cell_ref": "2b_k1_nonfarm_and_1256_adjustments",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        522.0,
+        162.0,
+        540.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2b",
+      "source": "2b",
+      "cell_ref": "2b",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        486.0,
+        162.0,
+        504.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2c_schedule_f_component",
+      "source": "2c_schedule_f_component",
+      "cell_ref": "2c_schedule_f_component",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        450.0,
+        162.0,
+        468.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2c_farm_partnership_adjustments",
+      "source": "2c_farm_partnership_adjustments",
+      "cell_ref": "2c_farm_partnership_adjustments",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        414.0,
+        162.0,
+        432.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2c",
+      "source": "2c",
+      "cell_ref": "2c",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        378.0,
+        162.0,
+        396.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2d",
+      "source": "2d",
+      "cell_ref": "2d",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        342.0,
+        162.0,
+        360.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "2e",
+      "source": "2e",
+      "cell_ref": "2e",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        306.0,
+        162.0,
+        324.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "3",
+      "source": "3",
+      "cell_ref": "3",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        270.0,
+        162.0,
+        288.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "4",
+      "source": "4",
+      "cell_ref": "4",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        234.0,
+        162.0,
+        252.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "5",
+      "source": "5",
+      "cell_ref": "5",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        198.0,
+        162.0,
+        216.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "6",
+      "source": "6",
+      "cell_ref": "6",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        162.0,
+        162.0,
+        180.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "7",
+      "source": "7",
+      "cell_ref": "7",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        126.0,
+        162.0,
+        144.0
+      ],
+      "font_size": 10.0
+    }
+  ]
+}

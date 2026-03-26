@@ -30,6 +30,8 @@ The materials layer should explicitly account for these document classes:
   `forms-instructions-and-publications/publications/`
 - worksheets:
   `forms-instructions-and-publications/worksheets/`
+- generated worksheets:
+  `forms-instructions-and-publications/generated-worksheets/`
 - information returns:
   `forms-instructions-and-publications/information-returns/`
 - generated information-return templates:
@@ -108,6 +110,8 @@ Examples:
 Use for standalone worksheet PDFs or worksheet artifacts that deserve explicit tracking apart from a form or publication.
 
 If a worksheet only exists inside instructions or a publication and there is no separate PDF, it may still belong in the worksheet inventory conceptually even if the downloadable artifact is the instruction or publication PDF.
+
+When the app needs a printable/fillable worksheet artifact and there is no suitable IRS fillable worksheet PDF, the repo may generate a worksheet template in `forms-instructions-and-publications/generated-worksheets/`.
 
 ### Information returns
 
@@ -188,6 +192,7 @@ The materials layer must also support the later PDF preview/fill workflow throug
 - `pdf_field_maps/` should contain one generated widget catalog per modeled fillable form
 - `pdf_field_maps/` is a separate layer from the master JSON: the master model stores high-level PDF metadata, while the widget-to-source mapping lives in the generated field-map files
 - retained hand-authored mappings should survive regeneration by being merged into the generated field maps rather than copied into the master JSON
+- generated worksheet templates may be repo-authored artifacts rather than IRS-downloaded artifacts when the goal is a fillable worksheet preview/export path
 - generated information-return templates may be repo-authored artifacts rather than IRS-downloaded artifacts when the goal is a simple fillable preview for source-document blocks
 
 This specification intentionally keeps PDF widget mapping out of `federal_1040_2025.json` so tax logic and PDF-rendering details can evolve separately.

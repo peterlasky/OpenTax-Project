@@ -7,14 +7,14 @@
   },
   "critical_files": {
     "design": [
-      "plan.md",
+      "plans/legacy-plan.md",
       "plans/README.md",
       "plans/01-irs-materials-and-summaries.md",
       "plans/01a-irs-materials-spec.md",
       "plans/02-master-json-model.md",
       "plans/03-gui-and-pdf-workflow.md",
       "README.md",
-      "sample.json",
+      "docs/sample.json",
       "docs/FORM_MODEL_STATUS.md"
     ],
     "source_materials": [
@@ -355,7 +355,7 @@
     "The current known-gap list must distinguish between forms already modeled, forms present only as scaffolds, and forms still entirely missing. Earlier wording that listed Schedule 1, Schedule 1-A, Schedule 2, Schedule 3, and Schedule A as not yet built is stale.",
     "f8949 source-return blocks exist, but there is not yet an automatic transformation from 1099_b, 1099_da, or 1099_s entries into Form 8949 rows.",
     "Some Schedule D lines remain partially manual because upstream forms such as 4797, 6252, 4684, and 6781 are only partially modeled, while other upstream forms such as 8824 and K-1-driven forms are still missing.",
-    "Manifest-listed forms still entirely missing from the JSON include Form 1040-SR, Schedule J, Schedule R, Form 1040-ES, Form 1040-V, Form 1040-X, Form 1098-E, Schedule C, Schedule E, Schedule F, and various specialty forms listed in problematic_forms_and_lines.txt.",
+    "Manifest-listed forms still entirely missing from the JSON include Form 1040-SR, Schedule J, Schedule R, Form 1040-ES, Form 1040-V, Form 1040-X, Form 1098-E, Schedule C, Schedule E, Schedule F, and various specialty forms listed in docs/problematic_forms_and_lines.txt.",
     "The full 2025 Tax Table, EIC table, and Simplified Method tables still need to be imported into reference-data."
   ],
   "rebuild_priority": [

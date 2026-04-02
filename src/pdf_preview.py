@@ -45,6 +45,7 @@ class FormPdfPreviewEngine:
         *,
         form_id: str,
         resolve_source: Callable[[str], Any],
+        highlight_sources: set[str] | None = None,
     ) -> Path:
         if not self.available():
             raise RuntimeError("PDF preview dependencies are not available.")
@@ -74,6 +75,13 @@ class FormPdfPreviewEngine:
         )
         for page_index, overlay_items in extra_overlay_items_by_page.items():
             overlay_items_by_page.setdefault(page_index, []).extend(overlay_items)
+        highlight_overlay_items_by_page = self._collect_highlight_overlay_items(
+            field_mappings + overlay_mappings,
+            widget_lookup,
+            highlight_sources or set(),
+        )
+        for page_index, overlay_items in highlight_overlay_items_by_page.items():
+            overlay_items_by_page[page_index] = overlay_items + overlay_items_by_page.get(page_index, [])
 
         for page_index, overlay_items in overlay_items_by_page.items():
             if not overlay_items:
@@ -237,6 +245,28 @@ class FormPdfPreviewEngine:
             )
         return overlays_by_page
 
+    def _collect_highlight_overlay_items(
+        self,
+        mappings: list[dict[str, Any]],
+        widget_lookup: dict[str, tuple[int, tuple[float, float, float, float]]],
+        highlight_sources: set[str],
+    ) -> dict[int, list[dict[str, Any]]]:
+        if not highlight_sources:
+            return {}
+        overlays_by_page: dict[int, list[dict[str, Any]]] = {}
+        seen_locations: set[tuple[int, tuple[float, float, float, float]]] = set()
+        for item in mappings:
+            source = item.get("source")
+            if source not in highlight_sources:
+                continue
+            location = self._resolve_overlay_location(item, widget_lookup)
+            if location is None or location in seen_locations:
+                continue
+            seen_locations.add(location)
+            page_index, rect = location
+            overlays_by_page.setdefault(page_index, []).append({"kind": "highlight", "rect": rect})
+        return overlays_by_page
+
     def _resolve_overlay_location(
         self,
         item: dict[str, Any],
@@ -301,7 +331,9 @@ class FormPdfPreviewEngine:
         for item in overlay_items:
             kind = item.get("kind")
             rect = item["rect"]
-            if kind == "checkbox":
+            if kind == "highlight":
+                self._draw_highlight(pdf_canvas, rect)
+            elif kind == "checkbox":
                 self._draw_x_mark(pdf_canvas, rect)
             elif kind in {"text", "field_text"}:
                 self._draw_text(
@@ -314,6 +346,26 @@ class FormPdfPreviewEngine:
         pdf_canvas.save()
         buffer.seek(0)
         return PdfReader(buffer)
+
+    def _draw_highlight(self, pdf_canvas: Any, rect: tuple[float, float, float, float]) -> None:
+        x0, y0, x1, y1 = rect
+        width = max(0.0, x1 - x0)
+        height = max(0.0, y1 - y0)
+        if width <= 0.0 or height <= 0.0:
+            return
+        pdf_canvas.saveState()
+        try:
+            if hasattr(pdf_canvas, "setFillAlpha"):
+                pdf_canvas.setFillAlpha(0.45)
+            if hasattr(pdf_canvas, "setStrokeAlpha"):
+                pdf_canvas.setStrokeAlpha(0.8)
+        except Exception:
+            pass
+        pdf_canvas.setFillColorRGB(0.992, 0.906, 0.314)
+        pdf_canvas.setStrokeColorRGB(0.925, 0.702, 0.0)
+        pdf_canvas.setLineWidth(0.8)
+        pdf_canvas.rect(x0, y0, width, height, stroke=1, fill=1)
+        pdf_canvas.restoreState()
 
     def _draw_x_mark(self, pdf_canvas: Any, rect: tuple[float, float, float, float]) -> None:
         x0, y0, x1, y1 = rect

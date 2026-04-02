@@ -1,0 +1,192 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1116_Questionnaire_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "has_passive_category_income",
+      "source": "has_passive_category_income",
+      "cell_ref": "has_passive_category_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        716.0,
+        302.0,
+        730.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_general_category_income",
+      "source": "has_general_category_income",
+      "cell_ref": "has_general_category_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        680.0,
+        302.0,
+        694.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_section_951a_category_income",
+      "source": "has_section_951a_category_income",
+      "cell_ref": "has_section_951a_category_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        644.0,
+        302.0,
+        658.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_foreign_branch_category_income",
+      "source": "has_foreign_branch_category_income",
+      "cell_ref": "has_foreign_branch_category_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        608.0,
+        302.0,
+        622.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_section_901j_income",
+      "source": "has_section_901j_income",
+      "cell_ref": "has_section_901j_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        572.0,
+        302.0,
+        586.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_resourced_by_treaty_income",
+      "source": "has_resourced_by_treaty_income",
+      "cell_ref": "has_resourced_by_treaty_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        536.0,
+        302.0,
+        550.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_lump_sum_distribution_income",
+      "source": "has_lump_sum_distribution_income",
+      "cell_ref": "has_lump_sum_distribution_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        500.0,
+        302.0,
+        514.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_prior_year_carryovers",
+      "source": "has_prior_year_carryovers",
+      "cell_ref": "has_prior_year_carryovers",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        464.0,
+        302.0,
+        478.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "expects_current_year_carryover_activity",
+      "source": "expects_current_year_carryover_activity",
+      "cell_ref": "expects_current_year_carryover_activity",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        428.0,
+        302.0,
+        442.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_foreign_tax_redeterminations",
+      "source": "has_foreign_tax_redeterminations",
+      "cell_ref": "has_foreign_tax_redeterminations",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        392.0,
+        302.0,
+        406.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "considering_direct_election_without_form_1116",
+      "source": "considering_direct_election_without_form_1116",
+      "cell_ref": "considering_direct_election_without_form_1116",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        356.0,
+        302.0,
+        370.0
+      ],
+      "font_size": 9.5
+    }
+  ]
+}

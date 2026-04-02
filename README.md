@@ -2,6 +2,9 @@
 
 # Open Tax Project
 
+```bash 
+python src/main.py
+```
 
 ### The Challenge: 
 Prompt an LLM to figure out the US tax code for an indivual 1040 filer. 
@@ -43,7 +46,7 @@ Should have all the functionality of `TurboTax Premier`.
 
 ### Planning docs
   - Active planning now lives in `plans/README.md` and the plan files under `plans/`.
-  - The root `plan.md` is retained as legacy historical context for now.
+  - The `plans/legacy-plan.md` is retained as legacy historical context for now.
 
 ### To do
   - Check for errors generally against personal, professionally prepared returns.

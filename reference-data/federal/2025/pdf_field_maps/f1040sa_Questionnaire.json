@@ -1,0 +1,141 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1040sa_Questionnaire_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "itemizing_likely",
+      "source": "itemizing_likely",
+      "cell_ref": "itemizing_likely",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        716.0,
+        302.0,
+        730.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_state_and_local_tax_deduction",
+      "source": "has_state_and_local_tax_deduction",
+      "cell_ref": "has_state_and_local_tax_deduction",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        680.0,
+        302.0,
+        694.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_home_mortgage_interest",
+      "source": "has_home_mortgage_interest",
+      "cell_ref": "has_home_mortgage_interest",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        644.0,
+        302.0,
+        658.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_cash_charitable_contributions",
+      "source": "has_cash_charitable_contributions",
+      "cell_ref": "has_cash_charitable_contributions",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        608.0,
+        302.0,
+        622.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_medical_or_dental_expenses",
+      "source": "has_medical_or_dental_expenses",
+      "cell_ref": "has_medical_or_dental_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        572.0,
+        302.0,
+        586.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_noncash_charitable_contributions",
+      "source": "has_noncash_charitable_contributions",
+      "cell_ref": "has_noncash_charitable_contributions",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        536.0,
+        302.0,
+        550.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_casualty_or_theft_losses",
+      "source": "has_casualty_or_theft_losses",
+      "cell_ref": "has_casualty_or_theft_losses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        500.0,
+        302.0,
+        514.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_investment_interest_expense",
+      "source": "has_investment_interest_expense",
+      "cell_ref": "has_investment_interest_expense",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        464.0,
+        302.0,
+        478.0
+      ],
+      "font_size": 9.5
+    }
+  ]
+}

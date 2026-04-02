@@ -194,6 +194,7 @@ The materials layer must also support the later PDF preview/fill workflow throug
 - retained hand-authored mappings should survive regeneration by being merged into the generated field maps rather than copied into the master JSON
 - generated worksheet templates may be repo-authored artifacts rather than IRS-downloaded artifacts when the goal is a fillable worksheet preview/export path
 - generated information-return templates may be repo-authored artifacts rather than IRS-downloaded artifacts when the goal is a simple fillable preview for source-document blocks
+- generated worksheet templates should follow the project's worksheet styling conventions so rebuilds preserve the same visual contract: restrained IRS-like headers, underline-style entry areas, concise page numbering, and no unnecessary generic helper text
 
 This specification intentionally keeps PDF widget mapping out of `federal_1040_2025.json` so tax logic and PDF-rendering details can evolve separately.
 

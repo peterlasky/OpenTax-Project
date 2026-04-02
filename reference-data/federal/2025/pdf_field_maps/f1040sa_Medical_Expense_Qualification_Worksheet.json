@@ -1,0 +1,464 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1040sa_Medical_Expense_Qualification_Worksheet_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "doctors_dentists_hospitals",
+      "source": "doctors_dentists_hospitals",
+      "cell_ref": "doctors_dentists_hospitals",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        716.0,
+        162.0,
+        730.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "prescription_drugs_insulin",
+      "source": "prescription_drugs_insulin",
+      "cell_ref": "prescription_drugs_insulin",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        680.0,
+        162.0,
+        694.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "medical_equipment_supplies",
+      "source": "medical_equipment_supplies",
+      "cell_ref": "medical_equipment_supplies",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        644.0,
+        162.0,
+        658.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "health_insurance_premiums_after_tax",
+      "source": "health_insurance_premiums_after_tax",
+      "cell_ref": "health_insurance_premiums_after_tax",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        608.0,
+        162.0,
+        622.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "medicare_premiums",
+      "source": "medicare_premiums",
+      "cell_ref": "medicare_premiums",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        572.0,
+        162.0,
+        586.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "long_term_care_services",
+      "source": "long_term_care_services",
+      "cell_ref": "long_term_care_services",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        536.0,
+        162.0,
+        550.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "long_term_care_premiums",
+      "source": "long_term_care_premiums",
+      "cell_ref": "long_term_care_premiums",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        500.0,
+        162.0,
+        514.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "dental_vision_hearing",
+      "source": "dental_vision_hearing",
+      "cell_ref": "dental_vision_hearing",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        464.0,
+        162.0,
+        478.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "therapy_treatment_programs",
+      "source": "therapy_treatment_programs",
+      "cell_ref": "therapy_treatment_programs",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        428.0,
+        162.0,
+        442.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "transportation_and_travel_for_medical_care",
+      "source": "transportation_and_travel_for_medical_care",
+      "cell_ref": "transportation_and_travel_for_medical_care",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        392.0,
+        162.0,
+        406.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "home_improvements_medical_net",
+      "source": "home_improvements_medical_net",
+      "cell_ref": "home_improvements_medical_net",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        356.0,
+        162.0,
+        370.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "nursing_home_medical_portion",
+      "source": "nursing_home_medical_portion",
+      "cell_ref": "nursing_home_medical_portion",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        320.0,
+        162.0,
+        334.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "other_qualified_medical_expenses",
+      "source": "other_qualified_medical_expenses",
+      "cell_ref": "other_qualified_medical_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        284.0,
+        162.0,
+        298.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "total_candidate_medical_expenses",
+      "source": "total_candidate_medical_expenses",
+      "cell_ref": "total_candidate_medical_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        248.0,
+        162.0,
+        262.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "reimbursed_expenses",
+      "source": "reimbursed_expenses",
+      "cell_ref": "reimbursed_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        212.0,
+        162.0,
+        226.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "hsa_msa_fsa_hra_paid_expenses",
+      "source": "hsa_msa_fsa_hra_paid_expenses",
+      "cell_ref": "hsa_msa_fsa_hra_paid_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        176.0,
+        162.0,
+        190.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "employer_paid_or_pretax_premiums",
+      "source": "employer_paid_or_pretax_premiums",
+      "cell_ref": "employer_paid_or_pretax_premiums",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        140.0,
+        162.0,
+        154.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "cosmetic_surgery_nondeductible",
+      "source": "cosmetic_surgery_nondeductible",
+      "cell_ref": "cosmetic_surgery_nondeductible",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        104.0,
+        162.0,
+        118.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "nonprescription_drugs_nondeductible",
+      "source": "nonprescription_drugs_nondeductible",
+      "cell_ref": "nonprescription_drugs_nondeductible",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        716.0,
+        162.0,
+        730.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "funeral_or_burial_nondeductible",
+      "source": "funeral_or_burial_nondeductible",
+      "cell_ref": "funeral_or_burial_nondeductible",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        680.0,
+        162.0,
+        694.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "other_nondeductible_or_excluded",
+      "source": "other_nondeductible_or_excluded",
+      "cell_ref": "other_nondeductible_or_excluded",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        644.0,
+        162.0,
+        658.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "total_reductions_and_exclusions",
+      "source": "total_reductions_and_exclusions",
+      "cell_ref": "total_reductions_and_exclusions",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        608.0,
+        162.0,
+        622.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "schedule_a_line_1_medical_expenses",
+      "source": "schedule_a_line_1_medical_expenses",
+      "cell_ref": "schedule_a_line_1_medical_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        572.0,
+        162.0,
+        586.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "schedule_a_line_2_agi_reference",
+      "source": "schedule_a_line_2_agi_reference",
+      "cell_ref": "schedule_a_line_2_agi_reference",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        536.0,
+        162.0,
+        550.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "schedule_a_line_3_agi_floor_7_5_percent",
+      "source": "schedule_a_line_3_agi_floor_7_5_percent",
+      "cell_ref": "schedule_a_line_3_agi_floor_7_5_percent",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        500.0,
+        162.0,
+        514.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "schedule_a_line_4_deductible_medical",
+      "source": "schedule_a_line_4_deductible_medical",
+      "cell_ref": "schedule_a_line_4_deductible_medical",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "amount",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        464.0,
+        162.0,
+        478.0
+      ],
+      "font_size": 10.0
+    },
+    {
+      "field": "pub502_review_notes",
+      "source": "pub502_review_notes",
+      "cell_ref": "pub502_review_notes",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 2,
+      "rect": [
+        42.0,
+        428.0,
+        302.0,
+        442.0
+      ],
+      "font_size": 9.5
+    }
+  ]
+}

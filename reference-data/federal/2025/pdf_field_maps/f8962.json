@@ -4,8 +4,8 @@
   "pdf_field_count": 141,
   "fillable_form": true,
   "widget_count": 141,
-  "mapped_widget_count": 0,
-  "renderable_widget_count": 0,
+  "mapped_widget_count": 139,
+  "renderable_widget_count": 139,
   "widgets": [
     {
       "field": "topmostSubform[0].Page1[0].f1_1[0]",
@@ -17,9 +17,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "taxpayer_name",
+      "cell_ref": "taxpayer_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_2[0]",
@@ -31,9 +32,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "taxpayer_ssn",
+      "cell_ref": "taxpayer_ssn",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_1[0]",
@@ -45,9 +47,10 @@
         681.751
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_calculation_for_marriage",
+      "cell_ref": "alternative_calculation_for_marriage",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_3[0]",
@@ -59,9 +62,10 @@
         659.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "tax_family_size",
+      "cell_ref": "tax_family_size",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_4[0]",
@@ -73,9 +77,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "household_income",
+      "cell_ref": "household_income",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_5[0]",
@@ -87,9 +92,10 @@
         636.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "federal_poverty_line",
+      "cell_ref": "federal_poverty_line",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_6[0]",
@@ -101,9 +107,10 @@
         623.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_contribution_amount",
+      "cell_ref": "annual_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_2[0]",
@@ -115,9 +122,10 @@
         598.002
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "uses_alaska_poverty_table",
+      "cell_ref": "uses_alaska_poverty_table",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_2[1]",
@@ -129,9 +137,10 @@
         598.002
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "uses_hawaii_poverty_table",
+      "cell_ref": "uses_hawaii_poverty_table",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_2[2]",
@@ -143,9 +152,10 @@
         598.002
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "uses_other_48_poverty_table",
+      "cell_ref": "uses_other_48_poverty_table",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_7[0]",
@@ -157,9 +167,10 @@
         600.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "household_income_pct_fpl",
+      "cell_ref": "household_income_pct_fpl",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_8[0]",
@@ -171,9 +182,10 @@
         587.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "applicable_figure",
+      "cell_ref": "applicable_figure",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_9[0]",
@@ -185,9 +197,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "monthly_contribution_base",
+      "cell_ref": "monthly_contribution_base",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_10[0]",
@@ -227,9 +240,10 @@
         502.001
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "has_policy_allocation_or_alternative_calc",
+      "cell_ref": "has_policy_allocation_or_alternative_calc",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_4[1]",
@@ -241,9 +255,10 @@
         490.002
       ],
       "widget_type": "button",
-      "source": null,
+      "source": "not has_policy_allocation_or_alternative_calc",
       "cell_ref": null,
-      "render_mode": null
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_5[0]",
@@ -255,9 +270,10 @@
         465.998
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "use_annual_calculation",
+      "cell_ref": "use_annual_calculation",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_5[1]",
@@ -269,9 +285,10 @@
         454.002
       ],
       "widget_type": "button",
-      "source": null,
+      "source": "not use_annual_calculation",
       "cell_ref": null,
-      "render_mode": null
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_13[0]",
@@ -283,9 +300,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_enrollment_premiums",
+      "cell_ref": "annual_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_14[0]",
@@ -297,9 +315,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_slcsp",
+      "cell_ref": "annual_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_15[0]",
@@ -311,9 +330,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_contribution_total",
+      "cell_ref": "annual_contribution_total",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_16[0]",
@@ -325,9 +345,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_assistance_amount",
+      "cell_ref": "annual_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_17[0]",
@@ -339,9 +360,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_ptc",
+      "cell_ref": "annual_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table1[0].BodyRow1[0].f1_18[0]",
@@ -353,9 +375,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_advance_ptc",
+      "cell_ref": "annual_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_19[0]",
@@ -367,9 +390,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_enrollment_premiums",
+      "cell_ref": "month_01_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_20[0]",
@@ -381,9 +405,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_slcsp",
+      "cell_ref": "month_01_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_21[0]",
@@ -395,9 +420,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_contribution_amount",
+      "cell_ref": "month_01_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_22[0]",
@@ -409,9 +435,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_assistance_amount",
+      "cell_ref": "month_01_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_23[0]",
@@ -423,9 +450,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_ptc",
+      "cell_ref": "month_01_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow1[0].f1_24[0]",
@@ -437,9 +465,10 @@
         347.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_01_advance_ptc",
+      "cell_ref": "month_01_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_25[0]",
@@ -451,9 +480,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_enrollment_premiums",
+      "cell_ref": "month_02_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_26[0]",
@@ -465,9 +495,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_slcsp",
+      "cell_ref": "month_02_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_27[0]",
@@ -479,9 +510,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_contribution_amount",
+      "cell_ref": "month_02_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_28[0]",
@@ -493,9 +525,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_assistance_amount",
+      "cell_ref": "month_02_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_29[0]",
@@ -507,9 +540,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_ptc",
+      "cell_ref": "month_02_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow2[0].f1_30[0]",
@@ -521,9 +555,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_02_advance_ptc",
+      "cell_ref": "month_02_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_31[0]",
@@ -535,9 +570,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_enrollment_premiums",
+      "cell_ref": "month_03_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_32[0]",
@@ -549,9 +585,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_slcsp",
+      "cell_ref": "month_03_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_33[0]",
@@ -563,9 +600,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_contribution_amount",
+      "cell_ref": "month_03_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_34[0]",
@@ -577,9 +615,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_assistance_amount",
+      "cell_ref": "month_03_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_35[0]",
@@ -591,9 +630,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_ptc",
+      "cell_ref": "month_03_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow3[0].f1_36[0]",
@@ -605,9 +645,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_03_advance_ptc",
+      "cell_ref": "month_03_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_37[0]",
@@ -619,9 +660,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_enrollment_premiums",
+      "cell_ref": "month_04_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_38[0]",
@@ -633,9 +675,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_slcsp",
+      "cell_ref": "month_04_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_39[0]",
@@ -647,9 +690,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_contribution_amount",
+      "cell_ref": "month_04_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_40[0]",
@@ -661,9 +705,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_assistance_amount",
+      "cell_ref": "month_04_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_41[0]",
@@ -675,9 +720,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_ptc",
+      "cell_ref": "month_04_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow4[0].f1_42[0]",
@@ -689,9 +735,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_04_advance_ptc",
+      "cell_ref": "month_04_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_43[0]",
@@ -703,9 +750,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_enrollment_premiums",
+      "cell_ref": "month_05_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_44[0]",
@@ -717,9 +765,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_slcsp",
+      "cell_ref": "month_05_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_45[0]",
@@ -731,9 +780,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_contribution_amount",
+      "cell_ref": "month_05_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_46[0]",
@@ -745,9 +795,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_assistance_amount",
+      "cell_ref": "month_05_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_47[0]",
@@ -759,9 +810,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_ptc",
+      "cell_ref": "month_05_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow5[0].f1_48[0]",
@@ -773,9 +825,10 @@
         300.002
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_05_advance_ptc",
+      "cell_ref": "month_05_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_49[0]",
@@ -787,9 +840,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_enrollment_premiums",
+      "cell_ref": "month_06_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_50[0]",
@@ -801,9 +855,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_slcsp",
+      "cell_ref": "month_06_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_51[0]",
@@ -815,9 +870,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_contribution_amount",
+      "cell_ref": "month_06_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_52[0]",
@@ -829,9 +885,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_assistance_amount",
+      "cell_ref": "month_06_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_53[0]",
@@ -843,9 +900,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_ptc",
+      "cell_ref": "month_06_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow6[0].f1_54[0]",
@@ -857,9 +915,10 @@
         288.003
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_06_advance_ptc",
+      "cell_ref": "month_06_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_55[0]",
@@ -871,9 +930,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_enrollment_premiums",
+      "cell_ref": "month_07_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_56[0]",
@@ -885,9 +945,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_slcsp",
+      "cell_ref": "month_07_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_57[0]",
@@ -899,9 +960,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_contribution_amount",
+      "cell_ref": "month_07_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_58[0]",
@@ -913,9 +975,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_assistance_amount",
+      "cell_ref": "month_07_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_59[0]",
@@ -927,9 +990,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_ptc",
+      "cell_ref": "month_07_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow7[0].f1_60[0]",
@@ -941,9 +1005,10 @@
         276.004
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_07_advance_ptc",
+      "cell_ref": "month_07_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_61[0]",
@@ -955,9 +1020,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_enrollment_premiums",
+      "cell_ref": "month_08_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_62[0]",
@@ -969,9 +1035,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_slcsp",
+      "cell_ref": "month_08_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_63[0]",
@@ -983,9 +1050,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_contribution_amount",
+      "cell_ref": "month_08_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_64[0]",
@@ -997,9 +1065,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_assistance_amount",
+      "cell_ref": "month_08_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_65[0]",
@@ -1011,9 +1080,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_ptc",
+      "cell_ref": "month_08_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow8[0].f1_66[0]",
@@ -1025,9 +1095,10 @@
         264.005
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_08_advance_ptc",
+      "cell_ref": "month_08_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_67[0]",
@@ -1039,9 +1110,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_enrollment_premiums",
+      "cell_ref": "month_09_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_68[0]",
@@ -1053,9 +1125,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_slcsp",
+      "cell_ref": "month_09_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_69[0]",
@@ -1067,9 +1140,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_contribution_amount",
+      "cell_ref": "month_09_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_70[0]",
@@ -1081,9 +1155,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_assistance_amount",
+      "cell_ref": "month_09_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_71[0]",
@@ -1095,9 +1170,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_ptc",
+      "cell_ref": "month_09_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow9[0].f1_72[0]",
@@ -1109,9 +1185,10 @@
         252.006
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_09_advance_ptc",
+      "cell_ref": "month_09_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_73[0]",
@@ -1123,9 +1200,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_enrollment_premiums",
+      "cell_ref": "month_10_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_74[0]",
@@ -1137,9 +1215,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_slcsp",
+      "cell_ref": "month_10_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_75[0]",
@@ -1151,9 +1230,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_contribution_amount",
+      "cell_ref": "month_10_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_76[0]",
@@ -1165,9 +1245,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_assistance_amount",
+      "cell_ref": "month_10_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_77[0]",
@@ -1179,9 +1260,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_ptc",
+      "cell_ref": "month_10_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow10[0].f1_78[0]",
@@ -1193,9 +1275,10 @@
         240.007
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_10_advance_ptc",
+      "cell_ref": "month_10_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_79[0]",
@@ -1207,9 +1290,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_enrollment_premiums",
+      "cell_ref": "month_11_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_80[0]",
@@ -1221,9 +1305,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_slcsp",
+      "cell_ref": "month_11_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_81[0]",
@@ -1235,9 +1320,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_contribution_amount",
+      "cell_ref": "month_11_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_82[0]",
@@ -1249,9 +1335,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_assistance_amount",
+      "cell_ref": "month_11_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_83[0]",
@@ -1263,9 +1350,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_ptc",
+      "cell_ref": "month_11_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow11[0].f1_84[0]",
@@ -1277,9 +1365,10 @@
         228.008
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_11_advance_ptc",
+      "cell_ref": "month_11_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_85[0]",
@@ -1291,9 +1380,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_enrollment_premiums",
+      "cell_ref": "month_12_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_86[0]",
@@ -1305,9 +1395,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_slcsp",
+      "cell_ref": "month_12_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_87[0]",
@@ -1319,9 +1410,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_contribution_amount",
+      "cell_ref": "month_12_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_88[0]",
@@ -1333,9 +1425,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_assistance_amount",
+      "cell_ref": "month_12_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_89[0]",
@@ -1347,9 +1440,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_ptc",
+      "cell_ref": "month_12_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Part2Table2[0].BodyRow12[0].f1_90[0]",
@@ -1361,9 +1455,10 @@
         216.009
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "month_12_advance_ptc",
+      "cell_ref": "month_12_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_91[0]",
@@ -1375,9 +1470,10 @@
         191.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_enrollment_premiums",
+      "cell_ref": "annual_enrollment_premiums",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_92[0]",
@@ -1389,9 +1485,10 @@
         167.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_slcsp",
+      "cell_ref": "annual_slcsp",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_93[0]",
@@ -1403,9 +1500,10 @@
         131.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_contribution_total",
+      "cell_ref": "annual_contribution_total",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_94[0]",
@@ -1417,9 +1515,10 @@
         107.997
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_assistance_amount",
+      "cell_ref": "annual_assistance_amount",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_95[0]",
@@ -1431,9 +1530,10 @@
         95.998
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_ptc",
+      "cell_ref": "annual_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_96[0]",
@@ -1445,9 +1545,10 @@
         83.996
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "annual_advance_ptc",
+      "cell_ref": "annual_advance_ptc",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_1[0]",
@@ -1459,9 +1560,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_policy_number",
+      "cell_ref": "allocation_1_policy_number",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_2[0]",
@@ -1473,9 +1575,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_other_taxpayer_ssn",
+      "cell_ref": "allocation_1_other_taxpayer_ssn",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_3[0]",
@@ -1487,9 +1590,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_start_month",
+      "cell_ref": "allocation_1_start_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_4[0]",
@@ -1501,9 +1605,10 @@
         698.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_stop_month",
+      "cell_ref": "allocation_1_stop_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines30e-g[0].f2_5[0]",
@@ -1515,9 +1620,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_premium_pct",
+      "cell_ref": "allocation_1_premium_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines30e-g[0].f2_6[0]",
@@ -1529,9 +1635,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_slcsp_pct",
+      "cell_ref": "allocation_1_slcsp_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines30e-g[0].f2_7[0]",
@@ -1543,9 +1650,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_1_advance_ptc_pct",
+      "cell_ref": "allocation_1_advance_ptc_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_8[0]",
@@ -1557,9 +1665,10 @@
         613.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_policy_number",
+      "cell_ref": "allocation_2_policy_number",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_9[0]",
@@ -1571,9 +1680,10 @@
         613.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_other_taxpayer_ssn",
+      "cell_ref": "allocation_2_other_taxpayer_ssn",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_10[0]",
@@ -1585,9 +1695,10 @@
         613.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_start_month",
+      "cell_ref": "allocation_2_start_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_11[0]",
@@ -1599,9 +1710,10 @@
         613.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_stop_month",
+      "cell_ref": "allocation_2_stop_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines31e-g[0].f2_12[0]",
@@ -1613,9 +1725,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_premium_pct",
+      "cell_ref": "allocation_2_premium_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines31e-g[0].f2_13[0]",
@@ -1627,9 +1740,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_slcsp_pct",
+      "cell_ref": "allocation_2_slcsp_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines31e-g[0].f2_14[0]",
@@ -1641,9 +1755,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_2_advance_ptc_pct",
+      "cell_ref": "allocation_2_advance_ptc_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_15[0]",
@@ -1655,9 +1770,10 @@
         530.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_policy_number",
+      "cell_ref": "allocation_3_policy_number",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_16[0]",
@@ -1669,9 +1785,10 @@
         530.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_other_taxpayer_ssn",
+      "cell_ref": "allocation_3_other_taxpayer_ssn",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_17[0]",
@@ -1683,9 +1800,10 @@
         530.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_start_month",
+      "cell_ref": "allocation_3_start_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_18[0]",
@@ -1697,9 +1815,10 @@
         530.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_stop_month",
+      "cell_ref": "allocation_3_stop_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines32e-g[0].f2_19[0]",
@@ -1711,9 +1830,10 @@
         479.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_premium_pct",
+      "cell_ref": "allocation_3_premium_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines32e-g[0].f2_20[0]",
@@ -1725,9 +1845,10 @@
         479.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_slcsp_pct",
+      "cell_ref": "allocation_3_slcsp_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines32e-g[0].f2_21[0]",
@@ -1739,9 +1860,10 @@
         479.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_3_advance_ptc_pct",
+      "cell_ref": "allocation_3_advance_ptc_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_22[0]",
@@ -1753,9 +1875,10 @@
         446.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_policy_number",
+      "cell_ref": "allocation_4_policy_number",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_23[0]",
@@ -1767,9 +1890,10 @@
         446.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_other_taxpayer_ssn",
+      "cell_ref": "allocation_4_other_taxpayer_ssn",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_24[0]",
@@ -1781,9 +1905,10 @@
         446.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_start_month",
+      "cell_ref": "allocation_4_start_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_25[0]",
@@ -1795,9 +1920,10 @@
         446.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_stop_month",
+      "cell_ref": "allocation_4_stop_month",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines33e-g[0].f2_26[0]",
@@ -1809,9 +1935,10 @@
         396.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_premium_pct",
+      "cell_ref": "allocation_4_premium_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines33e-g[0].f2_27[0]",
@@ -1823,9 +1950,10 @@
         396.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_slcsp_pct",
+      "cell_ref": "allocation_4_slcsp_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].Lines33e-g[0].f2_28[0]",
@@ -1837,9 +1965,10 @@
         396.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_4_advance_ptc_pct",
+      "cell_ref": "allocation_4_advance_ptc_pct",
+      "render_mode": "field_text",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].c2_1[0]",
@@ -1851,9 +1980,10 @@
         370.0
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "allocation_rows_fit_on_form",
+      "cell_ref": "allocation_rows_fit_on_form",
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].c2_1[1]",
@@ -1865,9 +1995,10 @@
         334.0
       ],
       "widget_type": "button",
-      "source": null,
+      "source": "not allocation_rows_fit_on_form",
       "cell_ref": null,
-      "render_mode": null
+      "render_mode": "checkbox",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_29[0]",
@@ -1879,9 +2010,11 @@
         266.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_taxpayer_family_size",
+      "cell_ref": "alternative_taxpayer_family_size",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_30[0]",
@@ -1893,9 +2026,11 @@
         252.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_taxpayer_monthly_contribution_amount",
+      "cell_ref": "alternative_taxpayer_monthly_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_31[0]",
@@ -1907,9 +2042,11 @@
         266.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_taxpayer_start_month",
+      "cell_ref": "alternative_taxpayer_start_month",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_32[0]",
@@ -1921,9 +2058,11 @@
         266.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_taxpayer_stop_month",
+      "cell_ref": "alternative_taxpayer_stop_month",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_33[0]",
@@ -1935,9 +2074,11 @@
         230.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_spouse_family_size",
+      "cell_ref": "alternative_spouse_family_size",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_34[0]",
@@ -1949,9 +2090,11 @@
         216.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_spouse_monthly_contribution_amount",
+      "cell_ref": "alternative_spouse_monthly_contribution_amount",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_35[0]",
@@ -1963,9 +2106,11 @@
         230.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_spouse_start_month",
+      "cell_ref": "alternative_spouse_start_month",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     },
     {
       "field": "topmostSubform[0].Page2[0].f2_36[0]",
@@ -1977,9 +2122,11 @@
         230.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "alternative_spouse_stop_month",
+      "cell_ref": "alternative_spouse_stop_month",
+      "render_mode": "field_text",
+      "format": "amount",
+      "mapping_method": "f8962_2025_rebuild"
     }
   ]
 }

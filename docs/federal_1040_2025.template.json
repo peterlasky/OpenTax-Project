@@ -32,7 +32,7 @@
   "<jurisdiction-year>": {
     "_comment_jurisdiction": "One jurisdiction-year wrapper contains an optional filing-sequence index plus every modeled form, worksheet, schedule, attachment, and helper form for that jurisdiction.",
     "_filing_sequence_index": {
-      "_comment": "Convenience mirror of filing sequence assignments. `filing_sequence.json` is the authoritative project-level catalog. Keys are IRS attachment-sequence strings; `none` groups forms whose _meta.filing_sequence is null.",
+      "_comment": "Convenience mirror of filing sequence assignments. The master JSON is now the authoritative project-level source for filing-sequence data. Keys are IRS attachment-sequence strings; `none` groups forms whose _meta.filing_sequence is null.",
       "07": [
         "<attachment_form_id>"
       ],
@@ -50,6 +50,8 @@
         "fillable_form": true,
         "pdf_source_path": "forms-instructions-and-publications/forms/f1040sa.pdf",
         "pdf_field_count": 150,
+        "display_parent": "<optional owner form_id or worksheet_id used only when GUI hierarchy inference is ambiguous>",
+        "display_order": 10,
         "rank": 1.0,
         "filing_sequence": "07"
       },
@@ -61,6 +63,8 @@
         "fillable_form indicates whether this modeled sheet corresponds to a PDF artifact with fillable boxes that the app should treat as a real form/schedule preview target.",
         "pdf_source_path is an optional repo-relative path to the local PDF preview source for this sheet. Use it when the PDF filename does not match the model id or when multiple modeled sheets share one PDF.",
         "pdf_field_count stores the detected number of fillable boxes when known, typically sourced from `forms-instructions-and-publications/pdf_form_scan.json`.",
+        "display_parent is optional navigation metadata for the left-pane hierarchy. Most sheets should rely on inferred parentage from equations and naming, but shared or publication-driven worksheets may need an explicit owner.",
+        "display_order is an optional sibling-order override for the left-pane hierarchy when rank and filing sequence are not enough.",
         "rank is numeric and may be fractional. Fractional values are used to place a form between other forms without renumbering everything.",
         "filing_sequence is either an IRS attachment sequence string such as 07, 19, or 19C, or null when the form is not filed as a sequenced attachment.",
         "The main Form 1040 can still use null because it is the return itself rather than an attachment."

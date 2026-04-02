@@ -187,6 +187,7 @@ After the local PDFs are in place, refresh the machine-readable artifacts that d
 - regenerate `forms-instructions-and-publications/generated-information-returns/` using `forms-instructions-and-publications/forms/build_generated_info_return_templates.py` when source-document block templates or block schemas change
 - treat `pdf_field_maps/` as a separate intermediate layer between raw IRS PDFs and the app's fill-preview logic
 - preserve any hand-authored mappings when regenerating; the generator should merge them into the field maps rather than discard them
+- for generated worksheets, keep the output visually restrained and IRS-like: prefer underline entry areas, concise headers/subheaders, and page labels like `Page 1 of x` rather than generic builder-style boxes or noisy helper text
 
 This step exists so later workstreams do not need to rediscover PDF fillability or widget names from scratch.
 
@@ -209,6 +210,11 @@ Use the summaries early, not as an afterthought. They exist to reduce repeated P
 
 Do not summarize ordinary blank forms just because they exist. The primary summary target is instructions and publications.
 
+Specific publication-driven gap to watch for:
+
+- `Publication 502` governs medical and dental expense eligibility for `Schedule A`, but it does not supply a standalone IRS worksheet that cleanly captures expense qualification and categorization for software intake
+- when a publication like `Pub. 502` drives a deduction without giving the project a usable worksheet artifact, note that gap in the summary and treat it as a candidate for a repo-modeled/generated worksheet in the later master-JSON and GUI workstreams
+
 ### Step 8: Refresh summary indexes and associations
 
 When the source-material set changes materially:
@@ -218,6 +224,10 @@ When the source-material set changes materially:
 - add newly discovered publication-to-form or publication-to-worksheet relationships
 
 This is where publication-defined worksheet paths should become visible before the master JSON workstream tries to implement them.
+
+For example:
+
+- associate `Publication 502` with `Schedule A (Form 1040)` and any future repo-owned medical-expense helper worksheet so the project can track that the classification rules come from the publication even though the final deduction lands on `Schedule A` lines 1 through 4
 
 ### Step 9: Final verification
 
@@ -229,6 +239,7 @@ Before considering the materials layer complete, confirm that:
 - `pdf_field_maps/` can be regenerated from the local PDFs plus any retained hand-authored mappings
 - generated worksheet templates can be regenerated for modeled worksheets that the app should preview or export as fillable PDFs
 - generated information-return templates can be regenerated for the source-document block types the app previews instead of the original IRS PDFs
+- generated worksheet templates still follow the project's current styling conventions after rebuild instead of regressing to generic boxed layouts
 - instructions and publications have the expected summaries
 - downloader behavior is sufficient to rebuild the local materials layer from the manifest
 - publication associations and summary indexes reflect the current set

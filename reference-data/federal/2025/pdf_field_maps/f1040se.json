@@ -4,8 +4,8 @@
   "pdf_field_count": 185,
   "fillable_form": true,
   "widget_count": 185,
-  "mapped_widget_count": 0,
-  "renderable_widget_count": 0,
+  "mapped_widget_count": 91,
+  "renderable_widget_count": 91,
   "widgets": [
     {
       "field": "topmostSubform[0].Page1[0].f1_1[0]",
@@ -17,9 +17,10 @@
         697.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "taxpayer_name",
+      "cell_ref": "taxpayer_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_2[0]",
@@ -31,9 +32,10 @@
         697.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "taxpayer_ssn",
+      "cell_ref": "taxpayer_ssn",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].c1_1[0]",
@@ -101,9 +103,10 @@
         611.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_address",
+      "cell_ref": "property_1_address",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line1a[0].RowB[0].f1_4[0]",
@@ -115,9 +118,10 @@
         599.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_address",
+      "cell_ref": "property_2_address",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line1a[0].RowC[0].f1_5[0]",
@@ -129,9 +133,10 @@
         587.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_address",
+      "cell_ref": "property_3_address",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line1b[0].RowA[0].f1_6[0]",
@@ -143,9 +148,10 @@
         551.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_type",
+      "cell_ref": "property_1_type",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line1b[0].RowB[0].f1_7[0]",
@@ -157,9 +163,10 @@
         539.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_type",
+      "cell_ref": "property_2_type",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line1b[0].RowC[0].f1_8[0]",
@@ -171,9 +178,10 @@
         527.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_type",
+      "cell_ref": "property_3_type",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowA[0].f1_9[0]",
@@ -185,9 +193,10 @@
         551.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_fair_rental_days",
+      "cell_ref": "property_1_fair_rental_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowA[0].f1_10[0]",
@@ -199,9 +208,10 @@
         551.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_personal_use_days",
+      "cell_ref": "property_1_personal_use_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowA[0].c1_3[0]",
@@ -213,9 +223,10 @@
         549.968
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_qualified_joint_venture",
+      "cell_ref": "property_1_qualified_joint_venture",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowB[0].f1_11[0]",
@@ -227,9 +238,10 @@
         539.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_fair_rental_days",
+      "cell_ref": "property_2_fair_rental_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowB[0].f1_12[0]",
@@ -241,9 +253,10 @@
         539.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_personal_use_days",
+      "cell_ref": "property_2_personal_use_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowB[0].c1_4[0]",
@@ -255,9 +268,10 @@
         537.969
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_qualified_joint_venture",
+      "cell_ref": "property_2_qualified_joint_venture",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowC[0].f1_13[0]",
@@ -269,9 +283,10 @@
         527.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_fair_rental_days",
+      "cell_ref": "property_3_fair_rental_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowC[0].f1_14[0]",
@@ -283,9 +298,10 @@
         527.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_personal_use_days",
+      "cell_ref": "property_3_personal_use_days",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Line2[0].RowC[0].c1_5[0]",
@@ -297,9 +313,10 @@
         525.97
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_qualified_joint_venture",
+      "cell_ref": "property_3_qualified_joint_venture",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_15[0]",
@@ -325,9 +342,10 @@
         449.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_rents_received",
+      "cell_ref": "property_1_rents_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Income[0].Line3[0].f1_17[0]",
@@ -339,9 +357,10 @@
         449.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_rents_received",
+      "cell_ref": "property_2_rents_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Income[0].Line3[0].f1_18[0]",
@@ -353,9 +372,10 @@
         449.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_rents_received",
+      "cell_ref": "property_3_rents_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Income[0].Line4[0].f1_19[0]",
@@ -367,9 +387,10 @@
         437.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_royalties_received",
+      "cell_ref": "property_1_royalties_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Income[0].Line4[0].f1_20[0]",
@@ -381,9 +402,10 @@
         437.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_royalties_received",
+      "cell_ref": "property_2_royalties_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Income[0].Line4[0].f1_21[0]",
@@ -395,9 +417,10 @@
         437.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_royalties_received",
+      "cell_ref": "property_3_royalties_received",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line5[0].f1_22[0]",
@@ -409,9 +432,10 @@
         413.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_advertising",
+      "cell_ref": "property_1_advertising",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line5[0].f1_23[0]",
@@ -423,9 +447,10 @@
         413.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_advertising",
+      "cell_ref": "property_2_advertising",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line5[0].f1_24[0]",
@@ -437,9 +462,10 @@
         413.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_advertising",
+      "cell_ref": "property_3_advertising",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line6[0].f1_25[0]",
@@ -451,9 +477,10 @@
         401.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_auto_and_travel",
+      "cell_ref": "property_1_auto_and_travel",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line6[0].f1_26[0]",
@@ -465,9 +492,10 @@
         401.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_auto_and_travel",
+      "cell_ref": "property_2_auto_and_travel",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line6[0].f1_27[0]",
@@ -479,9 +507,10 @@
         401.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_auto_and_travel",
+      "cell_ref": "property_3_auto_and_travel",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line7[0].f1_28[0]",
@@ -493,9 +522,10 @@
         389.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_cleaning_and_maintenance",
+      "cell_ref": "property_1_cleaning_and_maintenance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line7[0].f1_29[0]",
@@ -507,9 +537,10 @@
         389.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_cleaning_and_maintenance",
+      "cell_ref": "property_2_cleaning_and_maintenance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line7[0].f1_30[0]",
@@ -521,9 +552,10 @@
         389.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_cleaning_and_maintenance",
+      "cell_ref": "property_3_cleaning_and_maintenance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line8[0].f1_31[0]",
@@ -535,9 +567,10 @@
         377.971
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_commissions",
+      "cell_ref": "property_1_commissions",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line8[0].f1_32[0]",
@@ -549,9 +582,10 @@
         377.971
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_commissions",
+      "cell_ref": "property_2_commissions",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line8[0].f1_33[0]",
@@ -563,9 +597,10 @@
         377.971
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_commissions",
+      "cell_ref": "property_3_commissions",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line9[0].f1_34[0]",
@@ -577,9 +612,10 @@
         365.972
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_insurance",
+      "cell_ref": "property_1_insurance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line9[0].f1_35[0]",
@@ -591,9 +627,10 @@
         365.972
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_insurance",
+      "cell_ref": "property_2_insurance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line9[0].f1_36[0]",
@@ -605,9 +642,10 @@
         365.972
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_insurance",
+      "cell_ref": "property_3_insurance",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line10[0].f1_37[0]",
@@ -619,9 +657,10 @@
         353.973
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_legal_and_professional_fees",
+      "cell_ref": "property_1_legal_and_professional_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line10[0].f1_38[0]",
@@ -633,9 +672,10 @@
         353.973
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_legal_and_professional_fees",
+      "cell_ref": "property_2_legal_and_professional_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line10[0].f1_39[0]",
@@ -647,9 +687,10 @@
         353.973
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_legal_and_professional_fees",
+      "cell_ref": "property_3_legal_and_professional_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line11[0].f1_40[0]",
@@ -661,9 +702,10 @@
         341.974
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_management_fees",
+      "cell_ref": "property_1_management_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line11[0].f1_41[0]",
@@ -675,9 +717,10 @@
         341.974
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_management_fees",
+      "cell_ref": "property_2_management_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line11[0].f1_42[0]",
@@ -689,9 +732,10 @@
         341.974
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_management_fees",
+      "cell_ref": "property_3_management_fees",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line12[0].f1_43[0]",
@@ -703,9 +747,10 @@
         329.975
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_mortgage_interest_paid_to_banks",
+      "cell_ref": "property_1_mortgage_interest_paid_to_banks",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line12[0].f1_44[0]",
@@ -717,9 +762,10 @@
         329.975
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_mortgage_interest_paid_to_banks",
+      "cell_ref": "property_2_mortgage_interest_paid_to_banks",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line12[0].f1_45[0]",
@@ -731,9 +777,10 @@
         329.975
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_mortgage_interest_paid_to_banks",
+      "cell_ref": "property_3_mortgage_interest_paid_to_banks",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line13[0].f1_46[0]",
@@ -745,9 +792,10 @@
         317.976
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_other_interest",
+      "cell_ref": "property_1_other_interest",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line13[0].f1_47[0]",
@@ -759,9 +807,10 @@
         317.976
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_other_interest",
+      "cell_ref": "property_2_other_interest",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line13[0].f1_48[0]",
@@ -773,9 +822,10 @@
         317.976
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_other_interest",
+      "cell_ref": "property_3_other_interest",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line14[0].f1_49[0]",
@@ -787,9 +837,10 @@
         305.977
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_repairs",
+      "cell_ref": "property_1_repairs",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line14[0].f1_50[0]",
@@ -801,9 +852,10 @@
         305.977
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_repairs",
+      "cell_ref": "property_2_repairs",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line14[0].f1_51[0]",
@@ -815,9 +867,10 @@
         305.977
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_repairs",
+      "cell_ref": "property_3_repairs",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line15[0].f1_52[0]",
@@ -829,9 +882,10 @@
         293.978
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_supplies",
+      "cell_ref": "property_1_supplies",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line15[0].f1_53[0]",
@@ -843,9 +897,10 @@
         293.978
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_supplies",
+      "cell_ref": "property_2_supplies",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line15[0].f1_54[0]",
@@ -857,9 +912,10 @@
         293.978
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_supplies",
+      "cell_ref": "property_3_supplies",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line16[0].f1_55[0]",
@@ -871,9 +927,10 @@
         281.979
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_taxes",
+      "cell_ref": "property_1_taxes",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line16[0].f1_56[0]",
@@ -885,9 +942,10 @@
         281.979
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_taxes",
+      "cell_ref": "property_2_taxes",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line16[0].f1_57[0]",
@@ -899,9 +957,10 @@
         281.979
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_taxes",
+      "cell_ref": "property_3_taxes",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line17[0].f1_58[0]",
@@ -913,9 +972,10 @@
         269.98
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_utilities",
+      "cell_ref": "property_1_utilities",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line17[0].f1_59[0]",
@@ -927,9 +987,10 @@
         269.98
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_utilities",
+      "cell_ref": "property_2_utilities",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line17[0].f1_60[0]",
@@ -941,9 +1002,10 @@
         269.98
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_utilities",
+      "cell_ref": "property_3_utilities",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line18[0].f1_61[0]",
@@ -955,9 +1017,10 @@
         257.981
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_depreciation_or_depletion",
+      "cell_ref": "property_1_depreciation_or_depletion",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line18[0].f1_62[0]",
@@ -969,9 +1032,10 @@
         257.981
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_depreciation_or_depletion",
+      "cell_ref": "property_2_depreciation_or_depletion",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line18[0].f1_63[0]",
@@ -983,9 +1047,10 @@
         257.981
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_depreciation_or_depletion",
+      "cell_ref": "property_3_depreciation_or_depletion",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line19[0].f1_64[0]",
@@ -997,9 +1062,10 @@
         245.982
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_other_expenses",
+      "cell_ref": "property_1_other_expenses",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line19[0].f1_65[0]",
@@ -1011,9 +1077,10 @@
         245.982
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_other_expenses",
+      "cell_ref": "property_2_other_expenses",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line19[0].f1_66[0]",
@@ -1025,9 +1092,10 @@
         245.982
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_other_expenses",
+      "cell_ref": "property_3_other_expenses",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line19[0].f1_67[0]",
@@ -1095,9 +1163,10 @@
         197.984
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_1_line21",
+      "cell_ref": "property_1_line21",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line21[0].f1_72[0]",
@@ -1109,9 +1178,10 @@
         197.984
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_2_line21",
+      "cell_ref": "property_2_line21",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line21[0].f1_73[0]",
@@ -1123,9 +1193,10 @@
         197.984
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "property_3_line21",
+      "cell_ref": "property_3_line21",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].Table_Expenses[0].Line22[0].f1_74[0]",
@@ -1179,9 +1250,10 @@
         161.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "21",
+      "cell_ref": "21",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_78[0]",
@@ -1193,9 +1265,10 @@
         149.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "41",
+      "cell_ref": "41",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_79[0]",
@@ -1347,9 +1420,10 @@
         605.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_1_name",
+      "cell_ref": "passthrough_1_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowA[0].f2_4[0]",
@@ -1361,9 +1435,10 @@
         605.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_1_category",
+      "cell_ref": "passthrough_1_category",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowA[0].c2_2[0]",
@@ -1375,9 +1450,10 @@
         603.968
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_1_nonpassive",
+      "cell_ref": "passthrough_1_nonpassive",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowA[0].f2_5[0]",
@@ -1389,9 +1465,10 @@
         605.967
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_1_income_or_loss",
+      "cell_ref": "passthrough_1_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowA[0].c2_3[0]",
@@ -1431,9 +1508,10 @@
         593.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_2_name",
+      "cell_ref": "passthrough_2_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowB[0].f2_7[0]",
@@ -1445,9 +1523,10 @@
         593.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_2_category",
+      "cell_ref": "passthrough_2_category",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowB[0].c2_5[0]",
@@ -1459,9 +1538,10 @@
         591.969
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_2_nonpassive",
+      "cell_ref": "passthrough_2_nonpassive",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowB[0].f2_8[0]",
@@ -1473,9 +1553,10 @@
         593.968
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_2_income_or_loss",
+      "cell_ref": "passthrough_2_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowB[0].c2_6[0]",
@@ -1515,9 +1596,10 @@
         581.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_3_name",
+      "cell_ref": "passthrough_3_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowC[0].f2_10[0]",
@@ -1529,9 +1611,10 @@
         581.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_3_category",
+      "cell_ref": "passthrough_3_category",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowC[0].c2_8[0]",
@@ -1543,9 +1626,10 @@
         579.97
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_3_nonpassive",
+      "cell_ref": "passthrough_3_nonpassive",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowC[0].f2_11[0]",
@@ -1557,9 +1641,10 @@
         581.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_3_income_or_loss",
+      "cell_ref": "passthrough_3_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowC[0].c2_9[0]",
@@ -1599,9 +1684,10 @@
         569.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_4_name",
+      "cell_ref": "passthrough_4_name",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowD[0].f2_13[0]",
@@ -1613,9 +1699,10 @@
         569.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_4_category",
+      "cell_ref": "passthrough_4_category",
+      "render_mode": "field_text",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowD[0].c2_11[0]",
@@ -1627,9 +1714,10 @@
         567.971
       ],
       "widget_type": "button",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_4_nonpassive",
+      "cell_ref": "passthrough_4_nonpassive",
+      "render_mode": "checkbox",
+      "format": "text"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowD[0].f2_14[0]",
@@ -1641,9 +1729,10 @@
         569.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_4_income_or_loss",
+      "cell_ref": "passthrough_4_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28a-f[0].RowD[0].c2_12[0]",
@@ -1683,9 +1772,10 @@
         527.969
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_1_qbi_income_or_loss",
+      "cell_ref": "passthrough_1_qbi_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28g-k[0].RowA[0].f2_16[0]",
@@ -1753,9 +1843,10 @@
         515.97
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "passthrough_2_qbi_income_or_loss",
+      "cell_ref": "passthrough_2_qbi_income_or_loss",
+      "render_mode": "field_text",
+      "format": "amount"
     },
     {
       "field": "topmostSubform[0].Page2[0].Table_Line28g-k[0].RowB[0].f2_21[0]",

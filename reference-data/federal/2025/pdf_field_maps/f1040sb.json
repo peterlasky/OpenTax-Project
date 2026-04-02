@@ -4,8 +4,8 @@
   "pdf_field_count": 72,
   "fillable_form": true,
   "widget_count": 72,
-  "mapped_widget_count": 4,
-  "renderable_widget_count": 4,
+  "mapped_widget_count": 64,
+  "renderable_widget_count": 64,
   "widgets": [
     {
       "field": "topmostSubform[0].Page1[0].f1_01[0]",
@@ -45,9 +45,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_1",
+      "cell_ref": "line_1_payer_1",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_04[0]",
@@ -59,9 +60,10 @@
         648.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_1",
+      "cell_ref": "line_1_amount_1",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_05[0]",
@@ -73,9 +75,10 @@
         636.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_2",
+      "cell_ref": "line_1_payer_2",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_06[0]",
@@ -87,9 +90,10 @@
         636.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_2",
+      "cell_ref": "line_1_amount_2",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_07[0]",
@@ -101,9 +105,10 @@
         623.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_3",
+      "cell_ref": "line_1_payer_3",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_08[0]",
@@ -115,9 +120,10 @@
         623.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_3",
+      "cell_ref": "line_1_amount_3",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_09[0]",
@@ -129,9 +135,10 @@
         612.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_4",
+      "cell_ref": "line_1_payer_4",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_10[0]",
@@ -143,9 +150,10 @@
         612.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_4",
+      "cell_ref": "line_1_amount_4",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_11[0]",
@@ -157,9 +165,10 @@
         600.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_5",
+      "cell_ref": "line_1_payer_5",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_12[0]",
@@ -171,9 +180,10 @@
         600.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_5",
+      "cell_ref": "line_1_amount_5",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_13[0]",
@@ -185,9 +195,10 @@
         587.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_6",
+      "cell_ref": "line_1_payer_6",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_14[0]",
@@ -199,9 +210,10 @@
         587.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_6",
+      "cell_ref": "line_1_amount_6",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_15[0]",
@@ -213,9 +225,10 @@
         576.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_7",
+      "cell_ref": "line_1_payer_7",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_16[0]",
@@ -227,9 +240,10 @@
         576.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_7",
+      "cell_ref": "line_1_amount_7",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_17[0]",
@@ -241,9 +255,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_8",
+      "cell_ref": "line_1_payer_8",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_18[0]",
@@ -255,9 +270,10 @@
         564.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_8",
+      "cell_ref": "line_1_amount_8",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_19[0]",
@@ -269,9 +285,10 @@
         551.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_9",
+      "cell_ref": "line_1_payer_9",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_20[0]",
@@ -283,9 +300,10 @@
         551.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_9",
+      "cell_ref": "line_1_amount_9",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_21[0]",
@@ -297,9 +315,10 @@
         540.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_10",
+      "cell_ref": "line_1_payer_10",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_22[0]",
@@ -311,9 +330,10 @@
         540.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_10",
+      "cell_ref": "line_1_amount_10",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_23[0]",
@@ -325,9 +345,10 @@
         528.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_11",
+      "cell_ref": "line_1_payer_11",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_24[0]",
@@ -339,9 +360,10 @@
         528.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_11",
+      "cell_ref": "line_1_amount_11",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_25[0]",
@@ -353,9 +375,10 @@
         515.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_12",
+      "cell_ref": "line_1_payer_12",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_26[0]",
@@ -367,9 +390,10 @@
         515.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_12",
+      "cell_ref": "line_1_amount_12",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_27[0]",
@@ -381,9 +405,10 @@
         504.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_13",
+      "cell_ref": "line_1_payer_13",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_28[0]",
@@ -395,9 +420,10 @@
         504.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_13",
+      "cell_ref": "line_1_amount_13",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_29[0]",
@@ -409,9 +435,10 @@
         492.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_payer_14",
+      "cell_ref": "line_1_payer_14",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_30[0]",
@@ -423,9 +450,10 @@
         492.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_1_amount_14",
+      "cell_ref": "line_1_amount_14",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_31[0]",
@@ -437,9 +465,10 @@
         479.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "2",
+      "cell_ref": "2",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_32[0]",
@@ -451,9 +480,10 @@
         456.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "3",
+      "cell_ref": "3",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_33[0]",
@@ -479,9 +509,10 @@
         420.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_1",
+      "cell_ref": "line_4_payer_1",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_35[0]",
@@ -493,9 +524,10 @@
         420.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_1",
+      "cell_ref": "line_4_amount_1",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_36[0]",
@@ -507,9 +539,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_2",
+      "cell_ref": "line_4_payer_2",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_37[0]",
@@ -521,9 +554,10 @@
         407.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_2",
+      "cell_ref": "line_4_amount_2",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_38[0]",
@@ -535,9 +569,10 @@
         396.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_3",
+      "cell_ref": "line_4_payer_3",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_39[0]",
@@ -549,9 +584,10 @@
         396.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_3",
+      "cell_ref": "line_4_amount_3",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_40[0]",
@@ -563,9 +599,10 @@
         384.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_4",
+      "cell_ref": "line_4_payer_4",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_41[0]",
@@ -577,9 +614,10 @@
         384.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_4",
+      "cell_ref": "line_4_amount_4",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_42[0]",
@@ -591,9 +629,10 @@
         371.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_5",
+      "cell_ref": "line_4_payer_5",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_43[0]",
@@ -605,9 +644,10 @@
         371.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_5",
+      "cell_ref": "line_4_amount_5",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_44[0]",
@@ -619,9 +659,10 @@
         360.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_6",
+      "cell_ref": "line_4_payer_6",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_45[0]",
@@ -633,9 +674,10 @@
         360.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_6",
+      "cell_ref": "line_4_amount_6",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_46[0]",
@@ -647,9 +689,10 @@
         348.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_7",
+      "cell_ref": "line_4_payer_7",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_47[0]",
@@ -661,9 +704,10 @@
         348.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_7",
+      "cell_ref": "line_4_amount_7",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_48[0]",
@@ -675,9 +719,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_8",
+      "cell_ref": "line_4_payer_8",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_49[0]",
@@ -689,9 +734,10 @@
         335.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_8",
+      "cell_ref": "line_4_amount_8",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_50[0]",
@@ -703,9 +749,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_9",
+      "cell_ref": "line_4_payer_9",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_51[0]",
@@ -717,9 +764,10 @@
         324.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_9",
+      "cell_ref": "line_4_amount_9",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_52[0]",
@@ -731,9 +779,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_10",
+      "cell_ref": "line_4_payer_10",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_53[0]",
@@ -745,9 +794,10 @@
         312.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_10",
+      "cell_ref": "line_4_amount_10",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_54[0]",
@@ -759,9 +809,10 @@
         299.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_11",
+      "cell_ref": "line_4_payer_11",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_55[0]",
@@ -773,9 +824,10 @@
         299.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_11",
+      "cell_ref": "line_4_amount_11",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_56[0]",
@@ -787,9 +839,10 @@
         288.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_12",
+      "cell_ref": "line_4_payer_12",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_57[0]",
@@ -801,9 +854,10 @@
         288.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_12",
+      "cell_ref": "line_4_amount_12",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_58[0]",
@@ -815,9 +869,10 @@
         276.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_13",
+      "cell_ref": "line_4_payer_13",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_59[0]",
@@ -829,9 +884,10 @@
         276.001
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_13",
+      "cell_ref": "line_4_amount_13",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_60[0]",
@@ -843,9 +899,10 @@
         263.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_14",
+      "cell_ref": "line_4_payer_14",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_61[0]",
@@ -857,9 +914,10 @@
         263.999
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_14",
+      "cell_ref": "line_4_amount_14",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_62[0]",
@@ -871,9 +929,10 @@
         252.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_payer_15",
+      "cell_ref": "line_4_payer_15",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_63[0]",
@@ -885,9 +944,10 @@
         252.0
       ],
       "widget_type": "text",
-      "source": null,
-      "cell_ref": null,
-      "render_mode": null
+      "source": "line_4_amount_15",
+      "cell_ref": "line_4_amount_15",
+      "render_mode": "field_text",
+      "mapping_method": "manual_schedule_b_rows"
     },
     {
       "field": "topmostSubform[0].Page1[0].f1_64[0]",

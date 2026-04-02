@@ -24,17 +24,22 @@ LEFT_MARGIN = 42.0
 RIGHT_MARGIN = 42.0
 TOP_MARGIN = 42.0
 BOTTOM_MARGIN = 42.0
+TITLE_FONT = "Helvetica-Bold"
+SUBTITLE_FONT = "Helvetica"
 LABEL_FONT = "Helvetica-Bold"
 BODY_FONT = "Helvetica"
 MONO_FONT = "Courier"
 TITLE_COLOR = colors.black
 SUBTITLE_COLOR = colors.HexColor("#333333")
-SECTION_FILL = colors.HexColor("#E9ECEF")
-LINE_COLOR = colors.HexColor("#4A4A4A")
-SECTION_BAR_HEIGHT = 14.0
-SECTION_CONTENT_GAP = 42.0
-TEXT_ROW_GAP = 18.0
-CHECKBOX_ROW_HEIGHT = 34.0
+LINE_COLOR = colors.HexColor("#1F2937")
+TITLE_SIZE = 14.0
+SUBTITLE_SIZE = 8.5
+LABEL_SIZE = 7.5
+BODY_SIZE = 9.5
+PAGE_HEADER_LINE_Y = PAGE_HEIGHT - TOP_MARGIN - 18.0
+PAGE_CONTENT_TOP = PAGE_HEIGHT - TOP_MARGIN - 34.0
+TEXT_ROW_GAP = 22.0
+CHECKBOX_ROW_HEIGHT = 24.0
 
 
 @dataclass
@@ -117,32 +122,22 @@ def flatten_worksheet_cells(form_data: dict[str, Any]) -> list[WorksheetField]:
     return fields
 
 
-def draw_page_header(pdf: canvas.Canvas, title: str, subtitle: str, page_number: int) -> None:
+def draw_page_header(
+    pdf: canvas.Canvas,
+    title: str,
+    subtitle: str,
+    page_number: int,
+    total_pages: int,
+) -> None:
     pdf.setStrokeColor(LINE_COLOR)
     pdf.setFillColor(TITLE_COLOR)
-    pdf.setFont(LABEL_FONT, 16)
+    pdf.setFont(TITLE_FONT, TITLE_SIZE)
     pdf.drawString(LEFT_MARGIN, PAGE_HEIGHT - TOP_MARGIN + 4, title)
-    pdf.setFont(BODY_FONT, 9)
+    pdf.setFont(SUBTITLE_FONT, SUBTITLE_SIZE)
     pdf.setFillColor(SUBTITLE_COLOR)
-    pdf.drawString(LEFT_MARGIN, PAGE_HEIGHT - TOP_MARGIN - 12, subtitle)
-    pdf.drawRightString(PAGE_WIDTH - RIGHT_MARGIN, PAGE_HEIGHT - TOP_MARGIN + 4, f"Page {page_number}")
-    pdf.line(LEFT_MARGIN, PAGE_HEIGHT - TOP_MARGIN - 18, PAGE_WIDTH - RIGHT_MARGIN, PAGE_HEIGHT - TOP_MARGIN - 18)
-
-
-def draw_section_bar(pdf: canvas.Canvas, y_top: float, title: str) -> None:
-    pdf.setFillColor(SECTION_FILL)
-    pdf.setStrokeColor(LINE_COLOR)
-    pdf.rect(
-        LEFT_MARGIN,
-        y_top - SECTION_BAR_HEIGHT,
-        PAGE_WIDTH - LEFT_MARGIN - RIGHT_MARGIN,
-        SECTION_BAR_HEIGHT,
-        stroke=0,
-        fill=1,
-    )
-    pdf.setFillColor(colors.black)
-    pdf.setFont(LABEL_FONT, 9)
-    pdf.drawString(LEFT_MARGIN + 4, y_top - 10.5, title)
+    pdf.drawString(LEFT_MARGIN, PAGE_HEIGHT - TOP_MARGIN - 11, subtitle)
+    pdf.drawRightString(PAGE_WIDTH - RIGHT_MARGIN, PAGE_HEIGHT - TOP_MARGIN + 2, f"Page {page_number} of {total_pages}")
+    pdf.line(LEFT_MARGIN, PAGE_HEADER_LINE_Y, PAGE_WIDTH - RIGHT_MARGIN, PAGE_HEADER_LINE_Y)
 
 
 def usable_font(field: WorksheetField) -> str:
@@ -153,18 +148,18 @@ def usable_font(field: WorksheetField) -> str:
 
 def text_field_dimensions(field: WorksheetField, max_width: float) -> tuple[float, float]:
     if field.format_code == "amount":
-        return 120.0, 18.0
+        return 120.0, 14.0
     if any(token in field.cell_id.lower() for token in ("address", "name", "explanation", "city", "country")):
-        return max_width, 18.0
-    return min(240.0, max_width), 18.0
+        return max_width, 14.0
+    return min(260.0, max_width), 14.0
 
 
 def draw_text_field(pdf: canvas.Canvas, field: WorksheetField, x: float, y: float, width: float, height: float) -> None:
     font_name = usable_font(field)
-    font_size = 9.0 if field.format_code != "amount" else 10.0
-    pdf.setFont(LABEL_FONT, 7.5)
+    font_size = BODY_SIZE if field.format_code != "amount" else 10.0
+    pdf.setFont(LABEL_FONT, LABEL_SIZE)
     pdf.setFillColor(colors.black)
-    pdf.drawString(x, y + height + 3.5, field.label)
+    pdf.drawString(x, y + height + 4.0, field.label)
     pdf.acroForm.textfield(
         name=field.cell_id,
         x=x,
@@ -173,20 +168,23 @@ def draw_text_field(pdf: canvas.Canvas, field: WorksheetField, x: float, y: floa
         height=height,
         fontName=font_name,
         fontSize=font_size,
-        borderStyle="solid",
-        borderWidth=0.8,
-        borderColor=LINE_COLOR,
+        borderStyle="underlined",
+        borderWidth=0,
+        borderColor=colors.white,
         textColor=colors.black,
         fillColor=colors.white,
-        forceBorder=True,
+        forceBorder=False,
     )
+    pdf.setStrokeColor(LINE_COLOR)
+    pdf.setLineWidth(0.8)
+    pdf.line(x, y + 1.0, x + width, y + 1.0)
     field.font_size = font_size
     field.rect = (x, y, x + width, y + height)
 
 
 def draw_checkbox_field(pdf: canvas.Canvas, field: WorksheetField, x: float, y: float) -> None:
-    size = 11.0
-    pdf.setFont(BODY_FONT, 8.5)
+    size = 10.0
+    pdf.setFont(BODY_FONT, BODY_SIZE)
     pdf.drawString(x + size + 6, y + 1.5, field.label)
     pdf.acroForm.checkbox(
         name=field.cell_id,
@@ -202,46 +200,44 @@ def draw_checkbox_field(pdf: canvas.Canvas, field: WorksheetField, x: float, y: 
     field.rect = (x, y, x + size, y + size)
 
 
+def paginate_fields(fields: list[WorksheetField], max_width: float) -> list[list[WorksheetField]]:
+    pages: list[list[WorksheetField]] = [[]]
+    remaining_height = PAGE_CONTENT_TOP
+    for field in fields:
+        needed = CHECKBOX_ROW_HEIGHT if field.widget_type == "button" else text_field_dimensions(field, max_width)[1] + TEXT_ROW_GAP
+        if pages[-1] and remaining_height - needed < BOTTOM_MARGIN:
+            pages.append([])
+            remaining_height = PAGE_CONTENT_TOP
+        pages[-1].append(field)
+        remaining_height -= needed
+    return pages
+
+
 def generate_template_pdf(form_id: str, form_data: dict[str, Any]) -> tuple[str, list[WorksheetField], int]:
     OUTPUT_PDF_DIR.mkdir(parents=True, exist_ok=True)
     filename = f"{form_id}_worksheet.pdf"
     output_path = OUTPUT_PDF_DIR / filename
     pdf = canvas.Canvas(str(output_path), pagesize=letter)
     title = str((form_data.get("_meta") or {}).get("name") or form_id)
-    subtitle = f"OpenTax generated worksheet template for {form_id}"
+    subtitle = "Tax Year 2025"
     fields = flatten_worksheet_cells(form_data)
-
-    page_number = 1
-    draw_page_header(pdf, title, subtitle, page_number)
-    y_cursor = PAGE_HEIGHT - TOP_MARGIN - 42.0
-    draw_section_bar(pdf, y_cursor, "Worksheet Fields")
-    y_cursor -= SECTION_CONTENT_GAP
-
-    def next_page() -> None:
-        nonlocal page_number, y_cursor
-        pdf.showPage()
-        page_number += 1
-        draw_page_header(pdf, title, subtitle, page_number)
-        y_cursor = PAGE_HEIGHT - TOP_MARGIN - 42.0
-        draw_section_bar(pdf, y_cursor, "Worksheet Fields")
-        y_cursor -= SECTION_CONTENT_GAP
-
     max_width = PAGE_WIDTH - LEFT_MARGIN - RIGHT_MARGIN
-    for field in fields:
-        if field.widget_type == "button":
-            needed = CHECKBOX_ROW_HEIGHT
-        else:
-            _, height = text_field_dimensions(field, max_width)
-            needed = height + TEXT_ROW_GAP
-        if y_cursor - needed < BOTTOM_MARGIN:
-            next_page()
-        if field.widget_type == "button":
-            draw_checkbox_field(pdf, field, LEFT_MARGIN, y_cursor)
-            y_cursor -= CHECKBOX_ROW_HEIGHT
-            continue
-        width, height = text_field_dimensions(field, max_width)
-        draw_text_field(pdf, field, LEFT_MARGIN, y_cursor, width, height)
-        y_cursor -= height + TEXT_ROW_GAP
+    pages = paginate_fields(fields, max_width)
+    total_pages = len(pages)
+    for page_number, page_fields in enumerate(pages, start=1):
+        if page_number > 1:
+            pdf.showPage()
+        draw_page_header(pdf, title, subtitle, page_number, total_pages)
+        y_cursor = PAGE_CONTENT_TOP
+        for field in page_fields:
+            field.page = page_number
+            if field.widget_type == "button":
+                draw_checkbox_field(pdf, field, LEFT_MARGIN, y_cursor)
+                y_cursor -= CHECKBOX_ROW_HEIGHT
+                continue
+            width, height = text_field_dimensions(field, max_width)
+            draw_text_field(pdf, field, LEFT_MARGIN, y_cursor, width, height)
+            y_cursor -= height + TEXT_ROW_GAP
 
     pdf.save()
     field_count = len(PdfReader(str(output_path)).get_fields() or {})

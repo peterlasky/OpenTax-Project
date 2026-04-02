@@ -9,10 +9,9 @@ The objective is not just to add forms. The objective is to make taxpayer facts 
 ## Primary artifacts
 
 - `federal_1040_2025.json`
-- `filing_sequence.json`
 - `docs/federal_1040_2025.template.json`
 - `docs/FORM_MODEL_STATUS.md`
-- `problematic_forms_and_lines.txt`
+- `docs/problematic_forms_and_lines.txt`
 - `tests/test_tax_logic.py`
 - `forms-instructions-and-publications/pdf_form_scan.json`
 - `forms-instructions-and-publications/generated-worksheets/`
@@ -63,6 +62,7 @@ If the template does not exist yet, use this rudimentary format until it is crea
 - build in dependency order rather than convenience order
 - prioritize forms that materially affect the return bottom line
 - move a form from scaffolded to modeled only when major branches and downstream carryouts are genuinely reliable
+- when a publication drives a deduction but does not provide a usable worksheet, create a repo-owned helper worksheet rather than hiding the classification logic in one opaque Schedule line
 
 ### Phase 4: Tax-sensitive specialty areas
 
@@ -75,10 +75,12 @@ If the template does not exist yet, use this rudimentary format until it is crea
 
 - every top-level form or worksheet must have stable `_meta.name`, `_meta.active`, `_meta.rank`, and `_meta.filing_sequence`
 - when a modeled sheet corresponds to a real PDF artifact, `_meta` should also carry explicit PDF metadata such as `fillable_form`, `pdf_source_path`, and `pdf_field_count`
+- when display inference is not enough, `_meta` may also carry optional navigation hints such as `display_parent` and `display_order` so the GUI can place a worksheet or helper under the right owner without inventing hidden GUI-only rules
+- when the left navigator needs a shorter user-facing label than the formal IRS title, `_meta.short_name` may carry the concise display label while `_meta.name` keeps the full legal/formal title
 - keep only high-level PDF metadata in the master JSON; widget-to-cell mapping belongs in the separate `reference-data/federal/2025/pdf_field_maps/` layer
 - modeled worksheets should now follow the same rule: if the app expects them to preview/export as PDFs, point them at generated worksheet templates rather than leaving them as PDF-less helpers
 - keep rank ordering coherent because it drives both evaluation and display order
-- use `filing_sequence.json` as the authoritative catalog for IRS attachment sequence numbers
+- store filing sequence directly in the master JSON as the authoritative project source for IRS attachment sequence numbers
 - store `filing_sequence` as either an IRS sequence string such as `07` or `19C`, or `null` when the form is not a sequenced attachment
 
 ### Cells
@@ -86,6 +88,9 @@ If the template does not exist yet, use this rudimentary format until it is crea
 - each cell should have `format`, `default`, `value`, `manual_entry`, `override_possible`, `description`, `explanation`, `order`, and `required_rule`
 - computed cells should have equations unless the current gap is explicitly manual
 - use explanations to document non-obvious IRS meaning, upstream sources, or partial-model status
+- publication-driven eligibility worksheets should usually separate fact-classification cells from final carryout cells so the user can see why an amount did or did not qualify
+- for questionnaire-style yes/no facts where the user must answer explicitly, prefer `format: "tri_state_boolean"` with `default: null` and `value: null` so unanswered remains distinct from `False`
+- reserve plain `boolean` primarily for ordinary checkboxes and one-hot checkbox families where `False` is a meaningful default rather than an unanswered state
 
 ### Blocks
 
@@ -93,6 +98,8 @@ If the template does not exist yet, use this rudimentary format until it is crea
 - item schemas should be complete enough to preserve the original payer-furnished fact pattern
 - add nested repeating structures only when the source form genuinely requires them
 - when a block corresponds to a real source-document PDF, store explicit block metadata such as `fillable_form`, `pdf_source_path`, and `pdf_field_count` so preview routing does not rely on filename heuristics alone
+- when a repeating block needs a shorter left-panel label than its formal description, the block may carry `short_name` metadata for navigator display
+- repeating blocks should be modeled so individual entries can be added, removed, and reindexed without breaking downstream equations or PDF-preview selection
 
 ### Filing logic
 
@@ -107,6 +114,9 @@ If the template does not exist yet, use this rudimentary format until it is crea
 - `forms-instructions-and-publications/generated-worksheets/` is the template layer for modeled worksheets that need fillable preview/export PDFs
 - preview mappings should be expressed as separate `source` expressions in the field-map files, not as ad hoc PDF widget ids embedded in `federal_1040_2025.json`
 - if a form is only partially modeled, keep the tax logic correct first and let the PDF layer remain partially mapped rather than inventing fake cells just to satisfy a PDF
+- for row-based filed forms that can require multiple physical attachments of the same IRS PDF, model one canonical form schema but drive preview/export from attachment-copy specs rather than duplicating the whole form definition
+- each attachment-copy spec should identify the governing category or checkbox family plus the slice of rows that fit on one physical copy; Form 8949 is the reference pattern for this
+- prefer keeping copy construction in application logic while the field map stays tied to the canonical blank PDF layout
 - when adding or renaming cells that drive a mapped PDF, verify whether any `pdf_field_maps/` entries need corresponding updates
 
 ## Required companion updates
@@ -114,7 +124,7 @@ If the template does not exist yet, use this rudimentary format until it is crea
 When the master model changes materially, update the related audit artifacts in the same work:
 
 - `docs/FORM_MODEL_STATUS.md`
-- `problematic_forms_and_lines.txt`
+- `docs/problematic_forms_and_lines.txt`
 - relevant tests in `tests/test_tax_logic.py`
 - relevant `pdf_field_maps/` generation or mapping artifacts when PDF-driving cells or form metadata changed
 - relevant summary or audit notes if the new logic depends on instruction/publication analysis
@@ -129,6 +139,9 @@ When the master model changes materially, update the related audit artifacts in 
 - re-check filed-form behavior when changing filing triggers or major carryouts
 - prefer explicit helper cells over opaque giant equations when that improves reliability
 - keep the master model and the separate PDF layer aligned without collapsing them into one file
+- specifically track publication-only worksheet gaps such as `Publication 502` medical-expense qualification, where `Schedule A` has the deduction lines but the publication supplies the inclusion rules without a standalone worksheet artifact
+- when adding questionnaire forms, confirm the cell contract supports the intended UI behavior: tri-state required answers, explicit explanations, and required-rule-driven completion state
+- when adding new repeated source blocks or copy-aware filed forms, confirm the model exposes enough metadata for navigator shorthand, copy counts, and add/remove/reindex behavior without relying on fragile GUI heuristics
 
 ## Done means
 
@@ -136,6 +149,8 @@ When the master model changes materially, update the related audit artifacts in 
 - the form's major branches are modeled rather than hidden behind vague manual buckets
 - filing visibility and carryouts are coherent
 - PDF metadata points to the right local artifacts without embedding widget-level preview logic in the master JSON
+- questionnaire/intake schemas distinguish unanswered from no where that difference matters
+- repeating-block metadata is sufficient for stable entry management and concise navigator display
 - tests cover the new logic
 - status and audit docs reflect the new reality of the model
 

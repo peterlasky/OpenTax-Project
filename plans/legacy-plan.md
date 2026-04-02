@@ -1,13 +1,13 @@
 # Open Tax Plan
 
 Legacy note:
-- `plan.md` is now a legacy historical rebuild document.
+- `plans/legacy-plan.md` is now a legacy historical rebuild document.
 - Active planning lives in `plans/README.md` and the plan files under `plans/`.
 
 ## 1. Purpose and scope
 This project exists to answer a specific question:
 
-- can a single `plan.md`, together with the IRS source materials in this repo, guide a strong LLM to rebuild accurate and usable federal individual tax software
+- can a single legacy rebuild document, together with the IRS source materials in this repo, guide a strong LLM to rebuild accurate and usable federal individual tax software
 
 The required output is not just a static tax model. The project is two linked products:
 
@@ -80,7 +80,7 @@ Important note:
 ## 4. Early Workflow
 The first part of a rebuild should happen in this order.
 
-1. Read `README.md`, `plans/README.md`, `docs/build_manifest.json`, and this legacy `plan.md` for historical context.
+1. Read `README.md`, `plans/README.md`, `docs/build_manifest.json`, and this legacy `plans/legacy-plan.md` for historical context.
 2. Inventory the IRS materials from the YAML manifest.
 3. Create or refresh `docs/FORM_MODEL_STATUS.md` so every YAML-listed form or schedule is marked as `modeled`, `scaffolded`, `missing`, or `out_of_scope`.
 4. Create or refresh `forms-instructions-and-publications/publication-summaries/` and `forms-instructions-and-publications/instruction-summaries/` early, before deep form wiring.
@@ -539,7 +539,7 @@ If an LLM starts from this repo and follows this plan, it should be able to rebu
 | `reference-data/federal/2025/` | Versioned lookup tables, rate schedules, and worksheet parameter tables that should not be hardcoded into form equations |
 | `docs/build_manifest.json` | Machine-readable snapshot of current model coverage, key wiring, source blocks, app contract, and known gaps; use this to improve reconstruction fidelity |
 | `federal_1040_2025.json` | **Output model:** Federal individual package centered on Form 1040, including forms, schedules, worksheets, blocks, equations, and links |
-| `sample.json` | **Schema template:** Same structure, minimal example for reference |
+| `docs/sample.json` | **Schema template:** Same structure, minimal example for reference |
 
 **Where worksheets come from:** Worksheets may appear in any of three places: (1) **inside instruction PDFs** (e.g. 1040 General Instructions), (2) **inside publication PDFs** (when a pub includes a worksheet), or (3) as **standalone PDFs in the worksheets folder**. The YAML **Worksheets** section lists worksheet names by form; standalone PDFs in `worksheets/` are added manually or via downloader when the IRS provides a separate file. Build the model from all three sources as needed.
 
@@ -1244,7 +1244,7 @@ If the codebase is rebuilt from markdown and PDFs alone, preserve the convention
 ## 10. Output artifact
 
 - **Primary:** `federal_1040_2025.json` — jurisdiction `Federal 2025`, containing the federal individual package defined by the build order in Section 1.1. Each cell has format, default, value, description, explanation, and equation (if computed).
-- **Schema reference:** `sample.json` — same structure with minimal examples and `_comments` describing every linkage type and convention above.
+- **Schema reference:** `docs/sample.json` — same structure with minimal examples and `_comments` describing every linkage type and convention above.
 - **Reference data:** `reference-data/federal/2025/` — machine-readable lookup tables, rate schedules, and worksheet parameter tables used by the evaluator.
 - **Build manifest:** `docs/build_manifest.json` — machine-readable snapshot of current modeled coverage, key flows, app expectations, and known gaps.
 

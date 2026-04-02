@@ -6,14 +6,16 @@ from tempfile import TemporaryDirectory
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QCheckBox
 
 try:
     from pypdf import PdfReader
 except Exception:  # pragma: no cover - optional in some runtimes
     PdfReader = None
 
-from src.main import TaxSheetEditor
+from src.main import INCOMPLETE_SHEET_TEXT, REQUIRED_BACKGROUND, SOURCE_SHEET_FLASH_BACKGROUND, TaxSheetEditor
+from src.pdf_preview import FormPdfPreviewEngine
 
 
 def get_app() -> QApplication:
@@ -321,6 +323,162 @@ class TaxLogicTests(unittest.TestCase):
         self.assertAlmostEqual(editor._get_form_cell("f1116", "19")["value"], 3000.0 / 9500.0, places=6)
         self.assertAlmostEqual(editor._get_form_cell("f1116", "21")["value"], 1725.0 * (3000.0 / 9500.0), places=6)
 
+    def test_required_tri_state_question_counts_false_as_answered(self) -> None:
+        editor = self.make_editor()
+        cell = editor._get_form_cell("f1040_Return_Intake_Questions", "has_foreign_income")
+
+        self.assertTrue(editor._should_highlight_required_value("f1040_Return_Intake_Questions", "has_foreign_income", cell))
+
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", False)
+        cell = editor._get_form_cell("f1040_Return_Intake_Questions", "has_foreign_income")
+
+        self.assertFalse(editor._should_highlight_required_value("f1040_Return_Intake_Questions", "has_foreign_income", cell))
+        self.assertTrue(editor._has_present_value("f1040_Return_Intake_Questions", "has_foreign_income", cell))
+
+    def test_foreign_tax_questionnaire_activates_from_general_intake_answer(self) -> None:
+        editor = self.make_editor()
+
+        self.assertFalse(editor._form_is_activated_now("f1116_Questionnaire", editor._current_jurisdiction()["f1116_Questionnaire"]))
+
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", True)
+
+        self.assertTrue(editor._form_is_activated_now("f1116_Questionnaire", editor._current_jurisdiction()["f1116_Questionnaire"]))
+
+    def test_master_questionnaire_sits_under_federal_info(self) -> None:
+        editor = self.make_editor()
+
+        entries = dict(editor._sheet_list_entries(editor._auto_visible_sheet_ids()))
+
+        self.assertEqual(entries["form:f1040_Federal_Info_Worksheet"], 0)
+        self.assertEqual(entries["form:f1040_Return_Intake_Questions"], 1)
+
+    def test_master_questionnaire_answers_surface_major_work_areas(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "received_marketplace_coverage", True)
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_self_employment_income_or_expenses", True)
+
+        auto_visible_sheet_ids = editor._auto_visible_sheet_ids()
+
+        self.assertIn("form:f8962", auto_visible_sheet_ids)
+        self.assertIn("form:f1040sc", auto_visible_sheet_ids)
+
+    def test_schedule_a_questionnaire_surfaces_from_master_itemize_trigger(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "may_itemize_deductions", True)
+
+        auto_visible_sheet_ids = editor._auto_visible_sheet_ids()
+
+        self.assertIn("form:f1040sa_Questionnaire", auto_visible_sheet_ids)
+        self.assertIn("form:f1040sa", auto_visible_sheet_ids)
+
+    def test_schedule_a_questionnaire_answers_surface_child_forms(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "may_itemize_deductions", True)
+        editor._commit_cell_value("f1040sa_Questionnaire", "has_investment_interest_expense", True)
+
+        auto_visible_sheet_ids = editor._auto_visible_sheet_ids()
+
+        self.assertIn("form:f1040sa", auto_visible_sheet_ids)
+        self.assertIn("form:f4952", auto_visible_sheet_ids)
+
+    def test_f1116_questionnaire_syncs_categories_when_form_boxes_untouched(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1116_Questionnaire", "has_passive_category_income", False)
+        editor._commit_cell_value("f1116_Questionnaire", "has_general_category_income", True)
+
+        self.assertFalse(editor._get_form_cell("f1116", "category_passive")["value"])
+        self.assertTrue(editor._get_form_cell("f1116", "category_general")["value"])
+        self.assertEqual(editor._get_form_cell("f1116", "category_selection_count")["value"], 1)
+
+    def test_f1116_questionnaire_surfaces_category_copy_forms(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_passive_category_income", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_general_category_income", True)
+
+        auto_visible_sheet_ids = editor._auto_visible_sheet_ids()
+
+        self.assertIn("form:f1116_passive", auto_visible_sheet_ids)
+        self.assertIn("form:f1116_general", auto_visible_sheet_ids)
+
+    def test_f1116_questionnaire_does_not_surface_schedule_b_for_reserved_section_951a_box(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_section_951a_category_income", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_prior_year_carryovers", True)
+
+        self.assertNotIn("form:f1116sb_section_951a", editor._auto_visible_sheet_ids())
+
+    def test_f1116_does_not_file_without_foreign_income_facts(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", False)
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "paid_foreign_taxes", True)
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "prior_year_foreign_tax_carryovers", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_prior_year_carryovers", True)
+        editor._commit_cell_value("f1116", "elect_credit_without_form_1116", False)
+
+        self.assertFalse(editor._should_file_form_now("f1116", editor._current_jurisdiction()["f1116"]))
+
+    def test_f1116_and_schedule_b_file_from_foreign_income_and_carryover_facts(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "has_foreign_income", True)
+        editor._commit_cell_value("f1040_Return_Intake_Questions", "paid_foreign_taxes", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_passive_category_income", True)
+        editor._commit_cell_value("f1116_Questionnaire", "has_prior_year_carryovers", True)
+        self.add_block_entry(
+            editor,
+            "foreign_tax_credit_items",
+            {
+                "recipient": "taxpayer",
+                "category": "passive",
+                "country_or_territory": "Canada",
+                "gross_income": 1200.0,
+                "foreign_tax_paid": 180.0,
+                "qualified_payee_statement": False,
+            },
+        )
+
+        self.assertTrue(editor._should_file_form_now("f1116_passive", editor._current_jurisdiction()["f1116_passive"]))
+        self.assertIn("form:f1116sb_passive", editor._auto_visible_sheet_ids())
+
+    def test_schedule3_foreign_tax_credit_sums_1116_copy_forms(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1116_passive", "35", 10.0)
+        editor._commit_cell_value("f1116_general", "35", 12.5)
+
+        self.assertEqual(editor._get_form_cell("f1040s3", "1")["value"], 22.5)
+
+    def test_f1116sb_matrix_subtotals_and_totals_compute(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1116sb_passive", "1i", 10.0)
+        editor._commit_cell_value("f1116sb_passive", "1ii", 5.0)
+        editor._commit_cell_value("f1116sb_passive", "1ix", 7.0)
+
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "1vii")["value"], 15.0)
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "1viii")["value"], 15.0)
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "1xiv")["value"], 22.0)
+
+    def test_f1116sb_matrix_line3_and_line8_compute(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1116sb_passive", "1i", 100.0)
+        editor._commit_cell_value("f1116sb_passive", "2ai", -20.0)
+        editor._commit_cell_value("f1116sb_passive", "2bi", 5.0)
+        editor._commit_cell_value("f1116sb_passive", "4i", -40.0)
+        editor._commit_cell_value("f1116sb_passive", "5i", -10.0)
+        editor._commit_cell_value("f1116sb_passive", "6i", 60.0)
+        editor._commit_cell_value("f1116sb_passive", "7i", -15.0)
+
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "3i")["value"], 85.0)
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "8i")["value"], 80.0)
+
+    def test_f1116_copy_line10_uses_schedule_b_matrix_total(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1116sb_passive", "1ix", 50.0)
+        editor._commit_cell_value("f1116sb_passive", "2aix", -10.0)
+
+        self.assertEqual(editor._get_form_cell("f1116sb_passive", "3xiv")["value"], 40.0)
+        self.assertEqual(editor._get_form_cell("f1116_passive", "10")["value"], 40.0)
+
     def test_sample_return_regression(self) -> None:
         editor = TaxSheetEditor()
         editor.load_json(Path("returns/john_jane_doe_sample.json"))
@@ -415,6 +573,19 @@ class TaxLogicTests(unittest.TestCase):
         self.assertEqual(editor._get_form_cell("f4952", "obvious_1099_investment_income")["value"], 71.0)
         self.assertEqual(editor._get_form_cell("f4952", "obvious_qualified_dividends")["value"], 10.0)
         self.assertEqual(editor._get_form_cell("f4952", "5")["value"], 4.0)
+
+    def test_schedule_b_lists_interest_payers_and_taxable_amounts_from_sample(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_payer_1")["value"], "First National Bank")
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_amount_1")["value"], 392.56)
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_payer_2")["value"], "Midwest Credit Union")
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_amount_2")["value"], 210.45)
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_payer_3")["value"], "")
+        self.assertEqual(editor._get_form_cell("f1040sb", "line_1_amount_3")["value"], "")
+        self.assertEqual(editor._get_form_cell("f1040sb", "1")["value"], 603.01)
+        self.assertEqual(editor._get_form_cell("f1040", "2b")["value"], 603.01)
 
     def test_k1_and_k3_sources_feed_schedule_d_and_form_1116(self) -> None:
         editor = self.make_editor()
@@ -548,6 +719,38 @@ class TaxLogicTests(unittest.TestCase):
         self.assertTrue(editor._get_form_cell("f8283", "required_to_file_likely")["value"])
         self.assertTrue(editor._get_form_cell("f8283", "section_b_required_likely")["value"])
 
+    def test_form_8283_item_rows_pull_from_1098c_entries(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1098_c",
+            {
+                "recipient": "taxpayer",
+                "donee_name": "Helping Hands",
+                "vehicle_description": "2012 Subaru Outback",
+                "contribution_date": "2025-06-15",
+                "claimed_deduction_amount": 450.0,
+            },
+        )
+        self.add_block_entry(
+            editor,
+            "1098_c",
+            {
+                "recipient": "taxpayer",
+                "donee_name": "City Mission",
+                "vehicle_description": "1986 Cessna",
+                "contribution_date": "2025-07-01",
+                "claimed_deduction_amount": 6000.0,
+            },
+        )
+
+        self.assertEqual(editor._get_form_cell("f8283", "section_a_item_1_description")["value"], "2012 Subaru Outback")
+        self.assertEqual(editor._get_form_cell("f8283", "section_a_item_1_donee_name")["value"], "Helping Hands")
+        self.assertEqual(editor._get_form_cell("f8283", "section_a_item_1_claimed_amount")["value"], 450.0)
+        self.assertEqual(editor._get_form_cell("f8283", "section_a_item_2_description")["value"], "1986 Cessna")
+        self.assertEqual(editor._get_form_cell("f8283", "section_a_item_2_contribution_date")["value"], "2025-07-01")
+        self.assertTrue(editor._get_form_cell("f8283", "section_a_item_2_section_b_candidate")["value"])
+
     def test_remaining_missing_forms_now_exist_and_key_hooks_work(self) -> None:
         editor = self.make_editor()
         for form_id in [
@@ -668,6 +871,321 @@ class TaxLogicTests(unittest.TestCase):
         self.assertIn("f8582", filed)
         self.assertNotIn("f8582cr", filed)
         self.assertIn("form:f8582cr", editor.visible_sheet_ids)
+
+    def test_schedule_e_property_columns_and_passthrough_rows(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "k1_1065",
+            {
+                "recipient": "taxpayer",
+                "payer_name": "Rental Partnership",
+                "category": "passive",
+                "schedule_e_income_or_loss": 400.0,
+                "qbi_income_or_loss": 300.0,
+            },
+        )
+        self.add_block_entry(
+            editor,
+            "k1_1120s",
+            {
+                "recipient": "taxpayer",
+                "payer_name": "Operating S Corp",
+                "category": "nonpassive",
+                "schedule_e_income_or_loss": -50.0,
+                "qbi_income_or_loss": -25.0,
+            },
+        )
+        editor._commit_cell_value("f1040se", "property_1_rents_received", 1000.0)
+        editor._commit_cell_value("f1040se", "property_1_repairs", 200.0)
+        editor._commit_cell_value("f1040se", "property_1_taxes", 100.0)
+        editor._commit_cell_value("f1040se", "property_2_royalties_received", 200.0)
+        editor._commit_cell_value("f1040se", "property_2_utilities", 50.0)
+
+        self.assertEqual(editor._get_form_cell("f1040se", "property_1_line21")["value"], 700.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "property_2_line21")["value"], 150.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "21")["value"], 850.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "passthrough_1_name")["value"], "Rental Partnership")
+        self.assertEqual(editor._get_form_cell("f1040se", "passthrough_1_income_or_loss")["value"], 400.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "passthrough_2_name")["value"], "Operating S Corp")
+        self.assertTrue(editor._get_form_cell("f1040se", "passthrough_2_nonpassive")["value"])
+        self.assertEqual(editor._get_form_cell("f1040se", "28_k1_income_total")["value"], 350.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "32")["value"], 1200.0)
+        self.assertEqual(editor._get_form_cell("f1040se", "41")["value"], 1200.0)
+
+    def test_form_2441_part_iii_benefits_flow_to_line_12_and_1040_line_1e(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "w2",
+            {
+                "recipient": "taxpayer",
+                "employer_name": "Employer Co",
+                "box_1": 40000.0,
+                "box_10": 5000.0,
+            },
+        )
+        editor._commit_cell_value("f2441", "qualifying_person_1_name", "Alex Doe")
+        editor._commit_cell_value("f2441", "qualifying_person_1_care_expenses", 3200.0)
+        editor._commit_cell_value("f2441", "provider_1_name", "Daycare One")
+        editor._commit_cell_value("f2441", "provider_1_amount_paid", 2800.0)
+        editor._commit_cell_value("f2441", "provider_2_name", "Camp Two")
+        editor._commit_cell_value("f2441", "provider_2_amount_paid", 400.0)
+
+        self.assertEqual(editor._get_form_cell("f2441", "12")["value"], 5000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "15")["value"], 5000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "26")["value"], 1800.0)
+        self.assertEqual(editor._get_form_cell("f1040", "1e")["value"], 1800.0)
+
+    def test_form_2441_excluded_benefits_reduce_credit_base(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "w2",
+            {
+                "recipient": "taxpayer",
+                "employer_name": "Employer Co",
+                "box_1": 40000.0,
+                "box_10": 2000.0,
+            },
+        )
+        self.add_block_entry(
+            editor,
+            "w2",
+            {
+                "recipient": "spouse",
+                "employer_name": "Spouse Employer Co",
+                "box_1": 35000.0,
+            },
+        )
+
+        editor._commit_cell_value("f2441", "qualifying_person_1_name", "Alex Doe")
+        editor._commit_cell_value("f2441", "qualifying_person_1_care_expenses", 6000.0)
+
+        self.assertEqual(editor._get_form_cell("f2441", "12")["value"], 2000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "25")["value"], 2000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "30")["value"], 1000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "31")["value"], 1000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "3")["value"], 1000.0)
+        self.assertEqual(editor._get_form_cell("f2441", "26")["value"], 0.0)
+
+    def test_f8949_selected_block_drives_preview_values_and_checkboxes(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry_on_form(
+            editor,
+            "f8949",
+            "st_box_b",
+            {
+                "recipient": "taxpayer",
+                "description_of_property": "100 sh. XYZ Co.",
+                "date_acquired": "2025-01-05",
+                "date_sold": "2025-07-15",
+                "proceeds": 1500.0,
+                "basis": 900.0,
+                "adjustment_code": "W",
+                "adjustment_amount": 50.0,
+                "gain_loss": 650.0,
+            },
+        )
+        editor._sync_visible_sheets_from_usage(select_sheet_id="block:f8949:st_box_b", preserve_existing=False)
+
+        self.assertEqual(editor._mapped_preview_id("block", "f8949", "st_box_b"), "f8949")
+        self.assertEqual(
+            editor._resolve_pdf_mapping_source(
+                "f8949",
+                'f8949_preview_row_value("short", 1, "description_of_property")',
+            ),
+            "100 sh. XYZ Co.",
+        )
+        self.assertEqual(
+            editor._resolve_pdf_mapping_source("f8949", 'f8949_preview_total("short", "h")'),
+            650.0,
+        )
+        self.assertFalse(editor._resolve_pdf_mapping_source("f8949", 'f8949_preview_checkbox("st_box_a")'))
+        self.assertTrue(editor._resolve_pdf_mapping_source("f8949", 'f8949_preview_checkbox("st_box_b")'))
+
+    def test_f8949_block_cells_map_to_preview_highlight_sources(self) -> None:
+        editor = self.make_editor()
+
+        self.assertEqual(
+            editor._preview_mapping_sources_for_cell_ref(
+                ("block", "f8949", "st_box_h", 0, "gain_loss")
+            ),
+            {'f8949_preview_row_value("short", 1, "gain_loss")'},
+        )
+
+    def test_f8949_selected_entry_switches_to_the_matching_copy_chunk(self) -> None:
+        editor = self.make_editor()
+        for entry_number in range(1, 13):
+            self.add_block_entry_on_form(
+                editor,
+                "f8949",
+                "st_box_a",
+                {
+                    "recipient": "taxpayer",
+                    "description_of_property": f"Lot {entry_number}",
+                    "date_acquired": "2025-01-01",
+                    "date_sold": "2025-02-01",
+                    "proceeds": float(entry_number * 100),
+                    "basis": float(entry_number * 40),
+                    "adjustment_code": "",
+                    "adjustment_amount": 0.0,
+                    "gain_loss": float(entry_number * 60),
+                },
+            )
+        editor._sync_visible_sheets_from_usage(select_sheet_id="block:f8949:st_box_a", preserve_existing=False)
+
+        twelfth_entry_row = self.find_first_row_for_entry(editor, 12)
+        editor.table.setCurrentCell(twelfth_entry_row, 2)
+
+        self.assertEqual(
+            editor._resolve_pdf_mapping_source(
+                "f8949",
+                'f8949_preview_row_value("short", 1, "description_of_property")',
+            ),
+            "Lot 12",
+        )
+        self.assertEqual(
+            editor._resolve_pdf_mapping_source("f8949", 'f8949_preview_total("short", "h")'),
+            720.0,
+        )
+
+    def test_questionnaire_tri_state_rows_use_yes_no_checkboxes_and_required_red_background(self) -> None:
+        editor = self.make_editor()
+        editor.populate_form("f1040_Return_Intake_Questions")
+
+        target_row = next(
+            row_idx
+            for row_idx in range(editor.table.rowCount())
+            if editor.table.item(row_idx, 0) is not None and editor.table.item(row_idx, 0).text() == "has_foreign_income"
+        )
+        widget = editor.table.cellWidget(target_row, 2)
+
+        self.assertIsNotNone(widget)
+        self.assertEqual(len(widget.findChildren(QCheckBox)), 2)
+        self.assertIn(REQUIRED_BACKGROUND.name(), widget.styleSheet())
+
+        editor._on_tri_state_checkbox_changed("f1040_Return_Intake_Questions", "has_foreign_income", True, True)
+        self.assertIs(editor._get_form_cell("f1040_Return_Intake_Questions", "has_foreign_income")["value"], True)
+
+        editor._on_tri_state_checkbox_changed("f1040_Return_Intake_Questions", "has_foreign_income", True, False)
+        self.assertIsNone(editor._get_form_cell("f1040_Return_Intake_Questions", "has_foreign_income")["value"])
+
+    def test_remove_info_return_reindexes_remaining_entries(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(editor, "1099_int", {"payer_name": "First National Bank", "box_1": 10.0})
+        self.add_block_entry(editor, "1099_int", {"payer_name": "Midwest Credit Union", "box_1": 20.0})
+        editor._sync_visible_sheets_from_usage(select_sheet_id="block:f1040:1099_int", preserve_existing=False)
+        editor.populate_block_sheet("f1040", "1099_int")
+
+        first_entry_row = self.find_first_row_for_entry(editor, 1)
+        editor.table.setCurrentCell(first_entry_row, 2)
+        editor.remove_info_return()
+
+        entries = ((editor._current_jurisdiction().get("f1040") or {}).get("blocks") or {}).get("1099_int", {}).get("entries", [])
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["payer_name"], "Midwest Credit Union")
+        self.assertEqual(editor.table.item(0, 0).text(), "1.recipient")
+
+    def test_form_8962_monthly_1095a_entries_flow_into_monthly_grid(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1095_a",
+            {
+                "recipient": "taxpayer",
+                "marketplace_name": "Exchange",
+                "policy_number": "POL-1",
+                "month_01_enrollment_premiums": 1200.0,
+                "month_01_slcsp": 1000.0,
+                "month_01_advance_ptc": 500.0,
+                "month_02_enrollment_premiums": 1200.0,
+                "month_02_slcsp": 1000.0,
+                "month_02_advance_ptc": 900.0,
+            },
+        )
+        editor._commit_cell_value("f8962", "monthly_contribution_base", 200.0)
+
+        self.assertTrue(editor._get_form_cell("f8962", "monthly_data_present")["value"])
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_enrollment_premiums")["value"], 1200.0)
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_assistance_amount")["value"], 800.0)
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_ptc")["value"], 800.0)
+        self.assertEqual(editor._get_form_cell("f8962", "monthly_ptc_total")["value"], 1600.0)
+        self.assertEqual(editor._get_form_cell("f8962", "24")["value"], 1600.0)
+        self.assertEqual(editor._get_form_cell("f8962", "25")["value"], 1400.0)
+        self.assertEqual(editor._get_form_cell("f8962", "26")["value"], 200.0)
+        self.assertEqual(editor._get_form_cell("f8962", "29")["value"], 0.0)
+
+    def test_form_8962_annual_calculation_uses_1095a_annual_totals(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1095_a",
+            {
+                "recipient": "taxpayer",
+                "marketplace_name": "Exchange",
+                "policy_number": "POL-ANN",
+                "annual_enrollment_premiums": 12000.0,
+                "annual_slcsp": 9000.0,
+                "annual_advance_ptc": 7000.0,
+            },
+        )
+        editor._commit_cell_value("f8962", "use_annual_calculation", True)
+        editor._commit_cell_value("f8962", "annual_contribution_amount", 3000.0)
+
+        self.assertEqual(editor._get_form_cell("f8962", "annual_assistance_amount")["value"], 6000.0)
+        self.assertEqual(editor._get_form_cell("f8962", "annual_ptc")["value"], 6000.0)
+        self.assertEqual(editor._get_form_cell("f8962", "24")["value"], 6000.0)
+        self.assertEqual(editor._get_form_cell("f8962", "25")["value"], 7000.0)
+        self.assertEqual(editor._get_form_cell("f8962", "27")["value"], 1000.0)
+        self.assertEqual(editor._get_form_cell("f8962", "29")["value"], 1000.0)
+
+    def test_form_8962_policy_allocation_reduces_monthly_totals_and_populates_part_iv(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(
+            editor,
+            "1095_a",
+            {
+                "recipient": "taxpayer",
+                "marketplace_name": "Exchange",
+                "policy_number": "SHARED-1",
+                "multiple_tax_family_allocation": True,
+                "allocation_other_taxpayer_ssn": "123-45-6789",
+                "allocation_start_month": 1,
+                "allocation_stop_month": 2,
+                "allocation_premium_pct": 50.0,
+                "allocation_slcsp_pct": 60.0,
+                "allocation_advance_ptc_pct": 70.0,
+                "month_01_enrollment_premiums": 1000.0,
+                "month_01_slcsp": 900.0,
+                "month_01_advance_ptc": 800.0,
+                "month_02_enrollment_premiums": 1000.0,
+                "month_02_slcsp": 900.0,
+                "month_02_advance_ptc": 800.0,
+            },
+        )
+
+        self.assertTrue(editor._get_form_cell("f8962", "has_marketplace_policy_allocations")["value"])
+        self.assertTrue(editor._get_form_cell("f8962", "has_policy_allocation_or_alternative_calc")["value"])
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_enrollment_premiums")["value"], 500.0)
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_slcsp")["value"], 540.0)
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_advance_ptc")["value"], 560.0)
+        self.assertEqual(editor._get_form_cell("f8962", "allocation_1_policy_number")["value"], "SHARED-1")
+        self.assertEqual(editor._get_form_cell("f8962", "allocation_1_other_taxpayer_ssn")["value"], "123-45-6789")
+        self.assertEqual(editor._get_form_cell("f8962", "allocation_1_premium_pct")["value"], 50.0)
+        self.assertEqual(editor._get_form_cell("f8962", "allocation_1_slcsp_pct")["value"], 60.0)
+        self.assertEqual(editor._get_form_cell("f8962", "allocation_1_advance_ptc_pct")["value"], 70.0)
+
+    def test_form_8962_alternative_marriage_monthly_contribution_overrides_base(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f8962", "alternative_calculation_for_marriage", True)
+        editor._commit_cell_value("f8962", "monthly_contribution_base", 300.0)
+        editor._commit_cell_value("f8962", "alternative_taxpayer_monthly_contribution_amount", 150.0)
+        editor._commit_cell_value("f8962", "alternative_taxpayer_start_month", 1)
+        editor._commit_cell_value("f8962", "alternative_taxpayer_stop_month", 3)
+
+        self.assertEqual(editor._get_form_cell("f8962", "month_01_contribution_amount")["value"], 150.0)
+        self.assertEqual(editor._get_form_cell("f8962", "month_04_contribution_amount")["value"], 300.0)
 
     def test_form_7206_can_drive_schedule_1_line_17(self) -> None:
         editor = self.make_editor()
@@ -883,6 +1401,14 @@ class TaxLogicTests(unittest.TestCase):
         ]
         self.assertGreater(len(mapped_widgets), 10)
 
+    def test_structural_forms_now_have_render_mappings(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+
+        for form_id in ["f2441", "f8962", "f8283", "f1040se", "f8949"]:
+            self.assertTrue(editor.pdf_preview_engine.has_mapping_for_form(form_id))
+            self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form(form_id))
+
     def test_block_fillable_metadata_and_pdf_source_path_drive_preview_resolution(self) -> None:
         editor = self.make_editor()
 
@@ -997,6 +1523,72 @@ class TaxLogicTests(unittest.TestCase):
         self.assertTrue(output_path.is_file())
         self.assertEqual(len(PdfReader(str(output_path)).pages), 1)
 
+    def test_schedule_a_medical_worksheet_flows_to_line_1_and_line_4(self) -> None:
+        editor = self.make_editor()
+        editor._commit_cell_value("f1040", "11b", 10000.0)
+        editor._commit_cell_value("f1040sa_Medical_Expense_Qualification_Worksheet", "doctors_dentists_hospitals", 900.0)
+        editor._commit_cell_value("f1040sa_Medical_Expense_Qualification_Worksheet", "prescription_drugs_insulin", 300.0)
+        editor._commit_cell_value("f1040sa_Medical_Expense_Qualification_Worksheet", "reimbursed_expenses", 200.0)
+        editor._commit_cell_value("f1040sa_Medical_Expense_Qualification_Worksheet", "employer_paid_or_pretax_premiums", 100.0)
+
+        self.assertEqual(
+            editor._get_form_cell("f1040sa_Medical_Expense_Qualification_Worksheet", "total_candidate_medical_expenses")["value"],
+            1200.0,
+        )
+        self.assertEqual(
+            editor._get_form_cell("f1040sa_Medical_Expense_Qualification_Worksheet", "total_reductions_and_exclusions")["value"],
+            300.0,
+        )
+        self.assertEqual(
+            editor._get_form_cell("f1040sa_Medical_Expense_Qualification_Worksheet", "schedule_a_line_1_medical_expenses")["value"],
+            900.0,
+        )
+        self.assertEqual(editor._get_form_cell("f1040sa", "1")["value"], 900.0)
+        self.assertEqual(editor._get_form_cell("f1040sa", "3")["value"], 750.0)
+        self.assertEqual(editor._get_form_cell("f1040sa", "4")["value"], 150.0)
+
+    def test_generated_schedule_a_medical_worksheet_metadata_and_preview_resolution(self) -> None:
+        editor = self.make_editor()
+
+        worksheet_meta = editor._current_jurisdiction()["f1040sa_Medical_Expense_Qualification_Worksheet"]["_meta"]
+        self.assertTrue(worksheet_meta["fillable_form"])
+        self.assertEqual(
+            worksheet_meta["pdf_source_path"],
+            "forms-instructions-and-publications/generated-worksheets/f1040sa_Medical_Expense_Qualification_Worksheet_worksheet.pdf",
+        )
+        worksheet_preview_path = editor._raw_preview_source_path(
+            "form",
+            "f1040sa_Medical_Expense_Qualification_Worksheet",
+            None,
+        )
+        self.assertIsNotNone(worksheet_preview_path)
+        self.assertEqual(
+            worksheet_preview_path.name,
+            "f1040sa_Medical_Expense_Qualification_Worksheet_worksheet.pdf",
+        )
+        self.assertIsNotNone(editor.pdf_preview_engine)
+        self.assertTrue(
+            editor.pdf_preview_engine.has_render_mappings_for_form("f1040sa_Medical_Expense_Qualification_Worksheet")
+        )
+
+    @unittest.skipUnless(PdfReader is not None, "pypdf is required for preview-render tests")
+    def test_generated_schedule_a_medical_worksheet_preview_mapping_renders_pdf(self) -> None:
+        editor = self.make_editor()
+        self.assertIsNotNone(editor.pdf_preview_engine)
+        self.assertTrue(editor.pdf_preview_engine.available())
+        self.assertTrue(editor.pdf_preview_engine.has_render_mappings_for_form("f1040sa_Medical_Expense_Qualification_Worksheet"))
+
+        output_path = editor.pdf_preview_engine.render_preview(
+            form_id="f1040sa_Medical_Expense_Qualification_Worksheet",
+            resolve_source=lambda source: editor._resolve_pdf_mapping_source(
+                "f1040sa_Medical_Expense_Qualification_Worksheet",
+                source,
+            ),
+        )
+
+        self.assertTrue(output_path.is_file())
+        self.assertEqual(len(PdfReader(str(output_path)).pages), 2)
+
     def test_filing_export_sheet_ids_include_filed_forms_only(self) -> None:
         editor = TaxSheetEditor()
         editor.load_json(Path("returns/john_jane_doe_sample.json"))
@@ -1024,6 +1616,247 @@ class TaxLogicTests(unittest.TestCase):
             self.assertEqual(missing_labels, [])
             self.assertEqual(len(included_labels), 3)
             self.assertGreaterEqual(len(PdfReader(str(output_path)).pages), 4)
+
+    @unittest.skipUnless(PdfReader is not None, "pypdf is required for export-package tests")
+    def test_f8949_build_pdf_package_expands_multiple_attachment_copies(self) -> None:
+        editor = self.make_editor()
+        for entry_number in range(1, 13):
+            self.add_block_entry_on_form(
+                editor,
+                "f8949",
+                "st_box_a",
+                {
+                    "recipient": "taxpayer",
+                    "description_of_property": f"Lot {entry_number}",
+                    "date_acquired": "2025-01-01",
+                    "date_sold": "2025-02-01",
+                    "proceeds": float(entry_number * 100),
+                    "basis": float(entry_number * 50),
+                    "adjustment_code": "",
+                    "adjustment_amount": 0.0,
+                    "gain_loss": float(entry_number * 50),
+                },
+            )
+
+        with TemporaryDirectory() as tmpdir:
+            output_path = Path(tmpdir) / "f8949_package.pdf"
+            included_labels, missing_labels = editor._build_pdf_package(["form:f8949"], output_path)
+
+            self.assertTrue(output_path.is_file())
+            self.assertEqual(missing_labels, [])
+            self.assertEqual(len(included_labels), 2)
+            self.assertTrue(any("copy 1" in label for label in included_labels))
+            self.assertTrue(any("copy 2" in label for label in included_labels))
+            self.assertEqual(len(PdfReader(str(output_path)).pages), 4)
+
+    def test_all_export_sheet_ids_put_non_filing_documents_at_end(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        all_sheet_ids = editor._all_export_sheet_ids()
+
+        self.assertGreater(len(all_sheet_ids), 3)
+        filing_statuses: list[bool] = []
+        for sheet_id in all_sheet_ids:
+            sheet_type, primary_id, _ = editor._parse_sheet_id(sheet_id)
+            if sheet_type != "form":
+                filing_statuses.append(False)
+                continue
+            form_data = editor._current_jurisdiction().get(primary_id) or {}
+            filing_statuses.append(editor._should_file_form_now(primary_id, form_data))
+
+        first_non_filing = next((idx for idx, is_filing in enumerate(filing_statuses) if not is_filing), len(filing_statuses))
+        self.assertTrue(all(filing_statuses[idx] for idx in range(first_non_filing)))
+        self.assertTrue(all(not filing_statuses[idx] for idx in range(first_non_filing, len(filing_statuses))))
+        self.assertIn("block:f1040:w2", all_sheet_ids[first_non_filing:])
+
+    def test_sheet_list_entries_start_with_info_worksheet_then_1040(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        entries = editor._sheet_list_entries()
+        ordered_sheet_ids = [sheet_id for sheet_id, _ in entries]
+
+        self.assertGreaterEqual(len(entries), 3)
+        self.assertEqual(entries[0], ("form:f1040_Federal_Info_Worksheet", 0))
+        self.assertEqual(entries[1], ("form:f1040_Return_Intake_Questions", 1))
+        self.assertIn("form:f1040", ordered_sheet_ids)
+        self.assertLess(
+            ordered_sheet_ids.index("form:f1040_Return_Intake_Questions"),
+            ordered_sheet_ids.index("form:f1040"),
+        )
+
+    def test_navigator_marks_incomplete_required_forms_in_red(self) -> None:
+        editor = self.make_editor()
+        editor._refresh_sheet_list(select_sheet_id="form:f1040_Return_Intake_Questions")
+
+        target_item = None
+        for idx in range(editor.sheet_list.count()):
+            item = editor.sheet_list.item(idx)
+            if item is not None and item.data(Qt.UserRole) == "form:f1040_Return_Intake_Questions":
+                target_item = item
+                break
+
+        self.assertIsNotNone(target_item)
+        self.assertEqual(target_item.foreground().color().name(), INCOMPLETE_SHEET_TEXT.name())
+        self.assertIn("Incomplete", target_item.toolTip())
+
+    def test_navigator_uses_shorthand_and_copy_counts_for_info_returns(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(editor, "1099_int", {"payer_name": "First National Bank", "box_1": 10.0})
+        self.add_block_entry(editor, "1099_int", {"payer_name": "Midwest Credit Union", "box_1": 20.0})
+        editor._sync_visible_sheets_from_usage(select_sheet_id="block:f1040:1099_int", preserve_existing=False)
+
+        target_item = None
+        for idx in range(editor.sheet_list.count()):
+            item = editor.sheet_list.item(idx)
+            if item is not None and item.data(Qt.UserRole) == "block:f1040:1099_int":
+                target_item = item
+                break
+
+        self.assertIsNotNone(target_item)
+        self.assertIn("1099-INT x2", target_item.text())
+
+    def test_navigator_labels_show_1116_category_suffix(self) -> None:
+        editor = self.make_editor()
+        self.assertEqual(editor._sheet_navigator_label("form:f1116_passive"), "1116 (passive)")
+        self.assertEqual(editor._sheet_navigator_label("form:f1116sb_general"), "1116 Sch B (general)")
+
+    def test_sheet_list_entries_indent_attached_forms_blocks_and_worksheets(self) -> None:
+        editor = TaxSheetEditor()
+        editor.load_json(Path("returns/john_jane_doe_sample.json"))
+
+        entries = editor._sheet_list_entries()
+        indent_by_sheet_id = {sheet_id: indent_level for sheet_id, indent_level in entries}
+        ordered_sheet_ids = [sheet_id for sheet_id, _ in entries]
+
+        self.assertEqual(indent_by_sheet_id["form:f1040sa"], 1)
+        self.assertEqual(indent_by_sheet_id["block:f1040:w2"], 1)
+        self.assertEqual(indent_by_sheet_id["form:f1040_Tax_Computation"], 1)
+        self.assertLess(ordered_sheet_ids.index("form:f1040"), ordered_sheet_ids.index("form:f1040sa"))
+        self.assertLess(ordered_sheet_ids.index("form:f1040"), ordered_sheet_ids.index("block:f1040:w2"))
+        self.assertLess(ordered_sheet_ids.index("form:f1040"), ordered_sheet_ids.index("form:f1040_Tax_Computation"))
+
+    def test_table_hides_metadata_columns(self) -> None:
+        editor = self.make_editor()
+
+        self.assertTrue(editor.table.isColumnHidden(0))
+        self.assertTrue(editor.table.isColumnHidden(3))
+        self.assertTrue(editor.table.isColumnHidden(4))
+        self.assertTrue(editor.table.isColumnHidden(5))
+        self.assertTrue(editor.table.isColumnHidden(6))
+
+    def test_metadata_popup_text_includes_form_cell_structure(self) -> None:
+        editor = self.make_editor()
+
+        popup_text = editor._metadata_popup_text(("form", "f1040_Federal_Info_Worksheet", "taxpayer_first_name"))
+
+        self.assertIn("Summary", popup_text)
+        self.assertIn("Sheet Type: Form Cell", popup_text)
+        self.assertIn("Form: f1040_Federal_Info_Worksheet", popup_text)
+        self.assertIn("Cell: taxpayer_first_name", popup_text)
+        self.assertIn("Cell Schema", popup_text)
+
+    def test_metadata_popup_text_includes_block_field_structure(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(editor, "w2", {"employer_name": "Example Co"})
+
+        popup_text = editor._metadata_popup_text(("block", "f1040", "w2", 0, "employer_name"))
+
+        self.assertIn("Summary", popup_text)
+        self.assertIn("Sheet Type: Block Field", popup_text)
+        self.assertIn("Parent Form: f1040", popup_text)
+        self.assertIn("Block: w2", popup_text)
+        self.assertIn("Field: employer_name", popup_text)
+        self.assertIn("Current Value: Example Co", popup_text)
+        self.assertIn("Field Schema", popup_text)
+
+    def test_source_sheet_ids_include_referenced_blocks(self) -> None:
+        editor = self.make_editor()
+
+        self.assertEqual(editor._source_sheet_ids_for_cell_ref(("form", "f2441", "12")), {"block:f1040:w2"})
+        self.assertEqual(editor._source_sheet_ids_for_cell_ref(("form", "f8962", "1095_a_enrollment_premiums_total")), {"block:f1040:1095_a"})
+
+    def test_preview_mapping_sources_for_cell_refs(self) -> None:
+        editor = self.make_editor()
+
+        self.assertEqual(editor._preview_mapping_sources_for_cell_ref(("form", "f2441", "12")), {"12"})
+        self.assertEqual(
+            editor._preview_mapping_sources_for_cell_ref(("block", "f1040", "w2", 0, "employer_name")),
+            {"entry.employer_name"},
+        )
+
+    def test_selection_drives_preview_highlight_sources(self) -> None:
+        editor = self.make_editor()
+        editor.populate_form("f2441")
+
+        target_row = next(
+            row_idx
+            for row_idx in range(editor.table.rowCount())
+            if editor.table.item(row_idx, 0) is not None and editor.table.item(row_idx, 0).text() == "12"
+        )
+        editor.table.setCurrentCell(target_row, 2)
+
+        self.assertEqual(editor._preview_highlight_sources, {"12"})
+
+    def test_hiding_metadata_popup_does_not_clear_selection_preview_highlight(self) -> None:
+        editor = self.make_editor()
+        editor.populate_form("f2441")
+
+        target_row = next(
+            row_idx
+            for row_idx in range(editor.table.rowCount())
+            if editor.table.item(row_idx, 0) is not None and editor.table.item(row_idx, 0).text() == "12"
+        )
+        editor.table.setCurrentCell(target_row, 2)
+        editor._show_value_cell_info_popup(("form", "f2441", "12"), None)
+        editor._hide_value_cell_info_popup()
+
+        self.assertEqual(editor._preview_highlight_sources, {"12"})
+
+    def test_pdf_preview_engine_collects_highlight_overlay_items(self) -> None:
+        engine = FormPdfPreviewEngine(Path("."))
+        overlays = engine._collect_highlight_overlay_items(
+            [
+                {"field": "field.one", "source": "8", "render_mode": "field_text"},
+                {"field": "field.two", "source": "entry.employer_name", "render_mode": "field_text"},
+                {"field": "field.three", "source": "8", "render_mode": "checkbox"},
+            ],
+            {
+                "field.one": (0, (10.0, 20.0, 30.0, 40.0)),
+                "field.two": (1, (50.0, 60.0, 70.0, 80.0)),
+                "field.three": (0, (10.0, 20.0, 30.0, 40.0)),
+            },
+            {"8", "entry.employer_name"},
+        )
+
+        self.assertEqual(
+            overlays,
+            {
+                0: [{"kind": "highlight", "rect": (10.0, 20.0, 30.0, 40.0)}],
+                1: [{"kind": "highlight", "rect": (50.0, 60.0, 70.0, 80.0)}],
+            },
+        )
+
+    def test_right_click_flash_highlights_source_sheets_until_hidden(self) -> None:
+        editor = self.make_editor()
+        self.add_block_entry(editor, "w2", {"employer_name": "Example Co", "box_10": 1200.0})
+        editor._sync_visible_sheets_from_usage(select_sheet_id="form:f2441", preserve_existing=False)
+
+        editor._show_value_cell_info_popup(("form", "f2441", "12"), None)
+
+        highlighted_item = None
+        for idx in range(editor.sheet_list.count()):
+            item = editor.sheet_list.item(idx)
+            if item is not None and item.data(Qt.UserRole) == "block:f1040:w2":
+                highlighted_item = item
+                break
+        self.assertIsNotNone(highlighted_item)
+        self.assertEqual(highlighted_item.data(Qt.BackgroundRole), SOURCE_SHEET_FLASH_BACKGROUND)
+
+        editor._hide_value_cell_info_popup()
+
+        self.assertIsNone(highlighted_item.data(Qt.BackgroundRole))
 
 
 if __name__ == "__main__":

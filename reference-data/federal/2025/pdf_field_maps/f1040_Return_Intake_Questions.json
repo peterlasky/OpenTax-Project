@@ -1,0 +1,311 @@
+{
+  "source_pdf": "forms-instructions-and-publications/generated-worksheets/f1040_Return_Intake_Questions_worksheet.pdf",
+  "widgets": [
+    {
+      "field": "has_foreign_income",
+      "source": "has_foreign_income",
+      "cell_ref": "has_foreign_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        716.0,
+        302.0,
+        730.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "paid_foreign_taxes",
+      "source": "paid_foreign_taxes",
+      "cell_ref": "paid_foreign_taxes",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        680.0,
+        302.0,
+        694.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "prior_year_foreign_tax_carryovers",
+      "source": "prior_year_foreign_tax_carryovers",
+      "cell_ref": "prior_year_foreign_tax_carryovers",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        644.0,
+        302.0,
+        658.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "may_itemize_deductions",
+      "source": "may_itemize_deductions",
+      "cell_ref": "may_itemize_deductions",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        608.0,
+        302.0,
+        622.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "received_marketplace_coverage",
+      "source": "received_marketplace_coverage",
+      "cell_ref": "received_marketplace_coverage",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        572.0,
+        302.0,
+        586.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "paid_child_or_dependent_care",
+      "source": "paid_child_or_dependent_care",
+      "cell_ref": "paid_child_or_dependent_care",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        536.0,
+        302.0,
+        550.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "received_dependent_care_benefits",
+      "source": "received_dependent_care_benefits",
+      "cell_ref": "received_dependent_care_benefits",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        500.0,
+        302.0,
+        514.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "sold_capital_assets",
+      "source": "sold_capital_assets",
+      "cell_ref": "sold_capital_assets",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        464.0,
+        302.0,
+        478.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_self_employment_income_or_expenses",
+      "source": "has_self_employment_income_or_expenses",
+      "cell_ref": "has_self_employment_income_or_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        428.0,
+        302.0,
+        442.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_rental_royalty_or_passthrough_income",
+      "source": "has_rental_royalty_or_passthrough_income",
+      "cell_ref": "has_rental_royalty_or_passthrough_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        392.0,
+        302.0,
+        406.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_medical_or_dental_expenses",
+      "source": "has_medical_or_dental_expenses",
+      "cell_ref": "has_medical_or_dental_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        356.0,
+        302.0,
+        370.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_noncash_charitable_contributions",
+      "source": "has_noncash_charitable_contributions",
+      "cell_ref": "has_noncash_charitable_contributions",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        320.0,
+        302.0,
+        334.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_casualty_or_theft_losses",
+      "source": "has_casualty_or_theft_losses",
+      "cell_ref": "has_casualty_or_theft_losses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        284.0,
+        302.0,
+        298.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_investment_interest_expense",
+      "source": "has_investment_interest_expense",
+      "cell_ref": "has_investment_interest_expense",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        248.0,
+        302.0,
+        262.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_education_expenses",
+      "source": "has_education_expenses",
+      "cell_ref": "has_education_expenses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        212.0,
+        302.0,
+        226.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_hsa_activity",
+      "source": "has_hsa_activity",
+      "cell_ref": "has_hsa_activity",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        176.0,
+        302.0,
+        190.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_gambling_income",
+      "source": "has_gambling_income",
+      "cell_ref": "has_gambling_income",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        140.0,
+        302.0,
+        154.0
+      ],
+      "font_size": 9.5
+    },
+    {
+      "field": "has_gambling_losses",
+      "source": "has_gambling_losses",
+      "cell_ref": "has_gambling_losses",
+      "render_mode": "field_text",
+      "widget_type": "text",
+      "format": "text",
+      "mapping_method": "generated_worksheet_template",
+      "page": 1,
+      "rect": [
+        42.0,
+        104.0,
+        302.0,
+        118.0
+      ],
+      "font_size": 9.5
+    }
+  ]
+}

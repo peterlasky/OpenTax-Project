@@ -101,6 +101,21 @@
       "pdf_field_count": 93
     },
     {
+      "form_id": "f1040_Return_Intake_Questions",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040_Return_Intake_Questions_worksheet.pdf",
+      "pdf_field_count": 18
+    },
+    {
+      "form_id": "f1040sa_Questionnaire",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sa_Questionnaire_worksheet.pdf",
+      "pdf_field_count": 8
+    },
+    {
+      "form_id": "f1116_Questionnaire",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1116_Questionnaire_worksheet.pdf",
+      "pdf_field_count": 11
+    },
+    {
       "form_id": "f1040sd_Capital_Loss_Carryover",
       "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sd_Capital_Loss_Carryover_worksheet.pdf",
       "pdf_field_count": 13
@@ -121,6 +136,11 @@
       "pdf_field_count": 47
     },
     {
+      "form_id": "f1040sa_Medical_Expense_Qualification_Worksheet",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1040sa_Medical_Expense_Qualification_Worksheet_worksheet.pdf",
+      "pdf_field_count": 27
+    },
+    {
       "form_id": "f8812_Earned_Income_Worksheet",
       "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Earned_Income_Worksheet_worksheet.pdf",
       "pdf_field_count": 16
@@ -129,6 +149,26 @@
       "form_id": "f8812_Additional_Medicare_Tax_and_RRTA_Tax_Worksheet",
       "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f8812_Additional_Medicare_Tax_and_RRTA_Tax_Worksheet_worksheet.pdf",
       "pdf_field_count": 16
+    },
+    {
+      "form_id": "f1116",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1116_worksheet.pdf",
+      "pdf_field_count": 73
+    },
+    {
+      "form_id": "f1116sb",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1116sb_worksheet.pdf",
+      "pdf_field_count": 217
+    },
+    {
+      "form_id": "f1116sb_section_951a",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1116sb_section_951a_worksheet.pdf",
+      "pdf_field_count": 217
+    },
+    {
+      "form_id": "f1116sc",
+      "pdf_source_path": "forms-instructions-and-publications/generated-worksheets/f1116sc_worksheet.pdf",
+      "pdf_field_count": 11
     }
   ]
 }
